@@ -52,7 +52,7 @@
                  </tr>
                </tbody>
              </table>
-             <table id="example4" class="table table-bordered table-striped">
+             <table id="example5" class="table table-bordered table-striped">
                <thead>
                  <tr>
                    <th class="center">No.</th>
@@ -65,10 +65,10 @@
                    <th class="text-center">No. BA Aktivasi/ADM</th>
                    <th class="text-center">Scada/Non Scada</th>
                    <th class="text-center">Kapasitas /BW</th>
-				           <th class="text-center">Harga</th>
-				           <th class="text-center">Status</th>
-				           <th class="text-center">Bulan</th>
-				           <th class="text-center">Tahun</th>
+					<th class="text-center">Harga</th>
+					<th class="text-center">Status</th>
+					<th class="text-center">Bulan</th>
+					<th class="text-center">Tahun</th>
                    <th class="text-center">Actions</th>
                  </tr>
                </thead>
@@ -82,7 +82,7 @@
                      <td class="text-center"><?= $data['tanggal_aktivasi']; ?></td>
                      <td class="text-center"><?= $data['service_id']; ?></td>
                      <td class="text-center"><?= $data['service']; ?></td>
-                     <td class="text-center"><?= $data['asman']; ?></td>
+                     <td class="text-center">STI Sumut <?= $data['asman']; ?></td>
                      <td class="text-center"><?= $data['nama_unit']; ?></td>
                      <td class="text-center"><?= $data['keterangan']; ?></td>
                      <td class="text-center"><?= $data['no_aktivasi']; ?></td>

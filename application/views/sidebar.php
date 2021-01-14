@@ -98,7 +98,7 @@
                   </a>
                 </li>
 
-                <li class="<?php if( $this->uri->segment(2)=="data_network_view"){echo 'active';}?>"> 
+                <li class="<?php if( $this->uri->segment(2)=="data_network_view" || $this->uri->segment(2)=="data_network_filter"){echo 'active';}?>"> 
                   <a href="<?php echo site_url('admin/data_network_view'); ?>"><i class="fa fa-book"></i> Data Network
                   </span>
                 </a>
@@ -161,7 +161,7 @@
           </ul>
         </li>     
         
-        <li class="<?php if( $this->uri->segment(2)=="lgangguan_view" || $this->uri->segment(2)=="lgangguan_add" || $this->uri->segment(2)=="lgangguan_edit"){echo 'active';}?>">
+        <li class="<?php if( $this->uri->segment(2)=="lgangguan_view" || $this->uri->segment(2)=="lgangguan_add" || $this->uri->segment(2)=="lgangguan_edit" || $this->uri->segment(2)=="lgangguan_filter"){echo 'active';}?>">
           <a href="<?php echo site_url('admin/lgangguan_view'); ?>">
             <i class="fa fa-book"></i> <span>Log Gangguan</span>
           </a>
@@ -186,7 +186,7 @@
             <i class="fa fa-dashboard"></i><span>Dashboard <?php  ?></span>
           </a>
         </li>
-        <li class="<?php if( $this->uri->segment(2)=="lgangguan_view" || $this->uri->segment(2)=="lgangguan_add" || $this->uri->segment(2)=="lgangguan_edit"){echo 'active';}?>">
+        <li class="<?php if( $this->uri->segment(2)=="lgangguan_view" || $this->uri->segment(2)=="lgangguan_add" || $this->uri->segment(2)=="lgangguan_edit" || $this->uri->segment(2)=="lgangguan_filter"){echo 'active';}?>">
           <a href="<?php echo site_url('admin/lgangguan_view'); ?>">
             <i class="fa fa-book"></i> <span>Log Gangguan</span>
           </a>

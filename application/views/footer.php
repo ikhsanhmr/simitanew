@@ -140,17 +140,26 @@
     .appendTo('#example4_wrapper .col-sm-6:eq(0)');
   })
   $(function() {
-    var table = $('#example3').DataTable({
+    var table = $('#example5').DataTable({
 
       lengthChange: true,
-      buttons: [{
-        extend: 'excel',
-        text: '<i class="fa fa-file-excel-o"></i>&nbsp Export to Excel (*.xls)',
-        className: 'btn btn-sm',
-        exportOptions: {
-          columns: 'th:not(:last-child)'
-        },
-      }],
+      scrollX: true,
+      buttons: [
+       {
+           extend: 'pdf',
+           orientation: 'landscape',
+           pageSize: 'TABLOID',
+           footer: true,
+           exportOptions: {
+                columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
+            }
+       },
+       {
+           extend: 'excel',
+           footer: false
+       }         
+    ]  
+      
     });
     $('#example2').DataTable({
       'paging': true,
@@ -161,7 +170,7 @@
       'autoWidth': false
     })
     table.buttons().container()
-    .appendTo('#example3_wrapper .col-sm-6:eq(0)');
+    .appendTo('#example5_wrapper .col-sm-6:eq(0)');
   })
   
 </script>
