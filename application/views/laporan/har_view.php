@@ -30,11 +30,11 @@
                 <thead>
                   <tr>
                     <th class="center">No.</th>
-                    <th class="text-center">Nama Item</th>
-                    <th class="text-center">Merek</th>
-                    <th class="text-center">Kondisi</th>
-                    <th class="text-center">Tanggal Pelaporan</th>
-                    <th class="text-center">Pengguna</th>
+                    <th class="text-center">Nama Unit</th>
+                    <th class="text-center">Lokasi</th>
+                    <th class="text-center">Waktu Pelaksanaan</th>
+                    <th class="text-center">Nama Perangkat</th>
+                    <th class="text-center">Info Detail</th>
                     <th class="text-center">Actions</th>
                   </tr>
                 </thead>
@@ -42,22 +42,20 @@
                 <tbody>
                   <?php
                   $no = 1;
-                  foreach ($laporan as $laporan):
+                  foreach ($data_har as $laporan):
                   ?>
                     <tr>
                       <td class="text-center"><?= $no ?></td>
-                    
-                      <td class="text-center"><?= $laporan['nama_item']; ?></td>
-                      <td class="text-center"><?= $laporan['merek_item']; ?></td>
-                      
-                      <td class="text-center"><?= $laporan['kondisi_item']; ?></td>
-                      <td class="text-center"><?= date("d/F/Y",strtotime($laporan['tanggal_pelaporan'])); ?></td>
-                      <td class="text-center"><?= $laporan['pengguna']; ?></td>
+                      <td class="text-center"><?= $laporan['nama_unit']; ?></td>
+                      <td class="text-center"><?= $laporan['lokasi']; ?></td>
+                      <td class="text-center"><?= date("d/F/Y",strtotime($laporan['waktu_pelaksanaan'])); ?></td>
+                      <td class="text-center"><?= $laporan['nama_perangkat']; ?></td>
                       <td class="text-center">
-                        <a href="<?= base_url(); ?>laporan/deleteData/<?= $laporan['id_report']; ?>"
-                                class="btn " onclick="return confirm('Anda yakin ingin menghapus data ini?');"><i class="fa fa-trash-o bigger-130"></i></a>
-                        <a href="<?= base_url(); ?>laporan/editData/<?= $laporan['id_report']; ?>"
-                                class="btn"><i class="fa fa-pencil bigger-130"></i> </a>
+                      <a href="<?= base_url(); ?>laporan/detailDataHar/<?= $laporan['id']; ?>"class="btn btn-info">Detail </a>
+                      </td>
+                      <td class="text-center">
+                        <a href="<?= base_url(); ?>laporan/editDataHar/<?= $laporan['id']; ?>"class="btn"><i class="fa fa-pencil bigger-130"></i> </a>
+                        <a href="<?= base_url(); ?>laporan/deleteDataHar/<?= $laporan['id']; ?>" class="btn " onclick="return confirm('Anda yakin ingin menghapus data ini?');"><i class="fa fa-trash-o bigger-130"></i></a>
                       </td>
                     </tr>
                   <?php
@@ -68,11 +66,11 @@
                 </tbody>
                
               </table>
-												<div class="row">
-														<div id="default-buttons" class="col-sm-6">
-														<a class="btn btn-primary" href="<?= base_url('laporan/addData'); ?>">Add Data</a>
-														</div>
-												</div>
+                <div class="row">
+					<div id="default-buttons" class="col-sm-6">
+						<a class="btn btn-primary" href="<?= base_url('laporan/addDataHar'); ?>">Add Data</a>
+					</div>
+				</div>
             </div>
             <!-- /.box-body -->
           </div>

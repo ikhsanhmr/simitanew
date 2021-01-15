@@ -171,6 +171,11 @@
               <i class="fa fa-book"></i> Laporan HAR <span class="pull-right-container"></span>
             </a>
         </li>
+        <li class="<?php if( $this->uri->segment(2)=="getLaporan"){echo 'active';}?>"> 
+            <a href="<?php echo site_url('laporan/getDataHar'); ?>">
+              <i class="fa fa-book"></i> HAR Network <span class="pull-right-container"></span>
+            </a>
+        </li>
 		<!--
         <li class="<?php //if( $this->uri->segment(2)=="getSla"){echo 'active';}?>"> 
             <a href="<?php //echo site_url('sla/getSla'); ?>">
