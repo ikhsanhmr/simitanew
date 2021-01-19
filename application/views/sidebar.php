@@ -31,11 +31,37 @@
             </a>
           </li>
 
+		  
+		 
+ 
+          <li class="treeview <?php if( $this->uri->segment(2)=="unit_sumut1_view" || $this->uri->segment(2)=="unit_sumut2_view" || $this->uri->segment(2)=="users_view" || $this->uri->segment(2)=="vendor_view" || $this->uri->segment(2)=="merek_view"){echo 'active';}?>">
+            <a href="#">
+              <i class="fa fa-heartbeat"></i> <span>Health Index</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="treeview">
+               
+
+               
           <li class="<?php if( $this->uri->segment(2)=="hi" || $this->uri->segment(2)=="hi_view" || $this->uri->segment(2)=="hi_add" || $this->uri->segment(2)=="hi_edit"){echo 'active';}?>">
             <a href="<?php echo site_url('admin/hi'); ?>">
-              <i class="fa fa-heartbeat"></i> <span>Health Index</span>
+              <i class="fa fa-microchip"></i> <span>List Maintenance</span>
             </a>
           </li>
+
+          <li class="<?php if( $this->uri->segment(2)=="gangguan" || $this->uri->segment(2)=="gangguan_add" || $this->uri->segment(2)=="gangguan_view" || $this->uri->segment(2)=="gangguan_edit"){echo 'active';}?>">
+            <a href="<?php echo site_url('admin/gangguan'); ?>">
+              <i class="fa fa-wrench"></i> <span>List Gangguan</span>
+            </a>
+          </li>
+              
+            </li>
+
+          </ul>
+        </li>
 
           <li class="treeview <?php if( $this->uri->segment(2)=="unit_sumut1_view" || $this->uri->segment(2)=="unit_sumut2_view" || $this->uri->segment(2)=="users_view" || $this->uri->segment(2)=="vendor_view" || $this->uri->segment(2)=="merek_view"){echo 'active';}?>">
             <a href="#">
@@ -161,28 +187,43 @@
           </ul>
         </li>     
         
-        <li class="<?php if( $this->uri->segment(2)=="lgangguan_view" || $this->uri->segment(2)=="lgangguan_add" || $this->uri->segment(2)=="lgangguan_edit" || $this->uri->segment(2)=="lgangguan_filter"){echo 'active';}?>">
+        
+		
+          <li class="treeview <?php if( $this->uri->segment(2)=="unit_sumut1_view" || $this->uri->segment(2)=="unit_sumut2_view" || $this->uri->segment(2)=="users_view" || $this->uri->segment(2)=="vendor_view" || $this->uri->segment(2)=="merek_view"){echo 'active';}?>">
+            <a href="#">
+              <i class="fa fa-cogs"></i> <span>Data HAR</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li class="treeview">
+               
+
+               
+          <li class="<?php if( $this->uri->segment(2)=="getLaporan"){echo 'active';}?>">
+            <a href="<?php echo site_url('laporan/getLaporan'); ?>">
+              <i class="fa fa-credit-card"></i> <span>HAR Perangkat</span>
+            </a>
+          </li>
+
+          <li class="<?php if( $this->uri->segment(2)=="getLaporan"){echo 'active';}?>">
+            <a href="<?php echo site_url('laporan/getDataHar'); ?>">
+              <i class="fa fa-assistive-listening-systems"></i> <span>HAR Network</span>
+            </a>
+          </li>
+              
+            </li>
+
+          </ul>
+        </li>
+		
+		<li class="<?php if( $this->uri->segment(2)=="lgangguan_view" || $this->uri->segment(2)=="lgangguan_add" || $this->uri->segment(2)=="lgangguan_edit" || $this->uri->segment(2)=="lgangguan_filter"){echo 'active';}?>">
           <a href="<?php echo site_url('admin/lgangguan_view'); ?>">
             <i class="fa fa-book"></i> <span>Log Gangguan</span>
           </a>
         </li>
-        <li class="<?php if( $this->uri->segment(2)=="getLaporan"){echo 'active';}?>"> 
-            <a href="<?php echo site_url('laporan/getLaporan'); ?>">
-              <i class="fa fa-book"></i> Laporan HAR <span class="pull-right-container"></span>
-            </a>
-        </li>
-        <li class="<?php if( $this->uri->segment(2)=="getLaporan"){echo 'active';}?>"> 
-            <a href="<?php echo site_url('laporan/getDataHar'); ?>">
-              <i class="fa fa-book"></i> HAR Network <span class="pull-right-container"></span>
-            </a>
-        </li>
-		<!--
-        <li class="<?php //if( $this->uri->segment(2)=="getSla"){echo 'active';}?>"> 
-            <a href="<?php //echo site_url('sla/getSla'); ?>">
-              <i class="fa fa-book"></i> SLA Network<span class="pull-right-container"></span>
-            </a>
-        </li>
-		-->
+
       <?php } else if($this->session->userdata('role') == 2) { 
         //sidebar EOS ICON+ ?>
         <li class="header">MAIN NAVIGATION</li>
@@ -204,11 +245,37 @@
             <i class="fa fa-dashboard"></i><span>Dashboard <?php  ?></span>
           </a>
         </li>
-        <li class="<?php if( $this->uri->segment(2)=="getLaporan"){echo 'active';}?>"> 
-            <a href="<?php echo site_url('laporan/getLaporan'); ?>">
-              <i class="fa fa-book"></i> Laporan HAR <span class="pull-right-container"></span>
+       
+          <li class="treeview <?php if( $this->uri->segment(2)=="unit_sumut1_view" || $this->uri->segment(2)=="unit_sumut2_view" || $this->uri->segment(2)=="users_view" || $this->uri->segment(2)=="vendor_view" || $this->uri->segment(2)=="merek_view"){echo 'active';}?>">
+            <a href="#">
+              <i class="fa fa-cogs"></i> <span>Data HAR</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
             </a>
+            <ul class="treeview-menu">
+              <li class="treeview">
+               
+
+               
+          <li class="<?php if( $this->uri->segment(2)=="getLaporan"){echo 'active';}?>">
+            <a href="<?php echo site_url('laporan/getLaporan'); ?>">
+              <i class="fa fa-credit-card"></i> <span>HAR Perangkat</span>
+            </a>
+          </li>
+
+          <li class="<?php if( $this->uri->segment(2)=="getLaporan"){echo 'active';}?>">
+            <a href="<?php echo site_url('laporan/getDataHar'); ?>">
+              <i class="fa fa-assistive-listening-systems"></i> <span>HAR Network</span>
+            </a>
+          </li>
+              
+            </li>
+
+          </ul>
         </li>
+		
+		
       <?php } ?>
     </ul>
   </section>

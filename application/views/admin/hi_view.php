@@ -52,7 +52,7 @@
                         </div>
                     </td>
                   <td>
-                        <strong><?php echo $data['device_type']; ?></strong> <?php echo $data['merek'] ?>
+                        <strong><?php echo $data['label_perangkat']; ?></strong> <?php echo $data['merek'].' '.$data['type']; ?>
                   </td>
                   <td>
                         <?php if($data['bobot_kondisi'] != '0') {
@@ -62,13 +62,7 @@
                         }?>
                   </td>
 				          <td>
-                        <?php if($data['device_type'] == 'Router'){
-                            echo '<span data-toggle="tooltip" title="bobot : '.$data['bobot_port'].'">8 Port</span>';
-                        } elseif($data['device_type'] == 'Switch'){
-                            echo '<span data-toggle="tooltip" title="bobot : '.$data['bobot_port'].'">16 Port</span>';
-                        } elseif($data['device_type'] == 'Access Point'){
-                            echo '<span data-toggle="tooltip" title="bobot : '.$data['bobot_port'].'">1 Port</span>';
-                        }?>
+                        <?php echo $data['port']; ?> Port
                    </td>
                    <td>
                         <?php if($data['device_type'] == 'Router'){
@@ -82,9 +76,9 @@
                    </td>
                    <td>
                         <?php if($data['bobot_standard'] == '0'){
-                            echo '<span <span data-toggle="tooltip" title="bobot : '.$data['bobot_standard'].'">Ya</span>';
-                        } else {
                             echo '<span <span data-toggle="tooltip" title="bobot : '.$data['bobot_standard'].'">Tidak</span>';
+                        } else {
+                            echo '<span <span data-toggle="tooltip" title="bobot : '.$data['bobot_standard'].'">Ya</span>';
                         }?>
                    </td>
                    <td>

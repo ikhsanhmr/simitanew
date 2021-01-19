@@ -106,6 +106,23 @@
     table.buttons().container()
     .appendTo('#example1_wrapper .col-sm-6:eq(0)');
   })
+   $(function () {
+   var table = $('#example3').DataTable({
+	
+	  lengthChange: true,
+      buttons: [{
+                  extend: 'excel',
+                  text : '<i class="fa fa-file-excel-o"></i>&nbsp Export to Excel (*.xls)',
+                  className : 'btn btn-sm',
+                  exportOptions: {
+                    columns: 'th:not(:last-child)'
+                  },
+              }],
+			  });
+  
+	table.buttons().container()
+        .appendTo( '#example3_wrapper .col-sm-6:eq(0)' );
+  })
   $(function() {
     var table = $('#example4').DataTable({
 

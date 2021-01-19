@@ -49,7 +49,7 @@
                 <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Perangkat</label>
                     <div class="col-sm-5" style="font-weight:normal">
-                        <p class="form-control" style="cursor:no-drop"><?php echo $data['device_type'].' '.$data['merek']; ?></p>
+                        <p class="form-control" style="cursor:no-drop"><?php echo $data['device_type'].' '.$data['merek'].' '.$data['type']; ?></p>
                     </div>
                 </div>
             </div>
@@ -67,9 +67,16 @@
             </div>
             <div class="col-lg-10">
                 <div class="form-group">
-                    <label for="" class="col-sm-3 control-label">Jumlah Port</label>
+                    <label for="standard_port" class="col-sm-3 control-label">Port</label>
                     <div class="col-sm-5" style="font-weight:normal">
-                        <p class="col-sm-5 form-control" style="cursor:no-drop"><?php if($data['device_type'] == 'Router'){ echo "8 Port"; } elseif($data['device_type'] == 'Switch'){ echo "16 Port"; } elseif($data['device_type'] == 'Access Point'){ echo "1 Port"; } ?></p>
+                        <?php if($data['port'] == '0') {?>
+                        <input type="number" class="form-control"  id="standard_port" name="standard_port" placeholder= "Masukkan Jumlah Port Perangkat">  
+                        <?php } else { ?>
+                        <input type="number" class="form-control"  id="standard_port" name="standard_port" value="<?php echo $data['port'];?>" placeholder= "Masukkan Jumlah Port Perangkat" readonly> 
+                        <?php } ?>
+                        <?php foreach($get_id_hi->result_array() as $data) {?>
+                        <input type="number" class="form-control" id="jml_port" name="jml_port" value="<?php if($data['device_type']=='Router') { echo $data['port']-($data['bobot_port']/100); } else { echo $data['port']-($data['bobot_port']/50); }?>" placeholder= "Masukkan Jumlah Port yang rusak">
+                        <?php } ?>
                     </div>
                 </div>
             </div>

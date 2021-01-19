@@ -31,8 +31,9 @@
             <input type="hidden" name="id_unit" value="<?php echo $data['id_unit']; ?>">
             <?php } ?>
             <input type="hidden" id="id_network_device" name="id_network_device">
-            <input type="hidden" id="bobot_urgensi" name="bobot_urgensi">
             <input type="hidden" id="bobot_kondisi" name="bobot_kondisi">
+            <input type="hidden" id="port" name="bobot_port">
+            <input type="hidden" id="bobot_urgensi" name="bobot_urgensi">
             <input type="hidden" id="bobot_standard" name="bobot_standard">
             <input type="hidden" id="bobot_lifetime" name="bobot_lifetime">
             <input type="hidden" id="bobot_gangguan" name="bobot_gangguan">
@@ -55,7 +56,7 @@
                         <select class="form-control" id="perangkat" onChange="functionPort()" style="width: 100%;">
                             <option selected="selected"> -- Pilih Perangkat -- </option>
                             <?php foreach ($list_network_device->result_array() as $data) { ?>
-                                <option value="<?php echo $data['id_network_device'].'-'.$data['device_type']; ?>"><?php echo $data['device_type'].' '.$data['merek']; ?></option>
+                                <option value="<?php echo $data['id_network_device'].'-'.$data['device_type'].'-'.$data['total_ggn'].'-'.$data['id_ggn']; ?>"><?php echo '[ '.$data['label_perangkat'].' ] '.$data['merek'].' '.$data['type'].' [ '.$data['device_type'].' ]'; ?></option>
                             <?php } ?>
                         </select>
                         <small id="ket_perangkat" class="text-muted" style="font-weight:normal"></small>
@@ -77,11 +78,10 @@
             </div>
             <div class="col-lg-10">
                 <div class="form-group">
-                    <label for="" class="col-sm-3 control-label">Jumlah Port</label>
+                    <label for="" class="col-sm-3 control-label">Port </label>
                     <div class="col-sm-5" style="font-weight:normal">
-                        <p class="col-sm-5 form-control" id="port">-</p>
-                        <input type="hidden" id="jml_port" name="jml_port">  
-                        <small id="ket_port" class="text-muted" style="font-weight:normal"></strong></small>  
+                        <input type="number" class="form-control"  id="standard_port" name="standard_port" placeholder= "Masukkan Jumlah Port Perangkat">  
+                        <input type="number" class="form-control" id="jml_port" name="jml_port" placeholder= "Masukkan Jumlah Port yang rusak">  
                     </div>
                 </div>
                 
@@ -128,7 +128,12 @@
             <div class="col-lg-10">
                 <div class="form-group">
                     <label for="" class="col-sm-3 control-label">Jumlah Gangguan <br><small class="text-muted" style="font-weight:normal">*Kejadian Berulang Per Tahun</small></label>
-                    <div class="col-sm-9" style="font-weight:normal">
+
+
+                    <div class="col-sm-5" style="font-weight:normal">
+                        <p class="form-control" id="jml_ggn">-</p>
+                    </div>
+                    <div class="col-sm-9" style="font-weight:normal" hidden>
                         <div class="radio col-sm-3">
                             <label>
                             <input type="radio" name="gangguan" id="optionsRadios5" value="1">

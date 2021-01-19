@@ -9,82 +9,233 @@ class Admin_model extends CI_Model
   }
 
   //HI
-  function tampil_hi()
-  {
+  function tampil_hi (){
+    if($this->session->userdata('rolenya') == '1') {
     $get = $this->db->query("SELECT 
-      a.id_hi,a.id_unit,hi.updated_at,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
-      ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
-      FROM network_device a
-      JOIN hi ON a.id_hi = hi.id_hi
-      JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
-      WHERE hi.status = '1'
-      GROUP BY a.id_unit DESC ");
-    return $get;
-  }
-  function tampil_non_hi()
-  {
-    $get = $this->db->query("SELECT a.id_hi,a.id_unit,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya FROM network_device a GROUP BY a.id_unit DESC");
-    return $get;
-  }
-  function get_hi_unit($id_unit)
-  {
+          a.id_hi,a.id_unit,hi.updated_at,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
+          ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
+          FROM network_device a
+          JOIN hi ON a.id_hi = hi.id_hi
+          JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
+          WHERE hi.status = '1'
+          AND a.status_terpasang = '1'
+          GROUP BY a.id_unit DESC ");
+          return $get;
+      }
+    else {
+    $sub_unit = $this->session->userdata('sub_unitnya');
     $get = $this->db->query("SELECT 
-      a.id_network_device,a.id_hi,a.id_unit,a.device_type,hi.*,merek.merek,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya,
-      ROUND((hi.bobot_kondisi + hi.bobot_urgensi + hi.bobot_urgensi - hi.bobot_standard - hi.bobot_lifetime - hi.bobot_gangguan) /( hi_standard.bobot_kondisi + hi_standard.bobot_urgensi + hi_standard.bobot_urgensi)*100) AS hi_device
-      FROM network_device a
-      JOIN merek ON a.id_merek = merek.id_merek
-      JOIN hi ON a.id_hi = hi.id_hi
-      JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
-      WHERE id_unit = $id_unit 
-      AND hi.status = '1'");
-    return $get;
+          a.id_hi,a.id_unit,hi.updated_at,unit.sub_unit,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
+          ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
+          FROM network_device a
+          JOIN hi ON a.id_hi = hi.id_hi
+          JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
+          JOIN unit ON unit.id_unit = a.id_unit
+          WHERE hi.status = '1'
+          AND a.status_terpasang = '1'
+          AND unit.sub_unit = $sub_unit
+          GROUP BY a.id_unit DESC ");
+          return $get; 
+    }
   }
-  function list_network_device($id_unit)
-  {
-    $get = $this->db->query("SELECT a.*,merek.merek FROM network_device a 
-      JOIN merek ON a.id_merek = merek.id_merek
-      WHERE id_unit = $id_unit AND id_hi = '0'");
-    return $get;
+  function tampil_non_hi (){
+    if($this->session->userdata('rolenya') == '1') {
+    $get = $this->db->query("SELECT a.id_hi,a.id_unit,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, (SELECT COUNT(`id_unit`)) AS perangkat FROM network_device a WHERE a.id_hi = '0' AND a.status_terpasang = '1' AND a.id_unit != '' GROUP BY a.id_unit");
+          return $get;
+    } else {
+    $sub_unit = $this->session->userdata('sub_unitnya');
+    $get = $this->db->query("SELECT a.id_hi,a.id_unit,b.sub_unit,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, (SELECT COUNT(a.id_unit)) AS perangkat FROM network_device a JOIN unit b ON b.id_unit = a.id_unit WHERE a.id_hi = '0' AND a.status_terpasang = '1' AND b.sub_unit = $sub_unit GROUP BY a.id_unit");
+          return $get;
+    }
+      }
+  function get_hi_unit($id_unit) {
+    $get = $this->db->query("SELECT 
+          a.*,hi.*,merek.merek,l.label_perangkat,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+          ROUND((hi.bobot_kondisi + hi.bobot_urgensi + hi.bobot_urgensi - hi.bobot_standard - hi.bobot_lifetime - hi.bobot_gangguan) /( hi_standard.bobot_kondisi + hi_standard.bobot_urgensi + hi_standard.bobot_urgensi)*100) AS hi_device
+          FROM network_device a
+          JOIN merek ON a.id_merek = merek.id_merek
+          JOIN hi ON a.id_hi = hi.id_hi
+          JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
+          LEFT JOIN m_label l ON a.id_network_device = l.assign_to
+          WHERE a.id_unit = $id_unit 
+          AND hi.status = '1'" );
+          return $get;
+    }
+  function tampil_hi_sumut1 (){
+    $get = $this->db->query("SELECT 
+          a.id_hi,a.id_unit,hi.updated_at,unit.*,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
+          ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
+          FROM network_device a
+          JOIN hi ON a.id_hi = hi.id_hi
+          JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
+          JOIN unit ON a.id_unit = unit.id_unit
+          WHERE hi.status = '1'
+          AND unit.wilayah_kerja = 'Sumut 1'
+          AND a.status_terpasang = '1'
+          GROUP BY unit.wilayah_kerja DESC ");
+           if ($get->num_rows() == 1) {
+            return $get->row_array();
+          }
+      }
+  function tampil_hi_sumut2 (){
+    $get = $this->db->query("SELECT 
+          a.id_hi,a.id_unit,hi.updated_at,unit.*,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
+          ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
+          FROM network_device a
+          JOIN hi ON a.id_hi = hi.id_hi
+          JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
+          JOIN unit ON a.id_unit = unit.id_unit
+          WHERE hi.status = '1'
+          AND unit.wilayah_kerja = 'Sumut 2'
+          AND a.status_terpasang = '1'
+          GROUP BY unit.wilayah_kerja DESC ");
+            if ($get->num_rows() == 1) {
+            return $get->row_array();
+          }
+      }
+  function tampil_hi_sumut () {
+    $get = $this->db->query("SELECT 
+          a.id_hi,a.id_unit,hi.updated_at,unit.*,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
+          ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
+          FROM network_device a
+          JOIN hi ON a.id_hi = hi.id_hi
+          JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
+          JOIN unit ON a.id_unit = unit.id_unit
+          WHERE hi.status = '1'
+          AND a.status_terpasang = '1'
+          GROUP BY hi.status  DESC ");
+          if ($get->num_rows() == 1) {
+            return $get->row_array();
+          }
   }
-  function list_unit_hi($id_unit)
-  {
+  function tampil_latest_sumut () {
+    $get = $this->db->query("SELECT MAX(updated_at) AS Updated FROM `hi` WHERE status= '1'");
+          if ($get->num_rows() == 1) {
+            return $get->row_array();
+          }
+  }
+  function tampil_latest_sumut1 () {
+    $get = $this->db->query("SELECT a.*,MAX(b.updated_at) AS Updated FROM network_device a JOIN hi b ON b.id_hi = a.id_hi WHERE b.status= '1' AND nama_pengguna = 'stisumut1'");
+          if ($get->num_rows() == 1) {
+            return $get->row_array();
+          }
+  }
+  function tampil_latest_sumut2 () {
+    $get = $this->db->query("SELECT a.*,MAX(b.updated_at) AS Updated FROM network_device a JOIN hi b ON b.id_hi = a.id_hi WHERE b.status= '1' AND nama_pengguna = 'stisumut2'");
+          if ($get->num_rows() == 1) {
+            return $get->row_array();
+          }
+  }
+  function tampil_best_hi (){
+      $get = $this->db->query("SELECT 
+            a.id_hi,a.id_unit,hi.updated_at,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
+            ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
+            FROM network_device a
+            JOIN hi ON a.id_hi = hi.id_hi
+            JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
+            WHERE hi.status = '1'
+            AND a.status_terpasang = '1'
+            GROUP BY a.id_unit 
+            HAVING (ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100)) >= '80' ");
+            return $get;
+        }
+    function tampil_worst_hi (){
+      $get = $this->db->query("SELECT 
+            a.id_hi,a.id_unit,hi.updated_at,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
+            ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
+            FROM network_device a
+            JOIN hi ON a.id_hi = hi.id_hi
+            JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
+            WHERE hi.status = '1'
+            AND a.status_terpasang = '1'
+            GROUP BY a.id_unit 
+            HAVING (ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100)) <= '50' ");
+            return $get;
+        }
+  function list_network_device($id_unit){
+    $get = $this->db->query("SELECT a.*, m.*,g.id_ggn,g.desk_ggn,g.foto_ggn,g.tgl_gangguan,g.solusi,g.foto_solusi,g.created_at,g.solved_at,g.deleted_at, l.label_perangkat , COUNT(g.id_network_device) as total_ggn
+          FROM network_device a 
+          JOIN merek m ON a.id_merek = m.id_merek
+          LEFT JOIN m_label l ON l.assign_to = a.id_network_device
+          LEFT JOIN gangguan g ON g.id_network_device = a.id_network_device
+          WHERE (g.id_network_device IS NULL AND a.id_unit = $id_unit AND a.id_hi = '0')
+          OR (g.id_network_device IS NOT NULL AND a.id_unit = $id_unit AND a.id_hi = '0')  
+          GROUP BY a.id_network_device  DESC  
+          ORDER BY `g`.`id_ggn` ASC");
+          return $get;
+  } 
+  function list_unit_hi($id_unit) {
     $get = $this->db->query("SELECT * FROM unit WHERE id_unit = $id_unit");
-    return $get;
+        return $get;
   }
-  function get_id_hi($id_hi)
-  {
+  function get_id_hi($id_hi){
     $get = $this->db->query("SELECT a.*,network_device.*,merek.* FROM hi a JOIN network_device ON a.id_hi = network_device.id_hi JOIN merek ON network_device.id_merek = merek.id_merek WHERE a.id_hi = $id_hi");
-    return $get;
+        return $get;
   }
-  function get_id_hi_standard($id_hi)
-  {
+  function get_id_hi_standard($id_hi){
     $get = $this->db->query("SELECT * FROM hi_standard WHERE id_hi_standard = $id_hi");
-    return $get;
+        return $get;
   }
-  function get_max_id_hi()
-  {
+  function get_max_id_hi(){
     $get = $this->db->query("SELECT MAX(id_hi) AS maxid FROM hi");
-    return $get;
-  }
-  function get_max_id_hi_standard()
-  {
+        return $get;
+  }  
+  function get_max_id_hi_standard(){
     $get = $this->db->query("SELECT MAX(id_hi_standard) AS maxidstnd FROM hi_standard");
-    return $get;
+        return $get;
   }
-  public function add_hi($data)
-  {
+  public function add_hi($data) {
     $input = $this->db->insert('hi', $data);
     return $input;
   }
-  public function add_hi_standard($data)
-  {
+  public function add_hi_standard($data) {
     $input = $this->db->insert('hi_standard', $data);
     return $input;
   }
-  function update_hi($data, $id_hi)
-  {
+  function update_hi($data, $id_hi) {
     $update = $this->db->update('hi', $data, array('id_hi' => $id_hi));
     return $update;
+  }
+  //GANGGUAN
+  function gangguan(){
+    if($this->session->userdata('rolenya') == '1') {
+    
+    $get = $this->db->query("SELECT a.*,b.*,m.*,u.* FROM gangguan a 
+          JOIN network_device b ON a.id_network_device = b.id_network_device  
+          JOIN merek m ON b.id_merek = m.id_merek
+          JOIN unit u ON b.id_unit = u.id_unit
+          WHERE b.status_terpasang = '1'");
+    return $get;
+    } else {
+    $sub_unit = $this->session->userdata('sub_unitnya');
+    $get = $this->db->query("SELECT a.*,b.*,m.*,u.* FROM gangguan a 
+          JOIN network_device b ON a.id_network_device = b.id_network_device  
+          JOIN merek m ON b.id_merek = m.id_merek
+          JOIN unit u ON b.id_unit = u.id_unit
+          WHERE b.status_terpasang = '1'
+          AND u.sub_unit = $sub_unit");
+    return $get;
+  }
+  }
+	public function add_gangguan($data) {
+    $input = $this->db->insert('gangguan', $data);
+    return $input;
+  }
+  public function update_gangguan($data, $id_ggn) {
+    $input = $this->db->update('gangguan', $data, array('id_ggn' => $id_ggn));
+    return $input;
+  }
+  
+  function get_gangguan($id_ggn) {
+      $get = $this->db->query("SELECT a.*,b.*,m.*,u.* FROM gangguan a 
+      JOIN network_device b ON a.id_network_device = b.id_network_device  
+      JOIN merek m ON b.id_merek = m.id_merek
+      JOIN unit u ON b.id_unit = u.id_unit
+      WHERE a.id_ggn = $id_ggn 
+      AND b.status_terpasang = '1'");
+      if ($get->num_rows() == 1) {
+          return $get->row_array();
+      }
   }
 
   //USER

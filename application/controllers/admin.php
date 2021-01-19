@@ -34,6 +34,14 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
+			$data['hi_best'] = $this->admin_model->tampil_best_hi();
+			$data['hi_worst'] = $this->admin_model->tampil_worst_hi();
+			$data['hi_sumut'] = $this->admin_model->tampil_hi_sumut();
+			$data['hi_sumut1'] = $this->admin_model->tampil_hi_sumut1();
+			$data['hi_sumut2'] = $this->admin_model->tampil_hi_sumut2();
+			$data['latest_sumut'] = $this->admin_model->tampil_latest_sumut();
+			$data['latest_sumut1'] = $this->admin_model->tampil_latest_sumut1();
+			$data['latest_sumut2'] = $this->admin_model->tampil_latest_sumut2();
 			$data['menghitung_jumlah_perangkat'] = $this->admin_model->menghitung_jumlah_perangkat();
 			$data['dashboard_merek_laptop_dell'] = $this->admin_model->dashboard_merek_laptop_dell();
 			$data['dashboard_merek_laptop_hp'] = $this->admin_model->dashboard_merek_laptop_hp();
@@ -813,42 +821,39 @@ class Admin extends CI_Controller
 		echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 	}
 	//HI
-	public function hi()
-	{
-		if ($this->session->userdata('status') != "login") {
-			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+	public function hi() {
+        if($this->session->userdata('status') != "login"){
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$data['hi'] = $this->admin_model->tampil_hi();
 			$data['non_hi'] = $this->admin_model->tampil_non_hi();
 			$this->load->view('header');
-			$this->load->view('sidebar');
-			$this->load->view('admin/hi', $data);
-			$this->load->view('footer');
+            $this->load->view('sidebar');
+            $this->load->view('admin/hi',$data);
+            $this->load->view('footer');
 		}
 	}
-
-	public function hi_view()
-	{
-		if ($this->session->userdata('status') != "login") {
-			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-		} else {
-
+	
+	public function hi_view() {
+		if($this->session->userdata('status') != "login"){
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+			} else {
+			
 			$id_unit = $this->input->get('id_unit');
 			$data['detail_hi'] = $this->admin_model->get_hi_unit($id_unit);
 			$data['list_unit'] = $this->admin_model->list_unit_hi($id_unit);
-			$this->data['title'] = 'Detail Health Index';
-			$this->load->view('header', $this->data);
-			$this->load->view('sidebar', $data);
-			$this->load->view('admin/hi_view', $data);
-			$this->load->view('footer');
+            $this->data['title'] = 'Detail Health Index';
+            $this->load->view('header', $this->data);
+            $this->load->view('sidebar', $data);
+            $this->load->view('admin/hi_view', $data);
+            $this->load->view('footer');
 		}
 	}
 
-	public function hi_add()
-	{
-		if ($this->session->userdata('status') != "login") {
-			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-		} else {
+	public function hi_add() {
+		if($this->session->userdata('status') != "login"){
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+			} else {
 
 			$id_unit = $this->input->get('id_unit');
 			$data['list_network_device'] = $this->admin_model->list_network_device($id_unit);
@@ -857,14 +862,13 @@ class Admin extends CI_Controller
 			$data['get_max_id_hi_standard'] = $this->admin_model->get_max_id_hi_standard();
 			$this->load->view('header');
 			$this->load->view('sidebar');
-			$this->load->view('admin/hi_add', $data);
+			$this->load->view('admin/hi_add',$data);
 			$this->load->view('footer');
 		}
 	}
 
-	public function action_hi_add()
-	{
-		if ($this->session->userdata('status') != "login") {
+	public function action_hi_add() {
+		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$id_unit = $this->input->post('id_unit');
@@ -874,6 +878,9 @@ class Admin extends CI_Controller
 			$kondisi = $this->input->post('kondisi');
 			$bobot_kondisi = $this->input->post('bobot_kondisi');
 			$jml_port = $this->input->post('jml_port');
+			$s_port = $this->input->post('standard_port');
+			$port = $s_port - $jml_port;
+			$bobot_port = $this->input->post('bobot_port');
 			$bobot_urgensi = $this->input->post('bobot_urgensi');
 			$standard = $this->input->post('standard');
 			$bobot_standard = $this->input->post('bobot_standard');
@@ -885,43 +892,44 @@ class Admin extends CI_Controller
 			$latest_db = $this->db->insert_id();
 			$status = '1';
 			$data1 = array(
-				'id_hi_standard' => $id_hi_standard + 1,
-				'bobot_kondisi' => $kondisi * $bobot_kondisi,
-				'bobot_port' => $kondisi * $jml_port,
-				'bobot_urgensi' => $kondisi * $bobot_urgensi,
-				'bobot_standard' => $standard * $bobot_standard,
-				'bobot_lifetime' => $lifetime * $bobot_lifetime,
-				'bobot_gangguan' => $gangguan * $bobot_gangguan,
+				'id_hi_standard' => $id_hi_standard+1,
+				'bobot_kondisi' => $kondisi*$bobot_kondisi,
+				'bobot_port' => $kondisi*$port*$bobot_port,
+				'bobot_urgensi' => $kondisi*$bobot_urgensi,
+				'bobot_standard' => $standard*$bobot_standard,
+				'bobot_lifetime' => $lifetime*$bobot_lifetime,
+				'bobot_gangguan' => $gangguan*$bobot_gangguan,
 				'updated_at' => $updated_at,
 				'status' => $status
 			);
 			$data2 = array(
 				'bobot_kondisi' => $bobot_kondisi,
-				'bobot_port' => $jml_port,
+				'bobot_port' => $bobot_port * $s_port,
 				'bobot_urgensi' => $bobot_urgensi,
 				'bobot_standard' => $bobot_standard,
 				'bobot_lifetime' => $bobot_lifetime,
 				'bobot_gangguan' => $bobot_gangguan
 			);
 			$data3 = array(
-				'id_hi'		=> $id_hi + 1
+				'id_hi'		=> $id_hi+1,
+				'port'      => $s_port
+
 			);
-			// echo'<pre>';print_r($data2);die();
+			//  echo'<pre>';print_r($data1);print_r($data2);print_r($data3);print($id_network_device);die();
 			$insert1 = $this->admin_model->add_hi($data1);
 			$insert2 = $this->admin_model->add_hi_standard($data2);
 			$update  = $this->admin_model->update_network_device($data3, $id_network_device);
 			if ($insert1 && $insert2 && $update) {
 				echo "<script>alert('Berhasil Menambah Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/hi_view?id_unit=" . $id_unit . ">";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/hi_view?id_unit=".$id_unit.">";
 			}
 		}
 	}
 
-	public function hi_edit()
-	{
-		if ($this->session->userdata('status') != "login") {
-			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-		} else {
+	public function hi_edit() {
+		if($this->session->userdata('status') != "login"){
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+			} else {
 
 			$id_hi = $this->input->get('id_hi');
 			$id_unit = $this->input->get('id_unit');
@@ -931,14 +939,13 @@ class Admin extends CI_Controller
 			$data['get_id_hi_standard'] = $this->admin_model->get_id_hi_standard($id_hi);
 			$this->load->view('header');
 			$this->load->view('sidebar');
-			$this->load->view('admin/hi_edit', $data);
+			$this->load->view('admin/hi_edit',$data);
 			$this->load->view('footer');
 		}
 	}
 
-	public function action_hi_edit()
-	{
-		if ($this->session->userdata('status') != "login") {
+	public function action_hi_edit() {
+		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$id_unit = $this->input->post('id_unit');
@@ -946,6 +953,9 @@ class Admin extends CI_Controller
 			$id_hi = $this->input->post('id_hi');
 			$kondisi = $this->input->post('kondisi');
 			$bobot_kondisi = $this->input->post('bobot_kondisi');
+			$jml_port = $this->input->post('jml_port');
+			$s_port = $this->input->post('standard_port');
+			$port = $s_port - $jml_port;
 			$bobot_port = $this->input->post('bobot_port');
 			$bobot_urgensi = $this->input->post('bobot_urgensi');
 			$standard = $this->input->post('standard');
@@ -956,26 +966,25 @@ class Admin extends CI_Controller
 			$bobot_gangguan = $this->input->post('bobot_gangguan');
 			$updated_at = date('Y-m-d h:i:s');
 			$data = array(
-				'bobot_kondisi' => $kondisi * $bobot_kondisi,
-				'bobot_port' => $kondisi * $bobot_port,
-				'bobot_urgensi' => $kondisi * $bobot_urgensi,
-				'bobot_standard' => $standard * $bobot_standard,
-				'bobot_lifetime' => $lifetime * $bobot_lifetime,
-				'bobot_gangguan' => $gangguan * $bobot_gangguan,
+				'bobot_kondisi' => $kondisi*$bobot_kondisi,
+				'bobot_port' => $kondisi*$port*$bobot_port,
+				'bobot_urgensi' => $kondisi*$bobot_urgensi,
+				'bobot_standard' => $standard*$bobot_standard,
+				'bobot_lifetime' => $lifetime*$bobot_lifetime,
+				'bobot_gangguan' => $gangguan*$bobot_gangguan,
 				'updated_at' => $updated_at,
 			);
 			// echo'<pre>';print_r($data);die();
 			$update  = $this->admin_model->update_hi($data, $id_hi);
 			if ($update) {
 				echo "<script>alert('Berhasil Mengubah Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/hi_view?id_unit=" . $id_unit . ">";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/hi_view?id_unit=".$id_unit.">";
 			}
 		}
 	}
 
-	public function hi_delete()
-	{
-		if ($this->session->userdata('status') != "login") {
+	public function hi_delete() {
+		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$id_unit = $this->input->get('id_unit');
@@ -994,11 +1003,136 @@ class Admin extends CI_Controller
 			$update2  = $this->admin_model->update_network_device($data2, $id_network_device);
 			if ($update1 & $update2) {
 				echo "<script>alert('Berhasil Menghapus Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/hi_view?id_unit=" . $id_unit . ">";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/hi_view?id_unit=".$id_unit.">";
 			}
 		}
 	}
+	//Gangguan
+	public function gangguan() {
+        if($this->session->userdata('status') != "login"){
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['gangguan'] = $this->admin_model->gangguan();
+			$this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('admin/gangguan',$data);
+            $this->load->view('footer');
+		}
+	}
+	public function gangguan_view() {
+        if($this->session->userdata('status') != "login"){
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$id_ggn = $this->input->get('id_ggn');
+			$data['gangguan_view'] = $this->admin_model->get_gangguan($id_ggn);
+			$this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('admin/gangguan_view',$data);
+            $this->load->view('footer');
+		}
+    }
+	public function gangguan_add() {
+		if($this->session->userdata('status') != "login"){
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+			} else {
 
+			$id_unit = $this->input->get('id_unit');
+			$data['tampil_network_device'] = $this->admin_model->tampil_network_device();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/gangguan_add',$data);
+			$this->load->view('footer');
+		}
+	}
+	public function action_gangguan_add() {
+		if($this->session->userdata('status') != "login"){
+				   echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+	   } else {
+			$config['upload_path']          = './upload/';
+			$config['allowed_types']        = 'jpeg|gif|jpg|png';
+			$config['max_size']             = 100;
+
+			$this->load->library('upload', $config);  
+		   	if ( ! $this->upload->do_upload('foto_ggn')) {
+				$error = array('error' => $this->upload->display_errors());
+				echo "<script>".$error."</script>";
+			}
+	       else {
+				$id_network_device = $this->input->post('id_network_device');
+				$tgl_gangguan = $this->input->post('tgl_gangguan');
+				$desk_ggn = $this->input->post('desk_ggn');
+				$foto_ggn = $this->upload->data('file_name');
+				$created_at = date('Y-m-d h:i:s');
+				$data = array(
+					'id_network_device' => $id_network_device,
+					'tgl_gangguan' => $tgl_gangguan,
+					'desk_ggn' => $desk_ggn,
+					'foto_ggn' => $foto_ggn,
+					'created_at' => $created_at
+				);
+				// $error = array('error' => $this->upload->display_errors()); //associate view variable $error with upload errors
+				// print_r($data);die();
+    			
+				$insert = $this->admin_model->add_gangguan($data);
+				if ($insert) {
+					echo "<script>alert('Berhasil Membuat Laporan Gangguan')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/gangguan>";
+				} else {
+					echo "<script>alert('Gagal Membuat Laporan Gangguan')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/gangguan>";
+				}
+			
+		   }
+	   }
+	}
+	public function gangguan_edit() {
+        if($this->session->userdata('status') != "login"){
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$id_ggn = $this->input->get('id_ggn');
+			$data['gangguan_edit'] = $this->admin_model->get_gangguan($id_ggn);
+			$this->load->view('header');
+            $this->load->view('sidebar');
+            $this->load->view('admin/gangguan_edit',$data);
+            $this->load->view('footer');
+		}
+    }
+	public function action_gangguan_edit() {
+		if($this->session->userdata('status') != "login"){
+				   echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+	   } else {
+			$config['upload_path']          = './upload/';
+			$config['allowed_types']        = 'gif|jpg|png|jpeg';
+			$config['max_size']             = 100;
+
+			$this->load->library('upload', $config);  
+		   	if ( ! $this->upload->do_upload('foto_solusi')) {
+				$error = array('error' => $this->upload->display_errors());
+				echo "<script>".$error."</script>";
+				// print_r($error);
+			}
+	       else {
+				$id_ggn = $this->input->post('id_ggn');
+				$solusi = $this->input->post('solusi');
+				$foto_solusi = $this->upload->data('file_name');
+				$solved_at = $this->input->post('solved_at');
+				$data = array(
+					'solusi' => $solusi,
+					'foto_solusi' => $foto_solusi,
+					'solved_at' => $solved_at
+				);
+				// $error = array('error' => $this->upload->display_errors()); //associate view variable $error with upload errors
+				// print_r($data);
+    			
+				$update = $this->admin_model->update_gangguan($data, $id_ggn);
+				if ($update) {
+					echo "<script>alert('Berhasil Close Laporan Gangguan')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/gangguan>";
+				}
+			
+		   }
+	   }
+	}
 
 	//Merek
 	public function merek_view()

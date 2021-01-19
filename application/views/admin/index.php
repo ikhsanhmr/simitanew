@@ -144,7 +144,181 @@
     </div>
 
     <!-- /.row -->
+	<div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box bg-aqua">
+            <span class="info-box-icon"><i class="fa fa-hand-pointer-o"></i></span>
 
+            <div class="info-box-content">
+              <span class="info-box-text">SUMUT 1</span>
+              <span class="info-box-number">Health Index :<?php if($hi_sumut1['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut1['total_hi']; }?> %</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width:<?php if($hi_sumut1['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut1['total_hi']; }?>%"></div>
+              </div>
+                  <span class="progress-description" style="font-weight:normal">
+                    Last Updated : <?php if($latest_sumut1['Updated'] == NULL) { echo '-';} else { echo date('d-m-Y H:i:s', strtotime($latest_sumut1['Updated'])); }?>
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box bg-green">
+            <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">TOTAL SUMUT</span>
+              <span class="info-box-number">Health Index : <?php if($hi_sumut['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut['total_hi']; }?> %</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: <?php if($hi_sumut['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut['total_hi']; } ?>%"></div>
+              </div>
+                  <span class="progress-description" style="font-weight:normal">
+                    Last Updated : <?php if($latest_sumut['Updated'] == NULL) { echo '-';} else { echo date('d-m-Y H:i:s', strtotime($latest_sumut['Updated'])); }?>
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="info-box bg-yellow">
+            <span class="info-box-icon"><i class="fa fa-hand-peace-o"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">SUMUT 2</span>
+              <span class="info-box-number">Health Index : <?php if($hi_sumut2['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut2['total_hi']; }?> %</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: <?php if($hi_sumut2['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut2['total_hi']; }?>%"></div>
+              </div>
+                  <span class="progress-description" style="font-weight:normal">
+                    Last Updated : <?php if($latest_sumut2['Updated'] == NULL) { echo '-';} else { echo date('d-m-Y H:i:s', strtotime($latest_sumut2['Updated'])); }?>
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+	</div>
+	
+	<div class="row">
+        <div class="col-md-6">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Best Health Index Per Unit</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-hover">
+                <thead>
+                <tr>
+                  <th class="center" style="width:20px">No.</th>
+                  <th>Unit</th>
+                  <th>Health Index</th>
+                  <th>Percentage</th>
+                  <th>Last Updated</th>
+                </tr>
+                </thead>
+                <?php 
+                $no =1;
+                ?>
+                <tbody>
+				        <?php foreach ($hi_best->result_array() as $data) { ?>
+                <tr>
+                  <td class="center">
+                      <?php echo $no; ?>
+                  </td>
+                  <td>
+                    <strong><a style="cursor:pointer" href="<?php echo base_url() . "admin/hi_view?id_unit=".$data['id_unit']?>"><?php echo $data['nama_unitnya']; ?></a></strong>
+                  </td>
+                  <td>
+                    <div class="progress progress-sm progress-striped active" style="width:80%">
+                        <div class="progress-bar progress-bar-<?php if($data['total_hi'] <= '100' && $data['total_hi'] >='70'){ echo 'success';} 
+                    elseif($data['total_hi'] <= '70' && $data['total_hi'] >='30'){ echo 'yellow';} else { echo 'danger';}?>" style="width: <?php echo $data['total_hi']; ?>%"></div>
+                    </div>
+                  </td>
+				          <td style="width:30px">
+                    <span class="badge bg-<?php if($data['total_hi'] <= '100' && $data['total_hi'] >='70'){ echo 'green';} 
+                    elseif($data['total_hi'] <= '70' && $data['total_hi'] >='30'){ echo 'yellow';} else { echo 'red';}?>">
+                    <?php echo $data['total_hi']; ?> % </span>
+				          </td>
+				          <td>
+                    <?php echo date('d F Y H:i:s', strtotime($data['updated_at']));?>
+				          </td>
+                </tr>
+                <?php 
+                  $no++;
+                  }
+                ?>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-6">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Worst Health Index Per Unit</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example3" class="table table-hover">
+                <thead>
+                <tr>
+                  <th class="center" style="width:20px">No.</th>
+                  <th>Unit</th>
+                  <th>Health Index</th>
+                  <th>Percentage</th>
+                  <th>Last Updated</th>
+                </tr>
+                </thead>
+                <?php 
+                $no =1;
+                ?>
+                <tbody>
+				        <?php foreach ($hi_worst->result_array() as $data) { ?>
+                <tr>
+                  <td class="center">
+                      <?php echo $no; ?>
+                  </td>
+                  <td>
+                    <strong><a style="cursor:pointer" href="<?php echo base_url() . "admin/hi_view?id_unit=".$data['id_unit']?>"><?php echo $data['nama_unitnya']; ?></a></strong>
+                  </td>
+                  <td>
+                    <div class="progress progress-sm progress-striped active" style="width:80%">
+                        <div class="progress-bar progress-bar-<?php if($data['total_hi'] <= '100' && $data['total_hi'] >='70'){ echo 'success';} 
+                    elseif($data['total_hi'] <= '70' && $data['total_hi'] >='30'){ echo 'yellow';} else { echo 'danger';}?>" style="width: <?php echo $data['total_hi']; ?>%"></div>
+                    </div>
+                  </td>
+				          <td style="width:30px">
+                    <span class="badge bg-<?php if($data['total_hi'] <= '100' && $data['total_hi'] >='70'){ echo 'green';} 
+                    elseif($data['total_hi'] <= '70' && $data['total_hi'] >='30'){ echo 'yellow';} else { echo 'red';}?>">
+                    <?php echo $data['total_hi']; ?> % </span>
+				          </td>
+				          <td>
+                    <?php echo date('d F Y H:i:s', strtotime($data['updated_at']));?>
+				          </td>
+                </tr>
+                <?php 
+                  $no++;
+                  }
+                ?>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
 
     <!-- Main content -->
     <div class="row">

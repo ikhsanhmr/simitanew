@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Health Index
+        List Maintenance
         <small>Network Devices</small>
       </h1>
       <ol class="breadcrumb">
@@ -19,7 +19,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Health Index Per Unit</h3>
+              <h3 class="box-title">Health Index Per Unit</h3><small style="font-weight:normal"> (Unit dan Jumlah HI yang sudah dinilai dan pemeliharaan)</small>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -30,7 +30,7 @@
                   <th>Unit</th>
                   <th>Health Index</th>
                   <th>Percentage</th>
-                  <th>Last Updated</th>
+                  <th>Last Maintenance</th>
                 </tr>
                 </thead>
                 <?php 
@@ -81,7 +81,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Unrated Unit <small> (Unit yang belum dinilai)</small></h3>
+              <h3 class="box-title">Unrated Unit <small> (Unit dan Jumlah Perangkat yang belum dinilai dan pemeliharaan)</small></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -90,6 +90,7 @@
                 <tr>
                   <th class="center" style="width:20px">No.</th>
                   <th>Unit</th>
+                  <th>Jumlah Perangkat</th>
                 </tr>
                 </thead>
                 <?php 
@@ -103,6 +104,9 @@
                   </td>
                   <td>
                     <strong><a style="cursor:pointer" href="<?php echo base_url() . "admin/hi_view?id_unit=".$data['id_unit']?>"><?php echo $data['nama_unitnya']; ?></a></strong>
+                  </td>
+                  <td>
+                    <?php echo $data['perangkat']; ?> Perangkat
                   </td>
                 </tr>
                 <?php 
