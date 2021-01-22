@@ -141,7 +141,15 @@
                                 <div class="form-group">
                                     <label for="penyebab" class="col-sm-3 control-label">Penyebab</label>
                                     <div class="col-sm-5">
-                                        <textarea id="penyebab" name="penyebab" rows="5" cols="50" maxlength="1000" required></textarea>
+                                        <select class="form-control select2" id="penyebab" name="penyebab" style="width: 100%;">
+
+                                            <option selected="selected" value=""> -- Pilih Penyebab -- </option>
+                                            <?php foreach ($list_kategori_gangguan->result_array() as $data) { ?>
+                                                <option value="<?php echo $data['id_kategori']; ?>"><?php  echo $data['kategori']; ?></option>
+                                                <?php 
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -160,17 +168,17 @@
                                         <select class="form-control select2" name="periode_bulan" id="periode_bulan" style="width: 100%;" required>
                                             <option selected="selected" value=""> -- Pilih Bulan -- </option>
                                             <option value="Januari">Januari</option>
-                                           <option value="Februari">Februari</option>
-                                           <option value="Maret">Maret</option>
-                                           <option value="April">April</option>
-                                           <option value="Mei">Mei</option>
-                                           <option value="Juni">Juni</option>
-                                           <option value="Juli">Juli</option>
-                                           <option value="Agustus">Agustus</option>
-                                           <option value="September">September</option>
-                                           <option value="Oktober">Oktober</option>
-                                           <option value="November">November</option>
-                                           <option value="Desember">Desember</option>
+                                            <option value="Februari">Februari</option>
+                                            <option value="Maret">Maret</option>
+                                            <option value="April">April</option>
+                                            <option value="Mei">Mei</option>
+                                            <option value="Juni">Juni</option>
+                                            <option value="Juli">Juli</option>
+                                            <option value="Agustus">Agustus</option>
+                                            <option value="September">September</option>
+                                            <option value="Oktober">Oktober</option>
+                                            <option value="November">November</option>
+                                            <option value="Desember">Desember</option>
                                         </select>
                                     </div>
                                 </div>

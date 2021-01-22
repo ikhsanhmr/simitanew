@@ -340,6 +340,13 @@ class Admin_model extends CI_Model
     }
   }
 
+//UNIT
+  function tampil_unit()
+  {
+    $get = $this->db->query("SELECT a.* FROM unit a ORDER BY a.id_unit DESC ");
+    return $get;
+  }
+
   function list_unit()
   {
     $get = $this->db->query("SELECT 
@@ -349,29 +356,6 @@ class Admin_model extends CI_Model
       ORDER BY id_unit DESC ");
     return $get;
   }
-
-  //UNIT Sumut 1
-  function tampil_unit_sumut1()
-  {
-    $get = $this->db->query("SELECT 
-		  *
-      FROM
-      unit where wilayah_kerja = 'Sumut 1'
-      ORDER BY id_unit DESC ");
-    return $get;
-  }
-
-  //UNIT Sumut 2
-  function tampil_unit_sumut2()
-  {
-    $get = $this->db->query("SELECT 
-		  *
-      FROM
-      unit where wilayah_kerja = 'Sumut 2'
-      ORDER BY id_unit DESC ");
-    return $get;
-  }
-
 
   public function add_unit_data($data)
   {
@@ -1132,7 +1116,13 @@ class Admin_model extends CI_Model
   //LOG GANGGUAN
   function tampil_lgangguan()
   {
-    $get = $this->db->query("SELECT a.* FROM log_gangguan a ORDER BY a.log_id DESC ");
+    $get = $this->db->query("SELECT a.*, b.kategori FROM log_gangguan a JOIN kategori_gangguan b WHERE a.penyebab = b.id_kategori ORDER BY a.log_id DESC ");
+    return $get;
+  }
+
+  function list_kategori_gangguan()
+  {
+    $get = $this->db->query("SELECT id_kategori, kategori FROM kategori_gangguan ORDER BY id_kategori DESC ");
     return $get;
   }
 
@@ -1144,7 +1134,7 @@ class Admin_model extends CI_Model
 
   function get_lgangguan($value, $column)
   {
-    $get = $this->db->query("SELECT a.* FROM log_gangguan a WHERE a.$column =$value");
+    $get = $this->db->query("SELECT a.*, b.kategori FROM log_gangguan a JOIN kategori_gangguan b ON a.penyebab = b.id_kategori WHERE a.$column =$value");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }
@@ -1164,7 +1154,7 @@ class Admin_model extends CI_Model
 
   public function lgangguan_filter($no_tiket, $asman, $layanan, $year, $month)
   {
-    $query = "SELECT a.* FROM log_gangguan a WHERE ";
+    $query = "SELECT a.*, b.kategori FROM log_gangguan a JOIN kategori_gangguan b ON a.penyebab = b.id_kategori WHERE ";
     $requirement = 0;
 
     if(!empty($no_tiket)) {
@@ -1265,6 +1255,38 @@ class Admin_model extends CI_Model
     return $get;
   }
 
+  //KATEGORI GANGGUAN
+  function tampil_kategori_gangguan()
+  {
+    $get = $this->db->query("SELECT a.* FROM kategori_gangguan a ORDER BY a.id_kategori DESC ");
+    return $get;
+  }
+
+  public function add_kategori_gangguan_data($data)
+  {
+    $input = $this->db->insert('kategori_gangguan', $data);
+    return $input;
+  }
+
+  function get_kategori_gangguan($value, $column)
+  {
+    $get = $this->db->query("SELECT a.* FROM kategori_gangguan a WHERE a.$column =$value");
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
+  }
+
+  function update_kategori_gangguan($data, $data_id)
+  {
+    $update = $this->db->update('kategori_gangguan', $data, array('id_kategori' => $data_id));
+    return $update;
+  }
+
+  function kategori_gangguan_delete($id)
+  {
+    $delete = $this->db->delete('kategori_gangguan', array('id_kategori' => $id));
+    return $delete;
+  }
 
   function dashboard_merek_laptop_dell()
   {
@@ -1427,6 +1449,12 @@ class Admin_model extends CI_Model
     }
     return $tes;
   }
-  
+
+  function dashboard_sid_bermasalah()
+  {
+    $get = $this->db->query("SELECT COUNT(log_id) AS jumlahnya, nama_service FROM log_gangguan GROUP BY nama_service ORDER BY jumlahnya DESC LIMIT 5");
+    
+    return $get;
+  }
  
 }

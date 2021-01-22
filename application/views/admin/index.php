@@ -322,6 +322,7 @@
 
     <!-- Main content -->
     <div class="row">
+
 	<!--
      <div class="col-xs-12">
 		<H3>DATA SLA UIW SUMATERA UTARA TAHUN 2020</H3>
@@ -516,11 +517,26 @@
           <!-- /.box-body -->
         </div>
 	   </div>
-	
-	  
-	   
 
-     
+    <div class="col-md-6">
+        <!-- PIE CHART SID BERMASALAH-->
+      <div class="box box-danger">
+          <div class="box-header with-border">
+            <h3 class="box-title">5 SID Bermasalah</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+         <div class="box-body">
+        <div class="col-xs-12">
+          <canvas id="chartSID"></canvas>
+        </div>
+      </div>
+          <!-- /.box-body -->
+        </div>
+     </div>
 
       
 

@@ -71,18 +71,10 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="treeview">
-                <li class="treeview <?php if( $this->uri->segment(2)=="unit_sumut1_view" || $this->uri->segment(2)=="unit_sumut2_view"){echo 'active';}?>">
-                  <a href="#">
-                    <i class="fa fa-building"></i> <span>Unit</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
+                <li class="<?php if( $this->uri->segment(2)=="unit_view"){echo 'active';} ?>">
+                  <a href="<?= base_url('admin/unit_view'); ?>"><i class="fa fa-building"></i> Unit
+                    <span class="pull-right-container"></span>
                   </a>
-                  <ul class="treeview-menu">
-                    <li class="<?php if( $this->uri->segment(2)=="unit_sumut1_view"){echo 'active';}?>"><a href="<?php echo site_url('admin/unit_sumut1_view'); ?>"><i class="fa fa-circle-o"></i> Wilayah STI Sumut 1</a></li>
-                    <li class="<?php if( $this->uri->segment(2)=="unit_sumut2_view"){echo 'active';}?>"><a href="<?php echo site_url('admin/unit_sumut2_view'); ?>"><i class="fa fa-circle-o"></i> Wilayah STI Sumut 2</a></li>
-                  </ul>
                 </li>
 
                 <li class="<?php if( $this->uri->segment(1)=="support"){echo 'active';} ?>">
@@ -126,6 +118,12 @@
 
                 <li class="<?php if( $this->uri->segment(2)=="data_network_view" || $this->uri->segment(2)=="data_network_filter"){echo 'active';}?>"> 
                   <a href="<?php echo site_url('admin/data_network_view'); ?>"><i class="fa fa-book"></i> Data Network
+                  </span>
+                </a>
+              </li>
+
+              <li class="<?php if( $this->uri->segment(2)=="kategori_gangguan_view"){echo 'active';}?>"> 
+                  <a href="<?php echo site_url('admin/kategori_gangguan_view'); ?>"><i class="fa fa-book"></i> Kategori Gangguan
                   </span>
                 </a>
               </li>

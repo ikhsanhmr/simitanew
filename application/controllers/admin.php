@@ -58,7 +58,7 @@ class Admin extends CI_Controller
 			$data['dashboard_status_kepemilikan_pln'] = $this->admin_model->dashboard_status_kepemilikan_pln();
 			$data['kpi_open'] = $this->kpi->get_kpi_open();
 			$data['menghitung_jumlah_service_wilayah'] = $this->admin_model->menghitung_jumlah_service_wilayah();
-			
+			$data['dashboard_sid_bermasalah'] = $this->admin_model->dashboard_sid_bermasalah();
 			//internet_UIWSU
 			$data['januari_internet_uiwsu'] = $this->Sla_model->januari_internet_uiwsu();
 			$data['januari_internet_uiwsu_sukses'] = $data['januari_internet_uiwsu'][0]['persentasi_sla'];
@@ -1626,85 +1626,129 @@ class Admin extends CI_Controller
 		}
 	}
 
-
-
-	//UNIT SUMUT 1
-	public function unit_sumut1_view()
+	//UNIT
+	public function unit_view()
 	{
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-
-			$data['unit_sumut1_view'] = $this->admin_model->tampil_unit_sumut1();
+			$data['unit_view'] = $this->admin_model->tampil_unit();
 			$this->load->view('header');
 			$this->load->view('sidebar');
-			$this->load->view('admin/unit_sumut1_view', $data);
+			$this->load->view('admin/unit_view', $data);
 			$this->load->view('footer');
 		}
 	}
 
-	public function unit_sumut1_add()
+	public function unit_add()
 	{
-
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$this->load->view('header');
 			$this->load->view('sidebar');
-			$this->load->view('admin/unit_sumut1_add');
+			$this->load->view('admin/unit_add');
 			$this->load->view('footer');
 		}
 	}
 
-	public function action_unit_sumut1_add()
+	public function action_unit_add()
 	{
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
+			$this->form_validation->set_rules('level1', 'Unit Level 1', 'required', [
+				'required' => 'Unit Level 1 harus di isi!'
+			]);
+			$this->form_validation->set_rules('level2', 'Unit Level 2', 'required', [
+				'required' => 'Unit Level 2 harus di isi!'
+			]);
+			$this->form_validation->set_rules('level3', 'Unit Level 3', 'required', [
+				'required' => 'Unit Level 3 harus di isi!'
+			]);
+			$this->form_validation->set_rules('wilayah_kerja', 'Wilayah Kerja', 'required', [
+				'required' => 'Wilayah Kerja harus di isi!'
+			]);
 
-			$nama_unit = $this->input->post('nama_unit');
-			$alamat_unit = $this->input->post('alamat_unit');
-			$wilayah_kerja = 'Sumut 1';
-			$data = array('nama_unit' => $nama_unit, 'alamat_unit' => $alamat_unit, 'wilayah_kerja' => $wilayah_kerja);
-			$insert = $this->admin_model->add_unit_data($data);
-			if ($insert) {
-				echo "<script>alert('Berhasil Menambah Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/unit_sumut1_view>";
+			if ($this->form_validation->run() == false) {
+				$this->load->view('header');
+				$this->load->view('sidebar');
+				$this->load->view('admin/unit_add');
+				$this->load->view('footer');
+			} else {
+				$data = array(
+					'level1' => $this->input->post('level1'),
+					'level2' => $this->input->post('level2'),
+					'level3' => $this->input->post('level3'),
+					'wilayah_kerja' => $this->input->post('wilayah_kerja')
+				);
+
+				$insert = $this->admin_model->add_unit_data($data);
+				if ($insert) {
+					echo "<script>alert('Berhasil Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/unit_view>";
+				} else {
+					echo "<script>alert('Gagal Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/unit_view>";
+				}
 			}
 		}
 	}
 
-	public function unit_sumut1_edit()
+	public function unit_edit()
 	{
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-
 			$id_unit = $this->input->get('id_unit');
 			$data['unitnya'] = $this->admin_model->get_unit($id_unit);
-			$this->data['title'] = 'Update Unit Sumut 1 :: ';
+			$this->data['title'] = 'Update Unit :: ';
 			$this->load->view('header', $this->data);
 			$this->load->view('sidebar', $data);
-			$this->load->view('admin/unit_sumut1_edit', $data);
+			$this->load->view('admin/unit_edit', $data);
 			$this->load->view('footer');
 		}
 	}
 
-	public function action_unit_sumut1_edit()
+	public function action_unit_edit()
 	{
-		//print_r ($_POST); exit;
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-
 			$id_unit = $this->input->post('id_unit');
-			$nama_unit = $this->input->post('nama_unit');
-			$alamat_unit = $this->input->post('alamat_unit');
-			$data = array('nama_unit' => $nama_unit, 'alamat_unit' => $alamat_unit,);
-			$update = $this->admin_model->update_unit($data, $id_unit);
-			if ($update) {
-				echo "<script>alert('Berhasil Mengubah Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/unit_sumut1_view?id_unit=" . $id_unit . ">";
+			$this->form_validation->set_rules('level1', 'Unit Level 1', 'required', [
+				'required' => 'Unit level 1 harus di isi!'
+			]);
+			$this->form_validation->set_rules('level2', 'Unit Level 2', 'required', [
+				'required' => 'Unit level 2 harus di isi!'
+			]);
+			$this->form_validation->set_rules('level3', 'Unit Level 3', 'required', [
+				'required' => 'Unit level 3 harus di isi!'
+			]);
+			$this->form_validation->set_rules('wilayah_kerja', 'Wilayah Kerja', 'required', [
+				'required' => 'Wilayah kerja harus di isi!'
+			]);
+
+			if ($this->form_validation->run() == false) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible text-center " role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+					</button>
+					Pastikan seluruh data terisi
+					</div>');
+				redirect(base_url() . "admin/unit_edit?data_id=" . $id_unit);
+			} else {
+				$data = array(
+					'level1' => $this->input->post('level1'),
+					'level2' => $this->input->post('level2'),
+					'level3' => $this->input->post('level3'),
+					'wilayah_kerja' => $this->input->post('wilayah_kerja')
+				);
+
+				$update = $this->admin_model->update_unit($data, $id_unit);
+				if ($update) {
+					echo "<script>alert('Berhasil Mengubah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/unit_view>";
+				}
 			}
 		}
 	}
@@ -1719,107 +1763,10 @@ class Admin extends CI_Controller
 			$delete = $this->admin_model->unit_delete($id_unit);
 			if ($delete) {
 				echo "<script>alert('Berhasil Menghapus Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/unit_sumut1_view>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/unit_view>";
 			}
 		}
 	}
-
-
-
-	//UNIT SUMUT 2
-	public function unit_sumut2_view()
-	{
-		if ($this->session->userdata('status') != "login") {
-			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-		} else {
-
-			$data['unit_sumut2_view'] = $this->admin_model->tampil_unit_sumut2();
-			$this->load->view('header');
-			$this->load->view('sidebar');
-			$this->load->view('admin/unit_sumut2_view', $data);
-			$this->load->view('footer');
-		}
-	}
-
-	public function unit_sumut2_add()
-	{
-		if ($this->session->userdata('status') != "login") {
-			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-		} else {
-			$this->load->view('header');
-			$this->load->view('sidebar');
-			$this->load->view('admin/unit_sumut2_add');
-			$this->load->view('footer');
-		}
-	}
-
-	public function action_unit_sumut2_add()
-	{
-		if ($this->session->userdata('status') != "login") {
-			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-		} else {
-
-			$nama_unit = $this->input->post('nama_unit');
-			$alamat_unit = $this->input->post('alamat_unit');
-			$wilayah_kerja = 'Sumut 2';
-			$data = array('nama_unit' => $nama_unit, 'alamat_unit' => $alamat_unit, 'wilayah_kerja' => $wilayah_kerja);
-			$insert = $this->admin_model->add_unit_data($data);
-			if ($insert) {
-				echo "<script>alert('Berhasil Menambah Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/unit_sumut2_view>";
-			}
-		}
-	}
-
-	public function unit_sumut2_edit()
-	{
-		if ($this->session->userdata('status') != "login") {
-			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-		} else {
-
-			$id_unit = $this->input->get('id_unit');
-			$data['unitnya'] = $this->admin_model->get_unit($id_unit);
-			$this->data['title'] = 'Update Unit Sumut 1 :: ';
-			$this->load->view('header', $this->data);
-			$this->load->view('sidebar', $data);
-			$this->load->view('admin/unit_sumut2_edit', $data);
-			$this->load->view('footer');
-		}
-	}
-
-	public function action_unit_sumut2_edit()
-	{
-		//print_r ($_POST); exit;
-		if ($this->session->userdata('status') != "login") {
-			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-		} else {
-			$id_unit = $this->input->post('id_unit');
-			$nama_unit = $this->input->post('nama_unit');
-			$alamat_unit = $this->input->post('alamat_unit');
-			$data = array('nama_unit' => $nama_unit, 'alamat_unit' => $alamat_unit,);
-			$update = $this->admin_model->update_unit($data, $id_unit);
-			if ($update) {
-				echo "<script>alert('Berhasil Mengubah Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/unit_sumut2_view?id_unit=" . $id_unit . ">";
-			}
-		}
-	}
-
-	public function unit_sumut2_delete()
-	{
-		if ($this->session->userdata('status') != "login") {
-			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-		} else {
-			$id_unit = $this->input->get('id_unit');
-			$delete = $this->admin_model->unit_delete($id_unit);
-			if ($delete) {
-				echo "<script>alert('Berhasil Menghapus Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/unit_sumut2_view>";
-			}
-		}
-	}
-
-
 
 	//PC / Komputer
 	public function komputer_view()
@@ -2711,6 +2658,7 @@ class Admin extends CI_Controller
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/lgangguan_view>";
 			} else {
 				$data['lgangguan_view'] = $this->admin_model->lgangguan_filter($no_tiket, $asman, $layanan, $year, $month);
+				$data['list_kategori_gangguan'] = $this->admin_model->list_kategori_gangguan();
 				$data['filter_no_tiket'] = $no_tiket;
 				$data['filter_asman'] = $asman;
 				$data['filter_layanan'] = $layanan;
@@ -2729,9 +2677,10 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$this->load->view('header');
-			$this->load->view('sidebar');
-			$this->load->view('admin/lgangguan_add');
+			$data['list_kategori_gangguan'] = $this->admin_model->list_kategori_gangguan();
+			$this->load->view('header', $this->data);
+			$this->load->view('sidebar', $data);
+			$this->load->view('admin/lgangguan_add', $data);
 			$this->load->view('footer');
 		}
 	}
@@ -2841,6 +2790,7 @@ class Admin extends CI_Controller
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$log_id = $this->input->get('log_id');
+			$data['list_kategori_gangguan'] = $this->admin_model->list_kategori_gangguan();
 			$data['lgangguannya'] = $this->admin_model->get_lgangguan($log_id, "log_id");
 			$this->data['title'] = 'Update Log Gangguan :: ';
 			$this->load->view('header', $this->data);
@@ -3209,4 +3159,122 @@ class Admin extends CI_Controller
 			}
 		}
 	}
+
+	//KATEGORI GANGGUAN
+	public function kategori_gangguan_view()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['kategori_gangguan_view'] = $this->admin_model->tampil_kategori_gangguan();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/kategori_gangguan_view', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function kategori_gangguan_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/kategori_gangguan_add');
+			$this->load->view('footer');
+		}
+	}
+
+	public function action_kategori_gangguan_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$this->form_validation->set_rules('kategori', 'Kategori Gangguan', 'required', [
+				'required' => 'Kategori Gangguan harus di isi!'
+			]);
+
+			if ($this->form_validation->run() == false) {
+				$this->load->view('header');
+				$this->load->view('sidebar');
+				$this->load->view('admin/kategori_gangguan_add');
+				$this->load->view('footer');
+			} else {
+				$data = array(
+					'kategori' => $this->input->post('kategori')
+				);
+
+				$insert = $this->admin_model->add_kategori_gangguan_data($data);
+				if ($insert) {
+					echo "<script>alert('Berhasil Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kategori_gangguan_view>";
+				} else {
+					echo "<script>alert('Gagal Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kategori_gangguan_view>";
+				}
+			}
+		}
+	}
+
+	public function kategori_gangguan_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('data_id');
+			$data['kategori_gangguannya'] = $this->admin_model->get_kategori_gangguan($data_id, "id_kategori");
+			$this->data['title'] = 'Update Kategori Gangguan :: ';
+			$this->load->view('header', $this->data);
+			$this->load->view('sidebar', $data);
+			$this->load->view('admin/kategori_gangguan_edit', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function action_kategori_gangguan_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->post('id_kategori');
+			$this->form_validation->set_rules('kategori', 'Kategori Gangguan', 'required', [
+				'required' => 'Kategori Gangguan harus di isi!'
+			]);
+
+			if ($this->form_validation->run() == false) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible text-center " role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+					</button>
+					Pastikan seluruh data terisi
+					</div>');
+				redirect(base_url() . "admin/kategori_gangguan_edit?data_id=" . $data_id);
+			} else {
+				$data = array(
+					'kategori' => $this->input->post('kategori')
+				);
+
+				$update = $this->admin_model->update_kategori_gangguan($data, $data_id);
+				if ($update) {
+					echo "<script>alert('Berhasil Mengubah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kategori_gangguan_view?data_id=" . $data_id . ">";
+				}
+			}
+		}
+	}
+
+	public function kategori_gangguan_delete()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('data_id');
+			$delete = $this->admin_model->kategori_gangguan_delete($data_id);
+			if ($delete) {
+				echo "<script>alert('Berhasil Menghapus Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kategori_gangguan_view>";
+			}
+		}
+	}
+
 }

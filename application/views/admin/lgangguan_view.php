@@ -164,7 +164,7 @@
                      <td class="text-center"><?= $tiket_close; ?></td>
                      <td class="text-center"><?= $data['stop_clock']; ?> menit</td>
                      <td class="text-center"><?= $data['durasi']; ?> menit</td>
-                     <td class="text-center"><?= $data['penyebab']; ?></td>
+                     <td class="text-center"><?= $data['kategori']; ?></td>
                      <td class="text-center"><?= $data['action']; ?></td>
                      <td class="text-center"><?= $data['status_log']; ?></td>
                      <td class="text-center">

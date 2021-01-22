@@ -593,6 +593,48 @@
 })
 </script>
 
+
+<!-- PIE CHART SID BERMASALAH -->
+  <script type="text/javascript">
+  var ctx = document.getElementById("chartSID").getContext('2d');
+  <?php 
+    $sid_label = array();
+    $sid_value = array();
+    if(!empty($dashboard_sid_bermasalah)) {
+    foreach($dashboard_sid_bermasalah->result_array() as $row){
+      array_push($sid_label, $row['nama_service']);
+      array_push($sid_value, $row['jumlahnya']);
+    }}; ?>
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: <?php echo json_encode($sid_label); ?>,
+        datasets: [{
+          label: 'INTERNET',
+          data: <?php echo json_encode($sid_value); ?>,
+          backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)'
+          ],
+          borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        legend : { display: false}
+      }
+    });
+</script>
+
 <script type="text/javascript">
   function statusnya() {
     var tes = document.getElementById("status_kepemilikan").value;

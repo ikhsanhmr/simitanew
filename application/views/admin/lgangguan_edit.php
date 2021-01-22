@@ -159,7 +159,15 @@
                                 <div class="form-group">
                                     <label for="penyebab" class="col-sm-3 control-label">Penyebab</label>
                                     <div class="col-sm-5">
-                                        <textarea id="penyebab" name="penyebab" rows="5" cols="50" maxlength="1000" required><?php echo $lgangguannya['penyebab'] ?></textarea>
+                                        <select class="form-control select2" name="penyebab" id="penyebab" style="width: 100%;"required>
+                                            <option value="<?php echo $lgangguannya['penyebab']; ?>" selected="selected"><?php echo $lgangguannya['kategori']; ?></option>
+                                            <option value=""> -- Pilih Penyebab -- </option>
+                                            <?php foreach ($list_kategori_gangguan->result_array() as $data) { ?>
+                                                <option value="<?php echo $data['id_kategori']; ?>"><?php  echo $data['kategori']; ?></option>
+                                                <?php 
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
