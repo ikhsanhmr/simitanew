@@ -45,7 +45,7 @@ class laporan_model extends CI_Model {
 
 	
 	function getDataHar(){
-		$this->db->select('*');
+			$this->db->select('*');
 			$this->db->from('har_network');
 			$query = $this->db->get();
 			return $query->result_array();
@@ -81,8 +81,6 @@ class laporan_model extends CI_Model {
 		$config['allowed_types']        = 'gif|jpg|png|jpeg'; // jenis file
 		$config['max_size']             = 3000;
 	
-
-
 		$this->load->library('upload', $config);
 
 		//INPUT GAMBAR
@@ -154,5 +152,44 @@ class laporan_model extends CI_Model {
 		$this->db->where('id', $this->input->post('id'));
 		$this->db->update('har_network', $data +$dataFoto1 + $dataFoto2);
 	}
+
+
+	public function approval(){
+		$data = [
+			'approval' => 'approved',
+			
+		];
+
+		$this->db->where('id', $this->input->post('id'));
+		$this->db->update('har_network', $data);
+	}
+
+	 function type_network_device(){
+		$this->db->order_by('device_type', 'ASC');
+		$this->db->group_by('device_type');
+        return $this->db->from('network_device')
+          ->get()
+          ->result();
+	}
+
+	function nama_unit($device_type)
+    {
+        $this->db->where('device_type', $device_type);
+		$this->db->order_by('id_unit', 'ASC');
+		$this->db->group_by('id_unit');
+        return $this->db->from('network_device')
+            ->get()
+            ->result();
+    }
+	function nama_unit_final($id_unit,$level)
+    {
+        $this->db->where('id_unit', $id_unit);
+		$this->db->order_by($level, 'ASC');
+        return $this->db->from('unit')
+            ->get()
+            ->result();
+    }
+
+
 		
 }

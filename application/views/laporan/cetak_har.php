@@ -14,13 +14,6 @@
   </ol>
 </section>
 
-<style>
-/* hide url when printing */
-a[href]:after {
-        content: none !important;
-    }
-</style>
-
 <section class="content">
   <div class="row">
     <!-- left column -->
@@ -36,12 +29,6 @@ a[href]:after {
           <h3 class="box-title">Detail Info</h3>
         </div>
         
-
-
-        <div class="section">
-        
-        
-       
         <input type="hidden" id = "id" name="id" value="<?= $data['id'];?>">
         <div class="box-body">
                     <div class="col-lg-10">
@@ -52,7 +39,6 @@ a[href]:after {
                             </div>
                         </div>
                     </div>
-                
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label"> Lokasi</label>
@@ -95,12 +81,6 @@ a[href]:after {
                             </div>
                         </div>
                     </div>
-                    </div>
-
-                    <div class="section">
-                    
-                    
-                    </div>
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Type</label>
@@ -126,7 +106,7 @@ a[href]:after {
                         </div>
                     </div>
                     </div>
-                  
+                    <div class="box-body">
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Perangkat Hardware</label>
@@ -225,9 +205,9 @@ a[href]:after {
                         </div>    
                     </div>
                   
-              
+                </div>
 
-            
+               <div class="box-body">
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Perangkat Software</label>
@@ -285,7 +265,7 @@ a[href]:after {
                     </div>
                 </div>
                     
-             
+               <div class="box-body">
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Backup Power</label>
@@ -356,8 +336,8 @@ a[href]:after {
                     </div>
                 </div>
                     
-         
-               
+                </div>
+                <div class="box-body">
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Pengawas Pekerjaan</label>
@@ -374,7 +354,7 @@ a[href]:after {
                             </div>
                         </div>
                     </div>
-               
+                </div>
 
                 <div class="col-lg-10">
                     <div class="form-group">
@@ -396,7 +376,7 @@ a[href]:after {
                     </div>
                 </div>
 
-               
+                <div class="box-body">
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Kondisi Sebelum Pengerjaan</label>
@@ -428,8 +408,8 @@ a[href]:after {
                         </div>
                     </div>
                 
-             
-            
+                </div>
+                <div class="box-body">
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Kondisi Saat Pengerjaan</label>
@@ -461,7 +441,7 @@ a[href]:after {
                         </div>
                     </div>
                 
-          
+                </div>
          
                 <div class="box-body">
                     <div class="col-lg-10">
@@ -496,7 +476,7 @@ a[href]:after {
                     </div>
                 
                 </div>
-       
+         
              <br>
              <br>
             
@@ -507,8 +487,6 @@ a[href]:after {
                 <div class="box-footer">
                     <div class="pull-center">
                         <a href="<?php echo base_url(); ?>laporan/getDataHar" class="btn btn-danger">Kembali</a>
-                        <a onclick="window.print()" style="float:right;margin-left : 3px; " class="btn btn-primary">Print</a> 
-                        
                         <?php if ($data['approval'] == 'approved') {?>
 
                     <?php  }
@@ -532,3 +510,6 @@ a[href]:after {
 <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<script src="text/javascript">
+window.print();
+</script>

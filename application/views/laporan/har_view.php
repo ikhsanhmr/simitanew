@@ -35,6 +35,7 @@
                     <th class="text-center">Waktu Pelaksanaan</th>
                     <th class="text-center">Nama Perangkat</th>
                     <th class="text-center">Info Detail</th>
+                    <th class="text-center">Approval</th>
                     <th class="text-center">Actions</th>
                   </tr>
                 </thead>
@@ -52,6 +53,17 @@
                       <td class="text-center"><?= $laporan['nama_perangkat']; ?></td>
                       <td class="text-center">
                       <a href="<?= base_url(); ?>laporan/detailDataHar/<?= $laporan['id']; ?>"class="btn btn-info">Detail </a>
+                      </td>
+                      <td class="text-center">
+                      <?php if ($laporan['approval'] == 'approved') { ?>
+                        <a class="btn btn-success">Approved </a>
+                     <?php
+                      }
+                      else { ?>
+                        <a class="btn btn-warning">Waiting </a>
+                     <?php }
+                      ?>
+                      
                       </td>
                       <td class="text-center">
                         <a href="<?= base_url(); ?>laporan/editDataHar/<?= $laporan['id']; ?>"class="btn"><i class="fa fa-pencil bigger-130"></i> </a>

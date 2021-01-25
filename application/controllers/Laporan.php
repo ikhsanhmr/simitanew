@@ -38,7 +38,7 @@ class Laporan extends CI_Controller {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 	} else {
 	
-	$data['list_merek_printer'] = $this->admin->list_merek_printer();
+	
 	
 	$this->load->view('header');
 	$this->load->view('sidebar');
@@ -145,9 +145,11 @@ class Laporan extends CI_Controller {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
         }
         else {
+
+			$data['hasil'] = $this->laporan->type_network_device();
 			$this->load->view('header');
 			$this->load->view('sidebar');
-			$this->load->view('laporan/har_add');
+			$this->load->view('laporan/har_add',$data);
 			$this->load->view('footer');
 		
         }
@@ -158,13 +160,11 @@ class Laporan extends CI_Controller {
 		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-		
-			$config['upload_path']         =  './public/images/har_network/';  // folder upload 
-            $config['allowed_types']        = 'gif|jpg|png|jpeg'; // jenis file
+            $config['upload_path']         =  './public/images/har_network/';  // folder upload 
+            $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf'; // jenis file
             $config['max_size']             = 3000;
            
 			$this->load->library('upload', $config);
-
 			
 				$nama_unit = $this->input->post('nama_unit');
 				$lokasi = $this->input->post('lokasi');
@@ -182,9 +182,24 @@ class Laporan extends CI_Controller {
 				$konfigurasi = $this->input->post('konfigurasi');
 				$catatan = $this->input->post('catatan');
 				$backup_setting = $this->input->post('backup_setting');
+				$ups = $this->input->post('ups');
+				$gps = $this->input->post('gps');
+				$inverter = $this->input->post('inverter');
 				$pengawas_pekerjaan = $this->input->post('pengawas_pekerjaan');
 				$pelaksana_pekerjaan = $this->input->post('pelaksana_pekerjaan');
+				$solusi = $this->input->post('solusi');
 				
+				;
+				// script uplaod file pdf
+				$filePdf = $this->upload->do_upload('working_permit');
+				if($filePdf != null){
+					$pdf = $this->upload->data();
+					$working_permit = $pdf["file_name"];
+				}
+				else {
+					$working_permit = "";
+				}
+
 				//INPUT GAMBAR
 				// script upload file pertama
 				$foto1 = $this->upload->do_upload('foto_sebelum_pengerjaan');
@@ -205,6 +220,14 @@ class Laporan extends CI_Controller {
 				else {
 					$foto_sesudah_pengerjaan = "";
 				}
+				$foto3 = $this->upload->do_upload('foto_saat_pengerjaan');
+				if($foto3 != null){
+					$file3 = $this->upload->data();
+					$foto_saat_pengerjaan = $file3["file_name"];
+				}
+				else {
+					$foto_saat_pengerjaan = "";
+				}
 				
 				$data = array(
 				'nama_unit' => $nama_unit
@@ -212,6 +235,7 @@ class Laporan extends CI_Controller {
 				,'waktu_pelaksanaan' => $waktu_pelaksanaan
 				,'nama_perangkat' => $nama_perangkat,
 				'serial_number' => $serial_number,
+				'working_permit' => $working_permit,
 				'type' => $type,
 				'id_address' => $id_address,
 				'mac_address' => $mac_address,
@@ -222,23 +246,26 @@ class Laporan extends CI_Controller {
 				'port' => $port,
 				'konfigurasi' => $konfigurasi,
 				'backup_setting' => $backup_setting,
+				'ups' => $ups,
+				'gps' => $gps,
+				'inverter' => $inverter,
 				'catatan' => $catatan,
+				'solusi' => $solusi,
 				'pengawas_pekerjaan' => $pengawas_pekerjaan,
 				'pelaksana_pekerjaan' => $pelaksana_pekerjaan,
 				'foto_sebelum_pengerjaan' => $foto_sebelum_pengerjaan,
 				'foto_sesudah_pengerjaan' => $foto_sesudah_pengerjaan,
-			
-				
+				'foto_saat_pengerjaan' => $foto_saat_pengerjaan,	
 			);
 				$insert = $this->laporan->addDataHar($data);
 				if ($insert) {
 					echo "<script>alert('Berhasil Menambah Data')</script>";
 					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "laporan/getDataHar>";
 				}
-			
-			
-
-		
+				else {
+					echo "<script>alert('Gagal Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "laporan/getDataHar>";
+				}
 		}
 
 	}
@@ -299,6 +326,56 @@ class Laporan extends CI_Controller {
 		
         }
 	}
+
+	public function approval(){
+		if($this->session->userdata('status') != "login"){
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+		$data['edit'] = $this->laporan->approval();
+		$this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible text-center " role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+		</button>
+		Data diperbarui!
+	  	</div>');
+		redirect('laporan/getDataHar');
+		}
+	}
+
+	public function downloadFile($files){
+		$this->load->helper('download');
+     
+		
+		force_download('./public/images/har_network/'.$files,NULL);
+	}
+
+	public function cetakHar($id){
+		if($this->session->userdata('status') != "login"){
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+        }
+        else {
+			$data['data'] = $this->laporan->getDetailDataHar($id);
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('laporan/cetak_har',$data);
+			$this->load->view('footer');
+		
+        }
+	}
+
+	function get_data_unit()
+    {
+        $device_type=$this->input->post('device_type');
+        $data=$this->laporan->nama_unit($device_type);
+        echo json_encode($data);
+	}
+	
+	function get_data_unit_final()
+    {
+		$id_unit=$this->input->post('nama_unit');
+		$level = $this->input->post('level');
+        $data=$this->laporan->nama_unit_final($id_unit,$level);
+        echo json_encode($data);
+    }
 }
 
 ?>

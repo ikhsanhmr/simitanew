@@ -62,6 +62,14 @@
                     </div>
                     <div class="col-lg-10">
                         <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Working Permit</label>
+                            <div class="col-sm-5">
+                            <input class="form-control" type="file" name="working_permit" id="working_permit"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Nama Perangkat</label>
                             <div class="col-sm-5">
                             <input class="form-control"type="text" name="nama_perangkat" id="nama_perangkat"

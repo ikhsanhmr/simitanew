@@ -29,14 +29,51 @@
           <h3 class="box-title">Formulir HAR</h3>
         </div>
         
-        <div class="box-body">
+        <div class="box-body ">
+                  <div class="col-lg-10">
+        <!-- UBAH MENJADI DROPDOWN -->
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Type</label>
+                            <div class="col-sm-5">
+                            <select class="form-control" name="device_type" id="device_type">
+                         <?php
+                         foreach($hasil as $value):
+                            echo "<option value='$value->device_type'>$value->device_type</option>";
+                         endforeach;
+                              ?>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Level Unit</label>
+                            <div class="col-sm-5">
+                            <select class="form-control" name="level" id="level">
+                             <option value='level1'>Level 1</option>;
+                             <option value='level2'>Level 2</option>;
+                             <option value='level3'>Level 3</option>;
+                            </select>
+                            </div>
+                        </div>
+                  </div>
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Nama unit</label>
                             <div class="col-sm-5">
-                            <input class="form-control"type="text" name="nama_unit" id="nama_unit"
-                            > 
-                            
+                            <select class="form-control" name="nama_unit" id="nama_unit">
+                             
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Nama unit 2</label>
+                            <div class="col-sm-5">
+                            <select class="form-control" name="final" id="final">
+                             
+                            </select>
                             </div>
                         </div>
                     </div>
@@ -58,6 +95,14 @@
                     </div>
                     <div class="col-lg-10">
                         <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Working Permit</label>
+                            <div class="col-sm-5">
+                            <input class="form-control" type="file" name="working_permit" id="working_permit"> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Nama Perangkat</label>
                             <div class="col-sm-5">
                             <input class="form-control"type="text" name="nama_perangkat" id="nama_perangkat"> 
@@ -72,14 +117,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Type</label>
-                            <div class="col-sm-5">
-                            <input class="form-control"type="text" name="type" id="type"> 
-                            </div>
-                        </div>
-                    </div>
+                    
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Id Address</label>
@@ -96,15 +134,14 @@
                             </div>
                         </div>
                     </div>
-                    </div>
-                    <div class="box-body">
-                        <div class="col-lg-10">
+                </div>
+                  <br>
+                <div class="box-body">
+                <div class="col-lg-10">
                             <div class="form-group">
                                 <label for="no_hp" class="col-sm-3 control-label">Perangkat Hardware</label>
                             </div>
                         </div>
-                    </div>
-                <div class="box-body">
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Tampak Fisik</label>
@@ -221,14 +258,14 @@
                         </div>
                      </div>
                 </div>    
+                <br>
                 <div class="box-body">
-                    <div class="col-lg-10">
+                <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Perangkat Software</label>
                         </div>
+
                     </div>
-                </div>
-                <div class="box-body">
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Konfigurasi</label>
@@ -276,6 +313,83 @@
                         </div>
                      </div>
                 </div>
+               <br>
+                <div class="box-body">
+                <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Backup Power</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">GPS</label>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="gps" id="gps1" value="Normal"  >
+                                Normal
+                                </label>
+                            </div>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="gps" id="gps2" value="Ada error">
+                                Ada Error 
+                                </label>
+                            </div>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="gps" id="gps3" value="Rusak" >
+                                Rusak 
+                                </label>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">UPS</label>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="ups" id="ups1" value="Normal"  >
+                                Normal
+                                </label>
+                            </div>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="ups" id="ups2" value="Ada error">
+                                Ada Error 
+                                </label>
+                            </div>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="ups" id="ups3" value="Rusak" >
+                                Rusak 
+                                </label>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Inverter</label>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="inverter" id="inverter1" value="Normal"  >
+                                Normal
+                                </label>
+                            </div>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="inverter" id="inverter2" value="Ada error">
+                                Ada Error 
+                                </label>
+                            </div>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="inverter" id="inverter3" value="Rusak" >
+                                Rusak 
+                                </label>
+                            </div>
+                        </div>
+                     </div>
+                </div>
 
 
                 <div class="box-body">
@@ -308,12 +422,21 @@
                 </div>
                 </div>
 
-                <div class="box-body">
+                <div class="box-body ">
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Kondisi Sebelum Pengerjaan</label>
                             <div class="col-sm-5">
                             <input class="form-control"type="file" name="foto_sebelum_pengerjaan" id="foto_sebelum_pengerjaan" required> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Kondisi Saat Pengerjaan</label>
+                            <div class="col-sm-5">
+                            <input class="form-control" type="file" name="foto_saat_pengerjaan" id="foto_saat_pengerjaan" required> 
                             </div>
                         </div>
                     </div>
@@ -327,7 +450,9 @@
                         </div>
                     </div>
                 </div>
-           
+               
+               
+                     
         <!-- /.box-body -->
         <div class="box-footer">
                     <div class="pull-center">
