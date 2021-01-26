@@ -197,7 +197,11 @@
             <ul class="treeview-menu">
               <li class="treeview">
                
-
+          <li class="<?php if( $this->uri->segment(2)=="jadwal_har"){echo 'active';}?>">
+            <a href="<?php echo site_url('laporan/jadwal_har_view'); ?>">
+              <i class="fa fa-calendar"></i> <span>Jadwal HAR</span>
+            </a>
+          </li>
                
           <li class="<?php if( $this->uri->segment(2)=="getLaporan"){echo 'active';}?>">
             <a href="<?php echo site_url('laporan/getLaporan'); ?>">
@@ -254,7 +258,11 @@
             <ul class="treeview-menu">
               <li class="treeview">
                
-
+          <li class="<?php if( $this->uri->segment(2)=="jadwal_har"){echo 'active';}?>">
+            <a href="<?php echo site_url('laporan/jadwal_har_view'); ?>">
+              <i class="fa fa-calendar"></i> <span>Jadwal HAR</span>
+            </a>
+          </li>
                
           <li class="<?php if( $this->uri->segment(2)=="getLaporan"){echo 'active';}?>">
             <a href="<?php echo site_url('laporan/getLaporan'); ?>">

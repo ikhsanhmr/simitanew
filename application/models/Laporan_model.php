@@ -190,6 +190,35 @@ class laporan_model extends CI_Model {
             ->result();
     }
 
+    //JADWAL HAR
+	function tampil_jadwal_har() {
+		$get = $this->db->query("SELECT a.* FROM jadwal_har a ORDER BY a.id_jadwal DESC ");
+	    return $get;
+	}
 
-		
+	function add_jadwal_har_data($data) {
+    	$input = $this->db->insert('jadwal_har', $data);
+    	return $input;
+  	}
+
+  	function get_jadwal_har($id_jadwal) {
+    	$get = $this->db->query("SELECT * FROM jadwal_har a WHERE a.id_jadwal =$id_jadwal");
+    	if ($get->num_rows() == 1) {
+      		return $get->row_array();
+    	}
+	}
+
+    function update_jadwal_har($data, $id_jadwal) {
+	    $update = $this->db->update('jadwal_har', $data, array('id_jadwal' => $id_jadwal));
+	    return $update;
+	}
+
+	 function jadwal_har_delete($id) {
+	    $delete = $this->db->delete('jadwal_har', array('id_jadwal' => $id));
+	    return $delete;
+	  }
+
+	
+	
+			
 }

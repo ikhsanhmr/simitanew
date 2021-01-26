@@ -334,6 +334,55 @@ $.ajax({
 
 
 </script>
+
+
+<!-- JADWAL HAR  -->
+<script type="text/javascript">
+ 
+        $("#jadwal_level1").change(function(){
+        var level1 = $("#jadwal_level1").val();
+            $.ajax({
+              method: 'POST',
+              url: "<?php echo base_url();?>/laporan/get_unit_level2",
+              data: {level1: level1},
+              async : false,
+              dataType : 'json',
+              success: function(data){
+                    var html = '';
+                    var i;
+
+                    for(i=0; i<data.length; i++){
+                        html += '<option value='+data[i].level2+'>'+data[i].level2+'</option>';
+                    }
+                    $('#jadwal_level2').html(html);
+
+                }
+            });
+        });
+ 
+        $("#jadwal_level2").change(function(){
+        var level2 = $("#jadwal_level2").val();
+            $.ajax({
+              method: 'POST',
+              url: "<?php echo base_url();?>/laporan/get_unit_level3",
+              data: {level2: level2},
+              async : false,
+              dataType : 'json',
+              success: function(data){
+                    var html = '';
+                    var i;
+
+                    for(i=0; i<data.length; i++){
+                        html += '<option value='+data[i].id_unit+'>'+data[i].level3+'</option>';
+                    }
+                    $('#jadwal_level3').html(html);
+
+                }
+            });
+        });
+
+</script>
+
 <!-- random color picker for chart -->
 <script>
   function getRandomColor() {

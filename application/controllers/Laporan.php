@@ -376,6 +376,177 @@ class Laporan extends CI_Controller {
         $data=$this->laporan->nama_unit_final($id_unit,$level);
         echo json_encode($data);
     }
+
+    //JADWAL HAR
+	public function jadwal_har_view()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['jadwal_harnya'] = $this->laporan->tampil_jadwal_har();
+			$data['unitnya'] = $this->admin->tampil_unit();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('laporan/jadwal_har_view', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function jadwal_har_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['list_level1'] = $this->admin->unit_level1();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('laporan/jadwal_har_add', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	function get_unit_level2()
+    {
+        $level1=$this->input->post('level1');
+        $data=$this->admin->unit_level2($level1);
+        echo json_encode($data);
+    }
+
+    function get_unit_level3()
+    {
+        $level2=$this->input->post('level2');
+        $data=$this->admin->unit_level3($level2);
+        echo json_encode($data);
+    }
+
+    public function action_jadwal_har_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$this->form_validation->set_rules('tanggal_pergi', 'Tanggal Pergi', 'required|date', [
+				'required' => 'Tanggal pergi harus di isi!'
+			]);
+			$this->form_validation->set_rules('tanggal_pulang', 'Tanggal Pulang', 'required|date', [
+				'required' => 'Tanggal pulang harus di isi!'
+			]);
+			$this->form_validation->set_rules('petugas', 'Petugas', 'required', [
+				'required' => 'Petugas harus di isi!'
+			]);
+			$this->form_validation->set_rules('jadwal_level1', 'Unit Level 1', 'required', [
+				'required' => 'Unit level 1 harus di isi!'
+			]);
+			$this->form_validation->set_rules('jadwal_level2', 'Unit Level 2', 'required', [
+				'required' => 'Unit level 2 harus di isi!'
+			]);
+			$this->form_validation->set_rules('jadwal_level3', 'Unit Level 3', 'required', [
+				'required' => 'Unit level 3 harus di isi!'
+			]);
+
+			if ($this->form_validation->run() == false) {
+				$this->load->view('header');
+				$this->load->view('sidebar');
+				$this->load->view('laporan/jadwal_har_add');
+				$this->load->view('footer');
+			} else {
+				$data = array(
+					'tanggal_pergi' => $this->input->post('tanggal_pergi'),
+					'tanggal_pulang' => $this->input->post('tanggal_pulang'),
+					'petugas' => $this->input->post('petugas'),
+					'id_unit' => $this->input->post('jadwal_level3')
+				);
+
+				$insert = $this->laporan->add_jadwal_har_data($data);
+				if ($insert) {
+					echo "<script>alert('Berhasil Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "laporan/jadwal_har_view>";
+				} else {
+					echo "<script>alert('Gagal Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "laporan/jadwal_har_view>";
+				}
+			}
+		}
+	}
+
+	function jadwal_har_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('data_id');
+			$data['jadwal_harnya'] = $this->laporan->get_jadwal_har($data_id, "id_jadwal");
+			$data['unitnya'] = $this->admin->get_unit($data_id);
+			$data['list_level1'] = $this->admin->unit_level1();
+			$this->data['title'] = 'Update Jadwal HAR :: ';
+			$this->load->view('header', $this->data);
+			$this->load->view('sidebar', $data);
+			$this->load->view('laporan/jadwal_har_edit', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	function action_jadwal_har_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$id_jadwal = $this->input->post('id_jadwal');
+			$this->form_validation->set_rules('tanggal_pergi', 'Tanggal Pergi', 'required|date', [
+				'required' => 'Tanggal pergi harus di isi!'
+			]);
+			$this->form_validation->set_rules('tanggal_pulang', 'Tanggal Pulang', 'required|date', [
+				'required' => 'Tanggal pulang harus di isi!'
+			]);
+			$this->form_validation->set_rules('petugas', 'Petugas', 'required', [
+				'required' => 'Petugas harus di isi!'
+			]);
+			$this->form_validation->set_rules('jadwal_level1', 'Unit Level 1', 'required', [
+				'required' => 'Unit level 1 harus di isi!'
+			]);
+			$this->form_validation->set_rules('jadwal_level2', 'Unit Level 2', 'required', [
+				'required' => 'Unit level 2 harus di isi!'
+			]);
+			$this->form_validation->set_rules('jadwal_level3', 'Unit Level 3', 'required', [
+				'required' => 'Unit level 3 harus di isi!'
+			]);
+
+			if ($this->form_validation->run() == false) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible text-center " role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+					</button>
+					Pastikan seluruh data terisi
+					</div>');
+				redirect(base_url() . "laporan/jadwal_har_edit?data_id=" . $id_jadwal);
+			} else {
+				$data = array(
+					'tanggal_pergi' => $this->input->post('tanggal_pergi'),
+					'tanggal_pulang' => $this->input->post('tanggal_pulang'),
+					'petugas' => $this->input->post('petugas')
+				);
+
+				$update = $this->laporan->update_jadwal_har($data, $id_jadwal);
+				if ($update) {
+					echo "<script>alert('Berhasil Mengubah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "laporan/jadwal_har_view";
+				}
+			}
+		}
+	}
+
+	function jadwal_har_delete()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('data_id');
+			$delete = $this->laporan->jadwal_har_delete($data_id);
+			if ($delete) {
+				echo "<script>alert('Berhasil Menghapus Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "laporan/jadwal_har_view";
+			}
+		}
+	}
+
 }
 
 ?>

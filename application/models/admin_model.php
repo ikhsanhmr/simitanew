@@ -357,6 +357,31 @@ class Admin_model extends CI_Model
     return $get;
   }
 
+function unit_level1()
+  {
+    $this->db->select('*');
+    $this->db->group_by('level1');
+    $this->db->order_by('id_unit', 'ASC');
+    return $this->db->from('unit')->get()->result();
+  }
+
+  function unit_level2($level1)
+  {
+    $this->db->where('level1', $level1);
+    $this->db->group_by('level2');
+    $this->db->order_by('id_unit', 'ASC');
+    return $this->db->from('unit')->get()->result();
+  }
+
+  function unit_level3($level2)
+  {
+    $this->db->where('level2', $level2);
+    $this->db->group_by('level3');
+    $this->db->order_by('id_unit', 'ASC');
+    return $this->db->from('unit')->get()->result();
+  }
+
+
   public function add_unit_data($data)
   {
     $input = $this->db->insert('unit', $data);
