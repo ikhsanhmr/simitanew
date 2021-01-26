@@ -343,7 +343,7 @@ $.ajax({
         var level1 = $("#jadwal_level1").val();
             $.ajax({
               method: 'POST',
-              url: "<?php echo base_url();?>/laporan/get_unit_level2",
+              url: "<?php echo base_url();?>/laporan/get_unit_level1",
               data: {level1: level1},
               async : false,
               dataType : 'json',
@@ -364,7 +364,7 @@ $.ajax({
         var level2 = $("#jadwal_level2").val();
             $.ajax({
               method: 'POST',
-              url: "<?php echo base_url();?>/laporan/get_unit_level3",
+              url: "<?php echo base_url();?>/laporan/get_unit_level2",
               data: {level2: level2},
               async : false,
               dataType : 'json',
@@ -1439,6 +1439,58 @@ var ctx = document.getElementById("myChart11").getContext('2d');
 </script>
 <!-- CHART data sla wilsu close -->
 <!-- CHART data sla wilsu close -->
+<script>
+
+        $("#kantor_induk").change(function(){
+
+            // variabel dari nilai combo box kendaraan
+            var id_kantor_induk = $("#kantor_induk").val();
+
+            // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+            $.ajax({
+                url : "<?php echo base_url();?>/laporan/get_unit_level2",
+                method : "POST",
+                data : {id_kantor_induk:id_kantor_induk},
+                async : false,
+                dataType : 'json',
+                success: function(data){
+                    var html = '';
+                    var i;
+
+                    for(i=0; i<data.length; i++){
+                        html += '<option value='+data[i].id_unit_level2+'>'+data[i].nama_unit_level2+'</option>';
+                    }
+                    $('#unit_level2').html(html);
+
+                }
+            });
+        });
+
+        $("#unit_level2").change(function(){
+
+            // variabel dari nilai combo box kendaraan
+            var id_unit_level2 = $("#unit_level2").val();
+
+            // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+            $.ajax({
+                url : "<?php echo base_url();?>/laporan/get_unit_level3",
+                method : "POST",
+                data : {id_unit_level2:id_unit_level2},
+                async : false,
+                dataType : 'json',
+                success: function(data){
+                    var html = '';
+                    var i;
+
+                    for(i=0; i<data.length; i++){
+                        html += '<option value='+data[i].id_unit_level3+'>'+data[i].nama_unit_level3+'</option>';
+                    }
+                    $('#unit_level3').html(html);
+
+                }
+            });
+        });
+    </script>
 
 </body>
 

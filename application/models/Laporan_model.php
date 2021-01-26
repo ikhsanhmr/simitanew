@@ -217,6 +217,31 @@ class laporan_model extends CI_Model {
 	    $delete = $this->db->delete('jadwal_har', array('id_jadwal' => $id));
 	    return $delete;
 	  }
+	  
+	  function kantor_induk()
+    {
+        $this->db->order_by('id_kantor_induk', 'ASC');
+        return $this->db->from('kantor_induk')
+          ->get()
+          ->result();
+    }
+
+    function unit_level2($id_kantor_induk)
+    {
+        $this->db->where('id_kantor_induk', $id_kantor_induk);
+        $this->db->order_by('id_unit_level2', 'ASC');
+        return $this->db->from('unit_level2')
+            ->get()
+            ->result();
+    }
+    function unit_level3($id_unit_level2)
+    {
+        $this->db->where('id_unit_level2', $id_unit_level2);
+        $this->db->order_by('id_unit_level3', 'ASC');
+        return $this->db->from('unit_level3')
+            ->get()
+            ->result();
+    }
 
 	
 	

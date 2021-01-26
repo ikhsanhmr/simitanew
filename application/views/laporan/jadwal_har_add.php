@@ -56,22 +56,24 @@
                             </div>
                             <div class="col-lg-10">
                                 <div class="form-group">
-                                    <label for="jadwal_level1" class="col-sm-3 control-label">Unit Level 1</label>
+                                    <label for="kantor_induk" class="col-sm-3 control-label">Kantor Induk</label>
                                     <div class="col-sm-5">
-                                        <select class="form-control select2" id="jadwal_level1" name="jadwal_level1" style="width: 100%;">
+                                        <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
                                             <option selected="selected" value=""> -- Pilih Unit Level 1 -- </option>
-                                            <?php foreach ($list_level1 as $data) { ?>
-                                                <option value="<?php echo $data->level1; ?>"><?php  echo $data->level1; ?></option>
-                                            <?php } ?>
+                                           <?php
+            foreach ($hasil as $value) {
+                echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
+            }
+            ?>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-10">
                                 <div class="form-group">
-                                    <label for="jadwal_level2" class="col-sm-3 control-label">Unit Level 2</label>
+                                    <label for="unit_level2" class="col-sm-3 control-label">Unit Level 2</label>
                                     <div class="col-sm-5">
-                                        <select class="form-control select2" name="jadwal_level2" id="jadwal_level2" style="width: 100%;" >
+                                        <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;" >
                                             <option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>
                                         </select>
                                     </div>
@@ -79,9 +81,9 @@
                             </div>
                             <div class="col-lg-10">
                                 <div class="form-group">
-                                    <label for="jadwal_level3" class="col-sm-3 control-label">Unit Level 3</label>
+                                    <label for="unit_level3" class="col-sm-3 control-label">Unit Level 3</label>
                                     <div class="col-sm-5">
-                                        <select class="form-control select2" name="jadwal_level3" id="jadwal_level3" style="width: 100%;">
+                                        <select class="form-control select2" name="unit_level3" id="unit_level3" style="width: 100%;">
                                             <option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>
                                         </select>
                                     </div>

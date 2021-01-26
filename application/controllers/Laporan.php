@@ -397,7 +397,8 @@ class Laporan extends CI_Controller {
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['list_level1'] = $this->admin->unit_level1();
+			//$data['list_level1'] = $this->admin->unit_level1();
+			$data['hasil']=$this->laporan->kantor_induk();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/jadwal_har_add', $data);
@@ -407,17 +408,19 @@ class Laporan extends CI_Controller {
 
 	function get_unit_level2()
     {
-        $level1=$this->input->post('level1');
-        $data=$this->admin->unit_level2($level1);
+        $id_kantor_induk=$this->input->post('id_kantor_induk');
+        $data=$this->laporan->unit_level2($id_kantor_induk);
         echo json_encode($data);
     }
 
     function get_unit_level3()
     {
-        $level2=$this->input->post('level2');
-        $data=$this->admin->unit_level3($level2);
+        $id_unit_level2=$this->input->post('id_unit_level2');
+        $data=$this->laporan->unit_level3($id_unit_level2);
         echo json_encode($data);
     }
+	
+	
 
     public function action_jadwal_har_add()
 	{
