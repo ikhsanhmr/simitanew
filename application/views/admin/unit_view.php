@@ -27,10 +27,10 @@
               <thead>
                 <tr>
                  <th class="center">No.</th>
-                 <th>Unit Level 1</th>
+                 <th>Kantor Induk</th>
                  <th>Unit Level 2</th>
                  <th>Unit Level 3</th>
-                 <th>Wilayah</th>
+                 <th>Wilayah Kerja</th>
                  <th>Actions</th>
                </tr>
              </thead>
@@ -40,15 +40,15 @@
               foreach ($unit_view->result_array() as $data) { ?>
                 <tr>
                  <td class="center"><?php echo $no; ?></td>
-                 <td><?php echo $data['level1']; ?></td>
-                 <td><?php echo $data['level2']; ?></td>
-                 <td><?php echo $data['level3']; ?></td>
-                 <td><?php echo $data['wilayah_kerja']; ?></td>
+                 <td><?php echo $data['nama_kantor_induk']; ?></td>
+                 <td><?php echo $data['nama_unit_level2']; ?></td>
+                 <td><?php echo $data['nama_unit_level3']; ?></td>
+                 <td>Asman Sumut <?php echo $data['wilayah_kerja']; ?></td>
                  <td>
                    <div class="hidden-sm hidden-xs action-buttons">
-                    <a class="green" value="<?php echo $data['id_unit']; ?>" href="<?php echo base_url() . "admin/unit_edit?id_unit=".$data['id_unit']?>"><i class="fa fa-pencil bigger-130"></i></a>
+                    <a class="green" value="<?php echo $data['id_unit_level3']; ?>" href="<?php echo base_url() . "admin/unit_edit?id_unit=".$data['id_unit_level3']?>"><i class="fa fa-pencil bigger-130"></i></a>
                     &nbsp;
-                    <a class="red" value="<?php echo $data['id_unit']; ?>"  href="<?php echo base_url() . "admin/unit_delete?id_unit=".$data['id_unit']?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');" ><i class="fa fa-trash-o bigger-130"></i></a>
+                    <a class="red" value="<?php echo $data['id_unit_level3']; ?>"  href="<?php echo base_url() . "admin/unit_delete?id_unit=".$data['id_unit_level3']?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');" ><i class="fa fa-trash-o bigger-130"></i></a>
                   </div>
                 </td>
               </tr>

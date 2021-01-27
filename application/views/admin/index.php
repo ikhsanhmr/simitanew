@@ -151,14 +151,14 @@
 
             <div class="info-box-content">
               <span class="info-box-text">SUMUT 1</span>
-              <span class="info-box-number">Health Index :<?php if($hi_sumut1['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut1['total_hi']; }?> %</span>
+              <!-- <span class="info-box-number">Health Index :<?php if($hi_sumut1['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut1['total_hi']; }?> %</span>
 
               <div class="progress">
                 <div class="progress-bar" style="width:<?php if($hi_sumut1['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut1['total_hi']; }?>%"></div>
               </div>
                   <span class="progress-description" style="font-weight:normal">
                     Last Updated : <?php if($latest_sumut1['Updated'] == NULL) { echo '-';} else { echo date('d-m-Y H:i:s', strtotime($latest_sumut1['Updated'])); }?>
-                  </span>
+                  </span> -->
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -171,14 +171,14 @@
 
             <div class="info-box-content">
               <span class="info-box-text">TOTAL SUMUT</span>
-              <span class="info-box-number">Health Index : <?php if($hi_sumut['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut['total_hi']; }?> %</span>
+              <!-- <span class="info-box-number">Health Index : <?php if($hi_sumut['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut['total_hi']; }?> %</span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: <?php if($hi_sumut['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut['total_hi']; } ?>%"></div>
               </div>
                   <span class="progress-description" style="font-weight:normal">
                     Last Updated : <?php if($latest_sumut['Updated'] == NULL) { echo '-';} else { echo date('d-m-Y H:i:s', strtotime($latest_sumut['Updated'])); }?>
-                  </span>
+                  </span> -->
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -191,14 +191,14 @@
 
             <div class="info-box-content">
               <span class="info-box-text">SUMUT 2</span>
-              <span class="info-box-number">Health Index : <?php if($hi_sumut2['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut2['total_hi']; }?> %</span>
+              <!-- <span class="info-box-number">Health Index : <?php if($hi_sumut2['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut2['total_hi']; }?> %</span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: <?php if($hi_sumut2['total_hi'] == NULL) { echo '0';} else { echo $hi_sumut2['total_hi']; }?>%"></div>
               </div>
                   <span class="progress-description" style="font-weight:normal">
                     Last Updated : <?php if($latest_sumut2['Updated'] == NULL) { echo '-';} else { echo date('d-m-Y H:i:s', strtotime($latest_sumut2['Updated'])); }?>
-                  </span>
+                  </span> -->
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -228,7 +228,7 @@
                 $no =1;
                 ?>
                 <tbody>
-				        <?php foreach ($hi_best->result_array() as $data) { ?>
+				        <!-- <?php foreach ($hi_best->result_array() as $data) { ?>
                 <tr>
                   <td class="center">
                       <?php echo $no; ?>
@@ -254,7 +254,7 @@
                 <?php 
                   $no++;
                   }
-                ?>
+                ?> -->
                 </tbody>
               </table>
             </div>

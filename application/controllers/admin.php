@@ -34,11 +34,11 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['hi_best'] = $this->admin_model->tampil_best_hi();
-			$data['hi_worst'] = $this->admin_model->tampil_worst_hi();
-			$data['hi_sumut'] = $this->admin_model->tampil_hi_sumut();
-			$data['hi_sumut1'] = $this->admin_model->tampil_hi_sumut1();
-			$data['hi_sumut2'] = $this->admin_model->tampil_hi_sumut2();
+			// $data['hi_best'] = $this->admin_model->tampil_best_hi();
+			// $data['hi_worst'] = $this->admin_model->tampil_worst_hi();
+			// $data['hi_sumut'] = $this->admin_model->tampil_hi_sumut();
+			// $data['hi_sumut1'] = $this->admin_model->tampil_hi_sumut1();
+			// $data['hi_sumut2'] = $this->admin_model->tampil_hi_sumut2();
 			$data['latest_sumut'] = $this->admin_model->tampil_latest_sumut();
 			$data['latest_sumut1'] = $this->admin_model->tampil_latest_sumut1();
 			$data['latest_sumut2'] = $this->admin_model->tampil_latest_sumut2();
@@ -1657,33 +1657,32 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$this->form_validation->set_rules('level1', 'Unit Level 1', 'required', [
-				'required' => 'Unit Level 1 harus di isi!'
+			$this->form_validation->set_rules('kantor_induk', 'Kantor Induk', 'required', [
+				'required' => 'Kantor Induk harus di isi!'
 			]);
 			$this->form_validation->set_rules('level2', 'Unit Level 2', 'required', [
-				'required' => 'Unit Level 2 harus di isi!'
+				'required' => 'Unit level 2 harus di isi!'
 			]);
 			$this->form_validation->set_rules('level3', 'Unit Level 3', 'required', [
-				'required' => 'Unit Level 3 harus di isi!'
+				'required' => 'Unit level 3 harus di isi!'
 			]);
 			$this->form_validation->set_rules('wilayah_kerja', 'Wilayah Kerja', 'required', [
-				'required' => 'Wilayah Kerja harus di isi!'
+				'required' => 'Wilayah kerja harus di isi!'
 			]);
 
 			if ($this->form_validation->run() == false) {
-				$this->load->view('header');
-				$this->load->view('sidebar');
-				$this->load->view('admin/unit_add');
-				$this->load->view('footer');
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible text-center " role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+					</button>
+					Pastikan seluruh data terisi
+					</div>');
+				redirect(base_url() . "admin/unit_add");
 			} else {
-				$data = array(
-					'level1' => $this->input->post('level1'),
-					'level2' => $this->input->post('level2'),
-					'level3' => $this->input->post('level3'),
-					'wilayah_kerja' => $this->input->post('wilayah_kerja')
-				);
-
-				$insert = $this->admin_model->add_unit_data($data);
+				$kantor_induk = $this->input->post('kantor_induk');
+				$level2 = $this->input->post('level2');
+				$level3 = $this->input->post('level3');
+				$wilayah_kerja = $this->input->post('wilayah_kerja');
+				$insert = $this->admin_model->add_unit_data($kantor_induk, $level2, $level3, $wilayah_kerja);
 				if ($insert) {
 					echo "<script>alert('Berhasil Menambah Data')</script>";
 					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/unit_view>";
@@ -1715,14 +1714,14 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$id_unit = $this->input->post('id_unit');
-			$this->form_validation->set_rules('level1', 'Unit Level 1', 'required', [
-				'required' => 'Unit level 1 harus di isi!'
+			$id_unit_level3 = $this->input->post('id_unit_level3');
+			$this->form_validation->set_rules('nama_kantor_induk', 'Nama Kantor Induk', 'required', [
+				'required' => 'Nama Kantor Induk harus di isi!'
 			]);
-			$this->form_validation->set_rules('level2', 'Unit Level 2', 'required', [
+			$this->form_validation->set_rules('nama_unit_level2', 'Unit Level 2', 'required', [
 				'required' => 'Unit level 2 harus di isi!'
 			]);
-			$this->form_validation->set_rules('level3', 'Unit Level 3', 'required', [
+			$this->form_validation->set_rules('nama_unit_level3', 'Unit Level 3', 'required', [
 				'required' => 'Unit level 3 harus di isi!'
 			]);
 			$this->form_validation->set_rules('wilayah_kerja', 'Wilayah Kerja', 'required', [
@@ -1735,16 +1734,25 @@ class Admin extends CI_Controller
 					</button>
 					Pastikan seluruh data terisi
 					</div>');
-				redirect(base_url() . "admin/unit_edit?data_id=" . $id_unit);
+				redirect(base_url() . "admin/unit_edit?id_unit=" . $id_unit_level3);
 			} else {
-				$data = array(
-					'level1' => $this->input->post('level1'),
-					'level2' => $this->input->post('level2'),
-					'level3' => $this->input->post('level3'),
+				$id_kantor_induk = $this->input->post('id_kantor_induk');
+				$id_unit_level2 = $this->input->post('id_unit_level2');
+				$data_kantor_induk = array(
+					'nama_kantor_induk' => $this->input->post('nama_kantor_induk'),
 					'wilayah_kerja' => $this->input->post('wilayah_kerja')
 				);
+				$data_unit_level2 = array(
+					'id_kantor_induk' => $this->input->post('id_kantor_induk'),
+					'nama_unit_level2' => $this->input->post('nama_unit_level2')
+				);
+				$data_unit_level3 = array(
+					'id_kantor_induk' => $this->input->post('id_kantor_induk'),
+					'id_unit_level2' => $this->input->post('id_unit_level2'),
+					'nama_unit_level3' => $this->input->post('nama_unit_level3')
+				);
 
-				$update = $this->admin_model->update_unit($data, $id_unit);
+				$update = $this->admin_model->update_unit($data_kantor_induk, $id_kantor_induk, $data_unit_level2, $id_unit_level2, $data_unit_level3, $id_unit_level3);
 				if ($update) {
 					echo "<script>alert('Berhasil Mengubah Data')</script>";
 					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/unit_view>";

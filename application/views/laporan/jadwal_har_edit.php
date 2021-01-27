@@ -56,43 +56,47 @@
                                 </div>
                             </div>
                         </div>
+                        <?php foreach($unitnya->result_array() as $unitnya){
+                            if($jadwal_harnya['tujuan_level2'] == $unitnya['id_unit_level2'] && $jadwal_harnya['tujuan_level3'] == $unitnya['id_unit_level3']) {?>
                         <div class="col-lg-10">
-                            <div class="form-group">
-                                <label for="select_level1" class="col-sm-3 control-label">Unit Level 1</label>
-                                <div class="col-sm-5">
-                                    <select class="form-control select2" id="select_level1" name="select_level1" style="width: 100%;">  
-                                        <option value="<?php echo $unitnya['level1']; ?>" selected="selected"><?php echo $unitnya['level1']; ?></option>
-                                        <option value=""> -- Pilih Unit Level 1 -- </option>
-                                        <?php foreach ($list_level1 as $data) { ?>
-                                            <option value="<?php echo $data->level1; ?>"><?php  echo $data->level1; ?></option>
-                                        <?php } ?>
-                                    </select>
+                                <div class="form-group">
+                                    <label for="kantor_induk" class="col-sm-3 control-label">Kantor Induk</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
+                                            <option value="<?php echo $unitnya['id_kantor_induk']; ?>" selected="selected"><?php echo $unitnya['nama_kantor_induk']; ?></option>
+                                            <option value=""> -- Pilih Kantor Induk -- </option>
+                                            <?php
+                                            foreach ($hasil as $value) {
+                                                echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <div class="col-lg-10">
-                            <div class="form-group">
-                                <label for="select_level2" class="col-sm-3 control-label">Unit Level 2</label>
-                                <div class="col-sm-5">
-                                    <select class="form-control select2" id="select_level2" name="select_level2" style="width: 100%;">  
-                                        <option value="<?php echo $unitnya['level2']; ?>" selected="selected"><?php echo $unitnya['level2']; ?></option>
-                                        <option value=""> -- Pilih Unit Level 2 -- </option>
-                                    </select>
+                                <div class="form-group">
+                                    <label for="unit_level2" class="col-sm-3 control-label">Unit Level 2</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;" >
+                                            <option value="<?php echo $unitnya['id_unit_level2']; ?>" selected="selected"><?php echo $unitnya['nama_unit_level2']; ?></option>
+                                            <option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <div class="col-lg-10">
-                            <div class="form-group">
-                                <label for="select_level3" class="col-sm-3 control-label">Unit Level 3</label>
-                                <div class="col-sm-5">
-                                    <select class="form-control select2" id="select_level3" name="select_level3" style="width: 100%;">  
-                                        <option value="<?php echo $unitnya['level3']; ?>" selected="selected"><?php echo $unitnya['level3']; ?></option>
-                                        <option value=""> -- Pilih Unit Level 3 -- </option>
-                                    </select>
+                                <div class="form-group">
+                                    <label for="unit_level3" class="col-sm-3 control-label">Unit Level 3</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" name="unit_level3" id="unit_level3" style="width: 100%;">
+                                            <option value="<?php echo $unitnya['id_unit_level3']; ?>" selected="selected"><?php echo $unitnya['nama_unit_level3']; ?></option>
+                                            <option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
+                        <?php }} ?>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">

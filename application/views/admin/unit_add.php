@@ -31,9 +31,9 @@
                         <div class="box-body">
                             <div class="col-lg-10">
                                 <div class="form-group">
-                                    <label for="level1" class="col-sm-3 control-label">Unit Level 1</label>
+                                    <label for="kantor_induk" class="col-sm-3 control-label">Kantor Induk</label>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="level1" name="level1" required />
+                                        <input type="text" class="form-control" id="kantor_induk" name="kantor_induk" required="" />
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                 <div class="form-group">
                                     <label for="level2" class="col-sm-3 control-label">Unit Level 2</label>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="level2" name="level2" required />
+                                        <input type="text" class="form-control" id="level2" name="level2" required="" />
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <label for="level3" class="col-sm-3 control-label">Unit Level 3</label>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="level3" name="level3" required />
+                                        <input type="text" class="form-control" id="level3" name="level3" required="" />
                                     </div>
                                 </div>
                             </div>
@@ -57,10 +57,10 @@
                                 <div class="form-group">
                                     <label for="wilayah_kerja" class="col-sm-3 control-label">Wilayah Kerja</label>
                                     <div class="col-sm-5">
-                                        <select class="form-control select2" name="wilayah_kerja" id="wilayah_kerja" style="width: 100%;" required>
+                                        <select class="form-control select2" name="wilayah_kerja" id="wilayah_kerja" style="width: 100%;" required="">
                                             <option selected="selected" value=""> -- Pilih Asman -- </option>
-                                            <option value="Asman Sumut 1">Asman Sumut 1</option>
-                                            <option value="Asman Sumut 2">Asman Sumut 2</option>
+                                            <option value="1">Asman Sumut 1</option>
+                                            <option value="2">Asman Sumut 2</option>
                                         </select>
                                     </div>
                                 </div>

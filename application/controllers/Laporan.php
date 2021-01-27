@@ -419,8 +419,6 @@ class Laporan extends CI_Controller {
         $data=$this->laporan->unit_level3($id_unit_level2);
         echo json_encode($data);
     }
-	
-	
 
     public function action_jadwal_har_add()
 	{
@@ -436,29 +434,31 @@ class Laporan extends CI_Controller {
 			$this->form_validation->set_rules('petugas', 'Petugas', 'required', [
 				'required' => 'Petugas harus di isi!'
 			]);
-			$this->form_validation->set_rules('jadwal_level1', 'Unit Level 1', 'required', [
-				'required' => 'Unit level 1 harus di isi!'
+			$this->form_validation->set_rules('kantor_induk', 'Kantor Induk', 'required', [
+				'required' => 'Kantor Induk harus di isi!'
 			]);
-			$this->form_validation->set_rules('jadwal_level2', 'Unit Level 2', 'required', [
+			$this->form_validation->set_rules('unit_level2', 'Unit Level 2', 'required', [
 				'required' => 'Unit level 2 harus di isi!'
 			]);
-			$this->form_validation->set_rules('jadwal_level3', 'Unit Level 3', 'required', [
+			$this->form_validation->set_rules('unit_level3', 'Unit Level 3', 'required', [
 				'required' => 'Unit level 3 harus di isi!'
 			]);
 
 			if ($this->form_validation->run() == false) {
-				$this->load->view('header');
-				$this->load->view('sidebar');
-				$this->load->view('laporan/jadwal_har_add');
-				$this->load->view('footer');
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible text-center " role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+					</button>
+					Pastikan seluruh data terisi
+					</div>');
+				redirect(base_url() . "laporan/jadwal_har_add");
 			} else {
 				$data = array(
 					'tanggal_pergi' => $this->input->post('tanggal_pergi'),
 					'tanggal_pulang' => $this->input->post('tanggal_pulang'),
 					'petugas' => $this->input->post('petugas'),
-					'id_unit' => $this->input->post('jadwal_level3')
+					'tujuan_level2' => $this->input->post('unit_level2'),
+					'tujuan_level3' => $this->input->post('unit_level3')
 				);
-
 				$insert = $this->laporan->add_jadwal_har_data($data);
 				if ($insert) {
 					echo "<script>alert('Berhasil Menambah Data')</script>";
@@ -478,8 +478,8 @@ class Laporan extends CI_Controller {
 		} else {
 			$data_id = $this->input->get('data_id');
 			$data['jadwal_harnya'] = $this->laporan->get_jadwal_har($data_id, "id_jadwal");
-			$data['unitnya'] = $this->admin->get_unit($data_id);
-			$data['list_level1'] = $this->admin->unit_level1();
+			$data['unitnya'] = $this->admin->tampil_unit();
+			$data['hasil']=$this->laporan->kantor_induk();
 			$this->data['title'] = 'Update Jadwal HAR :: ';
 			$this->load->view('header', $this->data);
 			$this->load->view('sidebar', $data);
@@ -503,14 +503,11 @@ class Laporan extends CI_Controller {
 			$this->form_validation->set_rules('petugas', 'Petugas', 'required', [
 				'required' => 'Petugas harus di isi!'
 			]);
-			$this->form_validation->set_rules('jadwal_level1', 'Unit Level 1', 'required', [
-				'required' => 'Unit level 1 harus di isi!'
+			$this->form_validation->set_rules('unit_level2', 'Lokasi Tujuan Unit Level 2', 'required', [
+				'required' => 'Lokasi Tujuan Unit Level 2 harus di isi!'
 			]);
-			$this->form_validation->set_rules('jadwal_level2', 'Unit Level 2', 'required', [
-				'required' => 'Unit level 2 harus di isi!'
-			]);
-			$this->form_validation->set_rules('jadwal_level3', 'Unit Level 3', 'required', [
-				'required' => 'Unit level 3 harus di isi!'
+			$this->form_validation->set_rules('unit_level3', 'Lokasi Tujuan Unit Level 3', 'required', [
+				'required' => 'Lokasi Tujuan Unit Level 3 harus di isi!'
 			]);
 
 			if ($this->form_validation->run() == false) {
@@ -524,13 +521,15 @@ class Laporan extends CI_Controller {
 				$data = array(
 					'tanggal_pergi' => $this->input->post('tanggal_pergi'),
 					'tanggal_pulang' => $this->input->post('tanggal_pulang'),
-					'petugas' => $this->input->post('petugas')
+					'petugas' => $this->input->post('petugas'),
+					'tujuan_level2' => $this->input->post('unit_level2'),
+					'tujuan_level3' => $this->input->post('unit_level3')
 				);
-
+				
 				$update = $this->laporan->update_jadwal_har($data, $id_jadwal);
 				if ($update) {
 					echo "<script>alert('Berhasil Mengubah Data')</script>";
-					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "laporan/jadwal_har_view";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "laporan/jadwal_har_view>";
 				}
 			}
 		}
@@ -545,7 +544,7 @@ class Laporan extends CI_Controller {
 			$delete = $this->laporan->jadwal_har_delete($data_id);
 			if ($delete) {
 				echo "<script>alert('Berhasil Menghapus Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "laporan/jadwal_har_view";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "laporan/jadwal_har_view>";
 			}
 		}
 	}

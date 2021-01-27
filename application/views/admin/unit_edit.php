@@ -23,34 +23,36 @@
               <!-- general form elements -->
               <!-- Form Element sizes -->
               <div class="box box-success">
-                <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>admin/action_unit_edit?data_id=<?php echo $unitnya['id_unit']; ?>" enctype="multipart/form-data">
+                <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>admin/action_unit_edit?data_id=<?php echo $unitnya['id_unit_level3']; ?>" enctype="multipart/form-data">
 
-                    <input type="hidden" id="id_unit" name="id_unit" value="<?php echo $unitnya['id_unit']; ?>">
+                    <input type="hidden" id="id_unit_level3" name="id_unit_level3" value="<?php echo $unitnya['id_unit_level3']; ?>">
+                    <input type="hidden" id="id_unit_level2" name="id_unit_level2" value="<?php echo $unitnya['id_unit_level2']; ?>">
+                    <input type="hidden" id="id_kantor_induk" name="id_kantor_induk" value="<?php echo $unitnya['id_kantor_induk']; ?>">
                     <div class="box-header with-border">
                         <h3 class="box-title">Edit Unit</h3>
                     </div>
                     <div class="box-body">
                         <div class="col-lg-10">
                             <div class="form-group">
-                                <label for="level1" class="col-sm-3 control-label">Unit Level 1</label>
+                                <label for="nama_kantor_induk" class="col-sm-3 control-label">Kantor Induk</label>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="level1" name="level1" value="<?php echo $unitnya['level1']; ?>" required />
+                                    <input type="text" class="form-control" id="nama_kantor_induk" name="nama_kantor_induk" value="<?php echo $unitnya['nama_kantor_induk']; ?>" required />
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-10">
                             <div class="form-group">
-                                <label for="level2" class="col-sm-3 control-label">Unit Level 2</label>
+                                <label for="nama_unit_level2" class="col-sm-3 control-label">Unit Level 2</label>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="level2" name="level2" value="<?php echo $unitnya['level2']; ?>"required />
+                                    <input type="text" class="form-control" id="nama_unit_level2" name="nama_unit_level2" value="<?php echo $unitnya['nama_unit_level2']; ?>"required />
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-10">
                             <div class="form-group">
-                                <label for="level3" class="col-sm-3 control-label">Unit Level 3</label>
+                                <label for="nama_unit_level3" class="col-sm-3 control-label">Unit Level 3</label>
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" id="level3" name="level3" value="<?php echo $unitnya['level3']; ?>" required />
+                                    <input type="text" class="form-control" id="nama_unit_level3" name="nama_unit_level3" value="<?php echo $unitnya['nama_unit_level3']; ?>" required />
                                 </div>
                             </div>
                         </div>
@@ -60,10 +62,10 @@
                                 <div class="col-sm-5">
                                     <select class="form-control select2" name="wilayah_kerja" id="wilayah_kerja" style="width: 100%;" required>
                                         <option value="<?php echo $unitnya['wilayah_kerja']; ?>" selected="selected">
-                                            <?php echo $unitnya['wilayah_kerja']; ?></option>
+                                            Asman Sumut <?php echo $unitnya['wilayah_kerja']; ?></option>
                                             <option value=""> -- Pilih Asman -- </option>
-                                            <option value="Asman Sumut 1">Asman Sumut 1</option>
-                                            <option value="Asman Sumut 2">Asman Sumut 2</option>
+                                            <option value="1">Asman Sumut 1</option>
+                                            <option value="2">Asman Sumut 2</option>
                                         </select>
                                     </div>
                                 </div>

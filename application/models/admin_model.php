@@ -343,7 +343,7 @@ class Admin_model extends CI_Model
 //UNIT
   function tampil_unit()
   {
-    $get = $this->db->query("SELECT a.* FROM unit a ORDER BY a.id_unit DESC ");
+    $get = $this->db->query("SELECT a.id_kantor_induk, a.nama_kantor_induk , a.wilayah_kerja, b.id_unit_level2, b.nama_unit_level2, c.id_unit_level3, c.nama_unit_level3 FROM kantor_induk a JOIN unit_level2 b ON b.id_kantor_induk = a.id_kantor_induk JOIN unit_level3 c ON c.id_kantor_induk = a.id_kantor_induk GROUP BY c.id_unit_level3 ORDER BY a.id_kantor_induk ASC");
     return $get;
   }
 
@@ -382,30 +382,52 @@ function unit_level1()
   }
 
 
-  public function add_unit_data($data)
+  public function add_unit_data($kantor_induk, $level2, $level3, $wilayah_kerja)
   {
-    $input = $this->db->insert('unit', $data);
-    return $input;
+    
+      $data_kantor_induk = array(
+          'nama_kantor_induk' => $kantor_induk,
+          'wilayah_kerja' => $wilayah_kerja
+      );
+      $input_kantor_induk = $this->db->insert('kantor_induk', $data_kantor_induk);
+      $id_kantor_induk = $this->db->insert_id();
+    
+      $data_level2 = array(
+          'id_kantor_induk' => $id_kantor_induk,
+          'nama_unit_level2' => $level2,
+      );
+      $input_level2 = $this->db->insert('unit_level2', $data_level2);
+      $id_unit_level2 = $this->db->insert_id();
+    
+      $data_level3 = array(
+          'id_kantor_induk' => $id_kantor_induk,
+          'id_unit_level2' => $id_unit_level2,
+          'nama_unit_level3' => $level3
+      );
+
+      $update = $this->db->insert('unit_level3', $data_level3);
+      return $update;
   }
 
-  function update_unit($data, $id_unit)
+  function update_unit($data_kantor_induk, $id_kantor_induk, $data_unit_level2, $id_unit_level2, $data_unit_level3, $id_unit_level3)
   {
-    $update = $this->db->update('unit', $data, array('id_unit' => $id_unit));
+    
+      $update_kantor_induk = $this->db->update('kantor_induk', $data_kantor_induk, array('id_kantor_induk' => $id_kantor_induk));
+      $update_unit_level2 = $this->db->update('unit_level2', $data_unit_level2, array('id_unit_level2' => $id_unit_level2));
+      $update = $this->db->update('unit_level3', $data_unit_level3, array('id_unit_level3' => $id_unit_level3));
 
-    return $update;
+      return $update;
   }
 
   function unit_delete($id)
   {
-    $delete = $this->db->delete('unit', array('id_unit' => $id));
+    $delete = $this->db->delete('unit_level3', array('id_unit_level3' => $id));
     return $delete;
   }
 
   function get_unit($id_unit)
   {
-    $get = $this->db->query("SELECT *
-     FROM unit a
-     WHERE a.id_unit =$id_unit");
+    $get = $this->db->query("SELECT a.id_kantor_induk, a.nama_kantor_induk , a.wilayah_kerja, b.id_unit_level2, b.nama_unit_level2, c.id_unit_level3, c.nama_unit_level3 FROM kantor_induk a JOIN unit_level2 b ON b.id_kantor_induk = a.id_kantor_induk JOIN unit_level3 c ON c.id_kantor_induk = a.id_kantor_induk WHERE c.id_unit_level3 = $id_unit GROUP BY c.id_unit_level3 ORDER BY a.id_kantor_induk ASC");
     if ($get->num_rows() == 1) {
       return $get->row_array();
     }

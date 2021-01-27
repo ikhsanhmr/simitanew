@@ -34,7 +34,7 @@
                                 <div class="form-group">
                                     <label for="tanggal_pergi" class="col-sm-3 control-label">Tanggal Pergi</label>
                                     <div class="col-sm-5">
-                                        <input type="date" class="form-control" id="jadwal_pergi" name="jadwal_pergi" required />
+                                        <input type="date" class="form-control" id="tanggal_pergi" name="tanggal_pergi" required />
                                     </div>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@
                                 <div class="form-group">
                                     <label for="tanggal_pulang" class="col-sm-3 control-label">Tanggal Pulang</label>
                                     <div class="col-sm-5">
-                                        <input type="date" class="form-control" id="jadwal_pulang" name="jadwal_pulang" required />
+                                        <input type="date" class="form-control" id="tanggal_pulang" name="tanggal_pulang" required />
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                                 <div class="form-group">
                                     <label for="petugas" class="col-sm-3 control-label">Petugas</label>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="kategori" name="kategori" required />
+                                        <input type="text" class="form-control" id="petugas" name="petugas" required />
                                     </div>
                                 </div>
                             </div>
@@ -60,11 +60,11 @@
                                     <div class="col-sm-5">
                                         <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
                                             <option selected="selected" value=""> -- Pilih Unit Level 1 -- </option>
-                                           <?php
-            foreach ($hasil as $value) {
-                echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
-            }
-            ?>
+                                            <?php
+                                            foreach ($hasil as $value) {
+                                                echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>

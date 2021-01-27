@@ -210,7 +210,7 @@ class laporan_model extends CI_Model {
 
     function update_jadwal_har($data, $id_jadwal) {
 	    $update = $this->db->update('jadwal_har', $data, array('id_jadwal' => $id_jadwal));
-	    return $update;
+    	return $update;
 	}
 
 	 function jadwal_har_delete($id) {

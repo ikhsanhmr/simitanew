@@ -33,7 +33,8 @@
                     <th class="text-center">Tanggal Pergi</th>
                     <th class="text-center">Tanggal Pulang</th>
                     <th class="text-center">Petugas</th>
-                    <th class="text-center">Lokasi Tujuan</th>
+                    <th class="text-center">Unit Level 2 Tujuan</th>
+                    <th class="text-center">Unit Level 3 Tujuan</th>
                     <th class="text-center">Actions</th>
                   </tr>
                 </thead>
@@ -48,11 +49,11 @@
                       <td class="text-center"><?= date_format(new DateTime($jadwal['tanggal_pergi']), 'd/m/Y'); ?></td>
                       <td class="text-center"><?= date_format(new DateTime($jadwal['tanggal_pulang']), 'd/m/Y'); ?></td>
                       <td class="text-center"><?= $jadwal['petugas'] ?></td>
-                      <td class="text-center"><?php foreach($unitnya->result_array() as $unit){
-                        if($jadwal['lokasi_tujuan'] == $unit['id_unit']){
-                          echo $unit['level3'];
-                        }
-                      }?></td>
+                      <?php foreach($unitnya->result_array() as $unit){
+                        if($jadwal['tujuan_level2'] == $unit['id_unit_level2'] && $jadwal['tujuan_level3'] == $unit['id_unit_level3']) {?>
+                          <td class="text-center"><?php echo $unit['nama_unit_level2']; ?> </td>
+                          <td class="text-center"><?php echo $unit['nama_unit_level3']; ?> </td>
+                      <?php } }?>
                      <td class="text-center">
                        <div class="hidden-sm hidden-xs action-buttons">
                          <a class="green" value="<?php echo $jadwal['id_jadwal']; ?>" href="<?php echo base_url() . "laporan/jadwal_har_edit?data_id=" . $jadwal['id_jadwal'] ?>"><i class="fa fa-pencil bigger-130"></i></a>
