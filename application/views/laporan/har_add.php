@@ -31,11 +31,10 @@
         
         <div class="box-body ">
                   <div class="col-lg-10">
-        <!-- UBAH MENJADI DROPDOWN -->
                     <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Type</label>
                             <div class="col-sm-5">
-                            <select class="form-control" name="device_type" id="device_type">
+                            <select class="form-control select2" name="type" id="type">
                          <?php
                          foreach($hasil as $value):
                             echo "<option value='$value->device_type'>$value->device_type</option>";
@@ -45,38 +44,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-10">
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Level Unit</label>
-                            <div class="col-sm-5">
-                            <select class="form-control" name="level" id="level">
-                             <option value='level1'>Level 1</option>;
-                             <option value='level2'>Level 2</option>;
-                             <option value='level3'>Level 3</option>;
-                            </select>
+                    
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="unit_level3" class="col-sm-3 control-label">Unit Level 3</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" name="unit_level3" id="unit_level3" style="width: 100%;">
+                                            <option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                  </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Nama unit</label>
-                            <div class="col-sm-5">
-                            <select class="form-control" name="nama_unit" id="nama_unit">
-                             
-                            </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Nama unit 2</label>
-                            <div class="col-sm-5">
-                            <select class="form-control" name="final" id="final">
-                             
-                            </select>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label"> Lokasi</label>

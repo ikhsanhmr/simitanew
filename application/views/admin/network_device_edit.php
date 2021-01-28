@@ -105,13 +105,7 @@
                                 <label for="id_unit" class="col-sm-3 control-label">Unit</label>
                                 <div class="col-sm-5">
 								  <select class="form-control select2" id="id_unit" name="id_unit" style="width: 100%;"/>	
-									<option value="<?php echo $network_devicenya['id_unit']; ?>" selected="selected"><?php echo $network_devicenya['nama_unitnya']; ?></option>
-										<option> -- Pilih Unit Lain -- </option>
-													<?php foreach ($list_unit->result_array() as $data) { ?>
-													<option value="<?php echo $data['id_unit']; ?>"><?php echo $data['nama_unit']; ?></option>
-													<?php 
-													}
-													?>
+									
 								</select>
                                 </div>
                             </div>

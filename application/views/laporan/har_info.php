@@ -65,7 +65,7 @@ a[href]:after {
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Waktu Pelaksanaan</label>
                             <div class="col-sm-5">
-                            <div class="form-control"><?= $data['waktu_pelaksanaan'];?> </div>
+                            <div class="form-control"><?php echo date_format(new DateTime($data['waktu_pelaksanaan']), 'd/m/Y'); ?> </div>
                             </div>
                         </div>
                     </div>

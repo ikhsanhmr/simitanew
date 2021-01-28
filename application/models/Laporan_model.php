@@ -78,7 +78,7 @@ class laporan_model extends CI_Model {
 	public function editDataHar()
 	{
 		$config['upload_path']         = './public/images/har_network/';  // folder upload 
-		$config['allowed_types']        = 'gif|jpg|png|jpeg'; // jenis file
+		$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf|doc'; // jenis file
 		$config['max_size']             = 3000;
 	
 		$this->load->library('upload', $config);
@@ -86,23 +86,10 @@ class laporan_model extends CI_Model {
 		//INPUT GAMBAR
 				// script upload file pertama
 				
-				if($this->upload->do_upload('foto_sebelum_pengerjaan') != null){
-					$file = $this->upload->data();
-					$foto_sebelum = $file["file_name"];
-				}
-				else {
-					$foto_sebelum = "no images";
-				}
-	
+				
 				// script uplaod file kedua
 				
-				if($this->upload->do_upload('foto_sesudah_pengerjaan') != null){
-					$file2 = $this->upload->data();
-					$foto_sesudah = $file2["file_name"];
-				}
-				else {
-					$foto_sesudah = "no images";
-				}
+				
 
 				
 
@@ -122,6 +109,9 @@ class laporan_model extends CI_Model {
 			'power_supply' => htmlspecialchars($this->input->post('power_supply'), true),
 			'konfigurasi' => htmlspecialchars($this->input->post('konfigurasi'), true),
 			'catatan' => htmlspecialchars($this->input->post('catatan'), true),
+			'gps' => htmlspecialchars($this->input->post('gps'), true),
+			'ups' => htmlspecialchars($this->input->post('ups'), true),
+			'inverter' => htmlspecialchars($this->input->post('inverter'), true),
 			'backup_setting' => htmlspecialchars($this->input->post('backup_setting'), true),
 			'pelaksana_pekerjaan' => htmlspecialchars($this->input->post('pelaksana_pekerjaan'), true),
 			'pengawas_pekerjaan' => htmlspecialchars($this->input->post('pengawas_pekerjaan'), true),
@@ -129,6 +119,8 @@ class laporan_model extends CI_Model {
 		];
 
 	if($this->upload->do_upload('foto_sebelum_pengerjaan')){
+		$file = $this->upload->data();
+		$foto_sebelum = $file["file_name"];
 		$dataFoto1 = [
 			'foto_sebelum_pengerjaan' => $foto_sebelum
 			
@@ -139,6 +131,8 @@ class laporan_model extends CI_Model {
 	}
 	
 	if($this->upload->do_upload('foto_sesudah_pengerjaan')){
+		$file2 = $this->upload->data();
+		$foto_sesudah = $file2["file_name"];
 		$dataFoto2 = [
 			'foto_sesudah_pengerjaan' => $foto_sesudah
 			
@@ -147,10 +141,31 @@ class laporan_model extends CI_Model {
 	else {
 		$dataFoto2 = [];
 	}
-	
 
+	if($this->upload->do_upload('foto_saat_pengerjaan')){
+		$file3 = $this->upload->data();
+		$foto_saat = $file3["file_name"];
+		$dataFoto3 = [
+			'foto_saat_pengerjaan' => $foto_saat
+			
+		];
+	}
+	else {
+		$dataFoto3 = [];
+	}
+
+	if($this->upload->do_upload('working_permit')){
+		$upFile = $this->upload->data();
+		$fileWP = $upFile["file_name"];
+		$filePDF = [
+			'working_permit' => $fileWP
+		];
+	}
+	else {
+		$filePDF = [];
+	}
 		$this->db->where('id', $this->input->post('id'));
-		$this->db->update('har_network', $data +$dataFoto1 + $dataFoto2);
+		$this->db->update('har_network', $data +$dataFoto1 + $dataFoto2 + $dataFoto3 +$filePDF);
 	}
 
 
@@ -241,7 +256,24 @@ class laporan_model extends CI_Model {
         return $this->db->from('unit_level3')
             ->get()
             ->result();
-    }
+	}
+	
+	function getUnitLevel3($type)
+    {
+		$this->db->select('id_unit_level3');
+		$this->db->where('device_type', $type);
+		return $this->db->from('network_device')
+            ->get()
+            ->result();
+	}
+	function get_unit_level3($id)
+    {
+        $this->db->where('id_unit_level3', $id);
+        $this->db->order_by('id_unit_level3', 'ASC');
+        return $this->db->from('unit_level3')
+            ->get()
+            ->result();
+	}
 
 	
 	

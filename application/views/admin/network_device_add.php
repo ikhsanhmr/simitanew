@@ -106,11 +106,7 @@
 									<select class="form-control select2" name="id_unit" style="width: 100%;">
 									
 											<option selected="selected"> -- Pilih Unit -- </option>
-													<?php foreach ($list_unit->result_array() as $data) { ?>
-													<option value="<?php echo $data['id_unit']; ?>"><?php echo $data['nama_unit']; ?></option>
-													<?php 
-													}
-													?>
+													
 									</select>
                                 </div>
                             </div>

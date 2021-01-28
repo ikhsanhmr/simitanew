@@ -49,7 +49,7 @@
                       <td class="text-center"><?= $no ?></td>
                       <td class="text-center"><?= $laporan['nama_unit']; ?></td>
                       <td class="text-center"><?= $laporan['lokasi']; ?></td>
-                      <td class="text-center"><?= date("d/F/Y",strtotime($laporan['waktu_pelaksanaan'])); ?></td>
+                      <td class="text-center"><?= date_format(new DateTime($laporan['waktu_pelaksanaan']), 'd/m/Y'); ?></td>
                       <td class="text-center"><?= $laporan['nama_perangkat']; ?></td>
                       <td class="text-center">
                       <a href="<?= base_url(); ?>laporan/detailDataHar/<?= $laporan['id']; ?>"class="btn btn-info">Detail </a>

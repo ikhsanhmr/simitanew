@@ -2281,7 +2281,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['list_unit'] = $this->admin_model->list_unit();
+			// $data['list_unit'] = $this->admin_model->list_unit();
 			$data['list_merek_network_device'] = $this->admin_model->list_merek_network_device();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$this->load->view('header');
@@ -2334,7 +2334,7 @@ class Admin extends CI_Controller
 
 			$id_network_device = $this->input->get('id_network_device');
 			$data['list_merek_network_device'] = $this->admin_model->list_merek_network_device();
-			$data['list_unit'] = $this->admin_model->list_unit();
+			// $data['list_unit'] = $this->admin_model->list_unit();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$data['network_devicenya'] = $this->admin_model->get_network_device($id_network_device);
 			$this->data['title'] = 'Update Laptop :: ';

@@ -880,10 +880,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_kantor_induk 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      kantor_induk 
+      WHERE id_kantor_induk = a.`id_kantor_induk`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -924,10 +924,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_kantor_induk 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      kantor_induk 
+      WHERE id_kantor_induk = a.`id_kantor_induk`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM

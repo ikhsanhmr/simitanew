@@ -147,6 +147,7 @@ class Laporan extends CI_Controller {
         else {
 
 			$data['hasil'] = $this->laporan->type_network_device();
+			$data['unit']=$this->laporan->kantor_induk();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/har_add',$data);
@@ -417,6 +418,14 @@ class Laporan extends CI_Controller {
     {
         $id_unit_level2=$this->input->post('id_unit_level2');
         $data=$this->laporan->unit_level3($id_unit_level2);
+        echo json_encode($data);
+	}
+	
+	function getUnitLevel3()
+    {
+		$type=$this->input->post('type');
+
+        $data=$this->laporan->get_unit_level3($type);
         echo json_encode($data);
     }
 

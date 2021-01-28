@@ -255,82 +255,34 @@
 <!-- HAR NETWORK -->
 
 <script>
- $("#device_type").change(function(){
+ $("#type").change(function(){
 
 // variabel dari nilai combo box kendaraan
-var device_type = $("#device_type").val();
+var device_type = $("#type").val();
 
 // Menggunakan ajax untuk mengirim dan dan menerima data dari server
 $.ajax({
-	url : "<?php echo base_url();?>/laporan/get_data_unit",
+	url : "<?php echo base_url();?>/laporan/getUnitLevel3",
 	method : "POST",
 	data : {device_type:device_type},
 	async : false,
 	dataType : 'json',
 	success: function(data){
-		var html = '';
+		var html = '<option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>';
 		var i;
-
+    console.log(data[0]);
 		for(i=0; i<data.length; i++){
-			html += '<option value='+data[i].id_unit+'>'+data[i].id_unit+'</option>';
+			html += '<option value='+data[i].nama_unit_level3+'>'+data[i].nama_unit_level3+'</option>';
 		}
-		$('#nama_unit').html(html);
+		$('#unit_level3').html(html);
+		
 
 	}
 });
 });
 
 
-$("#level").change(function(){
-	var level = $("#level").val();
-	$.ajax({
-	url : "<?php echo base_url();?>/laporan/get_data_unit_final",
-	method : "POST",
-	data : {level:level},
-	async : false,
-	dataType : 'json',
-	success: function(data){
-		leveling = level;
-		console.log(leveling);
-	}
-});
 
-});
-
-$("#nama_unit").change(function(){
-
-// variabel dari nilai combo box kendaraan
-var nama_unit = $("#nama_unit").val();
-
-
-// Menggunakan ajax untuk mengirim dan dan menerima data dari server
-$.ajax({
-	url : "<?php echo base_url();?>/laporan/get_data_unit_final",
-	method : "POST",
-	data : {nama_unit:nama_unit},
-
-	async : false,
-	dataType : 'json',
-	success: function(data){
-		var html = '';
-		var i;
-		for(i=0; i<data.length; i++){
-			if(leveling == 'level1'){
-				html += '<option value='+data[i].level1+'>'+data[i].level1+'</option>';
-			}
-			else if(leveling == 'level2'){
-				html += '<option value='+data[i].level2+'>'+data[i].level2+'</option>';
-			}
-			else if(leveling == 'level3'){
-				html += '<option value='+data[i].level3+'>'+data[i].level2+'</option>';
-			}
-			
-		}
-		$('#final').html(html);
-
-	}
-});
-});
 
 
 </script>
