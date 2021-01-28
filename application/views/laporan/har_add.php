@@ -300,7 +300,7 @@
                     </div>
                     <div class="col-lg-10">
                         <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">GPS</label>
+                            <label for="no_hp" class="col-sm-3 control-label">Genset</label>
                             <div class="radio col-sm-2">
                                 <label>
                                 <input type="radio" name="gps" id="gps1" value="Normal"  >

@@ -33,8 +33,8 @@
 
 		  
 		 
- 
-          <li class="treeview <?php if( $this->uri->segment(2)=="unit_sumut1_view" || $this->uri->segment(2)=="unit_sumut2_view" || $this->uri->segment(2)=="users_view" || $this->uri->segment(2)=="vendor_view" || $this->uri->segment(2)=="merek_view"){echo 'active';}?>">
+ <!--
+          <li class="treeview <?php //if( $this->uri->segment(2)=="unit_sumut1_view" || $this->uri->segment(2)=="unit_sumut2_view" || $this->uri->segment(2)=="users_view" || $this->uri->segment(2)=="vendor_view" || $this->uri->segment(2)=="merek_view"){echo 'active';}?>">
             <a href="#">
               <i class="fa fa-heartbeat"></i> <span>Health Index</span>
               <span class="pull-right-container">
@@ -46,14 +46,14 @@
                
 
                
-          <li class="<?php if( $this->uri->segment(2)=="hi" || $this->uri->segment(2)=="hi_view" || $this->uri->segment(2)=="hi_add" || $this->uri->segment(2)=="hi_edit"){echo 'active';}?>">
-            <a href="<?php echo site_url('admin/hi'); ?>">
+          <li class="<?php //if( $this->uri->segment(2)=="hi" || $this->uri->segment(2)=="hi_view" || $this->uri->segment(2)=="hi_add" || $this->uri->segment(2)=="hi_edit"){echo 'active';}?>">
+            <a href="<?php //echo site_url('admin/hi'); ?>">
               <i class="fa fa-microchip"></i> <span>List Maintenance</span>
             </a>
           </li>
 
-          <li class="<?php if( $this->uri->segment(2)=="gangguan" || $this->uri->segment(2)=="gangguan_add" || $this->uri->segment(2)=="gangguan_view" || $this->uri->segment(2)=="gangguan_edit"){echo 'active';}?>">
-            <a href="<?php echo site_url('admin/gangguan'); ?>">
+          <li class="<?php //if( $this->uri->segment(2)=="gangguan" || $this->uri->segment(2)=="gangguan_add" || $this->uri->segment(2)=="gangguan_view" || $this->uri->segment(2)=="gangguan_edit"){echo 'active';}?>">
+            <a href="<?php //echo site_url('admin/gangguan'); ?>">
               <i class="fa fa-wrench"></i> <span>List Gangguan</span>
             </a>
           </li>
@@ -62,7 +62,7 @@
 
           </ul>
         </li>
-
+-->
           <li class="treeview <?php if( $this->uri->segment(2)=="unit_sumut1_view" || $this->uri->segment(2)=="unit_sumut2_view" || $this->uri->segment(2)=="users_view" || $this->uri->segment(2)=="vendor_view" || $this->uri->segment(2)=="merek_view"){echo 'active';}?>">
             <a href="#">
               <i class="fa fa-share"></i> <span>Master Data</span>
