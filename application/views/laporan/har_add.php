@@ -30,21 +30,32 @@
         </div>
         
         <div class="box-body ">
-                  <div class="col-lg-10">
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Type</label>
-                            <div class="col-sm-5">
-                            <select class="form-control select2" name="type" id="type">
-                         <?php
-                         foreach($hasil as $value):
-                            echo "<option value='$value->device_type'>$value->device_type</option>";
-                         endforeach;
-                              ?>
-                            </select>
+                  
+                    <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="kantor_induk" class="col-sm-3 control-label">Kantor Induk</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
+                                            <option selected="selected" value=""> -- Pilih Unit Level 1 -- </option>
+                                            <?php
+                                            foreach ($unit as $value) {
+                                                echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="unit_level2" class="col-sm-3 control-label">Unit Level 2</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;" >
+                                            <option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-lg-10">
                                 <div class="form-group">
                                     <label for="unit_level3" class="col-sm-3 control-label">Unit Level 3</label>
@@ -55,6 +66,7 @@
                                     </div>
                                 </div>
                             </div>
+                      
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label"> Lokasi</label>
@@ -67,7 +79,23 @@
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Waktu Pelaksanaan</label>
                             <div class="col-sm-5">
-                            <input class="form-control"type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan"> 
+                            <!-- <input class="form-control"type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan">  -->
+                            <select class="form-control select2" name="waktu_pelaksanaan" id="waktu_pelaksanaan">
+                         <?php
+                        
+                         foreach($waktu as $value): ?>
+
+                          <option value="<?php echo $value->id_jadwal;?>">
+                          <?php 
+                          echo date("d/M/Y", strtotime($value->tanggal_pergi));
+                          echo "     -      ";
+                          echo date("d/M/Y", strtotime($value->tanggal_pulang));
+                          ?>
+                           </option>
+                            <?php
+                         endforeach;
+                              ?>
+                            </select>
                             </div>
                         </div>
                     </div>
@@ -82,16 +110,37 @@
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Nama Perangkat</label>
-                            <div class="col-sm-5">
-                            <input class="form-control"type="text" name="nama_perangkat" id="nama_perangkat"> 
+                            <div class="col-sm-5" >
+                            <select  class="form-control select2" name="nama_perangkat" id="nama_perangkat"> 
+                            <option selected="selected" value=""> -- Pilih  Nama Perangkat -- </option>
+                            <?php
+                         foreach($network as $value):
+                            echo "<option value='$value->device_type'>$value->device_type</option>";
+                         endforeach;
+                              ?>
+                            
+                            </select>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-10">
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Type Perangkat</label>
+                            <div class="col-sm-5">
+                            <select class="form-control select2" name="type" id="type">
+                            <option selected="selected" value=""> -- Pilih  Type Perangkat -- </option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Serial Number</label>
                             <div class="col-sm-5">
-                            <input class="form-control"type="text" name="serial_number" id="serial_number"> 
+                            <select  class="form-control select2" name="serial_number" id="serial_number"> 
+                            <option selected="selected" value=""> -- Pilih Serial Number -- </option>
+                            </select>
                             </div>
                         </div>
                     </div>
@@ -100,7 +149,7 @@
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Id Address</label>
                             <div class="col-sm-5">
-                            <input type="text" id="id_address" name="id_address" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+                            <input class="form-control"type="text" name="id_address" value = "" id="id_address"> 
                             </div>
                         </div>
                     </div>
@@ -108,7 +157,7 @@
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">MAC Address</label>
                             <div class="col-sm-5">
-                            <input class="form-control"type="text" name="mac_address" id="mac_address"> 
+                            <input class="form-control"type="text" name="mac_address" value="" id="mac_address"> 
                             </div>
                         </div>
                     </div>
@@ -303,19 +352,19 @@
                             <label for="no_hp" class="col-sm-3 control-label">Genset</label>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="gps" id="gps1" value="Normal"  >
+                                <input type="radio" name="genset" id="genset1" value="Normal"  >
                                 Normal
                                 </label>
                             </div>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="gps" id="gps2" value="Ada error">
+                                <input type="radio" name="genset" id="genset2" value="Ada error">
                                 Ada Error 
                                 </label>
                             </div>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="gps" id="gps3" value="Rusak" >
+                                <input type="radio" name="genset" id="genset3" value="Rusak" >
                                 Rusak 
                                 </label>
                             </div>

@@ -46,9 +46,25 @@ a[href]:after {
         <div class="box-body">
                     <div class="col-lg-10">
                         <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Nama unit</label>
+                            <label for="no_hp" class="col-sm-3 control-label">Kantor Induk</label>
                             <div class="col-sm-5">
-                            <div class="form-control"><?= $data['nama_unit'];?> </div>
+                            <div class="form-control"><?= $unit['nama_kantor_induk'];?> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Unit Level 2</label>
+                            <div class="col-sm-5">
+                            <div class="form-control"><?= $unit2['nama_unit_level2'];?> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Unit Level 3</label>
+                            <div class="col-sm-5">
+                            <div class="form-control"><?= $unit3['nama_unit_level3'];?> </div>
                             </div>
                         </div>
                     </div>
@@ -65,7 +81,7 @@ a[href]:after {
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Waktu Pelaksanaan</label>
                             <div class="col-sm-5">
-                            <div class="form-control"><?php echo date_format(new DateTime($data['waktu_pelaksanaan']), 'd/m/Y'); ?> </div>
+                            <div class="form-control"><?= $waktu['tanggal_pergi']?> -- <?= $waktu['tanggal_pulang']?> </div>
                             </div>
                         </div>
                     </div>
@@ -76,6 +92,14 @@ a[href]:after {
                                 <div class="form-control">
                                     <a href="<?= base_url(); ?>laporan/downloadFile/<?= $data['working_permit']; ?>"><?= $data['working_permit'];?></a>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Device Type</label>
+                            <div class="col-sm-5">
+                            <div class="form-control"><?= $data['type'];?> </div>
                             </div>
                         </div>
                     </div>
@@ -95,20 +119,6 @@ a[href]:after {
                             </div>
                         </div>
                     </div>
-                    </div>
-
-                    <div class="section">
-                    
-                    
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Type</label>
-                            <div class="col-sm-5">
-                            <div class="form-control"><?= $data['type'];?> </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Id Address</label>
@@ -124,6 +134,10 @@ a[href]:after {
                             <div class="form-control"><?= $data['mac_address'];?> </div>
                             </div>
                         </div>
+                    </div>
+                   
+
+                   
                     </div>
                     </div>
                   
@@ -296,7 +310,7 @@ a[href]:after {
                         <table  class="table-bordered table-striped"  align = "center" width="500px" height="80px">
                         <thead>
                             <tr>
-                                <th class="text-center">GPS</th>
+                                <th class="text-center">Genset</th>
                                 <th class="text-center">UPS</th>
                                 <th class="text-center">Inverter</th>
                             </tr>
@@ -309,10 +323,10 @@ a[href]:after {
                              <tr>
                                 <td class="text-center">
                                 <?php 
-                                 if($data['gps'] == 'Normal'){ ?>
+                                 if($data['genset'] == 'Normal'){ ?>
                                     <a  class="btn btn-success">Normal </a>
                                <?php }
-                               else if($data['gps'] == 'Ada error'){?>
+                               else if($data['genset'] == 'Ada error'){?>
                                     <a class="btn btn-warning">Ada Error </a>
                               <?php }
                               else { ?>
@@ -357,8 +371,9 @@ a[href]:after {
                 </div>
                     
          
-               
+           
                     <div class="col-lg-10">
+                    <br><br>
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Pengawas Pekerjaan</label>
                             <div class="col-sm-5">

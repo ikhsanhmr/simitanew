@@ -124,30 +124,30 @@ class Laporan extends CI_Controller {
 
 	}
 	
-
-
-
 	//HAR NETWORK
 	public function getDataHar(){
 		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
         }
         else {
-            $data['data_har'] = $this->laporan->getDataHar();
+	
+            $data['waktu'] = $this->laporan->getWaktuPelaksanaan();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/har_view', $data);
 			$this->load->view('footer');
         }
 	}
+
 	public function addDataHar(){
 		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
         }
         else {
 
-			$data['hasil'] = $this->laporan->type_network_device();
+			$data['network'] = $this->laporan->type_network_device();
 			$data['unit']=$this->laporan->kantor_induk();
+			$data['waktu']=$this->laporan->getJadwalHar();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/har_add',$data);
@@ -167,7 +167,7 @@ class Laporan extends CI_Controller {
            
 			$this->load->library('upload', $config);
 			
-				$nama_unit = $this->input->post('nama_unit');
+			
 				$lokasi = $this->input->post('lokasi');
 				$waktu_pelaksanaan = $this->input->post('waktu_pelaksanaan');
 				$nama_perangkat = $this->input->post('nama_perangkat');
@@ -184,8 +184,11 @@ class Laporan extends CI_Controller {
 				$catatan = $this->input->post('catatan');
 				$backup_setting = $this->input->post('backup_setting');
 				$ups = $this->input->post('ups');
-				$gps = $this->input->post('gps');
+				$genset = $this->input->post('genset');
 				$inverter = $this->input->post('inverter');
+				$kantor_induk = $this->input->post('kantor_induk');
+				$unit_level2 = $this->input->post('unit_level2');
+				$unit_level3 = $this->input->post('unit_level3');
 				$pengawas_pekerjaan = $this->input->post('pengawas_pekerjaan');
 				$pelaksana_pekerjaan = $this->input->post('pelaksana_pekerjaan');
 				$solusi = $this->input->post('solusi');
@@ -231,8 +234,7 @@ class Laporan extends CI_Controller {
 				}
 				
 				$data = array(
-				'nama_unit' => $nama_unit
-				,'lokasi' => $lokasi
+				'lokasi' => $lokasi
 				,'waktu_pelaksanaan' => $waktu_pelaksanaan
 				,'nama_perangkat' => $nama_perangkat,
 				'serial_number' => $serial_number,
@@ -248,10 +250,13 @@ class Laporan extends CI_Controller {
 				'konfigurasi' => $konfigurasi,
 				'backup_setting' => $backup_setting,
 				'ups' => $ups,
-				'gps' => $gps,
+				'genset' => $genset,
 				'inverter' => $inverter,
 				'catatan' => $catatan,
-				'solusi' => $solusi,
+				// 'solusi' => $solusi,
+				'kantor_induk' => $kantor_induk,
+				'unit_level2' => $unit_level2,
+				'unit_level3' => $unit_level3,
 				'pengawas_pekerjaan' => $pengawas_pekerjaan,
 				'pelaksana_pekerjaan' => $pelaksana_pekerjaan,
 				'foto_sebelum_pengerjaan' => $foto_sebelum_pengerjaan,
@@ -277,6 +282,9 @@ class Laporan extends CI_Controller {
 
 	
 		$data['laporan'] = $this->laporan->getDataEditHar($id);
+		$data['network'] = $this->laporan->type_network_device();
+		$data['unit']=$this->laporan->kantor_induk();
+		$data['unitnya'] = $this->admin->tampil_unit();
 		$this->load->view('header');
 		$this->load->view('sidebar');
 		$this->load->view('laporan/har_edit',$data);
@@ -320,9 +328,17 @@ class Laporan extends CI_Controller {
         }
         else {
 			$data['data'] = $this->laporan->getDetailDataHar($id);
+			$id_induk = $this->laporan->get_data_kantor_induk($id);
+			$id_level2 = $this->laporan->get_data_lv2($id);
+			$id_level3 = $this->laporan->get_data_lv3($id);
+			$id_waktu = $this->laporan->get_data_waktu($id);
+			$data['unit'] = $this->laporan->filter_data_unit($id_induk);
+			$data['unit2'] = $this->laporan->filter_data_unit_level2($id_level2);
+			$data['unit3'] = $this->laporan->filter_data_unit_level3($id_level3);
+			$data['waktu'] = $this->laporan->filter_data_waktu($id_waktu);
 			$this->load->view('header');
 			$this->load->view('sidebar');
-			$this->load->view('laporan/har_info',$data);
+			$this->load->view('laporan/har_info',$data,$id_induk);
 			$this->load->view('footer');
 		
         }
@@ -398,6 +414,7 @@ class Laporan extends CI_Controller {
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
+			//$data['list_level1'] = $this->admin->unit_level1();
 			$data['hasil']=$this->laporan->kantor_induk();
 			$this->load->view('header');
 			$this->load->view('sidebar');
@@ -423,7 +440,6 @@ class Laporan extends CI_Controller {
 	function getUnitLevel3()
     {
 		$type=$this->input->post('type');
-
         $data=$this->laporan->get_unit_level3($type);
         echo json_encode($data);
     }
@@ -556,6 +572,27 @@ class Laporan extends CI_Controller {
 			}
 		}
 	}
+
+	function get_data_device_name()
+    {
+		$nama_device=$this->input->post('nama_perangkat');
+        $data=$this->laporan->filter_device($nama_device);
+        echo json_encode($data);
+	}
+	
+	function get_data_device_type()
+    {
+		$type=$this->input->post('type');
+        $data=$this->laporan->filter_type($type);
+        echo json_encode($data);
+	}
+	
+	function get_data_serial()
+    {
+		$serial=$this->input->post('serial_number');
+        $data=$this->laporan->filter_serial($serial);
+        echo json_encode($data);
+    }
 
 }
 

@@ -252,40 +252,7 @@
 </script>
 
 
-<!-- HAR NETWORK -->
 
-<script>
- $("#type").change(function(){
-
-// variabel dari nilai combo box kendaraan
-var device_type = $("#type").val();
-
-// Menggunakan ajax untuk mengirim dan dan menerima data dari server
-$.ajax({
-	url : "<?php echo base_url();?>/laporan/getUnitLevel3",
-	method : "POST",
-	data : {device_type:device_type},
-	async : false,
-	dataType : 'json',
-	success: function(data){
-		var html = '<option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>';
-		var i;
-    console.log(data[0]);
-		for(i=0; i<data.length; i++){
-			html += '<option value='+data[i].nama_unit_level3+'>'+data[i].nama_unit_level3+'</option>';
-		}
-		$('#unit_level3').html(html);
-		
-
-	}
-});
-});
-
-
-
-
-
-</script>
 
 <!-- random color picker for chart -->
 <script>
@@ -1342,6 +1309,7 @@ var ctx = document.getElementById("myChart11").getContext('2d');
 		});
 </script>
 <!-- CHART data sla wilsu close -->
+
 <!-- CHART data sla wilsu close -->
 <script>
 
@@ -1397,6 +1365,125 @@ var ctx = document.getElementById("myChart11").getContext('2d');
             });
         });
     </script>
+
+        <!-- HAR NETWORK -->
+
+    <script>
+    $("#nama_perangkat").change(function(){
+
+    // variabel dari nilai combo box kendaraan
+    var nama_perangkat = $("#nama_perangkat").val();
+
+    // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+    $.ajax({
+      url : "<?php echo base_url();?>/laporan/get_data_device_name",
+      method : "POST",
+      data : {nama_perangkat:nama_perangkat},
+      async : false,
+      dataType : 'json',
+      success: function(data){
+        var html = '<option selected="selected" value=""> -- Pilih Perangkat -- </option>';
+        var i;
+
+        for(i=0; i<data.length; i++){
+          html += '<option value='+data[i].type+'>'+data[i].type+'</option>';
+        }
+        $('#type').html(html);
+        
+      }
+    });
+    });
+    </script>
+    <script>
+    $("#type").change(function(){
+
+    // variabel dari nilai combo box kendaraan
+    var type = $("#type").val();
+
+    // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+    $.ajax({
+      url : "<?php echo base_url();?>/laporan/get_data_device_type",
+      method : "POST",
+      data : {type:type},
+      async : false,
+      dataType : 'json',
+      success: function(data){
+        var html = '<option selected="selected" value=""> -- Pilih Serial Number -- </option>';
+        var i;
+
+        for(i=0; i<data.length; i++){
+          html += '<option value='+data[i].serial_number+'>'+data[i].serial_number+'</option>';
+        }
+        $('#serial_number').html(html);
+        
+      }
+    });
+    });
+    </script>
+
+  <script>
+        $("#serial_number").change(function(){
+
+        // variabel dari nilai combo box kendaraan
+        var serial_number = $("#serial_number").val();
+
+        // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+        $.ajax({
+          url : "<?php echo base_url();?>/laporan/get_data_serial",
+          method : "POST",
+          data : {serial_number:serial_number},
+          async : false,
+          dataType : 'json',
+          success: function(data){
+            var html = '';
+            var i;
+            
+            for(i=0; i<data.length; i++){
+              html += data[i].ip_address;
+            }
+            if(html == ''){
+                html += '-';
+              }
+              else {
+                html;
+              }
+            $('#id_address').val(html);
+          }
+        });
+        });
+    </script>
+
+    <script>
+          $("#serial_number").change(function(){
+
+          // variabel dari nilai combo box kendaraan
+          var serial_number = $("#serial_number").val();
+
+          // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+          $.ajax({
+            url : "<?php echo base_url();?>/laporan/get_data_serial",
+            method : "POST",
+            data : {serial_number:serial_number},
+            async : false,
+            dataType : 'json',
+            success: function(data){
+              var html = '';
+              var i;
+              
+              for(i=0; i<data.length; i++){
+                html += data[i].mac_address;
+              }
+              if(html == ''){
+                html += '-';
+              }
+              else {
+                html;
+              }
+              $('#mac_address').val(html);
+            }
+          });
+          });
+      </script>
 
 </body>
 

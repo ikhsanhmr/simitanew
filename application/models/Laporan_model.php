@@ -56,6 +56,80 @@ class laporan_model extends CI_Model {
 		return $this->db->get_where('har_network', ['id' => $id])->row_array();
 	}
 
+	public function get_data_kantor_induk($id)
+	{
+			$this->db->select('kantor_induk');
+			$this->db->from('har_network');
+			$this->db->where('id',$id);
+			return $this->db->get()->row()->kantor_induk;
+		
+	}
+	public function get_data_lv2($id)
+	{
+			$this->db->select('unit_level2');
+			$this->db->from('har_network');
+			$this->db->where('id',$id);
+		
+			return $this->db->get()->row()->unit_level2;
+		
+	}
+	public function get_data_lv3($id)
+	{
+			$this->db->select('unit_level3');
+			$this->db->from('har_network');
+			$this->db->where('id',$id);
+		
+			return $this->db->get()->row()->unit_level3;
+		
+	}
+
+	public function get_data_waktu($id)
+	{
+			$this->db->select('waktu_pelaksanaan');
+			$this->db->from('har_network');
+			$this->db->where('id',$id);
+		
+			return $this->db->get()->row()->waktu_pelaksanaan;
+		
+	}
+
+	public function filter_data_unit($id_induk)
+	{
+			$this->db->select('*');
+			$this->db->from('kantor_induk');
+			$this->db->where('id_kantor_induk',$id_induk);
+			$query = $this->db->get();
+			return $query->row_array ();
+	}
+
+	public function filter_data_unit_level2($id_induk)
+	{
+			$this->db->select('*');
+			$this->db->from('unit_level2');
+			$this->db->where('id_unit_level2',$id_induk);
+			$query = $this->db->get();
+			return $query->row_array ();
+	}
+
+	public function filter_data_unit_level3($id_induk)
+	{
+			$this->db->select('*');
+			$this->db->from('unit_level3');
+			$this->db->where('id_unit_level3',$id_induk);
+			$query = $this->db->get();
+			return $query->row_array ();
+	}
+	public function filter_data_waktu($id_induk)
+	{
+			$this->db->select('*');
+			$this->db->from('jadwal_har');
+			$this->db->where('id_jadwal',$id_induk);
+			$query = $this->db->get();
+			return $query->row_array ();
+	}
+
+	
+
 	public function addDataHar($data)
 	{
 		return $this->db->insert('har_network', $data);
@@ -89,12 +163,8 @@ class laporan_model extends CI_Model {
 				
 				// script uplaod file kedua
 				
-				
-
-				
-
 		$data = [
-			'nama_unit' => htmlspecialchars($this->input->post('nama_unit'), true),
+		
 			'lokasi' => htmlspecialchars($this->input->post('lokasi'), true),
 			'waktu_pelaksanaan' => htmlspecialchars($this->input->post('waktu_pelaksanaan'), true),
 			'nama_perangkat' => htmlspecialchars($this->input->post('nama_perangkat'), true),
@@ -109,64 +179,67 @@ class laporan_model extends CI_Model {
 			'power_supply' => htmlspecialchars($this->input->post('power_supply'), true),
 			'konfigurasi' => htmlspecialchars($this->input->post('konfigurasi'), true),
 			'catatan' => htmlspecialchars($this->input->post('catatan'), true),
-			'gps' => htmlspecialchars($this->input->post('gps'), true),
+			'genset' => htmlspecialchars($this->input->post('genset'), true),
 			'ups' => htmlspecialchars($this->input->post('ups'), true),
 			'inverter' => htmlspecialchars($this->input->post('inverter'), true),
 			'backup_setting' => htmlspecialchars($this->input->post('backup_setting'), true),
+			'kantor_induk' => htmlspecialchars($this->input->post('kantor_induk'), true),
+			'unit_level2' => htmlspecialchars($this->input->post('unit_level2'), true),
+			'unit_level3' => htmlspecialchars($this->input->post('unit_level3'), true),
 			'pelaksana_pekerjaan' => htmlspecialchars($this->input->post('pelaksana_pekerjaan'), true),
 			'pengawas_pekerjaan' => htmlspecialchars($this->input->post('pengawas_pekerjaan'), true),
 		
 		];
 
-	if($this->upload->do_upload('foto_sebelum_pengerjaan')){
-		$file = $this->upload->data();
-		$foto_sebelum = $file["file_name"];
-		$dataFoto1 = [
-			'foto_sebelum_pengerjaan' => $foto_sebelum
-			
-		];
-	}
-	else {
-		$dataFoto1 = [];
-	}
-	
-	if($this->upload->do_upload('foto_sesudah_pengerjaan')){
-		$file2 = $this->upload->data();
-		$foto_sesudah = $file2["file_name"];
-		$dataFoto2 = [
-			'foto_sesudah_pengerjaan' => $foto_sesudah
-			
-		];
-	}
-	else {
-		$dataFoto2 = [];
-	}
+				if($this->upload->do_upload('foto_sebelum_pengerjaan')){
+					$file = $this->upload->data();
+					$foto_sebelum = $file["file_name"];
+					$dataFoto1 = [
+						'foto_sebelum_pengerjaan' => $foto_sebelum
+						
+					];
+				}
+				else {
+					$dataFoto1 = [];
+				}
+				
+				if($this->upload->do_upload('foto_sesudah_pengerjaan')){
+					$file2 = $this->upload->data();
+					$foto_sesudah = $file2["file_name"];
+					$dataFoto2 = [
+						'foto_sesudah_pengerjaan' => $foto_sesudah
+						
+					];
+				}
+				else {
+					$dataFoto2 = [];
+				}
 
-	if($this->upload->do_upload('foto_saat_pengerjaan')){
-		$file3 = $this->upload->data();
-		$foto_saat = $file3["file_name"];
-		$dataFoto3 = [
-			'foto_saat_pengerjaan' => $foto_saat
-			
-		];
-	}
-	else {
-		$dataFoto3 = [];
-	}
+				if($this->upload->do_upload('foto_saat_pengerjaan')){
+					$file3 = $this->upload->data();
+					$foto_saat = $file3["file_name"];
+					$dataFoto3 = [
+						'foto_saat_pengerjaan' => $foto_saat
+						
+					];
+				}
+				else {
+					$dataFoto3 = [];
+				}
 
-	if($this->upload->do_upload('working_permit')){
-		$upFile = $this->upload->data();
-		$fileWP = $upFile["file_name"];
-		$filePDF = [
-			'working_permit' => $fileWP
-		];
-	}
-	else {
-		$filePDF = [];
-	}
-		$this->db->where('id', $this->input->post('id'));
-		$this->db->update('har_network', $data +$dataFoto1 + $dataFoto2 + $dataFoto3 +$filePDF);
-	}
+				if($this->upload->do_upload('working_permit')){
+					$upFile = $this->upload->data();
+					$fileWP = $upFile["file_name"];
+					$filePDF = [
+						'working_permit' => $fileWP
+					];
+				}
+				else {
+					$filePDF = [];
+				}
+					$this->db->where('id', $this->input->post('id'));
+					$this->db->update('har_network', $data +$dataFoto1 + $dataFoto2 + $dataFoto3 +$filePDF);
+				}
 
 
 	public function approval(){
@@ -273,6 +346,44 @@ class laporan_model extends CI_Model {
         return $this->db->from('unit_level3')
             ->get()
             ->result();
+	}
+
+	function getJadwalHar(){
+		$this->db->select('*');
+        return $this->db->from('jadwal_har')
+          ->get()
+          ->result();
+	}
+	function getWaktuPelaksanaan(){
+		$query = $this->db->query("SELECT * FROM `jadwal_har` , `har_network` ,`kantor_induk` WHERE id_jadwal = waktu_pelaksanaan AND id_kantor_induk = kantor_induk ");
+		return $query -> result_array();
+	}
+
+	function filter_device($device_type){
+		$this->db->order_by('device_type', 'ASC');
+		$this->db->group_by('type');
+		$this->db->where('device_type', $device_type);
+        return $this->db->from('network_device')
+          ->get()
+          ->result();
+	}
+
+	function filter_type($type){
+		$this->db->order_by('type', 'ASC');
+		$this->db->group_by('serial_number');	
+	
+		$this->db->where('type', $type);
+        return $this->db->from('network_device')
+          ->get()
+          ->result();
+	}
+
+	function filter_serial($serial){
+		 $this->db->select('*');
+		 $this->db->from('network_device');
+		 $this->db->where('serial_number', $serial);
+		 $query = $this->db->get();
+		 return $query->result();
 	}
 
 	

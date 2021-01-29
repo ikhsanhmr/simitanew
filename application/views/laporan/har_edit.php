@@ -32,61 +32,47 @@
 
         <div class="box-body">
      
-                   <div class="col-lg-10">
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Type</label>
-                            <div class="col-sm-5">
-                            <select class="form-control" name="type" id="type" >
-                         <?php
-                         
-                         foreach($hasil as $value):
-                            if($value->device_type ==  $laporan['type']){
-                                $select = "selected";
-                            }
-                            else {
-                                $select = "";
-                            }
-                            echo "<option $select value='$value->device_type'>$value->device_type</option>";
-                         endforeach;
-                            
-                              ?>
-                             
-                            </select>
+
+        <?php foreach($unitnya->result_array() as $unitnya){
+            if($laporan['unit_level2'] == $unitnya['id_unit_level2'] && $laporan['unit_level3'] == $unitnya['id_unit_level3']) { ?>
+                        <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="kantor_induk" class="col-sm-3 control-label">Kantor Induk</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
+                                            <option selected="<?php echo $unitnya['id_kantor_induk']; ?>" value=""><?php echo $unitnya['nama_kantor_induk']; ?> </option>
+                                            <option  value=""> -- Pilih Kantor Induk -- </option>
+                                            <?php
+                                            foreach ($unit as $value) {
+                                                echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Level Unit</label>
-                            <div class="col-sm-5">
-                            <select class="form-control" name="level" id="level">
-                             <option  value='level1'>Level 1</option>;
-                             <option  value='level2'>Level 2</option>;
-                             <option value='level3'>Level 3</option>;
-                            </select>
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="unit_level2" class="col-sm-3 control-label">Unit Level 2</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;" >
+                                            <option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                  </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Id unit</label>
-                            <div class="col-sm-5">
-                            <select class="form-control" name="id_unit" id="id_unit">
-                             
-                            </select>
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="unit_level3" class="col-sm-3 control-label">Unit Level 3</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" name="unit_level3" id="unit_level3" style="width: 100%;">
+                                            <option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Nama unit</label>
-                            <div class="col-sm-5">
-                            <select class="form-control" name="nama_unit" id="nama_unit">
-                             
-                            </select>
-                            </div>
-                        </div>
-                    </div>
+                                    <?php    }};?>
+                    
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label"> Lokasi</label>
@@ -132,6 +118,30 @@
                             
                              
                            
+                        </div>
+                    </div>
+                    
+                   <div class="col-lg-10">
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Type</label>
+                            <div class="col-sm-5">
+                            <select class="form-control select2" name="type" id="type" >
+                         <?php
+                         
+                         foreach($network as $value):
+                            if($value->device_type ==  $laporan['type']){
+                                $select = "selected";
+                            }
+                            else {
+                                $select = "";
+                            }
+                            echo "<option $select value='$value->device_type'>$value->device_type</option>";
+                         endforeach;
+                            
+                              ?>
+                             
+                            </select>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-10">
@@ -362,22 +372,22 @@
                     </div>
                     <div class="col-lg-10">
                         <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">GPS</label>
+                            <label for="no_hp" class="col-sm-3 control-label">genset</label>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="gps" id="gps1" value="Normal" <?php if($laporan['gps'] == "Normal"){ echo "checked";}?> >
+                                <input type="radio" name="genset" id="genset1" value="Normal" <?php if($laporan['genset'] == "Normal"){ echo "checked";}?> >
                                 Normal
                                 </label>
                             </div>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="gps" id="gps2"  value="Ada error" <?php if($laporan['gps'] == 'Ada error'){ echo "checked";}?>>
+                                <input type="radio" name="genset" id="genset2"  value="Ada error" <?php if($laporan['genset'] == 'Ada error'){ echo "checked";}?>>
                                 Ada Error 
                                 </label>
                             </div>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" <?php if($laporan['gps'] == 'Rusak'){ echo "checked";}?> name="gps" id="tampak_fisik3" value="Rusak" >
+                                <input type="radio" <?php if($laporan['genset'] == 'Rusak'){ echo "checked";}?> name="genset" id="tampak_fisik3" value="Rusak" >
                                 Rusak 
                                 </label>
                             </div>

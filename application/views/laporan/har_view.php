@@ -30,7 +30,7 @@
                 <thead>
                   <tr>
                     <th class="center">No.</th>
-                    <th class="text-center">Nama Unit</th>
+                    <th class="text-center">Unit Kantor Induk</th>
                     <th class="text-center">Lokasi</th>
                     <th class="text-center">Waktu Pelaksanaan</th>
                     <th class="text-center">Nama Perangkat</th>
@@ -42,14 +42,14 @@
 
                 <tbody>
                   <?php
-                  $no = 1;
-                  foreach ($data_har as $laporan):
+                  $no = 1;                  
+                  foreach ($waktu as $laporan):
                   ?>
                     <tr>
                       <td class="text-center"><?= $no ?></td>
-                      <td class="text-center"><?= $laporan['nama_unit']; ?></td>
+                      <td class="text-center"><?= $laporan['nama_kantor_induk']; ?></td>
                       <td class="text-center"><?= $laporan['lokasi']; ?></td>
-                      <td class="text-center"><?= date_format(new DateTime($laporan['waktu_pelaksanaan']), 'd/m/Y'); ?></td>
+                      <td class="text-center"><?= $laporan['tanggal_pergi']; ?>  -  <?= $laporan['tanggal_pulang']; ?></td>
                       <td class="text-center"><?= $laporan['nama_perangkat']; ?></td>
                       <td class="text-center">
                       <a href="<?= base_url(); ?>laporan/detailDataHar/<?= $laporan['id']; ?>"class="btn btn-info">Detail </a>
@@ -73,6 +73,7 @@
                   <?php
                     $no++;
                   endforeach;
+         
                   ?>
 				
                 </tbody>
