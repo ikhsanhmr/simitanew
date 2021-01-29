@@ -59,7 +59,7 @@
                                     <label for="kantor_induk" class="col-sm-3 control-label">Kantor Induk</label>
                                     <div class="col-sm-5">
                                         <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
-                                            <option selected="selected" value=""> -- Pilih Unit Level 1 -- </option>
+                                            <option selected="selected" value=""> -- Pilih Kantor Induk -- </option>
                                             <?php
                                             foreach ($hasil as $value) {
                                                 echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";

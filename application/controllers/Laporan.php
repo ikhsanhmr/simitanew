@@ -398,7 +398,6 @@ class Laporan extends CI_Controller {
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			//$data['list_level1'] = $this->admin->unit_level1();
 			$data['hasil']=$this->laporan->kantor_induk();
 			$this->load->view('header');
 			$this->load->view('sidebar');

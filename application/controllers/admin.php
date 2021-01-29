@@ -11,7 +11,7 @@ class Admin extends CI_Controller
 		$this->load->database();
 		$this->load->helper(array('form', 'url'));
 		$this->load->library(array('form_validation', 'session', 'enkripsi'));
-		$this->load->model(array('admin_model','Sla_model'));
+		$this->load->model(array('admin_model','Sla_model', 'laporan_model'));
 		$this->load->model('Kpi_model', 'kpi');
 	}
 	/**
@@ -1244,7 +1244,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {			
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
 			$data['list_merek_laptop'] = $this->admin_model->list_merek_laptop();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$this->load->view('header');
@@ -1256,7 +1256,7 @@ class Admin extends CI_Controller
 
 	public function action_laptop_add()
 	{
-		//	print_r($_POST); exit;
+			// print_r($_POST); exit;
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
@@ -1274,7 +1274,7 @@ class Admin extends CI_Controller
 				$laptop_name = $this->input->post('laptop_name');
 				$serial_number = $this->input->post('serial_number');
 				$ip_address = $this->input->post('ip_address');
-				$id_unit = $this->input->post('id_unit');
+				$id_unit = $this->input->post('unit_level3');
 				$status_kepemilikan = $this->input->post('status_kepemilikan');
 				$tahun = $this->input->post('tahun');
 				$id_vendor = $this->input->post('id_vendor');
@@ -1284,6 +1284,7 @@ class Admin extends CI_Controller
 					'spesifikasi' => $spesifikasi, 'nama_pengguna' => $nama_pengguna, 'ip_address' => $ip_address,
 					'id_unit' => $id_unit,
 					'tahun' => $tahun,
+					'status_kepemilikan' => $status_kepemilikan,
 					'id_vendor' => $id_vendor,
 					'laptop_name' => $laptop_name,
 					'serial_number' => $serial_number,
@@ -1307,7 +1308,8 @@ class Admin extends CI_Controller
 
 			$id_laptop = $this->input->get('id_laptop');
 			$data['list_merek_laptop'] = $this->admin_model->list_merek_laptop();
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$data['laptopnya'] = $this->admin_model->get_laptop($id_laptop);
 			$this->data['title'] = 'Update Laptop :: ';
@@ -1356,6 +1358,9 @@ class Admin extends CI_Controller
 					'laptop_name' => $laptop_name,
 					'serial_number' => $serial_number,
 				);
+				// print_r($_POST);
+				// echo "<br/>";
+				// print_r($data);
 				$update = $this->admin_model->update_laptop($data, $id_laptop);
 				if ($update) {
 					echo "<script>alert('Berhasil Mengubah Data')</script>";
@@ -1796,7 +1801,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
 			$data['list_merek_komputer'] = $this->admin_model->list_merek_komputer();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$this->load->view('header');
@@ -1816,7 +1821,7 @@ class Admin extends CI_Controller
 			$spesifikasi = $this->input->post('spesifikasi');
 			$nama_pengguna = $this->input->post('nama_pengguna');
 			$ip_address = $this->input->post('ip_address');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$status_kepemilikan = $this->input->post('status_kepemilikan');
 			$tahun = $this->input->post('tahun');
 			$id_vendor = $this->input->post('id_vendor');
@@ -1844,7 +1849,8 @@ class Admin extends CI_Controller
 
 			$id_komputer = $this->input->get('id_komputer');
 			$data['list_merek_komputer'] = $this->admin_model->list_merek_komputer();
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['komputernya'] = $this->admin_model->get_komputer($id_komputer);
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$this->data['title'] = 'Update Laptop :: ';
@@ -1866,7 +1872,7 @@ class Admin extends CI_Controller
 			$spesifikasi = $this->input->post('spesifikasi');
 			$nama_pengguna = $this->input->post('nama_pengguna');
 			$ip_address = $this->input->post('ip_address');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$status_kepemilikan = $this->input->post('status_kepemilikan');
 			if ($status_kepemilikan == 'Aset PLN') {
 				$id_vendor = '0';
@@ -1927,7 +1933,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
 			$data['list_merek_monitor'] = $this->admin_model->list_merek_monitor();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$this->load->view('header');
@@ -1945,7 +1951,7 @@ class Admin extends CI_Controller
 		} else {
 			$id_merek = $this->input->post('id_merek');
 			$nama_pengguna = $this->input->post('nama_pengguna');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$status_kepemilikan = $this->input->post('status_kepemilikan');
 			$tahun = $this->input->post('tahun');
 			$id_vendor = $this->input->post('id_vendor');
@@ -1971,7 +1977,8 @@ class Admin extends CI_Controller
 
 			$id_monitor = $this->input->get('id_monitor');
 			$data['list_merek_monitor'] = $this->admin_model->list_merek_monitor();
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$data['monitornya'] = $this->admin_model->get_monitor($id_monitor);
 			$this->data['title'] = 'Update Laptop :: ';
@@ -1991,7 +1998,7 @@ class Admin extends CI_Controller
 			$id_monitor = $this->input->post('id_monitor');
 			$id_merek = $this->input->post('id_merek');
 			$nama_pengguna = $this->input->post('nama_pengguna');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$status_kepemilikan = $this->input->post('status_kepemilikan');
 			if ($status_kepemilikan == 'Aset PLN') {
 				$id_vendor = '0';
@@ -2048,7 +2055,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
 			$data['list_merek_printer'] = $this->admin_model->list_merek_printer();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$this->load->view('header');
@@ -2066,7 +2073,7 @@ class Admin extends CI_Controller
 		} else {
 			$id_merek = $this->input->post('id_merek');
 			$nama_pengguna = $this->input->post('nama_pengguna');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$status_kepemilikan = $this->input->post('status_kepemilikan');
 			$id_vendor = $this->input->post('id_vendor');
 			$tahun = $this->input->post('tahun');
@@ -2091,7 +2098,8 @@ class Admin extends CI_Controller
 
 			$id_printer = $this->input->get('id_printer');
 			$data['list_merek_printer'] = $this->admin_model->list_merek_printer();
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$data['printernya'] = $this->admin_model->get_printer($id_printer);
 			$this->data['title'] = 'Update Laptop :: ';
@@ -2111,7 +2119,7 @@ class Admin extends CI_Controller
 			$id_printer = $this->input->post('id_printer');
 			$id_merek = $this->input->post('id_merek');
 			$nama_pengguna = $this->input->post('nama_pengguna');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$status_kepemilikan = $this->input->post('status_kepemilikan');
 			if ($status_kepemilikan == 'Aset PLN') {
 				$id_vendor = '0';
@@ -2168,7 +2176,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/aplikasi_lokal_add', $data);
@@ -2185,7 +2193,7 @@ class Admin extends CI_Controller
 			$id_aplikasi_lokal = $this->input->post('id_aplikasi_lokal');
 			$nama_aplikasi = $this->input->post('nama_aplikasi');
 			$link_aplikasi = $this->input->post('link_aplikasi');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$jenis_database = $this->input->post('jenis_database');
@@ -2210,7 +2218,8 @@ class Admin extends CI_Controller
 		} else {
 
 			$id_aplikasi_lokal = $this->input->get('id_aplikasi_lokal');
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['aplikasi_lokalnya'] = $this->admin_model->get_aplikasi_lokal($id_aplikasi_lokal);
 			$this->data['title'] = 'Update Laptop :: ';
 			$this->load->view('header', $this->data);
@@ -2229,7 +2238,7 @@ class Admin extends CI_Controller
 			$id_aplikasi_lokal = $this->input->post('id_aplikasi_lokal');
 			$nama_aplikasi = $this->input->post('nama_aplikasi');
 			$link_aplikasi = $this->input->post('link_aplikasi');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$jenis_database = $this->input->post('jenis_database');
@@ -2282,6 +2291,7 @@ class Admin extends CI_Controller
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			// $data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
 			$data['list_merek_network_device'] = $this->admin_model->list_merek_network_device();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$this->load->view('header');
@@ -2300,7 +2310,7 @@ class Admin extends CI_Controller
 			$id_merek = $this->input->post('id_merek');
 			$device_type = $this->input->post('device_type');
 			$nama_pengguna = $this->input->post('nama_pengguna');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$id_vendor = $this->input->post('id_vendor');
 			$status_kepemilikan = $this->input->post('status_kepemilikan');
 			$ip_address = $this->input->post('ip_address');
@@ -2334,7 +2344,8 @@ class Admin extends CI_Controller
 
 			$id_network_device = $this->input->get('id_network_device');
 			$data['list_merek_network_device'] = $this->admin_model->list_merek_network_device();
-			// $data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$data['network_devicenya'] = $this->admin_model->get_network_device($id_network_device);
 			$this->data['title'] = 'Update Laptop :: ';
@@ -2355,7 +2366,7 @@ class Admin extends CI_Controller
 			$id_merek = $this->input->post('id_merek');
 			$device_type = $this->input->post('device_type');
 			$nama_pengguna = $this->input->post('nama_pengguna');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$status_kepemilikan = $this->input->post('status_kepemilikan');
 			if ($status_kepemilikan == 'Aset PLN') {
 				$id_vendor = '0';
@@ -2418,7 +2429,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
 			$data['list_merek_server'] = $this->admin_model->list_merek_server();
 			$this->load->view('header');
 			$this->load->view('sidebar');
@@ -2437,7 +2448,7 @@ class Admin extends CI_Controller
 			$keterangan = $this->input->post('keterangan');
 			$ip_address = $this->input->post('ip_address');
 			$nama_pengguna = $this->input->post('nama_pengguna');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$tahun = $this->input->post('tahun');
@@ -2466,7 +2477,8 @@ class Admin extends CI_Controller
 
 			$id_server = $this->input->get('id_server');
 			$data['list_merek_server'] = $this->admin_model->list_merek_server();
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['servernya'] = $this->admin_model->get_server($id_server);
 			$this->data['title'] = 'Update Laptop :: ';
 			$this->load->view('header', $this->data);
@@ -2487,7 +2499,7 @@ class Admin extends CI_Controller
 			$keterangan = $this->input->post('keterangan');
 			$ip_address = $this->input->post('ip_address');
 			$nama_pengguna = $this->input->post('nama_pengguna');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$tahun = $this->input->post('tahun');
@@ -2544,7 +2556,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
 			$data['list_merek_vicon'] = $this->admin_model->list_merek_vicon();
 			$this->load->view('header');
 			$this->load->view('sidebar');
@@ -2565,7 +2577,7 @@ class Admin extends CI_Controller
 			$no_seri = $this->input->post('no_seri');
 			$ip_address = $this->input->post('ip_address');
 			$mac_address = $this->input->post('mac_address');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$data = array(
 				'id_merek' => $id_merek,
 				'type' => $type, 'mac_address' => $mac_address, 'tahun' => $tahun, 'no_seri' => $no_seri, 'ip_address' => $ip_address, 'id_unit' => $id_unit
@@ -2586,7 +2598,8 @@ class Admin extends CI_Controller
 
 			$id_vicon = $this->input->get('id_vicon');
 			$data['list_merek_vicon'] = $this->admin_model->list_merek_vicon();
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['viconnya'] = $this->admin_model->get_vicon($id_vicon);
 			$this->data['title'] = 'Update Laptop :: ';
 			$this->load->view('header', $this->data);
@@ -2609,7 +2622,7 @@ class Admin extends CI_Controller
 			$no_seri = $this->input->post('no_seri');
 			$ip_address = $this->input->post('ip_address');
 			$mac_address = $this->input->post('mac_address');
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			$data = array(
 				'id_merek' => $id_merek,
 				'type' => $type, 'mac_address' => $mac_address, 'tahun' => $tahun, 'no_seri' => $no_seri, 'ip_address' => $ip_address, 'id_unit' => $id_unit

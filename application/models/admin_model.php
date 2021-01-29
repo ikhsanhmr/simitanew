@@ -440,10 +440,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -484,10 +484,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -578,10 +578,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -622,10 +622,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -662,10 +662,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -706,10 +706,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -745,10 +745,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      unit_level3
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -789,10 +789,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -828,10 +828,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya
       FROM
       aplikasi_lokal a 
       ORDER BY a.id_aplikasi_lokal DESC ");
@@ -862,10 +862,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya
       FROM
       aplikasi_lokal a
       WHERE a.id_aplikasi_lokal =$id_aplikasi_lokal");
@@ -880,10 +880,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_kantor_induk 
+      nama_unit_level3
       FROM
-      kantor_induk 
-      WHERE id_kantor_induk = a.`id_kantor_induk`) AS nama_unitnya,
+      unit_level3
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -924,10 +924,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_kantor_induk 
+      nama_unit_level3
       FROM
-      kantor_induk 
-      WHERE id_kantor_induk = a.`id_kantor_induk`) AS nama_unitnya,
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -963,10 +963,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -1002,10 +1002,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -1093,10 +1093,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM
@@ -1132,10 +1132,10 @@ function unit_level1()
     $get = $this->db->query("SELECT 
       a.*,
       (SELECT 
-      nama_unit 
+      nama_unit_level3 
       FROM
-      unit 
-      WHERE id_unit = a.`id_unit`) AS nama_unitnya,
+      unit_level3 
+      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
       (SELECT 
       merek 
       FROM

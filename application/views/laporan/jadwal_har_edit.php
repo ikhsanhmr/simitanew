@@ -80,7 +80,7 @@
                                     <div class="col-sm-5">
                                         <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;" >
                                             <option value="<?php echo $unitnya['id_unit_level2']; ?>" selected="selected"><?php echo $unitnya['nama_unit_level2']; ?></option>
-                                            <option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>
+                                            <option value=""> -- Pilih Unit Level 2 -- </option>
                                         </select>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                                     <div class="col-sm-5">
                                         <select class="form-control select2" name="unit_level3" id="unit_level3" style="width: 100%;">
                                             <option value="<?php echo $unitnya['id_unit_level3']; ?>" selected="selected"><?php echo $unitnya['nama_unit_level3']; ?></option>
-                                            <option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>
+                                            <option value=""> -- Pilih Unit Level 3 -- </option>
                                         </select>
                                     </div>
                                 </div>
