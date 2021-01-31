@@ -38,7 +38,8 @@ class Laporan extends CI_Controller {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 	} else {
 	
-	
+			$data['list_merek_printer'] = $this->admin->list_merek_printer();
+	$data['unit']=$this->laporan->kantor_induk();
 	
 	$this->load->view('header');
 	$this->load->view('sidebar');

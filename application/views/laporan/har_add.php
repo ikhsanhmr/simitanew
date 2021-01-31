@@ -69,7 +69,7 @@
                       
                     <div class="col-lg-10">
                         <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label"> Lokasi</label>
+                            <label for="no_hp" class="col-sm-3 control-label"> Lokasi Pekerjaan</label>
                             <div class="col-sm-5">
                             <input class="form-control"type="text" name="lokasi" id="lokasi"> 
                             </div>
@@ -162,7 +162,10 @@
                         </div>
                     </div>
                 </div>
-                  <br>
+				    
+              
+               
+
                 <div class="box-body">
                 <div class="col-lg-10">
                             <div class="form-group">
@@ -417,9 +420,25 @@
                         </div>
                      </div>
                 </div>
-
+             
 
                 <div class="box-body">
+				   <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Tingkat Kerawanan</label>
+							 <div class="col-sm-5" >
+                            <select  class="form-control select2" name="tingkat_kerawanan" id="tingkat_kerawanan"> 
+                            <option selected="selected" value=""> -- Pilih  Tingkat Kerawanan -- </option>
+                          
+                                <option value="1">Perangkat Rawan Terkena Banjir</option>
+                                <option value="2">Perangkat Sering Panas</option>
+                                <option value="3">Perangkat Mudah Jatuh</option>
+                               
+                            
+                            </select>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Pengawas Pekerjaan</label>
