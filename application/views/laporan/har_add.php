@@ -38,7 +38,7 @@
                                         <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
                                             <option selected="selected" value=""> -- Pilih Unit Level 1 -- </option>
                                             <?php
-                                            foreach ($id_kantor as $value) {
+                                            foreach ($unit as $value) {
                                                 echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
                                             }
                                             ?>
