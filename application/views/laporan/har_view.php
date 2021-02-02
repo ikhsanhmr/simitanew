@@ -49,7 +49,8 @@
                       <td class="text-center"><?= $no ?></td>
                       <td class="text-center"><?= $laporan['nama_kantor_induk']; ?></td>
                       <td class="text-center"><?= $laporan['lokasi']; ?></td>
-                      <td class="text-center"><?= $laporan['tanggal_pergi']; ?>  -  <?= $laporan['tanggal_pulang']; ?></td>
+                      <td class="text-center">
+                      <?= date("d/M/Y", strtotime($laporan['tanggal_pergi'])); ?>  -  <?= date("d/M/Y", strtotime( $laporan['tanggal_pulang'])); ?></td>
                       <td class="text-center"><?= $laporan['nama_perangkat']; ?></td>
                       <td class="text-center">
                       <a href="<?= base_url(); ?>laporan/detailDataHar/<?= $laporan['id']; ?>"class="btn btn-info">Detail </a>

@@ -468,18 +468,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-10">
+                <!-- <div class="col-lg-10">
                         <div class="form-group">
                             <label for="" class="col-sm-3 control-label">Solusi</label>
                             <div class="col-sm-5">
                             <textarea class="form-control" id="solusi"  name="solusi" rows="3" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." >
-                            
-                            
                             </textarea>
                         </div>
                     </div>
                 </div>
-                </div>
+                </div> -->
 
                 <div class="box-body ">
                     <div class="col-lg-10">

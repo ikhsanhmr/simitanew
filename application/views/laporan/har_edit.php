@@ -137,11 +137,7 @@
                                 <input class="form-control" type="file" name="working_permit" id="working_permit">
                             </div>
                            <?php }
-                            ?>
-                          
-                            
-                             
-                           
+                            ?>  
                         </div>
                     </div>
                     
