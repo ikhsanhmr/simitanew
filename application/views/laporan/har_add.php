@@ -38,7 +38,7 @@
                                         <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
                                             <option selected="selected" value=""> -- Pilih Unit Level 1 -- </option>
                                             <?php
-                                            foreach ($unit as $value) {
+                                            foreach ($id_kantor as $value) {
                                                 echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
                                             }
                                             ?>
@@ -430,9 +430,11 @@
                             <select  class="form-control select2" name="tingkat_kerawanan" id="tingkat_kerawanan"> 
                             <option selected="selected" value=""> -- Pilih  Tingkat Kerawanan -- </option>
                           
-                                <option value="1">Perangkat Rawan Terkena Banjir</option>
-                                <option value="2">Perangkat Sering Panas</option>
-                                <option value="3">Perangkat Mudah Jatuh</option>
+                            <?php
+                         foreach($kerawanan as $value):
+                            echo "<option value='$value->tingkat_kerawanan'>$value->tingkat_kerawanan</option>";
+                         endforeach;
+                              ?>
                                
                             
                             </select>
@@ -463,6 +465,17 @@
                             <label for="" class="col-sm-3 control-label">Catatan</label>
                             <div class="col-sm-5">
                             <textarea class="form-control" id="catatan"  name="catatan" rows="3" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Solusi</label>
+                            <div class="col-sm-5">
+                            <textarea class="form-control" id="solusi"  name="solusi" rows="3" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." >
+                            
+                            
+                            </textarea>
                         </div>
                     </div>
                 </div>

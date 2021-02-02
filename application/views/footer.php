@@ -1365,7 +1365,6 @@ var ctx = document.getElementById("myChart11").getContext('2d');
     </script>
 
         <!-- HAR NETWORK -->
-
     <script>
     $("#nama_perangkat").change(function(){
 
@@ -1452,6 +1451,38 @@ var ctx = document.getElementById("myChart11").getContext('2d');
     </script>
 
     <script>
+          $("#serial_number").change(function(){
+
+          // variabel dari nilai combo box kendaraan
+          var serial_number = $("#serial_number").val();
+
+          // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+          $.ajax({
+            url : "<?php echo base_url();?>/laporan/get_data_serial",
+            method : "POST",
+            data : {serial_number:serial_number},
+            async : false,
+            dataType : 'json',
+            success: function(data){
+              var html = '';
+              var i;
+              
+              for(i=0; i<data.length; i++){
+                html += data[i].mac_address;
+              }
+              if(html == ''){
+                html += '-';
+              }
+              else {
+                html;
+              }
+              $('#mac_address').val(html);
+            }
+          });
+          });
+      </script>
+
+<script>
           $("#serial_number").change(function(){
 
           // variabel dari nilai combo box kendaraan

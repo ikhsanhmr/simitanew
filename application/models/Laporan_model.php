@@ -245,7 +245,6 @@ class laporan_model extends CI_Model {
 	public function approval(){
 		$data = [
 			'approval' => 'approved',
-			
 		];
 
 		$this->db->where('id', $this->input->post('id'));
@@ -268,7 +267,8 @@ class laporan_model extends CI_Model {
         return $this->db->from('network_device')
             ->get()
             ->result();
-    }
+	}
+	
 	function nama_unit_final($id_unit,$level)
     {
         $this->db->where('id_unit', $id_unit);
@@ -355,7 +355,7 @@ class laporan_model extends CI_Model {
           ->result();
 	}
 	function getWaktuPelaksanaan(){
-		$query = $this->db->query("SELECT * FROM `jadwal_har` , `har_network` ,`kantor_induk` WHERE id_jadwal = waktu_pelaksanaan AND id_kantor_induk = kantor_induk ");
+		$query = $this->db->query("SELECT * FROM `jadwal_har` , `har_network` ,`kantor_induk` WHERE id_jadwal = waktu_pelaksanaan AND id_kantor_induk = kantor_induk ORDER BY id ");
 		return $query -> result_array();
 	}
 
@@ -385,6 +385,19 @@ class laporan_model extends CI_Model {
 		 $query = $this->db->get();
 		 return $query->result();
 	}
+
+	function data_kerawanan(){
+		$this->db->order_by('tingkat_kerawanan', 'ASC');
+		$this->db->group_by('tingkat_kerawanan');
+        return $this->db->from('kerawanan')
+          ->get()
+          ->result();
+	}
+
+
+  
+
+  
 
 	
 	

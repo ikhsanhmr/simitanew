@@ -127,6 +127,11 @@
                   </span>
                 </a>
               </li>
+              <li class="<?php if( $this->uri->segment(2)=="tingkat_kerawanan_view"){echo 'active';}?>"> 
+                  <a href="<?php echo site_url('admin/tingkat_kerawanan_view'); ?>"><i class="fa fa-book"></i> Tingkat Kerawanan
+                  </span>
+                </a>
+              </li>
             </li>
 
           </ul>

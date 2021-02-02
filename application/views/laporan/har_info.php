@@ -97,20 +97,21 @@ a[href]:after {
                     </div>
                     <div class="col-lg-10">
                         <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Device Type</label>
-                            <div class="col-sm-5">
-                            <div class="form-control"><?= $data['type'];?> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Nama Perangkat</label>
                             <div class="col-sm-5">
                             <div class="form-control"><?= $data['nama_perangkat'];?> </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Device Type</label>
+                            <div class="col-sm-5">
+                            <div class="form-control"><?= $data['type'];?> </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Serial Number</label>
@@ -371,9 +372,17 @@ a[href]:after {
                 </div>
                     
          
-           
-                    <div class="col-lg-10">
+                <div class="col-lg-10">
                     <br><br>
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Tingkat Kerawanan</label>
+                            <div class="col-sm-5">
+                            <div class="form-control"><?= $data['tingkat_kerawanan'];?> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                  
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Pengawas Pekerjaan</label>
                             <div class="col-sm-5">

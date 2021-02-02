@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Jan 2021 pada 14.08
+-- Waktu pembuatan: 02 Feb 2021 pada 14.49
 -- Versi server: 10.1.36-MariaDB
 -- Versi PHP: 7.2.10
 
@@ -2121,6 +2121,7 @@ CREATE TABLE `har_network` (
   `genset` varchar(13) NOT NULL,
   `ups` varchar(13) NOT NULL,
   `inverter` varchar(13) NOT NULL,
+  `tingkat_kerawanan` varchar(255) NOT NULL,
   `catatan` varchar(255) NOT NULL,
   `solusi` varchar(255) NOT NULL,
   `pengawas_pekerjaan` varchar(128) NOT NULL,
@@ -2138,14 +2139,16 @@ CREATE TABLE `har_network` (
 -- Dumping data untuk tabel `har_network`
 --
 
-INSERT INTO `har_network` (`id`, `nama_unit`, `lokasi`, `waktu_pelaksanaan`, `working_permit`, `nama_perangkat`, `serial_number`, `type`, `id_address`, `mac_address`, `tampak_fisik`, `indikator_lampu`, `power_supply`, `lan`, `port`, `konfigurasi`, `backup_setting`, `genset`, `ups`, `inverter`, `catatan`, `solusi`, `pengawas_pekerjaan`, `pelaksana_pekerjaan`, `approval`, `kantor_induk`, `unit_level2`, `unit_level3`, `foto_sebelum_pengerjaan`, `foto_saat_pengerjaan`, `foto_sesudah_pengerjaan`) VALUES
-(55, '', 'Jallan sultan', '', '', '', '', 'Access Point', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', 'approved', '3', '', '', 'foto_sebelum_pengerjaan31.png', 'foto_sebelum_pengerjaan44.png', 'foto_sebelum_pengerjaan43.png'),
-(56, '', 'RUANG ULP PANGKALAN SUSU', '7', 'cashier2.pdf', 'ROUTER', '123', 'Converter', '123.123.123.123', 'XC12333213', 'Ada error', 'Ada error', 'Rusak', 'Ada error', 'Normal', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Good Job Nice Work', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasution', '', '1', '1', '5', 'foto_sebelum_pengerjaan8.png', 'Fw__Aircraft3532.JPG', 'foto_sebelum_pengerjaan11311.png'),
-(57, '', 'jalan sultan ibrahim', '', '', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '4', '', '', 'foto_sebelum_pengerjaan32.png', 'foto_sebelum_pengerjaan61.png', 'foto_sebelum_pengerjaan71.png'),
-(58, '', 'jalan sultan ibrahim', '3', '', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', ' ', '', '', '1', '3', '14', 'foto_sebelum_pengerjaan21.png', 'foto_sebelum_pengerjaan33.png', 'foto_sebelum_pengerjaan22.png'),
-(59, '', 'JAUH', '', 'foto_sebelum_pengerjaan62.png', '', '', 'Access Point', '', '', 'Normal', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Rusak', 'Rusak', 'Rusak', 'Rusak', 'Rusak', '', '', '', '', '', '1', '', '', 'foto_sebelum_pengerjaan23.png', 'foto_sebelum_pengerjaan25.png', 'foto_sebelum_pengerjaan24.png'),
-(60, '', 'RUANG ULP PANGKALAN SUSU', '3', '', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '4', '', '', 'foto_sebelum_pengerjaan26.png', 'foto_sebelum_pengerjaan35.png', 'foto_sebelum_pengerjaan34.png'),
-(61, '', '', '7', 'foto_sebelum_pengerjaan72.png', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '9', '', '', 'foto_sebelum_pengerjaan13.png', 'foto_sebelum_pengerjaan15.png', 'foto_sebelum_pengerjaan14.png');
+INSERT INTO `har_network` (`id`, `nama_unit`, `lokasi`, `waktu_pelaksanaan`, `working_permit`, `nama_perangkat`, `serial_number`, `type`, `id_address`, `mac_address`, `tampak_fisik`, `indikator_lampu`, `power_supply`, `lan`, `port`, `konfigurasi`, `backup_setting`, `genset`, `ups`, `inverter`, `tingkat_kerawanan`, `catatan`, `solusi`, `pengawas_pekerjaan`, `pelaksana_pekerjaan`, `approval`, `kantor_induk`, `unit_level2`, `unit_level3`, `foto_sebelum_pengerjaan`, `foto_saat_pengerjaan`, `foto_sesudah_pengerjaan`) VALUES
+(55, '', 'Jallan sultan', '', '', '', '', 'Access Point', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', 'approved', '3', '', '', 'foto_sebelum_pengerjaan31.png', 'foto_sebelum_pengerjaan44.png', 'foto_sebelum_pengerjaan43.png'),
+(56, '', 'RUANG ULP PANGKALAN SUSU', '7', 'cashier2.pdf', 'ROUTER', '123', 'Converter', '123.123.123.123', 'XC12333213', 'Ada error', 'Ada error', 'Rusak', 'Ada error', 'Normal', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', '', 'Good Job Nice Work', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasution', '', '1', '1', '5', 'foto_sebelum_pengerjaan8.png', 'Fw__Aircraft3532.JPG', 'foto_sebelum_pengerjaan11311.png'),
+(57, '', 'jalan sultan ibrahim', '', '', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '4', '', '', 'foto_sebelum_pengerjaan32.png', 'foto_sebelum_pengerjaan61.png', 'foto_sebelum_pengerjaan71.png'),
+(58, '', 'jalan sultan ibrahim', '3', '', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', ' ', '', '', '1', '3', '14', 'foto_sebelum_pengerjaan21.png', 'foto_sebelum_pengerjaan33.png', 'foto_sebelum_pengerjaan22.png'),
+(59, '', 'JAUH', '', 'foto_sebelum_pengerjaan62.png', '', '', 'Access Point', '', '', 'Normal', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Rusak', 'Rusak', 'Rusak', 'Rusak', 'Rusak', '', '', '', '', '', '', '1', '', '', 'foto_sebelum_pengerjaan23.png', 'foto_sebelum_pengerjaan25.png', 'foto_sebelum_pengerjaan24.png'),
+(60, '', 'RUANG ULP PANGKALAN SUSU', '3', '', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '4', '', '', 'foto_sebelum_pengerjaan26.png', 'foto_sebelum_pengerjaan35.png', 'foto_sebelum_pengerjaan34.png'),
+(61, '', '', '7', 'foto_sebelum_pengerjaan72.png', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '9', '', '', 'foto_sebelum_pengerjaan13.png', 'foto_sebelum_pengerjaan15.png', 'foto_sebelum_pengerjaan14.png'),
+(62, '', 'Jalan Pamungkas 30', '1', '', 'Access Point', '12', 'AP-AC-PRO', '10.26.33.7', '-', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', 'Good', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasution', '', '1', '2', '2', 'childe_mabuk.jpg', 'childe_mabuk2.jpg', 'childe_mabuk1.jpg'),
+(64, '', 'TUGU SEMBILAN', '3', 'childe_mabuk3.jpg', 'Access Point', '', '', '10.26.33.7', '-', 'Ada error', 'Ada error', 'Normal', 'Normal', 'Ada error', 'Rusak', 'Rusak', 'Ada error', 'Normal', 'Ada error', 'Perangkat rawan terkena banjir', 'Gud', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasution', 'approved', '1', '2', '2', 'childe_mabuk4.jpg', 'childe_mabuk6.jpg', 'childe_mabuk5.jpg');
 
 -- --------------------------------------------------------
 
@@ -2389,6 +2392,26 @@ INSERT INTO `kategori_gangguan` (`id_kategori`, `kategori`) VALUES
 (12, 'GANGGUAN PERANGKAT MODEM'),
 (13, 'GANGGUAN PERANGKAT SWITCH POP'),
 (14, 'GANGGUAN MODUL POWER');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kerawanan`
+--
+
+CREATE TABLE `kerawanan` (
+  `id_kerawanan` int(13) NOT NULL,
+  `tingkat_kerawanan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `kerawanan`
+--
+
+INSERT INTO `kerawanan` (`id_kerawanan`, `tingkat_kerawanan`) VALUES
+(1, 'Perangkat rawan terkena banjir'),
+(2, 'Perangkat sering panas'),
+(3, 'Perangkat mudah jatuh');
 
 -- --------------------------------------------------------
 
@@ -7935,6 +7958,12 @@ ALTER TABLE `kategori_gangguan`
   ADD KEY `id_kategori` (`id_kategori`);
 
 --
+-- Indeks untuk tabel `kerawanan`
+--
+ALTER TABLE `kerawanan`
+  ADD PRIMARY KEY (`id_kerawanan`);
+
+--
 -- Indeks untuk tabel `komputer`
 --
 ALTER TABLE `komputer`
@@ -8094,7 +8123,7 @@ ALTER TABLE `gangguan`
 -- AUTO_INCREMENT untuk tabel `har_network`
 --
 ALTER TABLE `har_network`
-  MODIFY `id` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT untuk tabel `hi`
@@ -8131,6 +8160,12 @@ ALTER TABLE `kantor_induk`
 --
 ALTER TABLE `kategori_gangguan`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT untuk tabel `kerawanan`
+--
+ALTER TABLE `kerawanan`
+  MODIFY `id_kerawanan` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `komputer`

@@ -149,6 +149,7 @@ class Laporan extends CI_Controller {
 			$data['network'] = $this->laporan->type_network_device();
 			$data['unit']=$this->laporan->kantor_induk();
 			$data['waktu']=$this->laporan->getJadwalHar();
+			$data['kerawanan']=$this->laporan->data_kerawanan();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/har_add',$data);
@@ -187,6 +188,7 @@ class Laporan extends CI_Controller {
 				$ups = $this->input->post('ups');
 				$genset = $this->input->post('genset');
 				$inverter = $this->input->post('inverter');
+				$tingkat_kerawanan = $this->input->post('tingkat_kerawanan');
 				$kantor_induk = $this->input->post('kantor_induk');
 				$unit_level2 = $this->input->post('unit_level2');
 				$unit_level3 = $this->input->post('unit_level3');
@@ -254,6 +256,7 @@ class Laporan extends CI_Controller {
 				'genset' => $genset,
 				'inverter' => $inverter,
 				'catatan' => $catatan,
+				'tingkat_kerawanan' => $tingkat_kerawanan,
 				// 'solusi' => $solusi,
 				'kantor_induk' => $kantor_induk,
 				'unit_level2' => $unit_level2,
@@ -281,11 +284,19 @@ class Laporan extends CI_Controller {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 
-	
+		
 		$data['laporan'] = $this->laporan->getDataEditHar($id);
 		$data['network'] = $this->laporan->type_network_device();
-		$data['unit']=$this->laporan->kantor_induk();
-		$data['unitnya'] = $this->admin->tampil_unit();
+		$data['unit_induk']=$this->laporan->kantor_induk();
+		$id_induk = $this->laporan->get_data_kantor_induk($id);
+			$id_level2 = $this->laporan->get_data_lv2($id);
+			$id_level3 = $this->laporan->get_data_lv3($id);
+			$id_waktu = $this->laporan->get_data_waktu($id);
+			$data['unit'] = $this->laporan->filter_data_unit($id_induk);
+			$data['unit2'] = $this->laporan->filter_data_unit_level2($id_level2);
+			$data['unit3'] = $this->laporan->filter_data_unit_level3($id_level3);
+			$data['waktu'] = $this->laporan->filter_data_waktu($id_waktu);
+			$data['jadwal']=$this->laporan->getJadwalHar();
 		$this->load->view('header');
 		$this->load->view('sidebar');
 		$this->load->view('laporan/har_edit',$data);
@@ -593,7 +604,8 @@ class Laporan extends CI_Controller {
 		$serial=$this->input->post('serial_number');
         $data=$this->laporan->filter_serial($serial);
         echo json_encode($data);
-    }
+	}
+
 
 }
 

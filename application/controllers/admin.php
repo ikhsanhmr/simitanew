@@ -3322,4 +3322,123 @@ class Admin extends CI_Controller
 		}
 	}
 
+	//TINGKAT KERAWANAN
+	public function tingkat_kerawanan_view()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['tingkat_kerawanan'] = $this->admin_model->tampil_tingkat_kerawanan();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/tingkat_kerawanan_view', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function tingkat_kerawanan_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/tingkat_kerawanan_add');
+			$this->load->view('footer');
+		}
+	}
+
+	public function tingkat_kerawanan_add_action()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$this->form_validation->set_rules('tingkat_kerawanan', 'Tingkat_kerawanan', 'required', [
+				'required' => 'Data ini harus di isi!'
+			]);
+
+			if ($this->form_validation->run() == false) {
+				$this->load->view('header');
+				$this->load->view('sidebar');
+				$this->load->view('admin/tingkat_kerawnan_add');
+				$this->load->view('footer');
+			} else {
+				$data = array(
+					'tingkat_kerawanan' => $this->input->post('tingkat_kerawanan')
+				);
+
+				$insert = $this->admin_model->add_tingkat_kerawanan($data);
+				if ($insert) {
+					echo "<script>alert('Berhasil Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/tingkat_kerawanan_view>";
+				} else {
+					echo "<script>alert('Gagal Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/tingkat_kerawanan_view>";
+				}
+			}
+		}
+	}
+
+	public function tingkat_kerawanan_delete()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('id_kerawanan');
+			$delete = $this->admin_model->tingkat_kerawanan_delete($data_id);
+			if ($delete) {
+				echo "<script>alert('Berhasil Menghapus Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/tingkat_kerawanan_view>";
+			}
+		}
+	}
+
+	public function tingkat_kerawanan_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('id_kerawanan');
+			$data['tingkat_kerawanan'] = $this->admin_model->get_tingkat_kerawanan($data_id, "id_kerawanan");
+			$this->data['title'] = 'Update Tingkat Kerawanan :: ';
+			$this->load->view('header', $this->data);
+			$this->load->view('sidebar', $data);
+			$this->load->view('admin/tingkat_kerawanan_edit', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function tingkat_kerawanan_edit_action()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->post('id_kerawanan');
+			$this->form_validation->set_rules('tingkat_kerawanan', 'Tingkat Kerawnabab', 'required', [
+				'required' => 'Kolom ini harus di isi!'
+			]);
+
+			if ($this->form_validation->run() == false) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible text-center " role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+					</button>
+					Pastikan seluruh data terisi
+					</div>');
+				redirect(base_url() . "admin/tingkat_kerawanan_edit?id_kerawanan=" . $data_id);
+			} else {
+				$data = array(
+					'tingkat_kerawanan' => $this->input->post('tingkat_kerawanan')
+				);
+
+				$update = $this->admin_model->update_tingkat_kerawanan($data, $data_id);
+				if ($update) {
+					echo "<script>alert('Berhasil Mengubah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/tingkat_kerawanan_view?data_id=" . $data_id . ">";
+				}
+			}
+		}
+	}
+
+	
+
 }

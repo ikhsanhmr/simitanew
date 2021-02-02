@@ -1503,5 +1503,40 @@ function unit_level1()
     
     return $get;
   }
+
+  //TINGKAT KERAWANAN
+  function tampil_tingkat_kerawanan()
+  {
+    $get = $this->db->query("SELECT a.* FROM kerawanan a ORDER BY a.id_kerawanan DESC ");
+    return $get;
+  }
+
+  function add_tingkat_kerawanan($data)
+  {
+    $input = $this->db->insert('kerawanan', $data);
+    return $input;
+  }
+
+  function tingkat_kerawanan_delete($data_id)
+  {
+    $delete = $this->db->delete('kerawanan', array('id_kerawanan' => $data_id));
+    return $delete;
+  }
+
+  function get_tingkat_kerawanan($value, $column)
+  {
+    $get = $this->db->query("SELECT a.* FROM kerawanan a WHERE a.$column =$value");
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
+  }
+
+  function update_tingkat_kerawanan($data, $data_id) {
+    $update = $this->db->update('kerawanan', $data, array('id_kerawanan' => $data_id));
+    return $update;
+  }
+
+
+
  
 }

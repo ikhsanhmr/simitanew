@@ -33,18 +33,23 @@
         <div class="box-body">
      
 
-        <?php foreach($unitnya->result_array() as $unitnya){
-            if($laporan['unit_level2'] == $unitnya['id_unit_level2'] && $laporan['unit_level3'] == $unitnya['id_unit_level3']) { ?>
+       
                         <div class="col-lg-10">
                                 <div class="form-group">
                                     <label for="kantor_induk" class="col-sm-3 control-label">Kantor Induk</label>
                                     <div class="col-sm-5">
                                         <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
-                                            <option selected="<?php echo $unitnya['id_kantor_induk']; ?>" value=""><?php echo $unitnya['nama_kantor_induk']; ?> </option>
+                                            
                                             <option  value=""> -- Pilih Kantor Induk -- </option>
                                             <?php
-                                            foreach ($unit as $value) {
-                                                echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
+                                            foreach ($unit_induk as $value) {
+                                                if($laporan['kantor_induk'] == $value->id_kantor_induk ){
+                                                        $select = 'selected';
+                                                }
+                                                else {
+                                                    $select = '';
+                                                }
+                                                echo "<option $select value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
                                             }
                                             ?>
                                         </select>
@@ -56,7 +61,8 @@
                                     <label for="unit_level2" class="col-sm-3 control-label">Unit Level 2</label>
                                     <div class="col-sm-5">
                                         <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;" >
-                                            <option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>
+                                        <option selected="<?php echo $unit2['id_unit_level2']; ?>" value=""><?php echo $unit2['nama_unit_level2']; ?> </option>
+                                            <option  value=""> -- Pilih Unit Level 2 -- </option>
                                         </select>
                                     </div>
                                 </div>
@@ -66,12 +72,13 @@
                                     <label for="unit_level3" class="col-sm-3 control-label">Unit Level 3</label>
                                     <div class="col-sm-5">
                                         <select class="form-control select2" name="unit_level3" id="unit_level3" style="width: 100%;">
-                                            <option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>
+                                        <option selected="<?php echo $unit3['id_unit_level3']; ?>" value=""><?php echo $unit3['nama_unit_level3']; ?> </option>
+                                            <option  value=""> -- Pilih Unit Level 3 -- </option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
-                                    <?php    }};?>
+                             
                     
                     <div class="col-lg-10">
                         <div class="form-group">
@@ -86,9 +93,26 @@
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Waktu Pelaksanaan</label>
                             <div class="col-sm-5">
-                            <input class="form-control"type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan"
-                            value = "<?php echo $laporan['waktu_pelaksanaan']; ?>"> 
-                            
+                            <!-- <input class="form-control"type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan">  -->
+                            <select class="form-control select2" name="waktu_pelaksanaan" id="waktu_pelaksanaan">
+                            <option  value="" > -- Masukan Jadwal Pelaksanaan -- </option>
+                         <?php
+                         foreach($jadwal as $value): 
+                            if($laporan['waktu_pelaksanaan'] == $value->id_jadwal ){
+                                $select = 'selected';
+                                }
+                            else {
+                                $select = '';
+                            }
+                  
+                        echo "<option $select value='$value->id_jadwal'>";
+                        echo date("d/M/Y", strtotime($value->tanggal_pergi));
+                        echo "     -      ";
+                        echo date("d/M/Y", strtotime($value->tanggal_pulang));
+                        "</option>";                        
+                         endforeach;
+                              ?>
+                            </select>
                             </div>
                         </div>
                     </div>
@@ -123,13 +147,12 @@
                     
                    <div class="col-lg-10">
                     <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Type</label>
+                            <label for="no_hp" class="col-sm-3 control-label">Nama Perangkat</label>
                             <div class="col-sm-5">
-                            <select class="form-control select2" name="type" id="type" >
+                            <select class="form-control select2" name="nama_perangkat" id="nama_perangkat" >
                          <?php
-                         
                          foreach($network as $value):
-                            if($value->device_type ==  $laporan['type']){
+                            if($value->device_type ==  $laporan['nama_perangkat']){
                                 $select = "selected";
                             }
                             else {
@@ -139,17 +162,17 @@
                          endforeach;
                             
                               ?>
-                             
                             </select>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Nama Perangkat</label>
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Type Perangkat</label>
                             <div class="col-sm-5">
-                            <input class="form-control"type="text" name="nama_perangkat" id="nama_perangkat"
-                            value = "<?php echo $laporan['nama_perangkat']; ?>"> 
+                            <select class="form-control select2" name="type" id="type">
+                            <option selected="selected" value=""> -- Pilih  Type Perangkat -- </option>
+                            </select>
                             </div>
                         </div>
                     </div>
@@ -157,7 +180,9 @@
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Serial Number</label>
                             <div class="col-sm-5">
-                            <input class="form-control"type="text" name="serial_number" id="serial_number" value = "<?php echo $laporan['serial_number']; ?>"> 
+                            <select  class="form-control select2" name="serial_number" id="serial_number"> 
+                            <option selected="selected" value=""> -- Pilih Serial Number -- </option>
+                            </select>
                             </div>
                         </div>
                     </div>
