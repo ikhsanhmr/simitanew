@@ -1253,19 +1253,19 @@ function unit_level1()
   //DATA NETWORK
   function tampil_data_network()
   {
-    $get = $this->db->query("SELECT a.*, b.nama_unit FROM data_network a JOIN unit b ON a.id_unit = b.id_unit ORDER BY a.service_id DESC ");
+    $get = $this->db->query("SELECT a.*, b.nama_unit_level3 FROM data_network a JOIN unit_level3 b ON a.id_unit = b.id_unit_level3 ORDER BY a.service_id DESC ");
     return $get;
   }
 
   function list_unit_sumut1()
   {
-    $get = $this->db->query("SELECT id_unit, nama_unit FROM unit WHERE wilayah_kerja = 'Sumut 1' ORDER BY id_unit DESC ");
+    $get = $this->db->query("SELECT a.wilayah_kerja, c.id_unit_level3, c.nama_unit_level3 FROM unit_level3 c JOIN kantor_induk a ON c.id_kantor_induk = a.id_kantor_induk WHERE a.wilayah_kerja = 1 ORDER BY c.id_unit_level3 DESC ");
     return $get;
   }
 
   function list_unit_sumut2()
   {
-    $get = $this->db->query("SELECT id_unit, nama_unit FROM unit WHERE wilayah_kerja = 'Sumut 2' ORDER BY id_unit DESC ");
+    $get = $this->db->query("SELECT a.wilayah_kerja, c.id_unit_level3, c.nama_unit_level3 FROM unit_level3 c JOIN kantor_induk a ON c.id_kantor_induk = a.id_kantor_induk WHERE a.wilayah_kerja = 2 ORDER BY c.id_unit_level3 DESC ");
     return $get;
   }
 
@@ -1297,7 +1297,7 @@ function unit_level1()
 
   public function data_network_filter($id)
   {
-    $query = "SELECT a.*, b.nama_unit FROM data_network a JOIN unit b ON a.id_unit = b.id_unit WHERE a.id_unit = $id ORDER BY a.service_id DESC";
+    $query = "SELECT a.*, b.nama_unit_level3 FROM data_network a JOIN unit_level3 b ON a.id_unit = b.id_unit_level3 WHERE a.id_unit = $id ORDER BY a.service_id DESC";
     $get = $this->db->query($query);
     return $get;
   }

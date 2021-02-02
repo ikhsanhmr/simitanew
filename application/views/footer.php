@@ -657,11 +657,11 @@
     var ele1 = document.getElementById("toggleText1");
     var ele2 = document.getElementById("toggleText2");
 
-    if (tes === "Asman Sumut 1") {
+    if (tes === "1") {
       ele1.style.display = "block";
       ele2.style.display = "none";
       document.getElementById("nomorasman").value = 1;
-    } else if(tes === "Asman Sumut 2"){
+    } else if(tes === "2"){
       ele2.style.display = "block";
       ele1.style.display = "none";
       document.getElementById("nomorasman").value = 2;
@@ -679,16 +679,14 @@
     var ele2 = document.getElementById("toggleText2");
     var ele3 = document.getElementById("toggleText3");
 
-    if (tes === "Asman Sumut 1") {
+    if (tes === "1") {
       ele1.style.display = "block";
       ele2.style.display = "none";
       ele3.style.display = "none";
-      document.getElementById("nomorasman").value = 1;
-    } else if(tes === "Asman Sumut 2"){
+    } else if(tes === "2"){
       ele2.style.display = "block";
       ele1.style.display = "none";
       ele3.style.display = "none";
-      document.getElementById("nomorasman").value = 2;
     } else {
       ele1.style.display = "none";
       ele2.style.display = "none";

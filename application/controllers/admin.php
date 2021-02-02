@@ -2290,7 +2290,6 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			// $data['list_unit'] = $this->admin_model->list_unit();
 			$data['hasil']=$this->laporan_model->kantor_induk();
 			$data['list_merek_network_device'] = $this->admin_model->list_merek_network_device();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
@@ -2940,7 +2939,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['list_unit'] = $this->admin_model->list_unit();
+			$data['hasil']=$this->laporan_model->kantor_induk();
 			$data['data_network_view'] = $this->admin_model->tampil_data_network();
 			$this->load->view('header');
 			$this->load->view('sidebar');
@@ -2954,14 +2953,13 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$id_unit = $this->input->post('id_unit');
+			$id_unit = $this->input->post('unit_level3');
 			if (empty($id_unit)) {
-				echo "<script>alert('Harap masukkan nama unit untuk melakukan filter data network')</script>";
+				echo "<script>alert('Harap masukkan kantor induk, nama unit level 2, dan nama unit level 3 untuk melakukan filter data network')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/data_network_view>";
 			} else {
 				$data['data_network_view'] = $this->admin_model->data_network_filter($id_unit);
-				$data['filter_unit'] = $id_unit;
-				$data['list_unit'] = $this->admin_model->list_unit();
+				$data['hasil']=$this->laporan_model->kantor_induk();
 				$this->load->view('header');
 				$this->load->view('sidebar');
 				$this->load->view('admin/data_network_view', $data);
@@ -3029,6 +3027,16 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('kapasitas', 'Kapasitas', 'required', [
 				'required' => 'Kapasitas harus di isi!'
 			]);
+			$this->form_validation->set_rules('status', 'status', 'required', [
+				'required' => 'status harus di isi!'
+			]);
+			$this->form_validation->set_rules('tahun', 'tahun', 'required', [
+				'required' => 'tahun harus di isi!'
+
+			]);
+			$this->form_validation->set_rules('bulan', 'bulan', 'required', [
+				'required' => 'bulan harus di isi!'
+			]);
 
 			if ($this->form_validation->run() == false) {
 				$this->load->view('header');
@@ -3051,7 +3059,10 @@ class Admin extends CI_Controller
 					'no_aktivasi' => $this->input->post('no_aktivasi'),
 					'scada' => $this->input->post('scada'),
 					'harga' => $this->input->post('harga'),
-					'kapasitas' => $this->input->post('kapasitas')
+					'kapasitas' => $this->input->post('kapasitas'),
+					'status' => $this->input->post('status'),
+					'bulan' => $this->input->post('bulan'),
+					'tahun' => $this->input->post('tahun')
 				);
 
 				$insert = $this->admin_model->add_data_network_data($data);
@@ -3089,7 +3100,8 @@ class Admin extends CI_Controller
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$data_id = $this->input->post('data_id');
-			$nomorasman = $this->input->post('nomorasman');
+			// $nomorasman = $this->input->post('nomorasman');
+			$asman = $this->input->post('asman');
 			$this->form_validation->set_rules('tanggal_aktivasi', 'Tanggal Aktivasi', 'required', [
 				'required' => 'Tanggal Aktivasi harus di isi!'
 			]);
@@ -3102,11 +3114,11 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('asman', 'Asman', 'required', [
 				'required' => 'Asman harus di isi!'
 			]);
-			if($nomorasman == 1){
+			if($asman == 1){
 				$this->form_validation->set_rules('id_unit1', 'Nama Unit', 'required|numeric', [
 					'required' => 'Nama unit harus di isi!'
 				]);
-			} else if ($nomorasman == 2){
+			} else if ($asman == 2){
 				$this->form_validation->set_rules('id_unit2', 'Nama Unit', 'required|numeric', [
 					'required' => 'Nama unit harus di isi!'
 				]);
@@ -3129,6 +3141,16 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('kapasitas', 'Kapasitas', 'required', [
 				'required' => 'Kapasitas harus di isi!'
 			]);
+			$this->form_validation->set_rules('status', 'status', 'required', [
+				'required' => 'status harus di isi!'
+			]);
+			$this->form_validation->set_rules('tahun', 'tahun', 'required', [
+				'required' => 'tahun harus di isi!'
+
+			]);
+			$this->form_validation->set_rules('bulan', 'bulan', 'required', [
+				'required' => 'bulan harus di isi!'
+			]);
 
 			if ($this->form_validation->run() == false) {
 				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible text-center " role="alert">
@@ -3138,9 +3160,9 @@ class Admin extends CI_Controller
 					</div>');
 				redirect(base_url() . "admin/data_network_edit?data_id=" . $data_id);
 			} else {
-				if($nomorasman == 1){
+				if($asman == 1){
 					$id_unit = $this->input->post('id_unit1');
-				} else if($nomorasman == 2){
+				} else if($asman == 2){
 					$id_unit = $this->input->post('id_unit2');
 				} else {
 					$id_unit = $this->input->post('id_unit_lama');
@@ -3155,9 +3177,11 @@ class Admin extends CI_Controller
 					'no_aktivasi' => $this->input->post('no_aktivasi'),
 					'scada' => $this->input->post('scada'),
 					'harga' => $this->input->post('harga'),
-					'kapasitas' => $this->input->post('kapasitas')
+					'status' => $this->input->post('status'),
+					'bulan' => $this->input->post('bulan'),
+					'tahun' => $this->input->post('tahun')
 				);
-
+				// print_r($_POST);
 				$update = $this->admin_model->update_data_network($data, $data_id);
 				if ($update) {
 					echo "<script>alert('Berhasil Mengubah Data')</script>";
