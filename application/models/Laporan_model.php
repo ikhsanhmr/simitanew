@@ -305,6 +305,40 @@ class laporan_model extends CI_Model {
 	    $delete = $this->db->delete('jadwal_har', array('id_jadwal' => $id));
 	    return $delete;
 	  }
+
+	  public function jadwal_har_filter($petugas, $year, $month) {
+	    $query = "SELECT * FROM jadwal_har WHERE ";
+	    $requirement = 0;
+
+	    if(!empty($petugas)) {
+	      $query .= "petugas = $petugas ";
+	      $requirement++;
+	    } 
+
+	    if(!empty($year)){
+	      if(!empty($month)){
+	        if($requirement > 0){
+	          $query .= "AND ";
+	        }
+	        $query .= "(YEAR(tanggal_pergi) = '$year' OR YEAR(tanggal_pulang) = '$year') AND (month(tanggal_pergi) = '$month' OR MONTH(tanggal_pulang) = '$month')";
+	      } else {
+	        if($requirement > 0){
+	          $query .= "AND ";
+	        }
+	        $query .= "(YEAR(tanggal_pergi) = '$year' OR YEAR(tanggal_pulang) = '$year')";
+	      }
+	    } else {
+	      if(!empty($month)){
+	        if($requirement > 0){
+	          $query .= "AND ";
+	        }
+	        $query .= "(MONTH(tanggal_pergi) = '$month' OR MONTH(tanggal_pulang) = '$month')";
+	      } 
+	    }
+
+	    $get = $this->db->query($query);
+	    return $get;
+	  }
 	  
 	  function kantor_induk()
     {

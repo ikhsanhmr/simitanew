@@ -11,6 +11,7 @@ class Laporan extends CI_Controller {
 		// }
 		$this->load->model('Laporan_model', 'laporan');
 		$this->load->model('Admin_model', 'admin');
+		$this->load->model('Pegawai_model', 'pegawai');
     }
 	
 	
@@ -413,6 +414,7 @@ class Laporan extends CI_Controller {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$data['jadwal_harnya'] = $this->laporan->tampil_jadwal_har();
+			$data['pegawainya'] = $this->pegawai->getData();
 			$data['unitnya'] = $this->admin->tampil_unit();
 			$this->load->view('header');
 			$this->load->view('sidebar');
@@ -426,8 +428,8 @@ class Laporan extends CI_Controller {
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			//$data['list_level1'] = $this->admin->unit_level1();
 			$data['hasil']=$this->laporan->kantor_induk();
+			$data['pegawainya'] = $this->pegawai->getData();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/jadwal_har_add', $data);
@@ -514,6 +516,7 @@ class Laporan extends CI_Controller {
 		} else {
 			$data_id = $this->input->get('data_id');
 			$data['jadwal_harnya'] = $this->laporan->get_jadwal_har($data_id, "id_jadwal");
+			$data['pegawainya'] = $this->pegawai->getData();
 			$data['unitnya'] = $this->admin->tampil_unit();
 			$data['hasil']=$this->laporan->kantor_induk();
 			$this->data['title'] = 'Update Jadwal HAR :: ';
@@ -581,6 +584,73 @@ class Laporan extends CI_Controller {
 			if ($delete) {
 				echo "<script>alert('Berhasil Menghapus Data')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "laporan/jadwal_har_view>";
+			}
+		}
+	}
+
+	public function jadwal_har_filter()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$petugas = $this->input->post('filter_petugas');
+			$year = $this->input->post('filter_year');
+			$month = $this->input->post('filter_month');
+			$monthname = "";
+			switch($month){
+				case 1 :
+					$monthname = "Januari";
+					break;
+				case 2 :
+					$monthname = "Februari";
+					break;
+				case 3 :
+					$monthname = "Maret";
+					break;
+				case 4 :
+					$monthname = "April";
+					break;
+				case 5 :
+					$monthname = "Mei";
+					break;
+				case 6 :
+					$monthname = "Juni";
+					break;
+				case 7 :
+					$monthname = "Juli";
+					break;
+				case 8 :
+					$monthname = "Agustus";
+					break;
+				case 9 :
+					$monthname = "September";
+					break;
+				case 10 :
+					$monthname = "Oktober";
+					break;
+				case 11 :
+					$monthname = "November";
+					break;
+				case 12 :
+					$monthname = "Desember";
+					break;
+			}
+			
+			if (empty($petugas) && empty($year) && empty($month)) {
+				echo "<script>alert('Harap masukkan nama petugas, tahun, atau bulan untuk melakukan filter data jadwal HAR')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "laporan/jadwal_har_view>";
+			} else {
+				$data['jadwal_harnya'] = $this->laporan->jadwal_har_filter($petugas, $year, $month);
+				$data['petugas'] = $petugas;
+				$data['year'] = $year;
+				$data['month'] = $month;
+				$data['monthname'] = $monthname;
+				$data['pegawainya'] = $this->pegawai->getData();
+				$data['unitnya'] = $this->admin->tampil_unit();
+				$this->load->view('header');
+				$this->load->view('sidebar');
+				$this->load->view('laporan/jadwal_har_view', $data);
+				$this->load->view('footer');
 			}
 		}
 	}

@@ -50,7 +50,14 @@
                                 <div class="form-group">
                                     <label for="petugas" class="col-sm-3 control-label">Petugas</label>
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" id="petugas" name="petugas" required />
+                                        <select class="form-control select2" id="petugas" name="petugas" style="width: 100%;">
+                                            <option selected="selected" value=""> -- Pilih Petugas -- </option>
+                                            <?php
+                                            foreach ($pegawainya as $value) { ?>
+                                                <option value="<?php echo $value['pegawai_id']; ?>"><?php echo $value['nama']; ?></option>
+                                            <?php }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
