@@ -177,19 +177,19 @@
                             <label for="no_hp" class="col-sm-3 control-label">Tampak Fisik</label>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="tampak_fisik" id="tampak_fisik1" value="Normal"  >
+                                <input type="radio" name="tampak_fisik" id="tampak_fisik1" value="Normal"  class="tampak_fisik">
                                 Normal
                                 </label>
                             </div>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="tampak_fisik" id="tampak_fisik2" value="Ada error">
+                                <input type="radio" name="tampak_fisik" id="tampak_fisik2" value="Ada error" class="tampak_fisik">
                                 Ada Error 
                                 </label>
                             </div>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="tampak_fisik" id="tampak_fisik3" value="Rusak" >
+                                <input type="radio" name="tampak_fisik" id="tampak_fisik3" value="Rusak" class="tampak_fisik">
                                 Rusak 
                                 </label>
                             </div>
@@ -200,19 +200,19 @@
                             <label for="no_hp" class="col-sm-3 control-label">Indikator Lampu</label>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="indikator_lampu" id="indikator_lampu1" value="Normal"  >
+                                <input type="radio" name="indikator_lampu" id="indikator_lampu1" value="Normal" class="indikator_lampu">
                                 Normal
                                 </label>
                             </div>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="indikator_lampu" id="indikator_lampu2" value="Ada error">
+                                <input type="radio" name="indikator_lampu" id="indikator_lampu2" value="Ada error" class="indikator_lampu">
                                 Ada Error 
                                 </label>
                             </div>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="indikator_lampu" id="indikator_lampu3" value="Rusak" >
+                                <input type="radio" name="indikator_lampu" id="indikator_lampu3" value="Rusak" class="indikator_lampu">
                                 Rusak 
                                 </label>
                             </div>
@@ -468,16 +468,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Solusi</label>
-                            <div class="col-sm-5">
-                            <textarea class="form-control" id="solusi"  name="solusi" rows="3" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." >
-                            </textarea>
-                        </div>
-                    </div>
                 </div>
-                </div> -->
 
                 <div class="box-body ">
                     <div class="col-lg-10">

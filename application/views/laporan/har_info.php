@@ -410,12 +410,91 @@ a[href]:after {
                     </div>
                 </div>
                 
+           
                 <div class="col-lg-10">
                     <div class="form-group">
                         <label for="no_hp" class="col-sm-3 control-label">Solusi</label>
                             <div class="col-sm-5">
-                                <textarea class="form-control" id="solusi" readonly name="solusi" rows="5"  ><?php echo $data['solusi']; ?>
-                                </textarea>
+                            <ul>
+                            <?php
+                            //TAMPAK FISIK
+                            if($data['tampak_fisik'] == 'Rusak'){
+                               echo "<li>Saran Jika Tampak Fisik Rusak</li>";
+                            }
+                            elseif($data['tampak_fisik'] == 'Ada error') {
+                               echo "<li>Saran Jika Tampak Fisik Error</li>";
+                            }
+                            //INDIKATOR LAMPU
+                            if($data['indikator_lampu'] == 'Rusak'){
+                               echo "<li>Saran Jika Indikator Rusak</li>";
+                            }
+                            elseif($data['indikator_lampu'] == 'Ada error') {
+                               echo "<li>Saran Jika Indikator Error</li>";
+                            }
+                            //POWER SUPPLY
+                            if($data['power_supply'] == 'Rusak'){
+                               echo "<li>Saran Jika Power Supply Rusak</li>";
+                            }
+                            elseif($data['power_supply'] == 'Ada error') {
+                               echo "<li>Saran Jika Power Supply Ada Error</li>";
+                            }
+                            //LAN
+                            if($data['lan'] == 'Rusak'){
+                               echo "<li>Saran Jika LAN Rusak</li>";
+                            }
+                            elseif($data['lan'] == 'Ada error') {
+                               echo "<li>Saran Jika LAN Ada Error</li>";
+                            }
+                            //PORT
+                            if($data['port'] == 'Rusak'){
+                               echo "<li>Saran Jika Port Rusak</li>";
+                            }
+                            elseif($data['port'] == 'Ada error') {
+                               echo "<li>Saran Jika Port Ada Error</li>";
+                            }
+
+
+                            //KONFIGURASI
+                            if($data['konfigurasi'] == 'Rusak'){
+                               echo "<li>Saran Jika Konfigurasi Rusak</li>";
+                            }
+                            elseif($data['konfigurasi'] == 'Ada error') {
+                               echo "<li>Saran Jika Konfigurasi Ada Error</li>";
+                            }
+                            //BACKUP SETTING
+                            if($data['backup_setting'] == 'Rusak'){
+                               echo "<li>Saran Jika Backup Setting Rusak</li>";
+                            }
+                            elseif($data['backup_setting'] == 'Ada error') {
+                               echo "<li>Saran Jika Backup Setting Ada Error</li>";
+                            }
+
+
+                            //GENSET
+                            if($data['genset'] == 'Rusak'){
+                               echo "<li>Saran Jika Genset Rusak</li>";
+                            }
+                            elseif($data['genset'] == 'Ada error') {
+                               echo "<li>Saran Jika Genset Ada Error</li>";
+                            }
+                            //UPS
+                            if($data['ups'] == 'Rusak'){
+                               echo "<li>Saran Jika UPS Rusak</li>";
+                            }
+                            elseif($data['ups'] == 'Ada error') {
+                               echo "<li>Saran Jika UPS Ada Error</li>";
+                            }
+                            //INVERTER
+                            if($data['inverter'] == 'Rusak'){
+                               echo "<li>Saran Jika Inverter Rusak</li>";
+                            }
+                            elseif($data['inverter'] == 'Ada error') {
+                               echo "<li>Saran Jika Inverter Ada Error</li>";
+                            }
+                            ?>
+                            </ul>
+                            
+                    
                             </div>
                     </div>
                 </div>

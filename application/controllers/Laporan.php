@@ -349,6 +349,7 @@ class Laporan extends CI_Controller {
 			$data['unit2'] = $this->laporan->filter_data_unit_level2($id_level2);
 			$data['unit3'] = $this->laporan->filter_data_unit_level3($id_level3);
 			$data['waktu'] = $this->laporan->filter_data_waktu($id_waktu);
+		
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/har_info',$data,$id_induk);
