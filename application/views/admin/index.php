@@ -350,7 +350,7 @@
         <!-- PIE CHART SID BERMASALAH-->
       <div class="box box-danger">
           <div class="box-header with-border">
-            <h3 class="box-title">5 SID Bermasalah</h3>
+            <h3 class="box-title">10 SID Bermasalah</h3>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
               </button>
@@ -358,10 +358,30 @@
             </div>
           </div>
          <div class="box-body">
-        <div class="col-xs-12">
-          <canvas id="chartSID"></canvas>
+            <div class="col-xs-12">
+              <canvas id="chartSID"></canvas>
+            </div>
+          </div>
+          <!-- /.box-body -->
         </div>
-      </div>
+     </div>
+
+     <div class="col-md-6">
+        <!-- PIE CHART GANGGUANG TERBANYAK-->
+      <div class="box box-danger">
+          <div class="box-header with-border">
+            <h3 class="box-title">5 Penyebab Gangguan Terbanyak</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+         <div class="box-body">
+            <div class="col-xs-12">
+              <canvas id="chartGangguan"></canvas>
+            </div>
+          </div>
           <!-- /.box-body -->
         </div>
      </div>

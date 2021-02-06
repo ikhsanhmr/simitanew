@@ -1163,7 +1163,7 @@ function unit_level1()
   //LOG GANGGUAN
   function tampil_lgangguan()
   {
-    $get = $this->db->query("SELECT a.*, b.kategori FROM log_gangguan a JOIN kategori_gangguan b WHERE a.penyebab = b.id_kategori ORDER BY a.log_id DESC ");
+    $get = $this->db->query("SELECT a.*, b.kategori, c.nama_kantor_induk, c.wilayah_kerja FROM log_gangguan a JOIN kategori_gangguan b ON a.penyebab = b.id_kategori JOIN kantor_induk c ON a.id_kantor_induk = c.id_kantor_induk ORDER BY a.log_id DESC ");
     return $get;
   }
 
@@ -1199,9 +1199,9 @@ function unit_level1()
     return $delete;
   }
 
-  public function lgangguan_filter($no_tiket, $asman, $layanan, $year, $month)
+  public function lgangguan_filter($no_tiket, $asman, $kantor_induk, $layanan, $year, $month)
   {
-    $query = "SELECT a.*, b.kategori FROM log_gangguan a JOIN kategori_gangguan b ON a.penyebab = b.id_kategori WHERE ";
+    $query = "SELECT a.*, b.kategori, c.nama_kantor_induk, c.wilayah_kerja FROM log_gangguan a JOIN kategori_gangguan b ON a.penyebab = b.id_kategori JOIN kantor_induk c ON a.id_kantor_induk = c.id_kantor_induk WHERE ";
     $requirement = 0;
 
     if(!empty($no_tiket)) {
@@ -1213,7 +1213,15 @@ function unit_level1()
       if($requirement > 0){
         $query .= "AND ";
       }
-      $query .= " a.asman = '$asman' ";  
+      $query .= " c.wilayah_kerja = '$asman' ";  
+      $requirement++;
+    } 
+
+    if(!empty($kantor_induk)) {
+      if($requirement > 0){
+        $query .= "AND ";
+      }
+      $query .= " a.id_kantor_induk = '$kantor_induk' ";  
       $requirement++;
     } 
 
@@ -1499,7 +1507,14 @@ function unit_level1()
 
   function dashboard_sid_bermasalah()
   {
-    $get = $this->db->query("SELECT COUNT(log_id) AS jumlahnya, nama_service FROM log_gangguan GROUP BY nama_service ORDER BY jumlahnya DESC LIMIT 5");
+    $get = $this->db->query("SELECT COUNT(a.log_id) AS jumlahnya, b.nama_unit_level3 FROM log_gangguan a JOIN unit_level3 b ON a.id_unit_level3 = b.id_unit_level3 GROUP BY a.id_unit_level3 ORDER BY jumlahnya DESC LIMIT 10");
+    
+    return $get;
+  }
+
+  function dashboard_gangguan_terbanyak()
+  {
+    $get = $this->db->query("SELECT COUNT(a.log_id) AS jumlahnya, b.kategori FROM log_gangguan a JOIN kategori_gangguan b ON a.penyebab = b.id_kategori GROUP BY a.id_unit_level3 ORDER BY jumlahnya DESC LIMIT 5");
     
     return $get;
   }

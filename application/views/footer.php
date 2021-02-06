@@ -605,7 +605,7 @@
     $sid_value = array();
     if(!empty($dashboard_sid_bermasalah)) {
     foreach($dashboard_sid_bermasalah->result_array() as $row){
-      array_push($sid_label, $row['nama_service']);
+      array_push($sid_label, $row['nama_unit_level3']);
       array_push($sid_value, $row['jumlahnya']);
     }}; ?>
     var myChart = new Chart(ctx, {
@@ -616,18 +616,69 @@
           label: 'INTERNET',
           data: <?php echo json_encode($sid_value); ?>,
           backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)'
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)'
           ],
           borderColor: [
           'rgba(255,99,132,1)',
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
           'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)'
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        legend : { display: false}
+      }
+    });
+</script>
+
+<!-- PIE CHART KATEGORI GANGGUAN TERBANYAK -->
+  <script type="text/javascript">
+  var ctx = document.getElementById("chartGangguan").getContext('2d');
+  <?php 
+    $sid_label = array();
+    $sid_value = array();
+    if(!empty($dashboard_gangguan_terbanyak)) {
+    foreach($dashboard_gangguan_terbanyak->result_array() as $row){
+      array_push($sid_label, $row['kategori']);
+      array_push($sid_value, $row['jumlahnya']);
+    }}; ?>
+    var myChart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: <?php echo json_encode($sid_label); ?>,
+        datasets: [{
+          label: 'INTERNET',
+          data: <?php echo json_encode($sid_value); ?>,
+          backgroundColor: [
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)'
+          ],
+          borderColor: [
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)'
           ],
           borderWidth: 1
         }]

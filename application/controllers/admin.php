@@ -59,7 +59,7 @@ class Admin extends CI_Controller
 			$data['kpi_open'] = $this->kpi->get_kpi_open();
 			$data['menghitung_jumlah_service_wilayah'] = $this->admin_model->menghitung_jumlah_service_wilayah();
 			$data['dashboard_sid_bermasalah'] = $this->admin_model->dashboard_sid_bermasalah();
-			//internet_UIWSU
+			$data['dashboard_gangguan_terbanyak'] = $this->admin_model->dashboard_gangguan_terbanyak();
 			$data['januari_internet_uiwsu'] = $this->Sla_model->januari_internet_uiwsu();
 			$data['januari_internet_uiwsu_sukses'] = $data['januari_internet_uiwsu'][0]['persentasi_sla'];
 			$data['januari_internet_uiwsu_ok'] = number_format($data['januari_internet_uiwsu_sukses'],2,",",".");
@@ -2654,6 +2654,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
+			$data['hasil']=$this->laporan_model->kantor_induk();
 			$data['lgangguan_view'] = $this->admin_model->tampil_lgangguan();
 			$this->load->view('header');
 			$this->load->view('sidebar');
@@ -2669,18 +2670,21 @@ class Admin extends CI_Controller
 		} else {
 			$no_tiket = $this->input->post('filter_no_tiket');
 			$asman = $this->input->post('filter_asman');
+			$kantor_induk = $this->input->post('filter_kantor_induk');
 			$layanan = $this->input->post('filter_layanan');
 			$year = $this->input->post('filter_year');
 			$month = $this->input->post('filter_month');
 			
-			if (empty($no_tiket) && empty($asman) && empty($layanan) && empty($year) && empty($month)) {
-				echo "<script>alert('Harap masukkan nomor tiket, asman, layanan, tahun, atau bulan untuk melakukan filter data log gangguan')</script>";
+			if (empty($no_tiket) && empty($asman) && empty($layanan) && empty($year) && empty($month) && empty($kantor_induk)) {
+				echo "<script>alert('Harap masukkan nomor tiket, asman, kantor induk, layanan, tahun, atau bulan untuk melakukan filter data log gangguan')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/lgangguan_view>";
 			} else {
-				$data['lgangguan_view'] = $this->admin_model->lgangguan_filter($no_tiket, $asman, $layanan, $year, $month);
+				$data['hasil']=$this->laporan_model->kantor_induk();
+				$data['lgangguan_view'] = $this->admin_model->lgangguan_filter($no_tiket, $asman, $kantor_induk, $layanan, $year, $month);
 				$data['list_kategori_gangguan'] = $this->admin_model->list_kategori_gangguan();
 				$data['filter_no_tiket'] = $no_tiket;
 				$data['filter_asman'] = $asman;
+				$data['filter_kantor_induk'] = $kantor_induk;
 				$data['filter_layanan'] = $layanan;
 				$data['filter_year'] = $year;
 				$data['filter_month'] = $month;
@@ -2697,6 +2701,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
+			$data['hasil']=$this->laporan_model->kantor_induk();
 			$data['list_kategori_gangguan'] = $this->admin_model->list_kategori_gangguan();
 			$this->load->view('header', $this->data);
 			$this->load->view('sidebar', $data);
@@ -2719,11 +2724,14 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('sid', 'SID', 'required|numeric', [
 				'required' => 'SID harus di isi!'
 			]);
-			$this->form_validation->set_rules('id_kantor_induk', 'ID Kantor Induk', 'required|numeric', [
+			$this->form_validation->set_rules('kantor_induk', 'ID Kantor Induk', 'required|numeric', [
 				'required' => 'ID Kantor Induk harus di isi!'
 			]);
-			$this->form_validation->set_rules('asman', 'Asman', 'required|numeric', [
-				'required' => 'Asman harus di isi!'
+			$this->form_validation->set_rules('unit_level2', 'Unit Level 2', 'required', [
+				'required' => 'Unit level 2 harus di isi!'
+			]);
+			$this->form_validation->set_rules('unit_level3', 'Unit Level 3', 'required', [
+				'required' => 'Unit level 3 harus di isi!'
 			]);
 			$this->form_validation->set_rules('layanan', 'Layanan', 'required', [
 				'required' => 'Layanan harus di isi!'
@@ -2777,8 +2785,8 @@ class Admin extends CI_Controller
 					'no_tiket' => $this->input->post('no_tiket'),
 					'nama_service' => $this->input->post('nama_service'),
 					'sid' => $this->input->post('sid'),
-					'id_kantor_induk' => $this->input->post('id_kantor_induk'),
-					'asman' => $this->input->post('asman'),
+					'id_kantor_induk' => $this->input->post('kantor_induk'),
+					'id_unit_level3' => $this->input->post('unit_level3'),
 					'layanan' => $this->input->post('layanan'),
 					'scada' => $this->input->post('scada'),
 					'status_log' => $this->input->post('status_log'),
@@ -2810,6 +2818,8 @@ class Admin extends CI_Controller
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$log_id = $this->input->get('log_id');
+			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['list_kategori_gangguan'] = $this->admin_model->list_kategori_gangguan();
 			$data['lgangguannya'] = $this->admin_model->get_lgangguan($log_id, "log_id");
 			$this->data['title'] = 'Update Log Gangguan :: ';
@@ -2835,11 +2845,14 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('sid', 'SID', 'required|numeric', [
 				'required' => 'SID harus di isi!'
 			]);
-			$this->form_validation->set_rules('id_kantor_induk', 'ID Kantor Induk', 'required|numeric', [
+			$this->form_validation->set_rules('kantor_induk', 'ID Kantor Induk', 'required|numeric', [
 				'required' => 'ID Kantor Induk harus di isi!'
 			]);
-			$this->form_validation->set_rules('asman', 'Asman', 'required|numeric', [
-				'required' => 'Asman harus di isi!'
+			$this->form_validation->set_rules('unit_level2', 'Unit Level 2', 'required', [
+				'required' => 'Unit level 2 harus di isi!'
+			]);
+			$this->form_validation->set_rules('unit_level3', 'Unit Level 3', 'required', [
+				'required' => 'Unit level 3 harus di isi!'
 			]);
 			$this->form_validation->set_rules('layanan', 'Layanan', 'required', [
 				'required' => 'Layanan harus di isi!'
@@ -2895,8 +2908,8 @@ class Admin extends CI_Controller
 					'no_tiket' => $this->input->post('no_tiket'),
 					'nama_service' => $this->input->post('nama_service'),
 					'sid' => $this->input->post('sid'),
-					'id_kantor_induk' => $this->input->post('id_kantor_induk'),
-					'asman' => $this->input->post('asman'),
+					'id_kantor_induk' => $this->input->post('kantor_induk'),
+					'id_unit_level3' => $this->input->post('unit_level3'),
 					'layanan' => $this->input->post('layanan'),
 					'scada' => $this->input->post('scada'),
 					'status_log' => $this->input->post('status_log'),
@@ -3442,3 +3455,4 @@ class Admin extends CI_Controller
 	
 
 }
+			//internet_UIWSU
