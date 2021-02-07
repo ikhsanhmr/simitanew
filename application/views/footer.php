@@ -1565,7 +1565,136 @@ var ctx = document.getElementById("myChart11").getContext('2d');
           });
       </script>
 
+<script type="text/javascript">
+			$(function(){
+				$(":radio").click(function(){
+          
+          // if($('#tampak_fisik').attr('checked','tampak_fisik' )){
+          //   console.log('1');
+          // }
+          // else{
+          // }
 
+         //Variabel
+         var t_fisik_val='';
+         var i_lampu_val='';
+         var port_val='';
+         var lan_val='';
+         var p_supply_val='';
+         var port_val='';
+         var konfig_val='';
+         var backup_val='';
+         var genset_val='';
+         var ups_val='';
+         var inverter_val='';
+         var t_fisik=  $("input[type='radio'][name='tampak_fisik']:checked").val();
+         var i_lampu=  $("input[type='radio'][name='indikator_lampu']:checked").val();
+         var p_supply=  $("input[type='radio'][name='power_supply']:checked").val();
+         var lan=  $("input[type='radio'][name='lan']:checked").val();
+         var port=  $("input[type='radio'][name='port']:checked").val();
+         var konfig=  $("input[type='radio'][name='konfigurasi']:checked").val();
+         var backup=  $("input[type='radio'][name='backup_setting']:checked").val();
+         var genset=  $("input[type='radio'][name='genset']:checked").val();
+         var ups=  $("input[type='radio'][name='ups']:checked").val();
+         var inverter=  $("input[type='radio'][name='inverter']:checked").val();
+
+        //TAMPAK FISIK
+         if(t_fisik == "Rusak"){
+          t_fisik_val += 'Penggantian tampilan fisik dari perangkat.';
+         }
+         else if(t_fisik == "Ada error") {
+          t_fisik_val +='Perbaikan tampilan fisik dari perangkat';
+         }
+         $('#solusi_tampak_fisik').val(t_fisik_val);
+
+         //Indikator
+         if(i_lampu == "Rusak"){
+          i_lampu_val += 'Penggantian pada perangkat indikator lampu';
+         }
+         else if(i_lampu == "Ada error") {
+          i_lampu_val +='Perbaikan pada perangkat indikator lampu';
+         }
+         $('#solusi_indikator_lampu').val(i_lampu_val);
+
+         //POWER SUPPPLY
+         if(p_supply == "Rusak"){
+          p_supply_val += 'Penggantian Power Supply dari perangkat.';
+         }
+         else if(p_supply == "Ada error") {
+          p_supply_val +='Perbaikan pada perangkat Power Supply lampu';
+         }
+         $('#solusi_power_supply').val(p_supply_val);
+
+         //PORT
+         if(port == "Rusak"){
+          port_val += 'Penggantian Port pada perangkat.';
+         }
+         else if(port == "Ada error") {
+          port_val +='Perbaikan Port pada perangkat';
+         }
+         $('#solusi_port').val(port_val);
+
+         //UPS
+         if(ups == "Tidak ada"){
+          ups_val += 'Disarankan untuk menambahkan UPS';
+         }
+         $('#solusi_ups').val(ups_val);
+
+         //GENSET
+         if(genset == "Tidak ada"){
+          genset_val += 'Disarankan untuk menambahkan Genset';
+         
+         }
+         $('#solusi_genset').val(genset_val);
+
+         //INVERTER
+         if(inverter == "Tidak ada"){
+          inverter_val += 'Disarankan untuk menambahkan Inverter';
+          console.log('hi');
+         }
+         $('#solusi_inverter').val(inverter_val);
+
+         //BACKUP SETTING
+         if(backup == "Rusak"){
+          backup_val += 'Penggantian Backup Setting pada perangkat.';
+         }
+         else if(backup == "Ada error") {
+          backup_val +='Perbaikan Backup Setting pada perangkat';
+         }
+         $('#solusi_backup_setting').val(backup_val);
+
+         //KONFIGURASI
+         if(konfig == "Rusak"){
+          konfig_val += 'Penggantian settingan konfigurasi pada perangkat.';
+         }
+         else if(konfig == "Ada error") {
+          konfig_val +='Perbaikan konfigurasi pada perangkat';
+         }
+         $('#solusi_konfigurasi').val(konfig_val);
+
+         //LAN
+         if(lan == "Rusak"){
+          lan_val += 'Penggantian LAN pada perangkat.';
+         }
+         else if(lan == "Ada error") {
+          lan_val +='Perbaikan LAN pada perangkat';
+         }
+         $('#solusi_lan').val(lan_val);
+         
+        ;
+					// if($(this).val() == "Rusak"){
+          //   html += 'Tampak Fisik : Device Harus segera diperbarui, ';
+          //   $('#solusi').text(html);
+					// }
+          // else if($(this).val() == "Ada error") {
+          //   html2 += 'Tampak Fisik : Error harus segera ditanganai';
+          //   $('#solusi').text(html2);
+          // }
+         
+				});
+
+			});
+		</script>
     
 </body>
 

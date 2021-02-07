@@ -195,7 +195,16 @@ class Laporan extends CI_Controller {
 				$unit_level3 = $this->input->post('unit_level3');
 				$pengawas_pekerjaan = $this->input->post('pengawas_pekerjaan');
 				$pelaksana_pekerjaan = $this->input->post('pelaksana_pekerjaan');
-				$solusi = $this->input->post('solusi');
+				$solusi_t_fisik = $this->input->post('solusi_tampak_fisik');
+				$solusi_i_lampu = $this->input->post('solusi_indikator_lampu');
+				$solusi_p_supply = $this->input->post('solusi_power_supply');
+				$solusi_lan = $this->input->post('solusi_lan');
+				$solusi_port = $this->input->post('solusi_port');
+				$solusi_konfig = $this->input->post('solusi_konfigurasi');
+				$solusi_genset = $this->input->post('solusi_genset');
+				$solusi_ups = $this->input->post('solusi_ups');
+				$solusi_inverter = $this->input->post('solusi_inverter');
+				$solusi_backup = $this->input->post('solusi_backup_setting');
 				
 				;
 				// script uplaod file pdf
@@ -267,6 +276,16 @@ class Laporan extends CI_Controller {
 				'foto_sebelum_pengerjaan' => $foto_sebelum_pengerjaan,
 				'foto_sesudah_pengerjaan' => $foto_sesudah_pengerjaan,
 				'foto_saat_pengerjaan' => $foto_saat_pengerjaan,	
+				'solusi_indikator_lampu' => $solusi_i_lampu,	
+				'solusi_tampak_fisik' => $solusi_t_fisik,	
+				'solusi_inverter' => $solusi_inverter,	
+				'solusi_backup_setting' => $solusi_backup,	
+				'solusi_power_supply' => $solusi_p_supply,	
+				'solusi_lan' => $solusi_lan,	
+				'solusi_port' => $solusi_port,	
+				'solusi_konfigurasi' => $solusi_konfig,	
+				'solusi_genset' => $solusi_genset,	
+				'solusi_ups' => $solusi_ups,	
 			);
 				$insert = $this->laporan->addDataHar($data);
 				if ($insert) {
@@ -286,10 +305,10 @@ class Laporan extends CI_Controller {
 		} else {
 
 		
-		$data['laporan'] = $this->laporan->getDataEditHar($id);
-		$data['network'] = $this->laporan->type_network_device();
-		$data['unit_induk']=$this->laporan->kantor_induk();
-		$id_induk = $this->laporan->get_data_kantor_induk($id);
+			$data['laporan'] = $this->laporan->getDataEditHar($id);
+			$data['network'] = $this->laporan->type_network_device();
+			$data['unit_induk']=$this->laporan->kantor_induk();
+			$id_induk = $this->laporan->get_data_kantor_induk($id);
 			$id_level2 = $this->laporan->get_data_lv2($id);
 			$id_level3 = $this->laporan->get_data_lv3($id);
 			$id_waktu = $this->laporan->get_data_waktu($id);
@@ -298,10 +317,10 @@ class Laporan extends CI_Controller {
 			$data['unit3'] = $this->laporan->filter_data_unit_level3($id_level3);
 			$data['waktu'] = $this->laporan->filter_data_waktu($id_waktu);
 			$data['jadwal']=$this->laporan->getJadwalHar();
-		$this->load->view('header');
-		$this->load->view('sidebar');
-		$this->load->view('laporan/har_edit',$data);
-		$this->load->view('footer');
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('laporan/har_edit',$data);
+			$this->load->view('footer');
 	}
 
 	}

@@ -188,6 +188,17 @@ class laporan_model extends CI_Model {
 			'unit_level3' => htmlspecialchars($this->input->post('unit_level3'), true),
 			'pelaksana_pekerjaan' => htmlspecialchars($this->input->post('pelaksana_pekerjaan'), true),
 			'pengawas_pekerjaan' => htmlspecialchars($this->input->post('pengawas_pekerjaan'), true),
+
+			'solusi_indikator_lampu' => htmlspecialchars($this->input->post('solusi_indikator_lampu'), true),	
+			'solusi_tampak_fisik' => htmlspecialchars($this->input->post('solusi_tampak_fisik'), true),	
+			'solusi_inverter' => htmlspecialchars($this->input->post('solusi_inverter'), true),	
+			'solusi_backup_setting' => htmlspecialchars($this->input->post('solusi_backup_setting'), true),	
+			'solusi_power_supply' => htmlspecialchars($this->input->post('solusi_power_supply'), true),	
+			'solusi_lan' => htmlspecialchars($this->input->post('solusi_lan'), true),	
+			'solusi_port' => htmlspecialchars($this->input->post('solusi_port'), true),	
+			'solusi_konfigurasi' => htmlspecialchars($this->input->post('solusi_konfigurasi'), true),	
+			'solusi_genset' => htmlspecialchars($this->input->post('solusi_genset'), true),	
+			'solusi_ups' => htmlspecialchars($this->input->post('solusi_ups'), true)
 		
 		];
 
@@ -427,13 +438,5 @@ class laporan_model extends CI_Model {
           ->get()
           ->result();
 	}
-
-
-  
-
-  
-
-	
-	
-			
+		
 }

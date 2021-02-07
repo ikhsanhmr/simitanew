@@ -402,16 +402,11 @@
                             </div>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="genset" id="genset2"  value="Ada error" <?php if($laporan['genset'] == 'Ada error'){ echo "checked";}?>>
-                                Ada Error 
+                                <input type="radio" name="genset" id="genset2"  value="Tidak ada" <?php if($laporan['genset'] == 'Tidak ada'){ echo "checked";}?>>
+                                Tidak ada 
                                 </label>
                             </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" <?php if($laporan['genset'] == 'Rusak'){ echo "checked";}?> name="genset" id="tampak_fisik3" value="Rusak" >
-                                Rusak 
-                                </label>
-                            </div>
+                            
                         </div>
                      </div>
                      <div class="col-lg-10">
@@ -425,16 +420,11 @@
                             </div>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="ups" id="ups2" value="Ada error" <?php if($laporan['ups'] == 'Ada error'){ echo "checked";}?>>
-                                Ada Error 
+                                <input type="radio" name="ups" id="ups2" value="Tidak ada" <?php if($laporan['ups'] == 'Tidak ada'){ echo "checked";}?>>
+                                Tidak ada 
                                 </label>
                             </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="ups" id="ups3" value="Rusak" <?php if($laporan['ups'] == 'Rusak'){ echo "checked";}?> >
-                                Rusak 
-                                </label>
-                            </div>
+                            
                         </div>
                      </div>
 
@@ -449,16 +439,11 @@
                             </div>
                             <div class="radio col-sm-2">
                                 <label>
-                                <input type="radio" name="inverter" id="inverter2" value="Ada error" <?php if($laporan['inverter'] == 'Ada error'){ echo "checked";}?>>
-                                Ada Error 
+                                <input type="radio" name="inverter" id="inverter2" value="Tidak ada" <?php if($laporan['inverter'] == 'Tidak ada'){ echo "checked";}?>>
+                                Tidak ada 
                                 </label>
                             </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="inverter" id="inverter3" value="Rusak"<?php if($laporan['inverter'] == 'Rusak'){ echo "checked";}?> >
-                                Rusak 
-                                </label>
-                            </div>
+                            
                         </div>
                      </div>
                      </div>
@@ -579,6 +564,21 @@
                 </div>
             </div>
                 
+                <!-- SOLUSI -->
+               <!-- PERANGKAT HARDWARE -->
+               <input class="form-control" type="text" value="" name="solusi_tampak_fisik" id="solusi_tampak_fisik" >
+               <input class="form-control" type="hidden" value="" name="solusi_indikator_lampu" id="solusi_indikator_lampu" >  
+               <input class="form-control" type="hidden" value="" name="solusi_power_supply" id="solusi_power_supply" >  
+               <input class="form-control" type="hidden" value="" name="solusi_lan" id="solusi_lan" >  
+               <input class="form-control" type="hidden" value="" name="solusi_port" id="solusi_port" >  
+               <!-- PERANGKAT SOFTWARE -->
+               <input class="form-control" type="hidden" value="" name="solusi_konfigurasi" id="solusi_konfigurasi" > 
+               <input class="form-control" type="hidden" value="" name="solusi_backup_setting" id="solusi_backup_setting" > 
+
+               <!-- BACKUP POWER -->
+               <input class="form-control" type="hidden" value="" name="solusi_genset" id="solusi_genset" > 
+               <input class="form-control" type="hidden" value="" name="solusi_ups" id="solusi_ups" > 
+               <input class="form-control" type="hidden" value="" name="solusi_inverter" id="solusi_inverter" > 
         <!-- /.box-body -->
         <div class="box-footer">
                     <div class="pull-center">
