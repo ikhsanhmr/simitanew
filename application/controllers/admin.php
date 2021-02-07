@@ -3377,7 +3377,8 @@ class Admin extends CI_Controller
 				$this->load->view('footer');
 			} else {
 				$data = array(
-					'tingkat_kerawanan' => $this->input->post('tingkat_kerawanan')
+					'tingkat_kerawanan' => $this->input->post('tingkat_kerawanan'),
+					'status_kerawanan' => $this->input->post('status_kerawanan'),
 				);
 
 				$insert = $this->admin_model->add_tingkat_kerawanan($data);
@@ -3440,7 +3441,8 @@ class Admin extends CI_Controller
 				redirect(base_url() . "admin/tingkat_kerawanan_edit?id_kerawanan=" . $data_id);
 			} else {
 				$data = array(
-					'tingkat_kerawanan' => $this->input->post('tingkat_kerawanan')
+					'tingkat_kerawanan' => $this->input->post('tingkat_kerawanan'),
+					'status_kerawanan' => $this->input->post('status_kerawanan')
 				);
 
 				$update = $this->admin_model->update_tingkat_kerawanan($data, $data_id);
