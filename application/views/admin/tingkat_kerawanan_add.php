@@ -43,7 +43,7 @@
                                     <label for="kategori" class="col-sm-3 control-label">Status Kerawanan</label>
                                     <div class="col-sm-5">
                                     <?php
-                                        $data = ["low","medium","high"];
+                                        $data = ["Low","Medium","High"];
                                     ?>
                                         <select name="status_kerawanan" class="form-control" required>
                                             <option disabled selected>Pilih Status</option>

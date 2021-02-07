@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Feb 2021 pada 14.55
--- Versi server: 10.1.36-MariaDB
--- Versi PHP: 7.2.10
+-- Waktu pembuatan: 07 Feb 2021 pada 22.27
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -2071,7 +2070,7 @@ CREATE TABLE `gangguan` (
   `desk_ggn` text NOT NULL,
   `foto_ggn` varchar(100) DEFAULT NULL,
   `tgl_gangguan` datetime NOT NULL,
-  `solusi` text,
+  `solusi` text DEFAULT NULL,
   `foto_solusi` varchar(100) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `solved_at` datetime DEFAULT NULL,
@@ -2414,8 +2413,16 @@ INSERT INTO `kategori_gangguan` (`id_kategori`, `kategori`) VALUES
 
 CREATE TABLE `kerawanan` (
   `id_kerawanan` int(13) NOT NULL,
-  `tingkat_kerawanan` varchar(255) NOT NULL
+  `tingkat_kerawanan` varchar(255) NOT NULL,
+  `status_kerawanan` enum('Low','Medium','High') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `kerawanan`
+--
+
+INSERT INTO `kerawanan` (`id_kerawanan`, `tingkat_kerawanan`, `status_kerawanan`) VALUES
+(2, 'Sedang', 'Medium');
 
 -- --------------------------------------------------------
 
@@ -4529,12 +4536,12 @@ CREATE TABLE `log_gangguan` (
   `layanan` varchar(20) NOT NULL,
   `scada` tinyint(1) NOT NULL,
   `status_log` varchar(11) NOT NULL,
-  `tiket_open` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `tiket_close` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `tiket_open` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `tiket_close` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `stop_clock` int(11) NOT NULL,
   `durasi` int(11) NOT NULL,
   `penyebab` int(11) NOT NULL,
-  `action` text,
+  `action` text DEFAULT NULL,
   `periode_bulan` varchar(50) DEFAULT NULL COMMENT 'bulan',
   `periode_tahun` varchar(50) DEFAULT NULL COMMENT 'tahun'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -8171,7 +8178,7 @@ ALTER TABLE `kategori_gangguan`
 -- AUTO_INCREMENT untuk tabel `kerawanan`
 --
 ALTER TABLE `kerawanan`
-  MODIFY `id_kerawanan` int(13) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kerawanan` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `komputer`
