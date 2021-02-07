@@ -414,7 +414,7 @@
                           
                             <?php
                          foreach($kerawanan as $value):
-                            echo "<option value='$value->tingkat_kerawanan'>$value->tingkat_kerawanan</option>";
+                            echo "<option value='$value->tingkat_kerawanan'>$value->tingkat_kerawanan ($value->status_kerawanan)</option>";
                          endforeach;
                               ?>
                                
