@@ -247,7 +247,13 @@ class Admin_model extends CI_Model
       return $get->row_array();
     }
   }
-
+  public function getUser()
+	{
+		$this->db->select('*');
+		$this->db->from('users');
+		$query = $this->db->get();
+		return $query->result_array();
+	}
 
   function tampil_user()
   {

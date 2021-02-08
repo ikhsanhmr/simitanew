@@ -87,7 +87,16 @@
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Nama Pengguna</label>
                             <div class="col-sm-5">
-             <input type="text" class="form-control" id="pengguna" name="pengguna" placeholder = "Inputkan nama pengguna" required/>
+                                <select class="form-control select2" id="pengguna" name="pengguna" style="width: 100%;">
+                                <option selected="selected"> -- Pilih Pengguna -- </option>
+                                <?php
+                                            foreach ($users as $value) { ?>
+                                                <option value="<?php echo $value['id_users']; ?>"><?php echo $value['username']; ?></option>
+                                            <?php }
+                                            ?>
+                                </select>
+                            
+            <!-- <input type="text" class="form-control" id="pengguna" name="pengguna" placeholder = "Inputkan nama pengguna" required/>-->
                             </div>
                         </div>
                     </div>
