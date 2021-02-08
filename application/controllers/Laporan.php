@@ -151,6 +151,7 @@ class Laporan extends CI_Controller {
 			$data['unit']=$this->laporan->kantor_induk();
 			$data['waktu']=$this->laporan->getJadwalHar();
 			$data['kerawanan']=$this->laporan->data_kerawanan();
+			$data['pegawainya'] = $this->pegawai->getData();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/har_add',$data);
@@ -308,6 +309,7 @@ class Laporan extends CI_Controller {
 			$data['laporan'] = $this->laporan->getDataEditHar($id);
 			$data['network'] = $this->laporan->type_network_device();
 			$data['unit_induk']=$this->laporan->kantor_induk();
+			$data['pegawainya'] = $this->pegawai->getData();
 			$id_induk = $this->laporan->get_data_kantor_induk($id);
 			$id_level2 = $this->laporan->get_data_lv2($id);
 			$id_level3 = $this->laporan->get_data_lv3($id);
