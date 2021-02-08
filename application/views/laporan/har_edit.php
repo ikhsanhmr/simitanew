@@ -452,8 +452,19 @@
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Pengawas Pekerjaan</label>
                             <div class="col-sm-5">
-                            <input class="form-control"type="text" name="pengawas_pekerjaan" id="pengawas_pekerjaan"
-                            value = "<?php echo $laporan['pengawas_pekerjaan']; ?>"> 
+                            <!-- <input class="form-control"type="text" name="pengawas_pekerjaan" id="pengawas_pekerjaan" value = "<?php echo $laporan['pengawas_pekerjaan']; ?>"> -->
+                            <select class="form-control select2" id="pengawas_pekerjaan" name="pengawas_pekerjaan" style="width: 100%;">
+                                <?php foreach($pegawainya as $p) : ?>
+                                    <?php if($laporan['pengawas_pekerjaan'] == $p['nama']) : ?>
+                                    <option selected="selected" value="<?php echo $p['nama']; ?>"><?php echo $p['nama']; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+
+                                <option value=""> -- Pilih Pengawas -- </option>
+                                <?php foreach($pegawainya as $p) : ?>
+                                    <option value="<?php echo $p['nama']; ?>"><?php echo $p['nama']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
                             </div>
                         </div>
                     </div>
@@ -461,8 +472,19 @@
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Pelaksana Pekerjaan</label>
                             <div class="col-sm-5">
-                            <input class="form-control"type="text" name="pelaksana_pekerjaan" id="pelaksana_pekerjaan"
-                            value = "<?php echo $laporan['pelaksana_pekerjaan']; ?>"> 
+                            <!-- <input class="form-control"type="text" name="pelaksana_pekerjaan" id="pelaksana_pekerjaan" value = "<?php echo $laporan['pelaksana_pekerjaan']; ?>"> -->
+                            <select class="form-control select2" id="pelaksana_pekerjaan" name="pelaksana_pekerjaan" style="width: 100%;">
+                                <?php foreach($pegawainya as $p) : ?>
+                                    <?php if($laporan['pelaksana_pekerjaan'] == $p['nama']) : ?>
+                                    <option selected="selected" value="<?php echo $p['nama']; ?>"><?php echo $p['nama']; ?></option>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+
+                                <option value=""> -- Pilih Pengawas -- </option>
+                                <?php foreach($pegawainya as $p) : ?>
+                                    <option value="<?php echo $p['nama']; ?>"><?php echo $p['nama']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
                             </div>
                         </div>
                     </div>
