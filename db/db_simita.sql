@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Feb 2021 pada 22.27
+-- Waktu pembuatan: 08 Feb 2021 pada 07.55
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.11
 
@@ -2138,6 +2138,7 @@ CREATE TABLE `har_network` (
   `approval` varchar(50) NOT NULL,
   `kantor_induk` varchar(100) NOT NULL,
   `tingkat_kerawanan` varchar(255) NOT NULL,
+  `solusi_tingkat_kerawanan` text NOT NULL,
   `unit_level2` varchar(200) NOT NULL,
   `unit_level3` varchar(200) NOT NULL,
   `foto_sebelum_pengerjaan` varchar(200) NOT NULL,
@@ -2149,18 +2150,19 @@ CREATE TABLE `har_network` (
 -- Dumping data untuk tabel `har_network`
 --
 
-INSERT INTO `har_network` (`id`, `nama_unit`, `lokasi`, `waktu_pelaksanaan`, `working_permit`, `nama_perangkat`, `serial_number`, `type`, `id_address`, `mac_address`, `tampak_fisik`, `indikator_lampu`, `power_supply`, `lan`, `port`, `konfigurasi`, `backup_setting`, `genset`, `ups`, `inverter`, `solusi_tampak_fisik`, `solusi_indikator_lampu`, `solusi_power_supply`, `solusi_lan`, `solusi_port`, `solusi_konfigurasi`, `solusi_backup_setting`, `solusi_genset`, `solusi_ups`, `solusi_inverter`, `catatan`, `solusi`, `pengawas_pekerjaan`, `pelaksana_pekerjaan`, `approval`, `kantor_induk`, `tingkat_kerawanan`, `unit_level2`, `unit_level3`, `foto_sebelum_pengerjaan`, `foto_saat_pengerjaan`, `foto_sesudah_pengerjaan`) VALUES
-(55, '', 'Jallan sultan', '', '', '', '', 'Access Point', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'approved', '3', '', '', '', 'foto_sebelum_pengerjaan31.png', 'foto_sebelum_pengerjaan44.png', 'foto_sebelum_pengerjaan43.png'),
-(56, '', 'RUANG ULP PANGKALAN SUSU', '7', 'cashier2.pdf', '', '', '', '123.123.123.123', 'XC12333213', 'Ada error', 'Ada error', 'Rusak', 'Ada error', 'Ada error', 'Rusak', 'Ada error', 'Ada error', 'Normal', 'Normal', 'Perbaikan tampilan fisik dari perangkat', 'Perbaikan pada perangkat indikator lampu', 'Penggantian Power Supply dari perangkat.', 'Perbaikan LAN pada perangkat', 'Perbaikan Port pada perangkat', 'Penggantian settingan konfigurasi pada perangkat.', 'Perbaikan Backup Setting pada perangkat', '', '', '', 'Good Job Nice Work', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasution', '', '1', '', '', '', 'foto_sebelum_pengerjaan8.png', 'Fw__Aircraft3532.JPG', 'foto_sebelum_pengerjaan11311.png'),
-(57, '', 'jalan sultan ibrahim', '', '', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '4', '', '', '', 'foto_sebelum_pengerjaan32.png', 'foto_sebelum_pengerjaan61.png', 'foto_sebelum_pengerjaan71.png'),
-(58, '', 'jalan sultan ibrahim', '3', '', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', ' ', '', '', '1', '', '3', '14', 'foto_sebelum_pengerjaan21.png', 'foto_sebelum_pengerjaan33.png', 'foto_sebelum_pengerjaan22.png'),
-(59, '', 'JAUH', '', 'foto_sebelum_pengerjaan62.png', '', '', 'Access Point', '', '', 'Normal', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Rusak', 'Rusak', 'Rusak', 'Rusak', 'Rusak', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', 'foto_sebelum_pengerjaan23.png', 'foto_sebelum_pengerjaan25.png', 'foto_sebelum_pengerjaan24.png'),
-(60, '', 'RUANG ULP PANGKALAN SUSU', '3', '', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '4', '', '', '', 'foto_sebelum_pengerjaan26.png', 'foto_sebelum_pengerjaan35.png', 'foto_sebelum_pengerjaan34.png'),
-(61, '', '', '7', 'foto_sebelum_pengerjaan72.png', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '9', '', '', '', 'foto_sebelum_pengerjaan13.png', 'foto_sebelum_pengerjaan15.png', 'foto_sebelum_pengerjaan14.png'),
-(62, '', 'KANTOR PERCOBAAN PEMATANG REBA', '7', '', 'Accses Point', '', 'M-200', '', '', 'Rusak', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Tidak Ada', 'Normal', 'Tidak ada', 'Penggantian tampilan fisik dari perangkat.', 'Perbaikan pada perangkat indikator lampu', '', '', '', '', '', '', '', '', 'Blabla', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasution', '', '1', 'Perangkat Mudah Panas', '1', '4', 'mask5.jpg', 'finalImage_(2)11.png', 'foto_sesudah_pengerjaan11.png'),
-(63, '', 'RUANG ULP PANGKALAN SUSU', '7', '7_Teddy_Alfansyah21.pdf', 'Access Point', '12', 'AP-AC-PRO', '10.26.33.7', '-', 'Ada error', 'Rusak', 'Ada error', 'Rusak', 'Rusak', 'Ada error', 'Rusak', 'Tidak ada', 'Normal', 'Tidak ada', 'Perbaikan tampilan fisik dari perangkat', 'Penggantian pada perangkat indikator lampu', '', '', '', '', '', '', '', '', 'gege', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasutions', '', '1', 'Perangkat mudah jatuh', '3', '14', 'mask6.jpg', 'mask11.jpg', 'mask41.jpg'),
-(64, '', 'PELALAWAN', '7', 'cashier2.pdf', 'Access Point', '', '', '10.26.33.7', '-', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'gGood', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasutions', '', '1', 'Perangkat mudah jatuh', '1', '', 'mask8.jpg', 'mask13.jpg', 'mask22.jpg'),
-(65, '', 'Jalan Kertajaya', '7', '', 'Access Point', '', '', '10.26.33.7', '-', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', 'gege', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasutions', '', '1', '', '', '', 'Fw__Aircraft352.JPG', 'Fw__Aircraft2412.JPG', 'Fw__Aircraft8102.JPG');
+INSERT INTO `har_network` (`id`, `nama_unit`, `lokasi`, `waktu_pelaksanaan`, `working_permit`, `nama_perangkat`, `serial_number`, `type`, `id_address`, `mac_address`, `tampak_fisik`, `indikator_lampu`, `power_supply`, `lan`, `port`, `konfigurasi`, `backup_setting`, `genset`, `ups`, `inverter`, `solusi_tampak_fisik`, `solusi_indikator_lampu`, `solusi_power_supply`, `solusi_lan`, `solusi_port`, `solusi_konfigurasi`, `solusi_backup_setting`, `solusi_genset`, `solusi_ups`, `solusi_inverter`, `catatan`, `solusi`, `pengawas_pekerjaan`, `pelaksana_pekerjaan`, `approval`, `kantor_induk`, `tingkat_kerawanan`, `solusi_tingkat_kerawanan`, `unit_level2`, `unit_level3`, `foto_sebelum_pengerjaan`, `foto_saat_pengerjaan`, `foto_sesudah_pengerjaan`) VALUES
+(55, '', 'Jallan sultan', '', '', '', '', 'Access Point', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'approved', '3', '', '', '', '', 'foto_sebelum_pengerjaan31.png', 'foto_sebelum_pengerjaan44.png', 'foto_sebelum_pengerjaan43.png'),
+(56, '', 'RUANG ULP PANGKALAN SUSU', '7', 'cashier2.pdf', '', '', '', '123.123.123.123', 'XC12333213', 'Ada error', 'Ada error', 'Rusak', 'Ada error', 'Ada error', 'Rusak', 'Ada error', 'Ada error', 'Normal', 'Normal', 'Perbaikan tampilan fisik dari perangkat', 'Perbaikan pada perangkat indikator lampu', 'Penggantian Power Supply dari perangkat.', 'Perbaikan LAN pada perangkat', 'Perbaikan Port pada perangkat', 'Penggantian settingan konfigurasi pada perangkat.', 'Perbaikan Backup Setting pada perangkat', '', '', '', 'Good Job Nice Work', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasution', '', '1', '', '', '', '', 'foto_sebelum_pengerjaan8.png', 'Fw__Aircraft3532.JPG', 'foto_sebelum_pengerjaan11311.png'),
+(57, '', 'jalan sultan ibrahim', '', '', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '4', '', '', '', '', 'foto_sebelum_pengerjaan32.png', 'foto_sebelum_pengerjaan61.png', 'foto_sebelum_pengerjaan71.png'),
+(58, '', 'jalan sultan ibrahim', '3', '', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', ' ', '', '', '1', '', '', '3', '14', 'foto_sebelum_pengerjaan21.png', 'foto_sebelum_pengerjaan33.png', 'foto_sebelum_pengerjaan22.png'),
+(59, '', 'JAUH', '', 'foto_sebelum_pengerjaan62.png', '', '', 'Access Point', '', '', 'Normal', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Rusak', 'Rusak', 'Rusak', 'Rusak', 'Rusak', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', 'foto_sebelum_pengerjaan23.png', 'foto_sebelum_pengerjaan25.png', 'foto_sebelum_pengerjaan24.png'),
+(60, '', 'RUANG ULP PANGKALAN SUSU', '3', '', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '4', '', '', '', '', 'foto_sebelum_pengerjaan26.png', 'foto_sebelum_pengerjaan35.png', 'foto_sebelum_pengerjaan34.png'),
+(61, '', '', '7', 'foto_sebelum_pengerjaan72.png', '', '', '', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '9', '', '', '', '', 'foto_sebelum_pengerjaan13.png', 'foto_sebelum_pengerjaan15.png', 'foto_sebelum_pengerjaan14.png'),
+(62, '', 'KANTOR PERCOBAAN PEMATANG REBA', '7', '', 'Accses Point', '', 'M-200', '', '', 'Rusak', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Tidak Ada', 'Normal', 'Tidak ada', 'Penggantian tampilan fisik dari perangkat.', 'Perbaikan pada perangkat indikator lampu', '', '', '', '', '', '', '', '', 'Blabla', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasution', '', '1', 'Perangkat Mudah Panas', '', '1', '4', 'mask5.jpg', 'finalImage_(2)11.png', 'foto_sesudah_pengerjaan11.png'),
+(63, '', 'RUANG ULP PANGKALAN SUSU', '7', '7_Teddy_Alfansyah21.pdf', 'Access Point', '12', 'AP-AC-PRO', '10.26.33.7', '-', 'Ada error', 'Rusak', 'Ada error', 'Rusak', 'Rusak', 'Ada error', 'Rusak', 'Tidak ada', 'Normal', 'Tidak ada', 'Perbaikan tampilan fisik dari perangkat', 'Penggantian pada perangkat indikator lampu', '', '', '', '', '', '', '', '', 'gege', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasutions', '', '1', 'Perangkat mudah jatuh', '', '3', '14', 'mask6.jpg', 'mask11.jpg', 'mask41.jpg'),
+(64, '', 'PELALAWAN', '7', 'cashier2.pdf', 'Access Point', '', '', '10.26.33.7', '-', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'gGood', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasutions', '', '1', 'Perangkat mudah jatuh', '', '1', '', 'mask8.jpg', 'mask13.jpg', 'mask22.jpg'),
+(65, '', 'Jalan Kertajaya', '7', '', 'Access Point', '', '', '10.26.33.7', '-', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', 'gege', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasutions', '', '1', '', '', '', '', 'Fw__Aircraft352.JPG', 'Fw__Aircraft2412.JPG', 'Fw__Aircraft8102.JPG'),
+(66, '', 'Kantor Sumatra Pusat', '1', '', 'Access Point', '', 'ZoneFlex', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', 'Baterai sudah tidak berfungsi', '', 'oke', 'mantap', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '1', '4', '1.PNG', '131.PNG', '13.PNG');
 
 -- --------------------------------------------------------
 
@@ -2414,15 +2416,16 @@ INSERT INTO `kategori_gangguan` (`id_kategori`, `kategori`) VALUES
 CREATE TABLE `kerawanan` (
   `id_kerawanan` int(13) NOT NULL,
   `tingkat_kerawanan` varchar(255) NOT NULL,
-  `status_kerawanan` enum('Low','Medium','High') NOT NULL
+  `status_kerawanan` enum('Low','Medium','High') NOT NULL,
+  `solusi_tingkat_kerawanan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kerawanan`
 --
 
-INSERT INTO `kerawanan` (`id_kerawanan`, `tingkat_kerawanan`, `status_kerawanan`) VALUES
-(2, 'Sedang', 'Medium');
+INSERT INTO `kerawanan` (`id_kerawanan`, `tingkat_kerawanan`, `status_kerawanan`, `solusi_tingkat_kerawanan`) VALUES
+(1, 'Gampang Jatuh', 'Low', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman');
 
 -- --------------------------------------------------------
 
@@ -8136,7 +8139,7 @@ ALTER TABLE `gangguan`
 -- AUTO_INCREMENT untuk tabel `har_network`
 --
 ALTER TABLE `har_network`
-  MODIFY `id` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT untuk tabel `hi`
@@ -8178,7 +8181,7 @@ ALTER TABLE `kategori_gangguan`
 -- AUTO_INCREMENT untuk tabel `kerawanan`
 --
 ALTER TABLE `kerawanan`
-  MODIFY `id_kerawanan` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_kerawanan` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `komputer`

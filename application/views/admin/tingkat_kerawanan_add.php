@@ -54,6 +54,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="kategori" class="col-sm-3 control-label">Solusi Tingkat Kerawanan</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" id="solusi_kerawanan" name="solusi_kerawanan" required />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">

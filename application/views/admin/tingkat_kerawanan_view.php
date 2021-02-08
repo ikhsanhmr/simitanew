@@ -33,6 +33,7 @@
                    <th class="center">No.</th>
                    <th class="text-center">Tingkat </th>
                    <th class="text-center">Status</th>
+                   <th class="text-center">Solusi Tingkat Kerawanan</th>
                    <th class="text-center">Actions</th>
                  </tr>
                </thead>
@@ -45,6 +46,7 @@
                      <td class="text-center"><?= $no ?></td>
                      <td class="text-center"><?= $data['tingkat_kerawanan']; ?></td>
                      <td class="text-center"><?= $data['status_kerawanan']; ?></td>
+                     <td class="text-center"><?= $data['solusi_tingkat_kerawanan']; ?></td>
                      <td class="text-center">
                        <div class="hidden-sm hidden-xs action-buttons">
                          <a class="green" value="<?php echo $data['id_kerawanan']; ?>" href="<?php echo base_url() . "admin/tingkat_kerawanan_edit?id_kerawanan=" . $data['id_kerawanan'] ?>"><i class="fa fa-pencil bigger-130"></i></a>

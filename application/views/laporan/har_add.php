@@ -411,12 +411,9 @@
 							 <div class="col-sm-5" >
                             <select  class="form-control select2" name="tingkat_kerawanan" id="tingkat_kerawanan"> 
                             <option selected="selected" value=""> -- Pilih  Tingkat Kerawanan -- </option>
-                          
-                            <?php
-                         foreach($kerawanan as $value):
-                            echo "<option value='$value->tingkat_kerawanan'>$value->tingkat_kerawanan ($value->status_kerawanan)</option>";
-                         endforeach;
-                              ?>
+                            <?php foreach ($kerawanan as $value) : ?>
+                                <option value="<?= $value->tingkat_kerawanan ?>" data-solusi="<?= $value->solusi_tingkat_kerawanan ?>"><?= $value->tingkat_kerawanan ?> (<?= $value->status_kerawanan ?>)</option>
+                            <?php endforeach; ?>
                                
                             
                             </select>
@@ -483,6 +480,7 @@
                
                <!-- SOLUSI -->
                <!-- PERANGKAT HARDWARE -->
+               <input type="hidden" id="solusi_tingkat_kerawanan" name="solusi_tingkat_kerawanan">
                <input class="form-control" type="hidden" value="" name="solusi_tampak_fisik" id="solusi_tampak_fisik" >
                <input class="form-control" type="hidden" value="" name="solusi_indikator_lampu" id="solusi_indikator_lampu" >  
                <input class="form-control" type="hidden" value="" name="solusi_power_supply" id="solusi_power_supply" >  
@@ -497,7 +495,7 @@
                <input class="form-control" type="hidden" value="" name="solusi_ups" id="solusi_ups" > 
                <input class="form-control" type="hidden" value="" name="solusi_inverter" id="solusi_inverter" > 
         <!-- /.box-body -->
-        <div class="box-footer">
+                <div class="box-footer">
                     <div class="pull-center">
                         <a href="<?php echo base_url(); ?>laporan/getDataHar" class="btn btn-danger">Kembali</a>
                         <button type="submit" class="btn btn-success">Submit</button>

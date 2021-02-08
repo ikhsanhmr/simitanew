@@ -205,6 +205,7 @@ class Laporan extends CI_Controller {
 				$solusi_ups = $this->input->post('solusi_ups');
 				$solusi_inverter = $this->input->post('solusi_inverter');
 				$solusi_backup = $this->input->post('solusi_backup_setting');
+				$solusi_tingkat_kerawanan = $this->input->post('solusi_tingkat_kerawanan');
 				
 				;
 				// script uplaod file pdf
@@ -267,6 +268,7 @@ class Laporan extends CI_Controller {
 				'inverter' => $inverter,
 				'catatan' => $catatan,
 				'tingkat_kerawanan' => $tingkat_kerawanan,
+				'solusi_tingkat_kerawanan' => $solusi_tingkat_kerawanan,
 				// 'solusi' => $solusi,
 				'kantor_induk' => $kantor_induk,
 				'unit_level2' => $unit_level2,

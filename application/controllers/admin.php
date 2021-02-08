@@ -3379,6 +3379,7 @@ class Admin extends CI_Controller
 				$data = array(
 					'tingkat_kerawanan' => $this->input->post('tingkat_kerawanan'),
 					'status_kerawanan' => $this->input->post('status_kerawanan'),
+					'solusi_tingkat_kerawanan' => $this->input->post('solusi_kerawanan'),
 				);
 
 				$insert = $this->admin_model->add_tingkat_kerawanan($data);
@@ -3442,7 +3443,8 @@ class Admin extends CI_Controller
 			} else {
 				$data = array(
 					'tingkat_kerawanan' => $this->input->post('tingkat_kerawanan'),
-					'status_kerawanan' => $this->input->post('status_kerawanan')
+					'status_kerawanan' => $this->input->post('status_kerawanan'),
+					'solusi_tingkat_kerawanan' => $this->input->post('solusi_kerawanan'),
 				);
 
 				$update = $this->admin_model->update_tingkat_kerawanan($data, $data_id);

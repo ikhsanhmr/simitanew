@@ -371,6 +371,12 @@ a[href]:after {
                             <div class="form-control"><?= $data['tingkat_kerawanan'];?> </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Solusi Tingkat Kerawanan</label>
+                            <div class="col-sm-5">
+                            <textarea class="form-control" readonly rows="5"><?= $data['solusi_tingkat_kerawanan']; ?></textarea>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-10">
                   

@@ -60,6 +60,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="kerawanan" class="col-sm-3 control-label">Solusi Tingkat Kerawanan</label>
+                            <div class="col-sm-5">
+                                <input type="text" class="form-control" id="tingkat_kerawanan" name="solusi_kerawanan" value="<?php echo $tingkat_kerawanan['solusi_tingkat_kerawanan']; ?>" required/>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
