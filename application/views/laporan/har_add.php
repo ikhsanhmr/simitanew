@@ -30,151 +30,131 @@
         </div>
         
         <div class="box-body ">
-                  
-                    <div class="col-lg-10">
-                                <div class="form-group">
-                                    <label for="kantor_induk" class="col-sm-3 control-label">Kantor Induk</label>
-                                    <div class="col-sm-5">
-                                        <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
-                                            <option selected="selected" value=""> -- Pilih Unit Level 1 -- </option>
-                                            <?php
-                                            foreach ($unit as $value) {
-                                                echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="form-group">
-                                    <label for="unit_level2" class="col-sm-3 control-label">Unit Level 2</label>
-                                    <div class="col-sm-5">
-                                        <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;" >
-                                            <option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="form-group">
-                                    <label for="unit_level3" class="col-sm-3 control-label">Unit Level 3</label>
-                                    <div class="col-sm-5">
-                                        <select class="form-control select2" name="unit_level3" id="unit_level3" style="width: 100%;">
-                                            <option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                      
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label"> Lokasi Pekerjaan</label>
-                            <div class="col-sm-5">
-                            <input class="form-control"type="text" name="lokasi" id="lokasi"> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Waktu Pelaksanaan</label>
-                            <div class="col-sm-5">
-                            <!-- <input class="form-control"type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan">  -->
-                            <select class="form-control select2" name="waktu_pelaksanaan" id="waktu_pelaksanaan">
-                         <?php
-                        
-                         foreach($waktu as $value): ?>
-
-                          <option value="<?php echo $value->id_jadwal;?>">
-                          <?php 
-                          echo date("d/M/Y", strtotime($value->tanggal_pergi));
-                          echo "     -      ";
-                          echo date("d/M/Y", strtotime($value->tanggal_pulang));
-                          ?>
-                           </option>
-                            <?php
-                         endforeach;
-                              ?>
-                            </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Working Permit</label>
-                            <div class="col-sm-5">
-                            <input class="form-control" type="file" name="working_permit" id="working_permit"> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Nama Perangkat</label>
-                            <div class="col-sm-5" >
-                            <select  class="form-control select2" name="nama_perangkat" id="nama_perangkat"> 
-                            <option selected="selected" value=""> -- Pilih  Nama Perangkat -- </option>
-                            <?php
-                         foreach($network as $value):
-                            echo "<option value='$value->device_type'>$value->device_type</option>";
-                         endforeach;
-                              ?>
-                            
-                            </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
+            <div class="row">
+                <div class="col-sm-6">
+                    
                     <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Type Perangkat</label>
-                            <div class="col-sm-5">
-                            <select class="form-control select2" name="type" id="type">
-                            <option selected="selected" value=""> -- Pilih  Type Perangkat -- </option>
-                            </select>
-                            </div>
+                        <label for="unit_level2" class="col-sm-4 control-label">Kantor Induk</label>
+                        <div class="col-sm-6">
+                                <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
+                                    <option selected="selected" value=""> -- Pilih Unit Level 1 -- </option>
+                                    <?php
+                                    foreach ($unit as $value) {
+                                        echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
+                                    }
+                                    ?>
+                                </select>
                         </div>
                     </div>
-                    
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Serial Number</label>
-                            <div class="col-sm-5">
-                            <select  class="form-control select2" name="serial_number" id="serial_number"> 
-                            <option selected="selected" value=""> -- Pilih Serial Number -- </option>
-                            </select>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Id Address</label>
-                            <div class="col-sm-5">
-                            <input class="form-control"type="text" name="id_address" value = "" id="id_address"> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">MAC Address</label>
-                            <div class="col-sm-5">
-                            <input class="form-control"type="text" name="mac_address" value="" id="mac_address"> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				    
-              
-               
 
-                <div class="box-body">
-                <div class="col-lg-10">
-                            <div class="form-group">
-                                <label for="no_hp" class="col-sm-3 control-label">Perangkat Hardware</label>
-                            </div>
+                    <div class="form-group">
+                        <label for="unit_level2" class="col-sm-4 control-label">Unit Level 2</label>
+                        <div class="col-sm-6">
+                            <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;" >
+                                <option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>
+                            </select>
                         </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Tampak Fisik</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="unit_level3" class="col-sm-4 control-label">Unit Level 3</label>
+                        <div class="col-sm-6">
+                            <select class="form-control select2" name="unit_level3" id="unit_level3" style="width: 100%;">
+                                <option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="no_hp" class="col-sm-4 control-label"> Lokasi Pekerjaan</label>
+                        <div class="col-sm-6">
+                        <input class="form-control"type="text" name="lokasi" id="lokasi"> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="no_hp" class="col-sm-4 control-label">Waktu Pelaksanaan</label>
+                        <div class="col-sm-6">
+                        <!-- <input class="form-control"type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan">  -->
+                        <select class="form-control select2" name="waktu_pelaksanaan" id="waktu_pelaksanaan">
+                        <?php
+                    
+                        foreach($waktu as $value): ?>
+
+                        <option value="<?php echo $value->id_jadwal;?>">
+                        <?php 
+                        echo date("d/M/Y", strtotime($value->tanggal_pergi));
+                        echo "     -      ";
+                        echo date("d/M/Y", strtotime($value->tanggal_pulang));
+                        ?>
+                        </option>
+                        <?php
+                        endforeach;
+                            ?>
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="no_hp" class="col-sm-4 control-label">Working Permit</label>
+                        <div class="col-sm-6">
+                        <input class="form-control" type="file" name="working_permit" id="working_permit"> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="no_hp" class="col-sm-4 control-label">Nama Perangkat</label>
+                        <div class="col-sm-6">
+                        <select  class="form-control select2" name="nama_perangkat" id="nama_perangkat"> 
+                        <option selected="selected" value=""> -- Pilih  Nama Perangkat -- </option>
+                        <?php
+                        foreach($network as $value):
+                        echo "<option value='$value->device_type'>$value->device_type</option>";
+                        endforeach;
+                            ?>
+                        
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="no_hp" class="col-sm-4 control-label">Type Perangkat</label>
+                        <div class="col-sm-6">
+                        <select class="form-control select2" name="type" id="type">
+                        <option selected="selected" value=""> -- Pilih  Type Perangkat -- </option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="no_hp" class="col-sm-4 control-label">Serial Number</label>
+                        <div class="col-sm-6">
+                        <select  class="form-control select2" name="serial_number" id="serial_number"> 
+                        <option selected="selected" value=""> -- Pilih Serial Number -- </option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="no_hp" class="col-sm-4 control-label">Id Address</label>
+                        <div class="col-sm-6">
+                        <input class="form-control"type="text" name="id_address" value = "" id="id_address"> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="no_hp" class="col-sm-4 control-label">MAC Address</label>
+                        <div class="col-sm-6">
+                        <input class="form-control"type="text" name="mac_address" value="" id="mac_address"> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="no_hp" class="col-sm-4 control-label">Perangkat Hardware</label>
+                    </div>
+                    
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Tampak Fisik</label>
                             <div class="radio col-sm-2">
                                 <label>
                                 <input type="radio" name="tampak_fisik" id="tampak_fisik1" value="Normal"  class="tampak_fisik">
@@ -193,11 +173,10 @@
                                 Rusak 
                                 </label>
                             </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Indikator Lampu</label>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Indikator Lampu</label>
                             <div class="radio col-sm-2">
                                 <label>
                                 <input type="radio" name="indikator_lampu" id="indikator_lampu1" value="Normal" class="indikator_lampu">
@@ -216,11 +195,10 @@
                                 Rusak 
                                 </label>
                             </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Power Supply</label>
+                    </div>
+                    
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Power Supply</label>
                             <div class="radio col-sm-2">
                                 <label>
                                 <input type="radio" name="power_supply" id="power_supply1" value="Normal"  >
@@ -239,11 +217,10 @@
                                 Rusak 
                                 </label>
                             </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">LAN</label>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">LAN</label>
                             <div class="radio col-sm-2">
                                 <label>
                                 <input type="radio" name="lan" id="lan1" value="Normal"  >
@@ -262,11 +239,10 @@
                                 Rusak 
                                 </label>
                             </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Port</label>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Port</label>
                             <div class="radio col-sm-2">
                                 <label>
                                 <input type="radio" name="port" id="port1" value="Normal"  >
@@ -285,20 +261,14 @@
                                 Rusak 
                                 </label>
                             </div>
-                        </div>
-                     </div>
-                </div>    
-                <br>
-                <div class="box-body">
-                <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Perangkat Software</label>
-                        </div>
-
                     </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Konfigurasi</label>
+
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Perangkat Software</label>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Konfigurasi</label>
                             <div class="radio col-sm-2">
                                 <label>
                                 <input type="radio" name="konfigurasi" id="konfigurasi1" value="Normal"  >
@@ -317,11 +287,10 @@
                                 Rusak 
                                 </label>
                             </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Backup Setting</label>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Backup Setting</label>
                             <div class="radio col-sm-2">
                                 <label>
                                 <input type="radio" name="backup_setting" id="backup_setting1" value="Normal"  >
@@ -340,18 +309,15 @@
                                 Rusak 
                                 </label>
                             </div>
-                        </div>
-                     </div>
-                </div>
-               <br>
-                <div class="box-body">
-                <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Backup Power</label>
-                        </div>
                     </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
+
+                </div>  
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="no_hp" class="col-sm-3 control-label">Backup Power</label>
+                    </div>
+                    
+                    <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Genset</label>
                             <div class="radio col-sm-2">
                                 <label>
@@ -365,10 +331,9 @@
                                 Tidak ada 
                                 </label>
                             </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-10">
-                        <div class="form-group">
+                    </div>
+
+                    <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">UPS</label>
                             <div class="radio col-sm-2">
                                 <label>
@@ -382,10 +347,9 @@
                                 Tidak ada 
                                 </label>
                             </div>
-                        </div>
-                     </div>
-                     <div class="col-lg-10">
-                        <div class="form-group">
+                    </div>
+
+                    <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Inverter</label>
                             <div class="radio col-sm-2">
                                 <label>
@@ -399,16 +363,11 @@
                                 Tidak ada 
                                 </label>
                             </div>
-                        </div>
-                     </div>
-                </div>
-             
+                    </div>
 
-                <div class="box-body">
-				   <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Tingkat Kerawanan</label>
-							 <div class="col-sm-5" >
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Tingkat Kerawanan</label>
+							 <div class="col-sm-6" >
                             <select  class="form-control select2" name="tingkat_kerawanan" id="tingkat_kerawanan"> 
                             <option selected="selected" value=""> -- Pilih  Tingkat Kerawanan -- </option>
                             <?php foreach ($kerawanan as $value) : ?>
@@ -418,13 +377,12 @@
                             
                             </select>
                             </div>
-                        </div>
                     </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Pengawas Pekerjaan</label>
 
-                            <div class="col-sm-5">
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Pengawas Pekerjaan</label>
+
+                            <div class="col-sm-6">
                             <!-- <input class="form-control"type="text" name="pengawas_pekerjaan" id="pengawas_pekerjaan"> -->
                             <select class="form-control select2" id="pengawas_pekerjaan" name="pengawas_pekerjaan" style="width: 100%;">
                                 <option selected="selected" value=""> -- Pilih Pengawas -- </option>
@@ -435,12 +393,11 @@
                                 ?>
                             </select> 
                             </div>
-                        </div>
                     </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Pelaksana Pekerjaan</label>
-                            <div class="col-sm-5">
+
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Pelaksana Pekerjaan</label>
+                            <div class="col-sm-6">
                             <!-- <input class="form-control"type="text" name="pelaksana_pekerjaan" id="pelaksana_pekerjaan">  -->
                             <select class="form-control select2" id="pelaksana_pekerjaan" name="pelaksana_pekerjaan" style="width: 100%;">
                                 <option selected="selected" value=""> -- Pilih Pelaksana -- </option>
@@ -451,46 +408,58 @@
                                 ?>
                             </select> 
                             </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4">Kondisi Sebelum Pengerjaan</label>
+                        <div class="col-sm-6">
+                        <textarea name="catatan" class="form-control" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." rows="3"></textarea>
                         </div>
                     </div>
-              
-
-                <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="" class="col-sm-3 control-label">Catatan</label>
-                            <div class="col-sm-5">
-                            <textarea class="form-control" id="catatan"  name="catatan" rows="3" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." ></textarea>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-                <div class="box-body ">
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Kondisi Sebelum Pengerjaan</label>
-                            <div class="col-sm-5">
+                    
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Kondisi Sebelum Pengerjaan</label>
+                            <div class="col-sm-6">
                             <input class="form-control"type="file" name="foto_sebelum_pengerjaan" id="foto_sebelum_pengerjaan" required> 
                             </div>
-                        </div>
                     </div>
 
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Kondisi Saat Pengerjaan</label>
-                            <div class="col-sm-5">
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Kondisi Saat Pengerjaan</label>
+                            <div class="col-sm-6">
                             <input class="form-control" type="file" name="foto_saat_pengerjaan" id="foto_saat_pengerjaan" required> 
                             </div>
-                        </div>
                     </div>
-               
-                    <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Kondisi Setelah Pengerjaan</label>
-                            <div class="col-sm-5">
+
+                    <div class="form-group">
+                            <label for="no_hp" class="col-sm-4 control-label">Kondisi Setelah Pengerjaan</label>
+                            <div class="col-sm-6">
                             <input class="form-control"type="file" name="foto_sesudah_pengerjaan" id="foto_sesudah_pengerjaan" required> 
                             </div>
                         </div>
+
+
+
+                </div>
+            </div>
+			
+            
+              
+               
+
+                <div class="box-body">
+
+                <div class="box-body ">
+                    <div class="col-lg-10">
+
+                    </div>
+
+                    <div class="col-lg-10">
+
+                    </div>
+               
+                    <div class="col-lg-10">
+
                     </div>
                 </div>
                
