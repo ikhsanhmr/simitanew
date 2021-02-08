@@ -425,7 +425,15 @@
                             <label for="no_hp" class="col-sm-3 control-label">Pengawas Pekerjaan</label>
 
                             <div class="col-sm-5">
-                            <input class="form-control"type="text" name="pengawas_pekerjaan" id="pengawas_pekerjaan"> 
+                            <!-- <input class="form-control"type="text" name="pengawas_pekerjaan" id="pengawas_pekerjaan"> -->
+                            <select class="form-control select2" id="pengawas_pekerjaan" name="pengawas_pekerjaan" style="width: 100%;">
+                                <option selected="selected" value=""> -- Pilih Pengawas -- </option>
+                                <?php
+                                foreach ($pegawainya as $value) { ?>
+                                    <option value="<?php echo $value['nama']; ?>"><?php echo $value['nama']; ?></option>
+                                <?php }
+                                ?>
+                            </select> 
                             </div>
                         </div>
                     </div>
@@ -433,7 +441,15 @@
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Pelaksana Pekerjaan</label>
                             <div class="col-sm-5">
-                            <input class="form-control"type="text" name="pelaksana_pekerjaan" id="pelaksana_pekerjaan"> 
+                            <!-- <input class="form-control"type="text" name="pelaksana_pekerjaan" id="pelaksana_pekerjaan">  -->
+                            <select class="form-control select2" id="pelaksana_pekerjaan" name="pelaksana_pekerjaan" style="width: 100%;">
+                                <option selected="selected" value=""> -- Pilih Pelaksana -- </option>
+                                <?php
+                                foreach ($pegawainya as $value) { ?>
+                                    <option value="<?php echo $value['nama']; ?>"><?php echo $value['nama']; ?></option>
+                                <?php }
+                                ?>
+                            </select> 
                             </div>
                         </div>
                     </div>

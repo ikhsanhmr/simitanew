@@ -13,6 +13,7 @@ class Admin extends CI_Controller
 		$this->load->library(array('form_validation', 'session', 'enkripsi'));
 		$this->load->model(array('admin_model','Sla_model', 'laporan_model'));
 		$this->load->model('Kpi_model', 'kpi');
+		$this->load->model('admin_model', 'users');
 	}
 	/**
 	 * Index Page for this controller.
