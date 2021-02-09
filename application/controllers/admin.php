@@ -3457,6 +3457,36 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function table_lgangguan_view(){
+		$data = array();
+		
+		$query = $this->admin_model->tampil_lgangguan();
+		if($query->num_rows() > 0){
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key+1;
+				$row['kerja_wilayah'] = "STI Sumut ".$row["wilayah_kerja"];
+				if($row["scada"] == 1){
+					$row['cekScada'] = "Scada";
+				}elseif($row['scada'] == 0){
+					$row['cekScada'] = "Non Scada";
+				}
+				$row['open_tiket'] = date('d/m/Y H:i:s', strtotime($row['tiket_open']));
+				$row['close_tiket'] = date('d/m/Y H:i:s', strtotime($row['tiket_close'])); 
+				$row['actionButton'] = "<a href=".base_url('admin/lgangguan_edit?log_id='.$row['log_id'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=".base_url('admin/lgangguan_delete?log_id='.$row['log_id'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				
+				
+				";
+				
+				
+
+				$data[] = $row;
+			}
+
+		}
+		echo json_encode(array('data'=>$data));
+	}
+
 	
 
 }

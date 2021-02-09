@@ -162,46 +162,7 @@
          </thead>
 
          <tbody>
-           <?php
-           $no = 1;
-           foreach ($lgangguan_view->result_array() as $data) :
-            $tiket_open = date("d/m/Y H:i:s", strtotime($data['tiket_open']));
-            $tiket_close = date("d/m/Y H:i:s", strtotime($data['tiket_close']));
-            ?>
-            <tr>
-             <td class="text-center"><?= $no ?></td>
-             <td><?= $data['no_tiket']; ?></td>
-             <td><?= $data['nama_service']; ?></td>
-             <td class="text-center"><?= $data['sid']; ?></td>
-             <td class="text-center"><?= $data['nama_kantor_induk']; ?></td>
-             <td class="text-center">STI Sumut <?= $data['wilayah_kerja']; ?></td>
-             <td class="text-center"><?= $data['layanan']; ?></td>
-             <td class="text-center"><?php if($data['scada'] == 1){
-              echo "Scada";
-            } else if($data['scada'] == 0) {
-              echo "Non Scada";
-            } ?></td>
-            <td class="text-center"><?= $tiket_open; ?></td>
-            <td class="text-center"><?= $tiket_close; ?></td>
-            <td class="text-center"><?= $data['stop_clock']; ?> menit</td>
-            <td class="text-center"><?= $data['durasi']; ?> menit</td>
-            <td class="text-center"><?= $data['kategori']; ?></td>
-            <td class="text-center"><?= $data['action']; ?></td>
-            <td class="text-center"><?= $data['status_log']; ?></td>
-            <td class="text-center">
-             <div class="hidden-sm hidden-xs action-buttons">
-               <a class="green" value="<?php echo $data['log_id']; ?>" href="<?php echo base_url() . "admin/lgangguan_edit?log_id=" . $data['log_id'] ?>"><i class="fa fa-pencil bigger-130"></i></a>
-               &nbsp;
-               <a class="red" value="<?php echo $data['log_id']; ?>" href="<?php echo base_url() . "admin/lgangguan_delete?log_id=" . $data['log_id'] ?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');">
-                 <i class="fa fa-trash-o bigger-130"></i>
-               </a>
-             </div>
-           </td>
-         </tr>
-         <?php
-         $no++;
-       endforeach;
-       ?>
+
 
      </tbody>
 

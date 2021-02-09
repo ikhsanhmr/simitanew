@@ -130,7 +130,30 @@ $('#tingkat_kerawanan').on('change', function() {
   })
   $(function() {
     var table = $('#example4').DataTable({
-
+      ajax: {
+                processing: true,
+                serverSide: true,
+                url: '<?php echo site_url('admin/table_lgangguan_view');?>',
+                type : 'POST',
+      },
+      columns: [
+                { "data": "no" },
+                { "data": "no_tiket" },
+                { "data": "nama_service" },
+                { "data": "sid" },
+                { "data": "nama_kantor_induk" },
+                { "data": "kerja_wilayah" },
+                { "data": "layanan" },
+                { "data": "cekScada" },
+                { "data": "open_tiket" },
+                { "data": "close_tiket" },
+                { "data": "stop_clock" },
+                { "data": "durasi" },
+                { "data": "kategori" },
+                { "data": "action" },
+                { "data": "status_log" },
+                { "data": "actionButton" },
+      ],
       lengthChange: true,
       scrollX: true,
       buttons: [
