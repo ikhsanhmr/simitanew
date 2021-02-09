@@ -41,7 +41,7 @@ class Laporan extends CI_Controller {
 	
 			$data['list_merek_printer'] = $this->admin->list_merek_printer();
 	$data['unit']=$this->laporan->kantor_induk();
-	$data['users'] = $this->admin->getUser();
+	$data['pegawainya'] = $this->pegawai->getData();
 	
 	
 	$this->load->view('header');
