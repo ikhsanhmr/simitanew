@@ -44,112 +44,102 @@ a[href]:after {
        
         <input type="hidden" id = "id" name="id" value="<?= $data['id'];?>">
         <div class="box-body">
-                    <div class="col-lg-10">
+
+            <div class="row">
+                <div class="col-lg-6">
+                                        
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Kantor Induk</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $unit['nama_kantor_induk'];?> </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
+                        </div>  
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Unit Level 2</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $unit2['nama_unit_level2'];?> </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
+                        </div>  
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Unit Level 3</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $unit3['nama_unit_level3'];?> </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>  
                 
-                    <div class="col-lg-10">
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label"> Lokasi</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $data['lokasi'];?> </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
+                        </div>  
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Waktu Pelaksanaan</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $waktu['tanggal_pergi']?> -- <?= $waktu['tanggal_pulang']?> </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
+                        </div>  
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Working Permit</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                                 <div class="form-control">
                                     <a href="<?= base_url(); ?>laporan/downloadFile/<?= $data['working_permit']; ?>"><?= $data['working_permit'];?></a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
+                        </div>  
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Nama Perangkat</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $data['nama_perangkat'];?> </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
+                        </div>  
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Device Type</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $data['type'];?> </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>  
                     
-                    <div class="col-lg-10">
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Serial Number</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $data['serial_number'];?> </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
+                        </div>  
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Id Address</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $data['id_address'];?> </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
+                        </div>  
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">MAC Address</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $data['mac_address'];?> </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>  
                    
 
                    
-                    </div>
-                    </div>
+                    
                   
-                    <div class="col-lg-10">
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Perangkat Hardware</label>
                         </div>
-                    </div>
 
-                    <div class="col-lg-10">
-                        <div class="form-group">
+                    
+                        <div class="form-group table-responsive">
                     <table  class="table-bordered table-striped"  align = "center" width="660px" height = "80px">
                         <thead>
                             <tr>
@@ -237,19 +227,18 @@ a[href]:after {
                             ?>
                         </tbody>
                     </table>
-                        </div>    
-                    </div>
+                        </div>  
+
                   
               
 
             
-                    <div class="col-lg-10">
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Perangkat Software</label>
                         </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
+                    
+                        <div class="form-group table-responsive">
                         <table  class="table-bordered table-striped"  align = "center" width="500px" height ="80px">
                         <thead>
                             <tr>
@@ -298,16 +287,16 @@ a[href]:after {
                         </tbody>
                          </table>
                     </div>
+
                 </div>
+
+                <div class="col-lg-6">
                     
-             
-                    <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Backup Power</label>
                         </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
+                    
+                        <div class="form-group table-responsive">
                         <table  class="table-bordered table-striped"  align = "center" width="500px" height="80px">
                         <thead>
                             <tr>
@@ -360,59 +349,56 @@ a[href]:after {
                         </tbody>
                         </table>
                     </div>
-                </div>
                     
          
-                <div class="col-lg-10">
+                
                     <br><br>
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Tingkat Kerawanan</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $data['tingkat_kerawanan'];?> </div>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Solusi Tingkat Kerawanan</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <textarea class="form-control" readonly rows="5"><?= $data['solusi_tingkat_kerawanan']; ?></textarea>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
+                        </div>  
+                    
                   
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Pengawas Pekerjaan</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $data['pengawas_pekerjaan'];?> </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-10">
+                        </div>  
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Pelaksana Pekerjaan</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                             <div class="form-control"><?= $data['pelaksana_pekerjaan'];?> </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>  
                
 
-                <div class="col-lg-10">
+                
                     <div class="form-group">
                         <label for="no_hp" class="col-sm-3 control-label">Catatan</label>
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                                 <textarea class="form-control" id="catatan" readonly name="catatan" rows="5" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." ><?php echo $data['catatan']; ?>
                                 </textarea>
                             </div>
                     </div>
-                </div>
+
                 
            <br>
-                <div class="col-lg-10">
+                
                     <div class="form-group">
                         <label for="no_hp" class="col-sm-3 control-label">Solusi</label>
                            
-                            <ul class="col-sm-5">
+                            <ul class="col-sm-8">
                             <!-- //PERANGKAT HARDWARE -->
                             <?php
                             if($data['solusi_tampak_fisik'] != null) {?>
@@ -471,16 +457,14 @@ a[href]:after {
                             </ul>
                             <br>
                             </div>
-                </div>
 
                
-                    <div class="col-lg-10">
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Kondisi Sebelum Pengerjaan</label>
                         </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
+                    
+                        <div class="form-group table-responsive">
                         <table  class="table-bordered table-striped"  align = "center" width="500px">
                         <thead>
                             <tr>
@@ -503,17 +487,15 @@ a[href]:after {
                         </tbody>
                     </table>
                         </div>
-                    </div>
                 
              
             
-                    <div class="col-lg-10">
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Kondisi Saat Pengerjaan</label>
                         </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
+                    
+                        <div class="form-group table-responsive">
                         <table  class="table-bordered table-striped"  align = "center" width="500px">
                         <thead>
                             <tr>
@@ -536,18 +518,15 @@ a[href]:after {
                         </tbody>
                     </table>
                         </div>
-                    </div>
-                
           
          
                 <div class="box-body">
-                    <div class="col-lg-10">
+                    
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Kondisi Setelah Pengerjaan</label>
                         </div>
-                    </div>
-                    <div class="col-lg-10">
-                        <div class="form-group">
+                    
+                        <div class="form-group table-responsive">
                         <table  class="table-bordered table-striped"  align = "center" width="500px" >
                         <thead>
                             <tr>
@@ -573,6 +552,12 @@ a[href]:after {
                     </div>
                 
                 </div>
+                
+            </div>
+
+                    
+             
+                    
        
              <br>
              <br>

@@ -2483,7 +2483,7 @@ class Admin extends CI_Controller
 				'ip_address' => $ip_address,
 				'username' => $username,
 				'password' => $password,
-				'nama_pengguna' => $nama_pengguna, 'id_unit' => $id_unit, 'id_vendor' => $id_vendor, 'tahun' => $tahun,
+				'nama_pengguna' => $nama_pengguna, 'id_unit_level3' => $id_unit, 'id_vendor' => $id_vendor, 'tahun' => $tahun,
 				'status_kepemilikan' => $status_kepemilikan,
 				'id_hi' => $id_hi
 			);
@@ -2542,7 +2542,7 @@ class Admin extends CI_Controller
 				'ip_address' => $ip_address,
 				'username' => $username,
 				'password' => $password,
-				'nama_pengguna' => $nama_pengguna, 'id_unit' => $id_unit, 'id_vendor' => $id_vendor, 'tahun' => $tahun,
+				'nama_pengguna' => $nama_pengguna, 'id_unit_level3' => $id_unit, 'id_vendor' => $id_vendor, 'tahun' => $tahun,
 				'status_kepemilikan' => $status_kepemilikan,
 			);
 			$update = $this->admin_model->update_network_device($data, $id_network_device);
