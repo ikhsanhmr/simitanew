@@ -101,7 +101,7 @@
                         </div>
 						<br><br><br>
 						<?php foreach($unitnya->result_array() as $unitnya){
-                            if($network_devicenya['id_unit'] == $unitnya['id_unit_level3']) {?>
+                            if($network_devicenya['id_unit_level3'] == $unitnya['id_unit_level3']) {?>
                         <div class="col-lg-10">
                                 <div class="form-group">
                                     <label for="kantor_induk" class="col-sm-3 control-label">Kantor Induk</label>
