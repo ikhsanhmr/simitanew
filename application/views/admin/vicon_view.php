@@ -23,12 +23,11 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+            <div class="table-responsive">
+              <table id="table_vicon" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                 <th class="center">
-				  No.
-				 </th>
+                 <th class="center">No.</th>
                   <th>Merk Vicon</th>
                   <th>Type</th>
                   <th>Tahun</th>
@@ -36,69 +35,14 @@
                   <th>IP Address</th>
                   <th>Mac Address</th>
                   <th>Unit</th>
-				  <th>Actions</th>
+				          <th>Actions</th>
                 </tr>
                 </thead>
-				<?php 
-				$no =1;
-				?>
                 <tbody>
-				<?php foreach ($vicon_view->result_array() as $data) { ?>
-				
-				
-                <tr>
-					<td class="center">
-						<?php echo $no; ?>
-					</td>
-                  <td>
-						<?php echo $data['nama_mereknya']; ?>
-				  </td>
-                   <td>
-						<?php echo $data['type']; ?>
-				  </td>
-				   <td>
-						<?php echo $data['tahun']; ?>
-				  </td>
-				   <td>
-						<?php echo $data['no_seri']; ?>
-				  </td>
-				  
-				   <td>
-						<?php echo $data['ip_address']; ?>
-				  </td>
-				  
-				   <td>
-						<?php echo $data['mac_address']; ?>
-				  </td>
-				   <td>
-						<?php echo $data['nama_unitnya']; ?>
-				  </td>
-				  <td>
-														 <input type="hidden" name="id_vicon" value="<?php echo $data['id_vicon']; ?>">
-															<div class="hidden-sm hidden-xs action-buttons">
-																
-
-																<a class="green" value="<?php echo $data['id_vicon']; ?>" href="<?php echo base_url() . "admin/vicon_edit?id_vicon=".$data['id_vicon']?>">
-																	
-																	<i class="fa fa-pencil bigger-130"></i>
-																</a>
-																		&nbsp;
-																<a class="red" value="<?php echo $data['id_vicon']; ?>"  href="<?php echo base_url() . "admin/vicon_delete?id_vicon=".$data['id_vicon']?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');" >
-																	
-																	<i class="fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-															
-														</td>
-                </tr>
-				
-				<?php 
-					$no++;
-					}
-				?>
                 </tbody>
                
               </table>
+            </div>
 												<div class="row">
 														<div id="default-buttons" class="col-sm-6">
 														<a class="btn btn-primary" href="<?php echo site_url('admin/vicon_add'); ?>">Add vicon</a>

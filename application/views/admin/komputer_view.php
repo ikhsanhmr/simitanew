@@ -23,7 +23,8 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+			<div class="table-responsive">
+              <table id="komputer_table" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                  <th class="center">
@@ -40,80 +41,18 @@
 				  <th>Actions</th>
                 </tr>
                 </thead>
-				<?php 
-				$no =1;
-				?>
-                <tbody>
-				<?php foreach ($komputer_view->result_array() as $data) { ?>
-				
-				
-                <tr>
-					<td class="center">
-						<?php echo $no; ?>
-					</td>
-                  <td>
-						<?php echo $data['nama_mereknya']; ?>
-				  </td>
-                   <td>
-						<?php echo $data['spesifikasi']; ?>
-				  </td>
-				   <td>
-						<?php echo $data['nama_pengguna']; ?>
-				  </td>
-				   <td>
-						<?php echo $data['ip_address']; ?>
-				  </td>
-				   <td>
-						<?php echo $data['nama_unitnya']; ?>
-				  </td>
-				   <td>
-						<?php if ($data['status_kepemilikan']=="Aset PLN"){ ?>
-							
-						<button type="button" class="btn btn-block btn-success"><?php echo $data['status_kepemilikan']; ?></button>
-							
-						<?php } else { ?>
-						
-						<button type="button" class="btn btn-block btn-info"><?php echo $data['status_kepemilikan']; ?></button>
-						
-						<?php } ?>
-				  </td>
-				  <td>
-						<?php echo $data['nama_vendornya']; ?>
-				  </td>
-				  <td>
-						<?php echo $data['tahun']; ?>
-				  </td>
-				  <td>
-														 <input type="hidden" name="id_komputer" value="<?php echo $data['id_komputer']; ?>">
-															<div class="hidden-sm hidden-xs action-buttons">
-																
 
-																<a class="green" value="<?php echo $data['id_komputer']; ?>" href="<?php echo base_url() . "admin/komputer_edit?id_komputer=".$data['id_komputer']?>">
-																	
-																	<i class="fa fa-pencil bigger-130"></i>
-																</a>
-																		&nbsp;
-																<a class="red" value="<?php echo $data['id_komputer']; ?>"  href="<?php echo base_url() . "admin/komputer_delete?id_komputer=".$data['id_komputer']?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');" >
-																	
-																	<i class="fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-															
-														</td>
-                </tr>
-				
-				<?php 
-					$no++;
-					}
-				?>
+                <tbody>
+
                 </tbody>
                
               </table>
-												<div class="row">
-														<div id="default-buttons" class="col-sm-6">
-														<a class="btn btn-primary" href="<?php echo site_url('admin/komputer_add'); ?>">Add komputer</a>
-														</div>
-												</div>
+			  </div>
+			<div class="row">
+					<div id="default-buttons" class="col-sm-6">
+					<a class="btn btn-primary" href="<?php echo site_url('admin/komputer_add'); ?>">Add komputer</a>
+					</div>
+			</div>
             </div>
             <!-- /.box-body -->
           </div>

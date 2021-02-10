@@ -88,8 +88,169 @@ $('#tingkat_kerawanan').on('change', function() {
 });
 
   $(function() {
-    var table = $('#example1').DataTable({
+    var komputerTable = $('#komputer_table').DataTable({
+      ajax: {
+                processing: true,
+                serverSide: true,
+                url: '<?php echo site_url('admin/table_komputer_view');?>',
+                type : 'POST',
+      },
+      columns: [
+                { "data": "no" },
+                { "data": "nama_mereknya" },
+                { "data": "spesifikasi" },
+                { "data": "nama_pengguna" },
+                { "data": "ip_address" },
+                { "data": "nama_unitnya" },
+                { "data": "kepemilikan_status" },
+                { "data": "nama_vendornya" },
+                { "data": "tahun" },
+                { "data": "actionButton" },
+      ],
+    });
 
+    var printerTable = $('#table_printer').DataTable({
+      ajax: {
+                processing: true,
+                serverSide: true,
+                url: '<?php echo site_url('admin/table_printer_view');?>',
+                type : 'POST',
+      },        
+      columns: [
+                { "data": "no" },
+                { "data": "nama_mereknya" },
+                { "data": "nama_pengguna" },
+                { "data": "nama_unitnya" },
+                { "data": "kepemilikan_status" },
+                { "data": "nama_vendornya" },
+                { "data": "tahun" },
+                { "data": "actionButton" },
+      ],
+    });
+
+    var viconTable = $('#table_vicon').DataTable({
+      ajax: {
+                processing: true,
+                serverSide: true,
+                url: '<?php echo site_url('admin/table_vicon');?>',
+                type : 'POST',
+      },        
+      columns: [
+                { "data": "no" },
+                { "data": "nama_mereknya" },
+                { "data": "type" },
+                { "data": "tahun" },
+                { "data": "no_seri" },
+                { "data": "ip_address" },
+                { "data": "mac_address" },
+                { "data": "nama_unitnya" },
+                { "data": "actionButton" },
+      ],
+    });
+
+    var networkTable = $('#table_network').DataTable({
+      ajax: {
+                processing: true,
+                serverSide: true,
+                url: '<?php echo site_url('admin/table_network_device');?>',
+                type : 'POST',
+      },        
+      columns: [
+                { "data": "no" },
+                { "data": "nama_mereknya" },
+                { "data": "device_type" },
+                { "data": "ip_address" },
+                { "data": "username" },
+                { "data": "password" },
+                { "data": "nama_pengguna" },
+                { "data": "nama_unitnya" },
+                { "data": "kepemilikan_status" },
+                { "data": "nama_vendornya" },
+                { "data": "tahun" },
+                { "data": "actionButton" },
+      ],
+    });
+
+    var serverTable = $('#table_server').DataTable({
+      ajax: {
+                processing: true,
+                serverSide: true,
+                url: '<?php echo site_url('admin/table_server');?>',
+                type : 'POST',
+      },        
+      columns: [
+                { "data": "no" },
+                { "data": "nama_mereknya" },
+                { "data": "keterangan" },
+                { "data": "ip_address" },
+                { "data": "username" },
+                { "data": "password" },
+                { "data": "nama_pengguna" },
+                { "data": "nama_unitnya" },
+                { "data": "tahun" },
+                { "data": "actionButton" },
+      ],
+    });
+
+    var lokaTable = $('#table_lokal').DataTable({
+      ajax: {
+                processing: true,
+                serverSide: true,
+                url: '<?php echo site_url('admin/table_lokal_view');?>',
+                type : 'POST',
+      },        
+      columns: [
+                { "data": "no" },
+                { "data": "nama_aplikasi" },
+                { "data": "link_aplikasi" },
+                { "data": "username" },
+                { "data": "password" },
+                { "data": "jenis_database" },
+                { "data": "nama_unitnya" },
+                { "data": "actionButton" },
+      ],
+    });
+
+    var monitorTable = $('#table_monitor').DataTable({
+      ajax: {
+                processing: true,
+                serverSide: true,
+                url: '<?php echo site_url('admin/table_monitor_view');?>',
+                type : 'POST',
+      },
+      columns: [
+                { "data": "no" },
+                { "data": "nama_mereknya" },
+                { "data": "nama_pengguna" },
+                { "data": "nama_unitnya" },
+                { "data": "kepemilikan_status" },
+                { "data": "nama_vendornya" },
+                { "data": "tahun" },
+                { "data": "actionButton" },
+      ],
+    });
+
+    var table = $('#example1').DataTable({
+      ajax: {
+                processing: true,
+                serverSide: true,
+                url: '<?php echo site_url('admin/table_laptop_view');?>',
+                type : 'POST',
+      },
+      columns: [
+                { "data": "no" },
+                { "data": "nama_mereknya" },
+                { "data": "spesifikasi" },
+                { "data": "nama_pengguna" },
+                { "data": "laptop_name" },
+                { "data": "serial_number" },
+                { "data": "ip_address" },
+                { "data": "nama_unitnya" },
+                { "data": "kepemilikan_status" },
+                { "data": "nama_vendornya" },
+                { "data": "tahun" },
+                { "data": "actionButton" },
+      ],
       lengthChange: true,
       buttons: [{
         extend: 'excel',

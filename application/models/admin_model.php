@@ -889,7 +889,7 @@ function unit_level1()
       nama_unit_level3
       FROM
       unit_level3
-      WHERE id_unit_level3 = a.`id_unit`) AS nama_unitnya,
+      WHERE id_unit_level3 = id_kantor_induk) AS nama_unitnya,
       (SELECT 
       merek 
       FROM

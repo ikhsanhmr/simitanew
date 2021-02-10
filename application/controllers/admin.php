@@ -1240,6 +1240,34 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function table_laptop_view(){
+		$data = array();
+		
+		$query = $this->admin_model->tampil_laptop();
+		if($query->num_rows() > 0){
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key+1;
+				if($row["status_kepemilikan"] == "Aset PLN"){
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">'.$row['status_kepemilikan'].'</button>';
+				}else{
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">'.$row['status_kepemilikan'].'</button>';
+				}
+
+				$row['actionButton'] = "<a href=".base_url('admin/laptop_edit?id_laptop='.$row['id_laptop'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=".base_url('admin/laptop_delete?id_laptop='.$row['id_laptop'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				
+				
+				";
+				
+				
+
+				$data[] = $row;
+			}
+
+		}
+		echo json_encode(array('data'=>$data));
+	}
+
 	public function laptop_add()
 	{
 		if ($this->session->userdata('status') != "login") {
@@ -1797,6 +1825,34 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function table_komputer_view(){
+		$data = array();
+		
+		$query = $this->admin_model->tampil_komputer();
+		if($query->num_rows() > 0){
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key+1;
+				if($row["status_kepemilikan"] == "Aset PLN"){
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">'.$row['status_kepemilikan'].'</button>';
+				}else{
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">'.$row['status_kepemilikan'].'</button>';
+				}
+
+				$row['actionButton'] = "<a href=".base_url('admin/komputer_edit?id_komputer='.$row['id_komputer'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=".base_url('admin/komputer_delete?id_komputer='.$row['id_komputer'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				
+				
+				";
+				
+				
+
+				$data[] = $row;
+			}
+
+		}
+		echo json_encode(array('data'=>$data));
+	}
+
 	public function komputer_add()
 	{
 		if ($this->session->userdata('status') != "login") {
@@ -1929,6 +1985,34 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function table_monitor_view(){
+		$data = array();
+		
+		$query = $this->admin_model->tampil_monitor();
+		if($query->num_rows() > 0){
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key+1;
+				if($row["status_kepemilikan"] == "Aset PLN"){
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">'.$row['status_kepemilikan'].'</button>';
+				}else{
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">'.$row['status_kepemilikan'].'</button>';
+				}
+
+				$row['actionButton'] = "<a href=".base_url('admin/monitor_edit?id_monitor='.$row['id_monitor'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=".base_url('admin/monitor_delete?id_monitor='.$row['id_monitor'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				
+				
+				";
+				
+				
+
+				$data[] = $row;
+			}
+
+		}
+		echo json_encode(array('data'=>$data));
+	}
+
 	public function monitor_add()
 	{
 		if ($this->session->userdata('status') != "login") {
@@ -2049,6 +2133,34 @@ class Admin extends CI_Controller
 			$this->load->view('admin/printer_view', $data);
 			$this->load->view('footer');
 		}
+	}
+
+	public function table_printer_view(){
+		$data = array();
+		
+		$query = $this->admin_model->tampil_printer();
+		if($query->num_rows() > 0){
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key+1;
+				if($row["status_kepemilikan"] == "Aset PLN"){
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">'.$row['status_kepemilikan'].'</button>';
+				}else{
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">'.$row['status_kepemilikan'].'</button>';
+				}
+
+				$row['actionButton'] = "<a href=".base_url('admin/printer_edit?id_printer='.$row['id_printer'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=".base_url('admin/printer_delete?id_printer='.$row['id_printer'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				
+				
+				";
+				
+				
+
+				$data[] = $row;
+			}
+
+		}
+		echo json_encode(array('data'=>$data));
 	}
 
 	public function printer_add()
@@ -2172,6 +2284,26 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function table_lokal_view(){
+		$data = array();
+		
+		$query = $this->admin_model->tampil_aplikasi_lokal();
+		if($query->num_rows() > 0){
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key+1;
+				$row['actionButton'] = "<a href=".base_url('admin/aplikasi_lokal_edit?id_aplikasi_lokal='.$row['id_aplikasi_lokal'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=".base_url('admin/aplikasi_lokal_delete?id_aplikasi_lokal='.$row['id_aplikasi_lokal'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				";
+				
+				
+
+				$data[] = $row;
+			}
+
+		}
+		echo json_encode(array('data'=>$data));
+	}
+
 	public function aplikasi_lokal_add()
 	{
 		if ($this->session->userdata('status') != "login") {
@@ -2284,6 +2416,33 @@ class Admin extends CI_Controller
 			$this->load->view('admin/network_device_view', $data);
 			$this->load->view('footer');
 		}
+	}
+	
+	public function table_network_device(){
+		$data = array();
+		
+		$query = $this->admin_model->tampil_network_device();
+		if($query->num_rows() > 0){
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key+1;
+				if($row["status_kepemilikan"] == "Aset PLN"){
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">'.$row['status_kepemilikan'].'</button>';
+				}else{
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">'.$row['status_kepemilikan'].'</button>';
+				}
+				$row['actionButton'] = "<a href=".base_url('admin/network_device_edit?id_network_device='.$row['id_network_device'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=".base_url('admin/network_device_delete?id_network_device='.$row['id_network_device'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				
+				
+				";
+				
+				
+
+				$data[] = $row;
+			}
+
+		}
+		echo json_encode(array('data'=>$data));
 	}
 
 	public function network_device_add()
@@ -2424,6 +2583,29 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function table_server(){
+		$data = array();
+		
+		$query = $this->admin_model->tampil_server();
+		if($query->num_rows() > 0){
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key+1;
+
+				$row['actionButton'] = "<a href=".base_url('admin/server_edit?id_server='.$row['id_server'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=".base_url('admin/server_delete?id_server='.$row['id_server'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				
+				
+				";
+				
+				
+
+				$data[] = $row;
+			}
+
+		}
+		echo json_encode(array('data'=>$data));
+	}
+
 	public function server_add()
 	{
 		if ($this->session->userdata('status') != "login") {
@@ -2549,6 +2731,28 @@ class Admin extends CI_Controller
 			$this->load->view('admin/vicon_view', $data);
 			$this->load->view('footer');
 		}
+	}
+
+	public function table_vicon(){
+		$data = array();
+		
+		$query = $this->admin_model->tampil_vicon();
+		if($query->num_rows() > 0){
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key+1;
+				$row['actionButton'] = "<a href=".base_url('admin/vicon_edit?id_vicon='.$row['id_vicon'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=".base_url('admin/vicon_delete?id_vicon='.$row['id_vicon'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				
+				
+				";
+				
+				
+
+				$data[] = $row;
+			}
+
+		}
+		echo json_encode(array('data'=>$data));
 	}
 
 	public function vicon_add()
