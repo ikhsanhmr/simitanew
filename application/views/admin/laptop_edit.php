@@ -125,7 +125,7 @@
                                 <div class="form-group">
                                     <label for="unit_level3" class="col-sm-3 control-label">Unit Level 3</label>
                                     <div class="col-sm-5">
-                                        <select class="form-control select2" name="unit_level3" id="unit_level3" style="width: 100%;">
+                                        <select class="form-control select2" name="id_unit" id="unit_level3" style="width: 100%;">
                                             <option value="<?php echo $unitnya['id_unit_level3']; ?>" selected="selected"><?php echo $unitnya['nama_unit_level3']; ?></option>
                                             <option value=""> -- Pilih Unit Level 3 -- </option>
                                         </select>
