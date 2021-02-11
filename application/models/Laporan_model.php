@@ -184,6 +184,8 @@ class laporan_model extends CI_Model {
 			'inverter' => htmlspecialchars($this->input->post('inverter'), true),
 			'backup_setting' => htmlspecialchars($this->input->post('backup_setting'), true),
 			'kantor_induk' => htmlspecialchars($this->input->post('kantor_induk'), true),
+			'tingkat_kerawanan' => htmlspecialchars($this->input->post('tingkat_kerawanan'), true),
+			'solusi_tingkat_kerawanan' => htmlspecialchars($this->input->post('solusi_tingkat_kerawanan'), true),
 			'unit_level2' => htmlspecialchars($this->input->post('unit_level2'), true),
 			'unit_level3' => htmlspecialchars($this->input->post('unit_level3'), true),
 			'pelaksana_pekerjaan' => htmlspecialchars($this->input->post('pelaksana_pekerjaan'), true),

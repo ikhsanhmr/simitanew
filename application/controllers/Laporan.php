@@ -332,7 +332,7 @@ class Laporan extends CI_Controller {
 		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-
+			
 		
 			$data['laporan'] = $this->laporan->getDataEditHar($id);
 			$data['network'] = $this->laporan->type_network_device();
@@ -346,7 +346,8 @@ class Laporan extends CI_Controller {
 			$data['unit2'] = $this->laporan->filter_data_unit_level2($id_level2);
 			$data['unit3'] = $this->laporan->filter_data_unit_level3($id_level3);
 			$data['waktu'] = $this->laporan->filter_data_waktu($id_waktu);
-			$data['jadwal']=$this->laporan->getJadwalHar();
+			$data['jadwal'] = $this->laporan->getJadwalHar();
+			$data['kerawanan'] = $this->db->get('kerawanan')->result_array();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/har_edit',$data);

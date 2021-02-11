@@ -450,6 +450,35 @@
                 <div class="box-body">
                     <div class="col-lg-10">
                         <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Tingkat Kerawanan</label>
+                            <div class="col-sm-5">
+                            <select  class="form-control select2" name="tingkat_kerawanan" id="tingkat_kerawanan"> 
+                            <option selected="selected" value=""> -- Pilih  Tingkat Kerawanan -- </option>
+                            <?php foreach ($kerawanan as $value) : ?>
+                            
+                            <?php if($laporan["tingkat_kerawanan"] === $value["tingkat_kerawanan"]) : ?>
+                                <option value="<?= $value["tingkat_kerawanan"] ?>" selected data-solusi="<?= $value["solusi_tingkat_kerawanan"] ?>"><?= $value["tingkat_kerawanan"] ?> (<?= $value["status_kerawanan"] ?>)</option>
+                            <?php else: ?>
+                                <option value="<?= $value["tingkat_kerawanan"] ?>" data-solusi="<?= $value["solusi_tingkat_kerawanan"] ?>"><?= $value["tingkat_kerawanan"] ?> (<?= $value["status_kerawanan"] ?>)</option>
+                            <?php endif; ?>
+
+                            <?php endforeach; ?>
+                               
+                            
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Solusi</label>
+                            <div class="col-sm-5">
+                            <input type="text" class="form-control" name="solusi_tingkat_kerawanan" id="solusi_tingkat_kerawanan" value="<?= $laporan["solusi_tingkat_kerawanan"]; ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Pengawas Pekerjaan</label>
                             <div class="col-sm-5">
                             <!-- <input class="form-control"type="text" name="pengawas_pekerjaan" id="pengawas_pekerjaan" value = "<?php echo $laporan['pengawas_pekerjaan']; ?>"> -->
