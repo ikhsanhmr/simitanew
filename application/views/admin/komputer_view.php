@@ -33,6 +33,8 @@
                   <th>Merk Komputer</th>
                   <th>Spesifikasi</th>
                   <th>Pengguna</th>
+                  <th>Nama Komputer</th>
+                  <th>Serial Number</th>
                   <th>IP Address</th>
                   <th>Unit</th>
                   <th>Status Aset</th>

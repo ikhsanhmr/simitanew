@@ -34,20 +34,20 @@
                         <div class="form-group">
                             <label for="nama" class="col-sm-3 control-label">Nama Item</label>
                             <div class="col-sm-5">
-                            <select class="form-control select2" name="nama_item" style="width: 100%;">
+                            <select class="form-control select2" id="inventory" name="nama_item" style="width: 100%;">
                             <option selected="selected"> -- Pilih Inventory -- </option>
-                               
-                                <option value="Laptop">Laptop</option>
-                                <option value="PC/Komputer">PC / Komputer</option>
+                                <option value="Laptop" id="laptop" data-laptop="laptop">Laptop</option>
+                                <option value="PC/Komputer" data-komputer="komputer">PC / Komputer</option>
                                 <option value="Monitor">Monitor</option>
                                 <option value="Aplikasi Lokal">Aplikasi Lokal</option>
                                 <option value="Server">Server</option>
                                 <option value="Network Device">Network Device</option>
-                                <option value="Video Conference">Video Conference</option>
-                              
+                                <option value="Video Conference">Video Conference</option>    
                             </select>
                             </div>
                         </div>
+                    </div>
+                    <div id="getInventory">
                     </div>
                      <div class="col-lg-10">
                         <div class="form-group">

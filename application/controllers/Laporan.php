@@ -11,6 +11,7 @@ class Laporan extends CI_Controller {
 		// }
 		$this->load->model('Laporan_model', 'laporan');
 		$this->load->model('Admin_model', 'admin');
+		$this->load->model(array('admin_model','Sla_model', 'laporan_model'));
 		$this->load->model('Pegawai_model', 'pegawai');
     }
 	
@@ -37,19 +38,57 @@ class Laporan extends CI_Controller {
 	{
 		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-	} else {
-	
-			$data['list_merek_printer'] = $this->admin->list_merek_printer();
-	$data['unit']=$this->laporan->kantor_induk();
-	$data['pegawainya'] = $this->pegawai->getData();
-	
-	
-	$this->load->view('header');
-	$this->load->view('sidebar');
-	$this->load->view('laporan/add',$data);
-	$this->load->view('footer');
+		} else {
+		
+				$data['list_merek_printer'] = $this->admin->list_merek_printer();
+		$data['unit']=$this->laporan->kantor_induk();
+		$data['pegawainya'] = $this->pegawai->getData();
+		
+		
+		$this->load->view('header');
+		$this->load->view('sidebar');
+		$this->load->view('laporan/add',$data);
+		$this->load->view('footer');
+		}
 	}
-}
+
+	public function laptop(){
+		$laptop = $this->admin_model->tampil_laptop()->result_array();
+		?>
+		<div class="col-lg-10">
+		<div class="form-group">
+			<label for="nama" class="col-sm-3 control-label">Inventory Laptop</label>
+			<div class="col-sm-5">
+			<select class="form-control select2" name="getInventory" style="width: 100%;">
+			<option selected="selected"> -- Pilih Inventory Laptop -- </option>
+			<?php foreach($laptop as $l) : ?>
+			<option value="<?= $l["serial_number"] ?>"><?= $l["laptop_name"] ?> - (<?= $l["serial_number"]; ?>)</option>
+			<?php endforeach; ?>
+			</select>
+			</div>
+		</div>
+	</div>
+	<?php
+	}
+
+	public function komputer(){
+		$komputer = $this->admin_model->tampil_komputer()->result_array();
+		?>
+		<div class="col-lg-10">
+		<div class="form-group">
+			<label for="nama" class="col-sm-3 control-label">Inventory Komputer</label>
+			<div class="col-sm-5">
+			<select class="form-control select2" name="getInventory" style="width: 100%;">
+			<option selected="selected"> -- Pilih Inventory Komputer -- </option>
+			<?php foreach($komputer as $l) : ?>
+			<option value="<?= $l["serial_number"] ?>"><?= $l["nama_komputer"] ?> - (<?= $l["serial_number"]; ?>)</option>
+			<?php endforeach; ?>
+			</select>
+			</div>
+		</div>
+	</div>
+	<?php
+	}
 
 	public function action_addData() {
 		//print_r($_POST); exit;
@@ -61,12 +100,15 @@ class Laporan extends CI_Controller {
 			$kondisi_item = $this->input->post('kondisi_item');
 			$tanggal_pelaporan = $this->input->post('tanggal_pelaporan');
 			$pengguna = $this->input->post('pengguna');
+			$serial_number = $this->input->post('getInventory');
 			$data = array(
-			'nama_item' => $nama_item
-			,'merek_item' => $merek_item
-			,'kondisi_item' => $kondisi_item
-			,'tanggal_pelaporan' => $tanggal_pelaporan,
-			'pengguna' => $pengguna,);
+			'serial_number' => $serial_number,
+			'nama_item' => $nama_item,
+			'merek_item' => $merek_item,
+			'kondisi_item' => $kondisi_item,
+			'tanggal_pelaporan' => $tanggal_pelaporan,
+			'pengguna' => $pengguna
+		);
 			$insert = $this->laporan->addData($data);
 			if ($insert) {
 				echo "<script>alert('Berhasil Menambah Data')</script>";

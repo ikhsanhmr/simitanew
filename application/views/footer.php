@@ -87,7 +87,32 @@ $('#tingkat_kerawanan').on('change', function() {
   $("#solusi_tingkat_kerawanan").val(value);
 });
 
+
   $(function() {
+    $("#inventory").on('change',function() {
+      var laptop = $(this).find(':selected').attr('data-laptop');
+      var komputer = $(this).find(':selected').attr('data-komputer');
+      if(laptop){
+        fetch("<?= base_url('laporan/laptop') ?>",{
+          method: 'GET',
+        }).then((response) => response.text())
+        .then((data) => {
+          document.getElementById('getInventory').innerHTML = data;
+        });
+      }
+
+      if(komputer){
+        fetch("<?= base_url('laporan/komputer') ?>",{
+          method: 'GET',
+        }).then((response) => response.text())
+        .then((data) => {
+          document.getElementById('getInventory').innerHTML = data;
+        });
+      }
+
+
+    });
+
     var komputerTable = $('#komputer_table').DataTable({
       ajax: {
                 processing: true,
@@ -100,6 +125,8 @@ $('#tingkat_kerawanan').on('change', function() {
                 { "data": "nama_mereknya" },
                 { "data": "spesifikasi" },
                 { "data": "nama_pengguna" },
+                { "data": "nama_komputer" },
+                { "data": "linkNumber" },
                 { "data": "ip_address" },
                 { "data": "nama_unitnya" },
                 { "data": "kepemilikan_status" },
@@ -230,6 +257,10 @@ $('#tingkat_kerawanan').on('change', function() {
       ],
     });
 
+    var kerusakanLaptop = $("#table_kerusakan_laptop").DataTable({
+
+    });
+
     var table = $('#example1').DataTable({
       ajax: {
                 processing: true,
@@ -243,7 +274,7 @@ $('#tingkat_kerawanan').on('change', function() {
                 { "data": "spesifikasi" },
                 { "data": "nama_pengguna" },
                 { "data": "laptop_name" },
-                { "data": "serial_number" },
+                { "data": "linkNumber" },
                 { "data": "ip_address" },
                 { "data": "nama_unitnya" },
                 { "data": "kepemilikan_status" },

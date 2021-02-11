@@ -1240,6 +1240,32 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function detailKerusakanLaptop($serial_number){
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['serial_number'] = $serial_number;
+			$data['laptop_view'] = $this->db->get_where('report_kerusakan',["serial_number" => $serial_number])->result_array();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/detailKerusakanLaptop', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function detailKerusakanKomputer($serial_number){
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['serial_number'] = $serial_number;
+			$data['komputer'] = $this->db->get_where('report_kerusakan',["serial_number" => $serial_number])->result_array();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/detailKerusakanKomputer', $data);
+			$this->load->view('footer');
+		}
+	}
+
 	public function table_laptop_view(){
 		$data = array();
 		
@@ -1252,15 +1278,13 @@ class Admin extends CI_Controller
 				}else{
 					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">'.$row['status_kepemilikan'].'</button>';
 				}
-
+				$row['linkNumber'] = "<a href=".base_url('admin/detailKerusakanLaptop/'.$row["serial_number"]).">".$row["serial_number"]."</a>";
 				$row['actionButton'] = "<a href=".base_url('admin/laptop_edit?id_laptop='.$row['id_laptop'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
 				<a href=".base_url('admin/laptop_delete?id_laptop='.$row['id_laptop'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				
 				
 				";
 				
-				
-
 				$data[] = $row;
 			}
 
@@ -1837,7 +1861,7 @@ class Admin extends CI_Controller
 				}else{
 					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">'.$row['status_kepemilikan'].'</button>';
 				}
-
+				$row['linkNumber'] = "<a href=".base_url('admin/detailKerusakanKomputer/'.$row["serial_number"]).">".$row["serial_number"]."</a>";
 				$row['actionButton'] = "<a href=".base_url('admin/komputer_edit?id_komputer='.$row['id_komputer'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
 				<a href=".base_url('admin/komputer_delete?id_komputer='.$row['id_komputer'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				
@@ -1877,12 +1901,16 @@ class Admin extends CI_Controller
 			$id_merek = $this->input->post('id_merek');
 			$spesifikasi = $this->input->post('spesifikasi');
 			$nama_pengguna = $this->input->post('nama_pengguna');
+			$nama_komputer = $this->input->post('nama_komputer');
+			$serial_number = $this->input->post('serial_number');
 			$ip_address = $this->input->post('ip_address');
 			$id_unit = $this->input->post('unit_level3');
 			$status_kepemilikan = $this->input->post('status_kepemilikan');
 			$tahun = $this->input->post('tahun');
 			$id_vendor = $this->input->post('id_vendor');
 			$data = array(
+				'nama_komputer' => $nama_komputer,
+				'serial_number' => $serial_number,
 				'id_merek' => $id_merek,
 				'spesifikasi' => $spesifikasi, 'nama_pengguna' => $nama_pengguna, 'ip_address' => $ip_address,
 				'id_unit' => $id_unit,
@@ -1926,6 +1954,8 @@ class Admin extends CI_Controller
 		} else {
 			$id_komputer = $this->input->post('id_komputer');
 			$id_merek = $this->input->post('id_merek');
+			$nama_komputer = $this->input->post('nama_komputer');
+			$serial_number = $this->input->post('serial_number');
 			$spesifikasi = $this->input->post('spesifikasi');
 			$nama_pengguna = $this->input->post('nama_pengguna');
 			$ip_address = $this->input->post('ip_address');
@@ -1938,6 +1968,8 @@ class Admin extends CI_Controller
 			}
 			$tahun = $this->input->post('tahun');
 			$data = array(
+				'nama_komputer' => $nama_komputer,
+				'serial_number' => $serial_number,
 				'id_merek' => $id_merek,
 				'spesifikasi' => $spesifikasi,
 				'tahun' => $tahun,

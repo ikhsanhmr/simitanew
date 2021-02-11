@@ -66,6 +66,22 @@ Hardisk :
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <label for="nama_komputer" class="col-sm-3 control-label">Nama Komputer</label>
+                                <div class="col-sm-5">
+								 <input type="text" class="form-control" id="nama_komputer" name="nama_komputer" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="form-group">
+                                <label for="serial_number" class="col-sm-3 control-label">Serial Number</label>
+                                <div class="col-sm-5">
+								 <input type="text" class="form-control" id="serial_number" name="serial_number" required/>
+                                </div>
+                            </div>
+                        </div>
 						<br><br><br>
 						<div class="col-lg-10">
                             <div class="form-group">

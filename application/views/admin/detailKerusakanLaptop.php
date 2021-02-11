@@ -3,30 +3,27 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        laporan
-        <small>Manage laporan</small>
+        Admin
+        <small>Manage Laptop</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i>Master Data</a></li>
-        <li class='active'><a href="#">Laporan Kerusakan</a></li>
-     
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Admin</a></li>
+        <li class="active">Manage Laptop</li>
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
-
-      <?= $this->session->flashdata('pesan'); ?>
-
       <div class="row">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">laporan</h3>
+              <h3 class="box-title">Detail Kerusakan Serial Number = <?= $serial_number; ?></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="table_kerusakan_laptop" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th class="center">No.</th>
@@ -43,7 +40,7 @@
                 <tbody>
                   <?php
                   $no = 1;
-                  foreach ($laporan as $laporan):
+                  foreach ($laptop_view as $laporan):
                   ?>
                     <tr>
                       <td class="text-center"><?= $no ?></td>
@@ -69,11 +66,6 @@
                 </tbody>
                
               </table>
-												<div class="row">
-														<div id="default-buttons" class="col-sm-6">
-														<a class="btn btn-primary" href="<?= base_url('laporan/addData'); ?>">Add Data</a>
-														</div>
-												</div>
             </div>
             <!-- /.box-body -->
           </div>
