@@ -92,8 +92,23 @@ $('#tingkat_kerawanan').on('change', function() {
     $("#inventory").on('change',function() {
       var laptop = $(this).find(':selected').attr('data-laptop');
       var komputer = $(this).find(':selected').attr('data-komputer');
-      if(laptop){
+      
+      if (laptop) {
         fetch("<?= base_url('laporan/laptop') ?>",{
+          method: 'GET',
+        }).then((response) => response.text())
+        .then((data) => {
+          document.getElementById('getInventory').innerHTML = data;
+        });
+      } else if (komputer) {
+        fetch("<?= base_url('laporan/komputer') ?>",{
+          method: 'GET',
+        }).then((response) => response.text())
+        .then((data) => {
+          document.getElementById('getInventory').innerHTML = data;
+        });
+      } else {
+        fetch("<?= base_url('laporan/inventoryNotFound') ?>",{
           method: 'GET',
         }).then((response) => response.text())
         .then((data) => {
@@ -101,14 +116,6 @@ $('#tingkat_kerawanan').on('change', function() {
         });
       }
 
-      if(komputer){
-        fetch("<?= base_url('laporan/komputer') ?>",{
-          method: 'GET',
-        }).then((response) => response.text())
-        .then((data) => {
-          document.getElementById('getInventory').innerHTML = data;
-        });
-      }
 
 
     });

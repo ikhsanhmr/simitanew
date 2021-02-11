@@ -54,40 +54,24 @@ class Laporan extends CI_Controller {
 
 	public function laptop(){
 		$laptop = $this->admin_model->tampil_laptop()->result_array();
-		?>
-		<div class="col-lg-10">
-		<div class="form-group">
-			<label for="nama" class="col-sm-3 control-label">Inventory Laptop</label>
-			<div class="col-sm-5">
-			<select class="form-control select2" name="getInventory" style="width: 100%;">
-			<option selected="selected"> -- Pilih Inventory Laptop -- </option>
-			<?php foreach($laptop as $l) : ?>
-			<option value="<?= $l["serial_number"] ?>"><?= $l["laptop_name"] ?> - (<?= $l["serial_number"]; ?>)</option>
-			<?php endforeach; ?>
-			</select>
-			</div>
-		</div>
-	</div>
-	<?php
+		echo "<option>-- Pilih Inventory Laptop --</option>";
+		foreach($laptop as $l){
+			echo "
+			<option value=$l[serial_number]>$l[laptop_name] - ($l[serial_number])</option>";
+		}
 	}
 
 	public function komputer(){
 		$komputer = $this->admin_model->tampil_komputer()->result_array();
-		?>
-		<div class="col-lg-10">
-		<div class="form-group">
-			<label for="nama" class="col-sm-3 control-label">Inventory Komputer</label>
-			<div class="col-sm-5">
-			<select class="form-control select2" name="getInventory" style="width: 100%;">
-			<option selected="selected"> -- Pilih Inventory Komputer -- </option>
-			<?php foreach($komputer as $l) : ?>
-			<option value="<?= $l["serial_number"] ?>"><?= $l["nama_komputer"] ?> - (<?= $l["serial_number"]; ?>)</option>
-			<?php endforeach; ?>
-			</select>
-			</div>
-		</div>
-	</div>
-	<?php
+		echo "<option>-- Pilih Inventory Komputer --</option>";
+		foreach($komputer as $l){
+			echo "
+			<option value=$l[serial_number]>$l[nama_komputer] - ($l[serial_number])</option>";
+		}
+	}
+
+	public function inventoryNotFound(){
+		echo "<option>-- Serial Number Inventory Tidak Ditemukan --</option>";
 	}
 
 	public function action_addData() {
@@ -96,7 +80,6 @@ class Laporan extends CI_Controller {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$nama_item = $this->input->post('nama_item');
-			$merek_item = $this->input->post('merek_item');
 			$kondisi_item = $this->input->post('kondisi_item');
 			$tanggal_pelaporan = $this->input->post('tanggal_pelaporan');
 			$pengguna = $this->input->post('pengguna');
@@ -104,7 +87,6 @@ class Laporan extends CI_Controller {
 			$data = array(
 			'serial_number' => $serial_number,
 			'nama_item' => $nama_item,
-			'merek_item' => $merek_item,
 			'kondisi_item' => $kondisi_item,
 			'tanggal_pelaporan' => $tanggal_pelaporan,
 			'pengguna' => $pengguna

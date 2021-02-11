@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Feb 2021 pada 05.14
+-- Waktu pembuatan: 11 Feb 2021 pada 06.29
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.11
 
@@ -7438,7 +7438,6 @@ CREATE TABLE `report_kerusakan` (
   `id_report` int(13) NOT NULL,
   `serial_number` varchar(250) DEFAULT NULL,
   `nama_item` varchar(125) NOT NULL,
-  `merek_item` varchar(125) NOT NULL,
   `kondisi_item` text NOT NULL,
   `tanggal_pelaporan` date NOT NULL,
   `pengguna` varchar(60) NOT NULL
@@ -7448,9 +7447,9 @@ CREATE TABLE `report_kerusakan` (
 -- Dumping data untuk tabel `report_kerusakan`
 --
 
-INSERT INTO `report_kerusakan` (`id_report`, `serial_number`, `nama_item`, `merek_item`, `kondisi_item`, `tanggal_pelaporan`, `pengguna`) VALUES
-(1, NULL, 'Video Conference', 'CANON', 'Camera rusak tidak bisa dipakai sama sekali', '2021-02-11', '1'),
-(2, '8872128212', 'Laptop', 'SAMSUNG', 'Install Ulang windows 10', '2021-02-11', '1');
+INSERT INTO `report_kerusakan` (`id_report`, `serial_number`, `nama_item`, `kondisi_item`, `tanggal_pelaporan`, `pengguna`) VALUES
+(1, '8872128212', 'Laptop', 'Install Ulang windows 10', '2021-02-11', 'Alfahri Harriza'),
+(2, '8872128212', 'Laptop', 'Penambahan Install ulang dual boot windows dan linux', '2021-02-11', 'Alfahri Harriza');
 
 -- --------------------------------------------------------
 

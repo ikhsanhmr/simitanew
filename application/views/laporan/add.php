@@ -47,19 +47,12 @@
                             </div>
                         </div>
                     </div>
-                    <div id="getInventory">
-                    </div>
-                     <div class="col-lg-10">
+                    <div class="col-lg-10" id="inventoryGet">
                         <div class="form-group">
-                            <label for="email" class="col-sm-3 control-label">Merek</label>
+                            <label for="nama" class="col-sm-3 control-label">Inventory</label>
                             <div class="col-sm-5">
-                            <select class="form-control select2" name="merek_item" style="width: 100%;">
-                            <option selected="selected"> -- Pilih Merek -- </option>
-                                <?php foreach ($list_merek_printer->result_array() as $data) { ?>
-                                <option value="<?php echo $data['merek']; ?>"><?php echo $data['merek']; ?></option>
-                                <?php 
-                                }
-                                ?>
+                            <select class="form-control select2" id="getInventory" name="getInventory" style="width: 100%;">
+                            <option selected="selected"> -- Pilih Inventory Item Dahulu -- </option>
                             </select>
                             </div>
                         </div>
@@ -91,7 +84,7 @@
                                             <option selected="selected" value=""> -- Pilih Pengguna -- </option>
                                             <?php
                                             foreach ($pegawainya as $value) { ?>
-                                                <option value="<?php echo $value['pegawai_id']; ?>"><?php echo $value['nama']; ?></option>
+                                                <option value="<?php echo $value['nama']; ?>"><?php echo $value['nama']; ?></option>
                                             <?php }
                                             ?>
                                         </select>

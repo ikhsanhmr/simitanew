@@ -26,12 +26,11 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="table_kerusakan_laptop" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th class="center">No.</th>
                     <th class="text-center">Nama Item</th>
-                    <th class="text-center">Merek</th>
                     <th class="text-center">Serial Number</th>
                     <th class="text-center">Kondisi</th>
                     <th class="text-center">Tanggal Pelaporan</th>
@@ -49,7 +48,6 @@
                       <td class="text-center"><?= $no ?></td>
                     
                       <td class="text-center"><?= $laporan['nama_item']; ?></td>
-                      <td class="text-center"><?= $laporan['merek_item']; ?></td>
                       <td class="text-center"><?= $laporan['serial_number']; ?></td>
                       <td class="text-center"><?= $laporan['kondisi_item']; ?></td>
                       <td class="text-center"><?= date("d/F/Y",strtotime($laporan['tanggal_pelaporan'])); ?></td>

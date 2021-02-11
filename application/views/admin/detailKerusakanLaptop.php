@@ -28,7 +28,6 @@
                   <tr>
                     <th class="center">No.</th>
                     <th class="text-center">Nama Item</th>
-                    <th class="text-center">Merek</th>
                     <th class="text-center">Serial Number</th>
                     <th class="text-center">Kondisi</th>
                     <th class="text-center">Tanggal Pelaporan</th>
@@ -46,7 +45,6 @@
                       <td class="text-center"><?= $no ?></td>
                     
                       <td class="text-center"><?= $laporan['nama_item']; ?></td>
-                      <td class="text-center"><?= $laporan['merek_item']; ?></td>
                       <td class="text-center"><?= $laporan['serial_number']; ?></td>
                       <td class="text-center"><?= $laporan['kondisi_item']; ?></td>
                       <td class="text-center"><?= date("d/F/Y",strtotime($laporan['tanggal_pelaporan'])); ?></td>
@@ -66,7 +64,13 @@
                 </tbody>
                
               </table>
+              <div class="row">
+														<div id="default-buttons" class="col-sm-6">
+														<a class="btn btn-primary" href="<?= base_url('admin/laptop_view'); ?>">Kembali</a>
+														</div>
+												</div>
             </div>
+
             <!-- /.box-body -->
           </div>
           <!-- /.box -->

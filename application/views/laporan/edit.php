@@ -56,21 +56,6 @@
                             </div>
                         </div>
                     </div>
-                     <div class="col-lg-10">
-                        <div class="form-group">
-                            <label for="email" class="col-sm-3 control-label">Merek</label>
-                            <div class="col-sm-5">
-                            <select class="form-control select2" name="merek_item" style="width: 100%;">
-                            <option value = "<?php echo $laporan['merek_item']; ?>" selected="selected"> <?php echo $laporan['merek_item']; ?> </option>
-                                <?php foreach ($list_merek_printer->result_array() as $data) { ?>
-                                <option value="<?php echo $data['merek']; ?>"><?php echo $data['merek']; ?></option>
-                                <?php 
-                                }
-                                ?>
-                            </select>
-                            </div>
-                        </div>
-                    </div>
        
         <div class="col-lg-10">
                         <div class="form-group">
