@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2021 at 06:18 AM
+-- Generation Time: Feb 15, 2021 at 06:44 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.3.15
 
@@ -6529,9 +6529,6 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`pegawai_id`, `nip`, `nama`, `email`, `no_hp`) VALUES
-(1, '123456789', 'Alfahri Harriza', 'fahrial.ramadhan98@gmail.com', '085261090890'),
-(2, '1231231231231231', 'pegawai', 'pegawai@gmail.com', '123123123123'),
-(3, '0980980980980980', 'Sharon Oskar', 'sharonskar@gmail.com', '098987987987'),
 (4, '65845600', 'RINI ISSUSI LENING TIAS', 'RINI.ISSUSI@PLN.CO.ID', ''),
 (5, '65845601', 'ANITA OMPUSUNGGU', 'ANITA.OMPUSUNGGU@PLN.CO.ID', ''),
 (6, '65845602', 'SUDIRIANTO', 'SUDIRIANTO@PLN.CO.ID', ''),
@@ -7254,11 +7251,11 @@ INSERT INTO `pegawai` (`pegawai_id`, `nip`, `nama`, `email`, `no_hp`) VALUES
 (723, '91105606', 'FAUZIAH HERLIN', 'FAUZIAH.HERLIN@PLN.CO.ID', ''),
 (724, '91105608', 'YUNI FIFETRIONA RISMA', 'YUNI.FIFETRIONA@PLN.CO.ID', ''),
 (725, '91105609', 'RAHMAT SIHOMBING', 'RAHMAT.SIHOMBING@PLN.CO.ID', ''),
-(726, '91105611', 'ILIN YUTIANSIH', 'ILIN.YUTIANSIH@PLN.CO.ID', '');
-INSERT INTO `pegawai` (`pegawai_id`, `nip`, `nama`, `email`, `no_hp`) VALUES
+(726, '91105611', 'ILIN YUTIANSIH', 'ILIN.YUTIANSIH@PLN.CO.ID', ''),
 (727, '91105612', 'TIURMA NIRWANA', 'TIURMA.NIRWANA@PLN.CO.ID', ''),
 (728, '91105613', 'ERWINSYAH LUBIS', 'ERWINSYAH.LUBIS@PLN.CO.ID', ''),
-(729, '91105614', 'NONA DESI ELFRIDA SIRAIT', 'NONA.DESI@PLN.CO.ID', ''),
+(729, '91105614', 'NONA DESI ELFRIDA SIRAIT', 'NONA.DESI@PLN.CO.ID', '');
+INSERT INTO `pegawai` (`pegawai_id`, `nip`, `nama`, `email`, `no_hp`) VALUES
 (730, '91105615', 'RONA RISKY ANGKAT', 'RONA.RISKY@PLN.CO.ID', ''),
 (731, '91115600', 'JANUAR ELANSA TARIGAN', 'JANUAR.ELANSA@PLN.CO.ID', ''),
 (732, '91115601', 'RICKY JOHANNES SARAGIH, A.MD', 'RICKY.JOHANNES@PLN.CO.ID', ''),
