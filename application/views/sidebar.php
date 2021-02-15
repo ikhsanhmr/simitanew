@@ -133,6 +133,12 @@
                 </a>
               </li>
             </li>
+            <li class="<?php if( $this->uri->segment(2)=="stok_view"){echo 'active';}?>"> 
+                  <a href="<?php echo site_url('admin/stok_view'); ?>"><i class="fa fa-book"></i> Stok Perangkat
+                  </span>
+                </a>
+              </li>
+            </li>
 
           </ul>
         </li>

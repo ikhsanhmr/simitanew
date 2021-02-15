@@ -14,6 +14,7 @@ class Admin extends CI_Controller
 		$this->load->model(array('admin_model','Sla_model', 'laporan_model'));
 		$this->load->model('Kpi_model', 'kpi');
 		$this->load->model('admin_model', 'users');
+		$this->load->model('admin_model', 'stok_perangkat');
 	}
 	/**
 	 * Index Page for this controller.
@@ -3571,7 +3572,94 @@ class Admin extends CI_Controller
 			}
 		}
 	}
+	//Stok perangkat
+	public function stok_view()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['stok_view'] = $this->admin_model->tampil_stok();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/stok_view', $data);
+			$this->load->view('footer');
+		}
+	}
 
+	public function stok_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/stok_add');
+			$this->load->view('footer');
+		}
+	}
+
+	public function action_stok_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$jenis_perangkat = $this->input->post('jenis_perangkat');
+			$jumlah_perangkat = $this->input->post('jumlah_perangkat');
+			$data = array('jenis_perangkat' => $jenis_perangkat, 'jumlah_perangkat' => $jumlah_perangkat);
+			$insert = $this->admin_model->add_stok_data($data);
+			if ($insert) {
+				echo "<script>alert('Berhasil Menambah Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/stok_view>";
+			}
+		}
+	}
+
+	public function stok_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$id_stok = $this->input->get('id_stok');
+			$data['stoknya'] = $this->admin_model->get_stok($id_stok);
+			$this->data['title'] = 'Update Stok :: ';
+			$this->load->view('header', $this->data);
+			$this->load->view('sidebar', $data);
+			$this->load->view('admin/stok_edit', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function action_stok_edit()
+	{
+		//print_r ($_POST); exit;
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$id_stok = $this->input->post('id_stok');
+			$jenis_perangkat = $this->input->post('jenis_perangkat');
+			$jumlah_perangkat = $this->input->post('jumlah_perangkat');
+			$data = array('jenis_perangkat' => $jenis_perangkat, 'jumlah_perangkat' => $jumlah_perangkat);
+			$update = $this->admin_model->update_stok($data, $id_stok);
+			if ($update) {
+				echo "<script>alert('Berhasil Mengubah Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/stok_view?id_stok=" . $id_stok . ">";
+			}
+		}
+	}
+
+	public function stok_delete()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$id_stok = $this->input->get('id_stok');
+			$delete = $this->admin_model->stok_delete($id_stok);
+			if ($delete) {
+				echo "<script>alert('Berhasil Menghapus Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/stok_view>";
+			}
+		}
+	}
 	//TINGKAT KERAWANAN
 	public function tingkat_kerawanan_view()
 	{

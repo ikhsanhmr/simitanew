@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Feb 2021 pada 06.29
--- Versi server: 10.4.14-MariaDB
--- Versi PHP: 7.4.11
+-- Generation Time: Feb 15, 2021 at 04:00 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `aplikasi_lokal`
+-- Table structure for table `aplikasi_lokal`
 --
 
 CREATE TABLE `aplikasi_lokal` (
@@ -38,7 +38,7 @@ CREATE TABLE `aplikasi_lokal` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `aplikasi_lokal`
+-- Dumping data for table `aplikasi_lokal`
 --
 
 INSERT INTO `aplikasi_lokal` (`id_aplikasi_lokal`, `nama_aplikasi`, `link_aplikasi`, `username`, `password`, `jenis_database`, `id_unit`) VALUES
@@ -68,7 +68,7 @@ INSERT INTO `aplikasi_lokal` (`id_aplikasi_lokal`, `nama_aplikasi`, `link_aplika
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `data_network`
+-- Table structure for table `data_network`
 --
 
 CREATE TABLE `data_network` (
@@ -89,7 +89,7 @@ CREATE TABLE `data_network` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `data_network`
+-- Dumping data for table `data_network`
 --
 
 INSERT INTO `data_network` (`data_id`, `tanggal_aktivasi`, `service_id`, `service`, `asman`, `id_unit`, `keterangan`, `no_aktivasi`, `scada`, `harga`, `kapasitas`, `status`, `bulan`, `tahun`) VALUES
@@ -2061,7 +2061,7 @@ INSERT INTO `data_network` (`data_id`, `tanggal_aktivasi`, `service_id`, `servic
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gangguan`
+-- Table structure for table `gangguan`
 --
 
 CREATE TABLE `gangguan` (
@@ -2078,7 +2078,7 @@ CREATE TABLE `gangguan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `gangguan`
+-- Dumping data for table `gangguan`
 --
 
 INSERT INTO `gangguan` (`id_ggn`, `id_network_device`, `desk_ggn`, `foto_ggn`, `tgl_gangguan`, `solusi`, `foto_solusi`, `created_at`, `solved_at`, `deleted_at`) VALUES
@@ -2097,7 +2097,7 @@ INSERT INTO `gangguan` (`id_ggn`, `id_network_device`, `desk_ggn`, `foto_ggn`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `har_network`
+-- Table structure for table `har_network`
 --
 
 CREATE TABLE `har_network` (
@@ -2147,7 +2147,7 @@ CREATE TABLE `har_network` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `har_network`
+-- Dumping data for table `har_network`
 --
 
 INSERT INTO `har_network` (`id`, `nama_unit`, `lokasi`, `waktu_pelaksanaan`, `working_permit`, `nama_perangkat`, `serial_number`, `type`, `id_address`, `mac_address`, `tampak_fisik`, `indikator_lampu`, `power_supply`, `lan`, `port`, `konfigurasi`, `backup_setting`, `genset`, `ups`, `inverter`, `solusi_tampak_fisik`, `solusi_indikator_lampu`, `solusi_power_supply`, `solusi_lan`, `solusi_port`, `solusi_konfigurasi`, `solusi_backup_setting`, `solusi_genset`, `solusi_ups`, `solusi_inverter`, `catatan`, `solusi`, `pengawas_pekerjaan`, `pelaksana_pekerjaan`, `approval`, `kantor_induk`, `tingkat_kerawanan`, `solusi_tingkat_kerawanan`, `unit_level2`, `unit_level3`, `foto_sebelum_pengerjaan`, `foto_saat_pengerjaan`, `foto_sesudah_pengerjaan`) VALUES
@@ -2167,7 +2167,7 @@ INSERT INTO `har_network` (`id`, `nama_unit`, `lokasi`, `waktu_pelaksanaan`, `wo
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hi`
+-- Table structure for table `hi`
 --
 
 CREATE TABLE `hi` (
@@ -2184,7 +2184,7 @@ CREATE TABLE `hi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `hi`
+-- Dumping data for table `hi`
 --
 
 INSERT INTO `hi` (`id_hi`, `id_hi_standard`, `bobot_kondisi`, `bobot_port`, `bobot_urgensi`, `bobot_standard`, `bobot_lifetime`, `bobot_gangguan`, `updated_at`, `status`) VALUES
@@ -2212,7 +2212,7 @@ INSERT INTO `hi` (`id_hi`, `id_hi_standard`, `bobot_kondisi`, `bobot_port`, `bob
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hi_standard`
+-- Table structure for table `hi_standard`
 --
 
 CREATE TABLE `hi_standard` (
@@ -2226,7 +2226,7 @@ CREATE TABLE `hi_standard` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `hi_standard`
+-- Dumping data for table `hi_standard`
 --
 
 INSERT INTO `hi_standard` (`id_hi_standard`, `bobot_kondisi`, `bobot_port`, `bobot_urgensi`, `bobot_standard`, `bobot_lifetime`, `bobot_gangguan`) VALUES
@@ -2253,7 +2253,7 @@ INSERT INTO `hi_standard` (`id_hi_standard`, `bobot_kondisi`, `bobot_port`, `bob
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `it_support`
+-- Table structure for table `it_support`
 --
 
 CREATE TABLE `it_support` (
@@ -2267,7 +2267,7 @@ CREATE TABLE `it_support` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `it_support`
+-- Dumping data for table `it_support`
 --
 
 INSERT INTO `it_support` (`id`, `nip`, `nama`, `no_hp`, `email`, `penempatan`, `vendor`) VALUES
@@ -2326,7 +2326,7 @@ INSERT INTO `it_support` (`id`, `nip`, `nama`, `no_hp`, `email`, `penempatan`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jadwal_har`
+-- Table structure for table `jadwal_har`
 --
 
 CREATE TABLE `jadwal_har` (
@@ -2339,7 +2339,7 @@ CREATE TABLE `jadwal_har` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `jadwal_har`
+-- Dumping data for table `jadwal_har`
 --
 
 INSERT INTO `jadwal_har` (`id_jadwal`, `tanggal_pergi`, `tanggal_pulang`, `petugas`, `tujuan_level2`, `tujuan_level3`) VALUES
@@ -2350,7 +2350,7 @@ INSERT INTO `jadwal_har` (`id_jadwal`, `tanggal_pergi`, `tanggal_pulang`, `petug
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kantor_induk`
+-- Table structure for table `kantor_induk`
 --
 
 CREATE TABLE `kantor_induk` (
@@ -2360,7 +2360,7 @@ CREATE TABLE `kantor_induk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kantor_induk`
+-- Dumping data for table `kantor_induk`
 --
 
 INSERT INTO `kantor_induk` (`id_kantor_induk`, `nama_kantor_induk`, `wilayah_kerja`) VALUES
@@ -2379,7 +2379,7 @@ INSERT INTO `kantor_induk` (`id_kantor_induk`, `nama_kantor_induk`, `wilayah_ker
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori_gangguan`
+-- Table structure for table `kategori_gangguan`
 --
 
 CREATE TABLE `kategori_gangguan` (
@@ -2388,7 +2388,7 @@ CREATE TABLE `kategori_gangguan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kategori_gangguan`
+-- Dumping data for table `kategori_gangguan`
 --
 
 INSERT INTO `kategori_gangguan` (`id_kategori`, `kategori`) VALUES
@@ -2410,7 +2410,7 @@ INSERT INTO `kategori_gangguan` (`id_kategori`, `kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kerawanan`
+-- Table structure for table `kerawanan`
 --
 
 CREATE TABLE `kerawanan` (
@@ -2421,7 +2421,7 @@ CREATE TABLE `kerawanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `kerawanan`
+-- Dumping data for table `kerawanan`
 --
 
 INSERT INTO `kerawanan` (`id_kerawanan`, `tingkat_kerawanan`, `status_kerawanan`, `solusi_tingkat_kerawanan`) VALUES
@@ -2430,7 +2430,7 @@ INSERT INTO `kerawanan` (`id_kerawanan`, `tingkat_kerawanan`, `status_kerawanan`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `komputer`
+-- Table structure for table `komputer`
 --
 
 CREATE TABLE `komputer` (
@@ -2448,7 +2448,7 @@ CREATE TABLE `komputer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `komputer`
+-- Dumping data for table `komputer`
 --
 
 INSERT INTO `komputer` (`id_komputer`, `nama_komputer`, `serial_number`, `id_merek`, `spesifikasi`, `ip_address`, `nama_pengguna`, `id_unit`, `status_kepemilikan`, `tahun`, `id_vendor`) VALUES
@@ -4090,7 +4090,7 @@ INSERT INTO `komputer` (`id_komputer`, `nama_komputer`, `serial_number`, `id_mer
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kpi`
+-- Table structure for table `kpi`
 --
 
 CREATE TABLE `kpi` (
@@ -4107,7 +4107,7 @@ CREATE TABLE `kpi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `kpi`
+-- Dumping data for table `kpi`
 --
 
 INSERT INTO `kpi` (`kpi_id`, `indikator_kpi`, `pic`, `satuan`, `bobot`, `target`, `realisasi`, `skor`, `waktu`, `status`) VALUES
@@ -4139,7 +4139,7 @@ INSERT INTO `kpi` (`kpi_id`, `indikator_kpi`, `pic`, `satuan`, `bobot`, `target`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `laptop`
+-- Table structure for table `laptop`
 --
 
 CREATE TABLE `laptop` (
@@ -4157,7 +4157,7 @@ CREATE TABLE `laptop` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `laptop`
+-- Dumping data for table `laptop`
 --
 
 INSERT INTO `laptop` (`id_laptop`, `id_merek`, `laptop_name`, `serial_number`, `spesifikasi`, `ip_address`, `nama_pengguna`, `id_unit`, `status_kepemilikan`, `tahun`, `id_vendor`) VALUES
@@ -4529,7 +4529,7 @@ INSERT INTO `laptop` (`id_laptop`, `id_merek`, `laptop_name`, `serial_number`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `log_gangguan`
+-- Table structure for table `log_gangguan`
 --
 
 CREATE TABLE `log_gangguan` (
@@ -4553,7 +4553,7 @@ CREATE TABLE `log_gangguan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `log_gangguan`
+-- Dumping data for table `log_gangguan`
 --
 
 INSERT INTO `log_gangguan` (`log_id`, `no_tiket`, `nama_service`, `sid`, `id_kantor_induk`, `id_unit_level3`, `layanan`, `scada`, `status_log`, `tiket_open`, `tiket_close`, `stop_clock`, `durasi`, `penyebab`, `action`, `periode_bulan`, `periode_tahun`) VALUES
@@ -5213,7 +5213,7 @@ INSERT INTO `log_gangguan` (`log_id`, `no_tiket`, `nama_service`, `sid`, `id_kan
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `master_service`
+-- Table structure for table `master_service`
 --
 
 CREATE TABLE `master_service` (
@@ -5225,7 +5225,7 @@ CREATE TABLE `master_service` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `master_service`
+-- Dumping data for table `master_service`
 --
 
 INSERT INTO `master_service` (`id_service`, `id_service_type`, `satuan_bandwidth`, `bandwidth`, `harga_sewa`) VALUES
@@ -5251,7 +5251,7 @@ INSERT INTO `master_service` (`id_service`, `id_service_type`, `satuan_bandwidth
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `master_service_type`
+-- Table structure for table `master_service_type`
 --
 
 CREATE TABLE `master_service_type` (
@@ -5260,7 +5260,7 @@ CREATE TABLE `master_service_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `master_service_type`
+-- Dumping data for table `master_service_type`
 --
 
 INSERT INTO `master_service_type` (`id_service_type`, `service_name`) VALUES
@@ -5282,7 +5282,7 @@ INSERT INTO `master_service_type` (`id_service_type`, `service_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `merek`
+-- Table structure for table `merek`
 --
 
 CREATE TABLE `merek` (
@@ -5292,7 +5292,7 @@ CREATE TABLE `merek` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `merek`
+-- Dumping data for table `merek`
 --
 
 INSERT INTO `merek` (`id_merek`, `merek`, `kategori`) VALUES
@@ -5389,7 +5389,7 @@ INSERT INTO `merek` (`id_merek`, `merek`, `kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `monitor`
+-- Table structure for table `monitor`
 --
 
 CREATE TABLE `monitor` (
@@ -5405,7 +5405,7 @@ CREATE TABLE `monitor` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `m_bidang`
+-- Table structure for table `m_bidang`
 --
 
 CREATE TABLE `m_bidang` (
@@ -5416,7 +5416,7 @@ CREATE TABLE `m_bidang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `m_bidang`
+-- Dumping data for table `m_bidang`
 --
 
 INSERT INTO `m_bidang` (`id_bidang`, `id_unit`, `kode_bidang`, `nama_bidang`) VALUES
@@ -5508,7 +5508,7 @@ INSERT INTO `m_bidang` (`id_bidang`, `id_unit`, `kode_bidang`, `nama_bidang`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `m_label`
+-- Table structure for table `m_label`
 --
 
 CREATE TABLE `m_label` (
@@ -5523,7 +5523,7 @@ CREATE TABLE `m_label` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `m_label`
+-- Dumping data for table `m_label`
 --
 
 INSERT INTO `m_label` (`id_label`, `label_perangkat`, `assign_to`, `id_unit`, `gedung`, `lantai`, `nomor`, `status`) VALUES
@@ -5535,7 +5535,7 @@ INSERT INTO `m_label` (`id_label`, `label_perangkat`, `assign_to`, `id_unit`, `g
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `network_device`
+-- Table structure for table `network_device`
 --
 
 CREATE TABLE `network_device` (
@@ -5562,7 +5562,7 @@ CREATE TABLE `network_device` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `network_device`
+-- Dumping data for table `network_device`
 --
 
 INSERT INTO `network_device` (`id_network_device`, `id_label`, `id_merek`, `type`, `device_type`, `serial_number`, `port`, `nama_pengguna`, `id_unit_level3`, `status_kepemilikan`, `username`, `password`, `tahun`, `id_vendor`, `ip_address`, `mac_address`, `id_hi`, `tgl_pemasangan`, `status_terpasang`, `keterangan`) VALUES
@@ -6512,7 +6512,7 @@ INSERT INTO `network_device` (`id_network_device`, `id_label`, `id_merek`, `type
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -6524,7 +6524,7 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`pegawai_id`, `nip`, `nama`, `email`, `no_hp`) VALUES
@@ -6535,7 +6535,7 @@ INSERT INTO `pegawai` (`pegawai_id`, `nip`, `nama`, `email`, `no_hp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `printer`
+-- Table structure for table `printer`
 --
 
 CREATE TABLE `printer` (
@@ -6549,7 +6549,7 @@ CREATE TABLE `printer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `printer`
+-- Dumping data for table `printer`
 --
 
 INSERT INTO `printer` (`id_printer`, `id_merek`, `nama_pengguna`, `id_unit`, `status_kepemilikan`, `tahun`, `id_vendor`) VALUES
@@ -7431,7 +7431,7 @@ INSERT INTO `printer` (`id_printer`, `id_merek`, `nama_pengguna`, `id_unit`, `st
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `report_kerusakan`
+-- Table structure for table `report_kerusakan`
 --
 
 CREATE TABLE `report_kerusakan` (
@@ -7444,7 +7444,7 @@ CREATE TABLE `report_kerusakan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `report_kerusakan`
+-- Dumping data for table `report_kerusakan`
 --
 
 INSERT INTO `report_kerusakan` (`id_report`, `serial_number`, `nama_item`, `kondisi_item`, `tanggal_pelaporan`, `pengguna`) VALUES
@@ -7454,7 +7454,7 @@ INSERT INTO `report_kerusakan` (`id_report`, `serial_number`, `nama_item`, `kond
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role`
+-- Table structure for table `role`
 --
 
 CREATE TABLE `role` (
@@ -7463,7 +7463,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `role`
+-- Dumping data for table `role`
 --
 
 INSERT INTO `role` (`id_role`, `nama_role`) VALUES
@@ -7475,7 +7475,7 @@ INSERT INTO `role` (`id_role`, `nama_role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `server`
+-- Table structure for table `server`
 --
 
 CREATE TABLE `server` (
@@ -7491,7 +7491,7 @@ CREATE TABLE `server` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `server`
+-- Dumping data for table `server`
 --
 
 INSERT INTO `server` (`id_server`, `id_merek`, `keterangan`, `ip_address`, `nama_pengguna`, `id_unit`, `username`, `password`, `tahun`) VALUES
@@ -7542,7 +7542,26 @@ INSERT INTO `server` (`id_server`, `id_merek`, `keterangan`, `ip_address`, `nama
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tambak`
+-- Table structure for table `stok_perangkat`
+--
+
+CREATE TABLE `stok_perangkat` (
+  `id_stok` int(11) NOT NULL,
+  `jenis_perangkat` varchar(50) NOT NULL,
+  `jumlah_perangkat` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `stok_perangkat`
+--
+
+INSERT INTO `stok_perangkat` (`id_stok`, `jenis_perangkat`, `jumlah_perangkat`) VALUES
+(1, 'PC/Komputer', '11');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tambak`
 --
 
 CREATE TABLE `tambak` (
@@ -7554,7 +7573,7 @@ CREATE TABLE `tambak` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tambak`
+-- Dumping data for table `tambak`
 --
 
 INSERT INTO `tambak` (`id_tambak`, `alamat`, `x`, `y`, `gambar`) VALUES
@@ -7611,7 +7630,7 @@ INSERT INTO `tambak` (`id_tambak`, `alamat`, `x`, `y`, `gambar`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `unit_level2`
+-- Table structure for table `unit_level2`
 --
 
 CREATE TABLE `unit_level2` (
@@ -7621,7 +7640,7 @@ CREATE TABLE `unit_level2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `unit_level2`
+-- Dumping data for table `unit_level2`
 --
 
 INSERT INTO `unit_level2` (`id_unit_level2`, `id_kantor_induk`, `nama_unit_level2`) VALUES
@@ -7654,7 +7673,7 @@ INSERT INTO `unit_level2` (`id_unit_level2`, `id_kantor_induk`, `nama_unit_level
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `unit_level3`
+-- Table structure for table `unit_level3`
 --
 
 CREATE TABLE `unit_level3` (
@@ -7665,7 +7684,7 @@ CREATE TABLE `unit_level3` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `unit_level3`
+-- Dumping data for table `unit_level3`
 --
 
 INSERT INTO `unit_level3` (`id_unit_level3`, `id_kantor_induk`, `id_unit_level2`, `nama_unit_level3`) VALUES
@@ -7831,7 +7850,7 @@ INSERT INTO `unit_level3` (`id_unit_level3`, `id_kantor_induk`, `id_unit_level2`
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -7842,7 +7861,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id_users`, `username`, `password`, `id_role`) VALUES
@@ -7856,7 +7875,7 @@ INSERT INTO `users` (`id_users`, `username`, `password`, `id_role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `vendor`
+-- Table structure for table `vendor`
 --
 
 CREATE TABLE `vendor` (
@@ -7867,7 +7886,7 @@ CREATE TABLE `vendor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `vendor`
+-- Dumping data for table `vendor`
 --
 
 INSERT INTO `vendor` (`id_vendor`, `nama_vendor`, `alamat_vendor`, `telepon`) VALUES
@@ -7879,7 +7898,7 @@ INSERT INTO `vendor` (`id_vendor`, `nama_vendor`, `alamat_vendor`, `telepon`) VA
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `vicon`
+-- Table structure for table `vicon`
 --
 
 CREATE TABLE `vicon` (
@@ -7894,7 +7913,7 @@ CREATE TABLE `vicon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `vicon`
+-- Dumping data for table `vicon`
 --
 
 INSERT INTO `vicon` (`id_vicon`, `id_merek`, `type`, `tahun`, `no_seri`, `ip_address`, `mac_address`, `id_unit`) VALUES
@@ -7915,401 +7934,401 @@ INSERT INTO `vicon` (`id_vicon`, `id_merek`, `type`, `tahun`, `no_seri`, `ip_add
 --
 
 --
--- Indeks untuk tabel `aplikasi_lokal`
+-- Indexes for table `aplikasi_lokal`
 --
 ALTER TABLE `aplikasi_lokal`
   ADD KEY `id_laptop` (`id_aplikasi_lokal`);
 
 --
--- Indeks untuk tabel `data_network`
+-- Indexes for table `data_network`
 --
 ALTER TABLE `data_network`
   ADD PRIMARY KEY (`data_id`);
 
 --
--- Indeks untuk tabel `gangguan`
+-- Indexes for table `gangguan`
 --
 ALTER TABLE `gangguan`
   ADD PRIMARY KEY (`id_ggn`);
 
 --
--- Indeks untuk tabel `har_network`
+-- Indexes for table `har_network`
 --
 ALTER TABLE `har_network`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `hi`
+-- Indexes for table `hi`
 --
 ALTER TABLE `hi`
   ADD PRIMARY KEY (`id_hi`);
 
 --
--- Indeks untuk tabel `hi_standard`
+-- Indexes for table `hi_standard`
 --
 ALTER TABLE `hi_standard`
   ADD PRIMARY KEY (`id_hi_standard`);
 
 --
--- Indeks untuk tabel `it_support`
+-- Indexes for table `it_support`
 --
 ALTER TABLE `it_support`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `jadwal_har`
+-- Indexes for table `jadwal_har`
 --
 ALTER TABLE `jadwal_har`
   ADD KEY `id_jadwal` (`id_jadwal`);
 
 --
--- Indeks untuk tabel `kantor_induk`
+-- Indexes for table `kantor_induk`
 --
 ALTER TABLE `kantor_induk`
   ADD KEY `id_kantor_induk` (`id_kantor_induk`);
 
 --
--- Indeks untuk tabel `kategori_gangguan`
+-- Indexes for table `kategori_gangguan`
 --
 ALTER TABLE `kategori_gangguan`
   ADD KEY `id_kategori` (`id_kategori`);
 
 --
--- Indeks untuk tabel `kerawanan`
+-- Indexes for table `kerawanan`
 --
 ALTER TABLE `kerawanan`
   ADD PRIMARY KEY (`id_kerawanan`);
 
 --
--- Indeks untuk tabel `komputer`
+-- Indexes for table `komputer`
 --
 ALTER TABLE `komputer`
   ADD PRIMARY KEY (`id_komputer`),
   ADD KEY `id_laptop` (`id_komputer`);
 
 --
--- Indeks untuk tabel `kpi`
+-- Indexes for table `kpi`
 --
 ALTER TABLE `kpi`
   ADD KEY `kpi_id` (`kpi_id`);
 
 --
--- Indeks untuk tabel `laptop`
+-- Indexes for table `laptop`
 --
 ALTER TABLE `laptop`
   ADD UNIQUE KEY `serial` (`serial_number`,`id_laptop`),
   ADD KEY `id_laptop` (`id_laptop`) USING BTREE;
 
 --
--- Indeks untuk tabel `log_gangguan`
+-- Indexes for table `log_gangguan`
 --
 ALTER TABLE `log_gangguan`
   ADD KEY `log_id` (`log_id`);
 
 --
--- Indeks untuk tabel `master_service`
+-- Indexes for table `master_service`
 --
 ALTER TABLE `master_service`
   ADD KEY `id_service` (`id_service`);
 
 --
--- Indeks untuk tabel `master_service_type`
+-- Indexes for table `master_service_type`
 --
 ALTER TABLE `master_service_type`
   ADD KEY `id_service_type` (`id_service_type`);
 
 --
--- Indeks untuk tabel `merek`
+-- Indexes for table `merek`
 --
 ALTER TABLE `merek`
   ADD KEY `id_merek` (`id_merek`);
 
 --
--- Indeks untuk tabel `monitor`
+-- Indexes for table `monitor`
 --
 ALTER TABLE `monitor`
   ADD KEY `id_laptop` (`id_monitor`);
 
 --
--- Indeks untuk tabel `m_bidang`
+-- Indexes for table `m_bidang`
 --
 ALTER TABLE `m_bidang`
   ADD PRIMARY KEY (`id_bidang`);
 
 --
--- Indeks untuk tabel `m_label`
+-- Indexes for table `m_label`
 --
 ALTER TABLE `m_label`
   ADD PRIMARY KEY (`id_label`);
 
 --
--- Indeks untuk tabel `network_device`
+-- Indexes for table `network_device`
 --
 ALTER TABLE `network_device`
   ADD PRIMARY KEY (`id_network_device`);
 
 --
--- Indeks untuk tabel `pegawai`
+-- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`pegawai_id`);
 
 --
--- Indeks untuk tabel `printer`
+-- Indexes for table `printer`
 --
 ALTER TABLE `printer`
   ADD KEY `id_laptop` (`id_printer`);
 
 --
--- Indeks untuk tabel `report_kerusakan`
+-- Indexes for table `report_kerusakan`
 --
 ALTER TABLE `report_kerusakan`
   ADD PRIMARY KEY (`id_report`);
 
 --
--- Indeks untuk tabel `role`
+-- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD KEY `id_role` (`id_role`);
 
 --
--- Indeks untuk tabel `server`
+-- Indexes for table `server`
 --
 ALTER TABLE `server`
   ADD KEY `id_laptop` (`id_server`);
 
 --
--- Indeks untuk tabel `tambak`
+-- Indexes for table `stok_perangkat`
+--
+ALTER TABLE `stok_perangkat`
+  ADD KEY `id_stok` (`id_stok`);
+
+--
+-- Indexes for table `tambak`
 --
 ALTER TABLE `tambak`
   ADD PRIMARY KEY (`id_tambak`);
 
 --
--- Indeks untuk tabel `unit_level2`
+-- Indexes for table `unit_level2`
 --
 ALTER TABLE `unit_level2`
   ADD KEY `id_unit_level2` (`id_unit_level2`);
 
 --
--- Indeks untuk tabel `unit_level3`
+-- Indexes for table `unit_level3`
 --
 ALTER TABLE `unit_level3`
   ADD KEY `id_unit_level3` (`id_unit_level3`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_users`),
   ADD KEY `ID_ROLE` (`id_role`);
 
 --
--- Indeks untuk tabel `vendor`
+-- Indexes for table `vendor`
 --
 ALTER TABLE `vendor`
   ADD KEY `id_vendor` (`id_vendor`);
 
 --
--- Indeks untuk tabel `vicon`
+-- Indexes for table `vicon`
 --
 ALTER TABLE `vicon`
   ADD KEY `id_vicon` (`id_vicon`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `aplikasi_lokal`
+-- AUTO_INCREMENT for table `aplikasi_lokal`
 --
 ALTER TABLE `aplikasi_lokal`
   MODIFY `id_aplikasi_lokal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT untuk tabel `data_network`
+-- AUTO_INCREMENT for table `data_network`
 --
 ALTER TABLE `data_network`
   MODIFY `data_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2471;
 
 --
--- AUTO_INCREMENT untuk tabel `gangguan`
+-- AUTO_INCREMENT for table `gangguan`
 --
 ALTER TABLE `gangguan`
   MODIFY `id_ggn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `har_network`
+-- AUTO_INCREMENT for table `har_network`
 --
 ALTER TABLE `har_network`
   MODIFY `id` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
--- AUTO_INCREMENT untuk tabel `hi`
+-- AUTO_INCREMENT for table `hi`
 --
 ALTER TABLE `hi`
   MODIFY `id_hi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT untuk tabel `hi_standard`
+-- AUTO_INCREMENT for table `hi_standard`
 --
 ALTER TABLE `hi_standard`
   MODIFY `id_hi_standard` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT untuk tabel `it_support`
+-- AUTO_INCREMENT for table `it_support`
 --
 ALTER TABLE `it_support`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
--- AUTO_INCREMENT untuk tabel `jadwal_har`
+-- AUTO_INCREMENT for table `jadwal_har`
 --
 ALTER TABLE `jadwal_har`
   MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `kantor_induk`
+-- AUTO_INCREMENT for table `kantor_induk`
 --
 ALTER TABLE `kantor_induk`
   MODIFY `id_kantor_induk` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `kategori_gangguan`
+-- AUTO_INCREMENT for table `kategori_gangguan`
 --
 ALTER TABLE `kategori_gangguan`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `kerawanan`
+-- AUTO_INCREMENT for table `kerawanan`
 --
 ALTER TABLE `kerawanan`
   MODIFY `id_kerawanan` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `komputer`
+-- AUTO_INCREMENT for table `komputer`
 --
 ALTER TABLE `komputer`
   MODIFY `id_komputer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1632;
 
 --
--- AUTO_INCREMENT untuk tabel `kpi`
+-- AUTO_INCREMENT for table `kpi`
 --
 ALTER TABLE `kpi`
   MODIFY `kpi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
--- AUTO_INCREMENT untuk tabel `laptop`
+-- AUTO_INCREMENT for table `laptop`
 --
 ALTER TABLE `laptop`
   MODIFY `id_laptop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=365;
 
 --
--- AUTO_INCREMENT untuk tabel `log_gangguan`
+-- AUTO_INCREMENT for table `log_gangguan`
 --
 ALTER TABLE `log_gangguan`
   MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=655;
 
 --
--- AUTO_INCREMENT untuk tabel `master_service`
+-- AUTO_INCREMENT for table `master_service`
 --
 ALTER TABLE `master_service`
   MODIFY `id_service` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT untuk tabel `master_service_type`
+-- AUTO_INCREMENT for table `master_service_type`
 --
 ALTER TABLE `master_service_type`
   MODIFY `id_service_type` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT untuk tabel `merek`
+-- AUTO_INCREMENT for table `merek`
 --
 ALTER TABLE `merek`
   MODIFY `id_merek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
 
 --
--- AUTO_INCREMENT untuk tabel `monitor`
+-- AUTO_INCREMENT for table `monitor`
 --
 ALTER TABLE `monitor`
   MODIFY `id_monitor` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `m_label`
+-- AUTO_INCREMENT for table `m_label`
 --
 ALTER TABLE `m_label`
   MODIFY `id_label` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `network_device`
+-- AUTO_INCREMENT for table `network_device`
 --
 ALTER TABLE `network_device`
   MODIFY `id_network_device` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=948;
 
 --
--- AUTO_INCREMENT untuk tabel `pegawai`
+-- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
   MODIFY `pegawai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `printer`
+-- AUTO_INCREMENT for table `printer`
 --
 ALTER TABLE `printer`
   MODIFY `id_printer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=438;
 
 --
--- AUTO_INCREMENT untuk tabel `report_kerusakan`
+-- AUTO_INCREMENT for table `report_kerusakan`
 --
 ALTER TABLE `report_kerusakan`
   MODIFY `id_report` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `role`
+-- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `server`
+-- AUTO_INCREMENT for table `server`
 --
 ALTER TABLE `server`
   MODIFY `id_server` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
--- AUTO_INCREMENT untuk tabel `tambak`
+-- AUTO_INCREMENT for table `stok_perangkat`
+--
+ALTER TABLE `stok_perangkat`
+  MODIFY `id_stok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tambak`
 --
 ALTER TABLE `tambak`
   MODIFY `id_tambak` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
--- AUTO_INCREMENT untuk tabel `unit_level2`
+-- AUTO_INCREMENT for table `unit_level2`
 --
 ALTER TABLE `unit_level2`
   MODIFY `id_unit_level2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT untuk tabel `unit_level3`
+-- AUTO_INCREMENT for table `unit_level3`
 --
 ALTER TABLE `unit_level3`
   MODIFY `id_unit_level3` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT untuk tabel `vendor`
---
-ALTER TABLE `vendor`
-  MODIFY `id_vendor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT untuk tabel `vicon`
---
-ALTER TABLE `vicon`
-  MODIFY `id_vicon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

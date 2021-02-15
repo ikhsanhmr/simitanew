@@ -1556,6 +1556,47 @@ function unit_level1()
     $update = $this->db->update('kerawanan', $data, array('id_kerawanan' => $data_id));
     return $update;
   }
+//Stok perangkat
+function tampil_stok()
+{
+  $get = $this->db->query("SELECT 
+    a.* 
+    FROM
+    stok_perangkat a
+
+    ORDER BY a.id_stok DESC ");
+  return $get;
+}
+
+
+public function add_stok_data($data)
+{
+  $input = $this->db->insert('stok_perangkat', $data);
+  return $input;
+}
+
+function update_stok($data, $id_stok)
+{
+  $update = $this->db->update('stok_perangkat', $data, array('id_stok' => $id_stok));
+
+  return $update;
+}
+
+function stok_delete($id)
+{
+  $delete = $this->db->delete('stok_perangkat', array('id_stok' => $id));
+  return $delete;
+}
+
+function get_stok($id_stok)
+{
+  $get = $this->db->query("SELECT *
+   FROM stok_perangkat a
+   WHERE a.id_stok =$id_stok");
+  if ($get->num_rows() == 1) {
+    return $get->row_array();
+  }
+}
 
 
 
