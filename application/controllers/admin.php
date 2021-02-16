@@ -11,7 +11,7 @@ class Admin extends CI_Controller
 		$this->load->database();
 		$this->load->helper(array('form', 'url'));
 		$this->load->library(array('form_validation', 'session', 'enkripsi'));
-		$this->load->model(array('admin_model','Sla_model', 'laporan_model'));
+		$this->load->model(array('admin_model', 'Sla_model', 'laporan_model'));
 		$this->load->model('Kpi_model', 'kpi');
 		$this->load->model('admin_model', 'users');
 		$this->load->model('admin_model', 'stok_perangkat');
@@ -64,677 +64,941 @@ class Admin extends CI_Controller
 			$data['dashboard_gangguan_terbanyak'] = $this->admin_model->dashboard_gangguan_terbanyak();
 			$data['januari_internet_uiwsu'] = $this->Sla_model->januari_internet_uiwsu();
 			$data['januari_internet_uiwsu_sukses'] = $data['januari_internet_uiwsu'][0]['persentasi_sla'];
-			$data['januari_internet_uiwsu_ok'] = number_format($data['januari_internet_uiwsu_sukses'],2,",",".");
-			if(($data['januari_internet_uiwsu_ok'])==0){ $data['januari_internet_uiwsu_ok']=100;}	
-			
+			$data['januari_internet_uiwsu_ok'] = number_format($data['januari_internet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['januari_internet_uiwsu_ok']) == 0) {
+				$data['januari_internet_uiwsu_ok'] = 100;
+			}
+
 			$data['februari_internet_uiwsu'] = $this->Sla_model->februari_internet_uiwsu();
 			$data['februari_internet_uiwsu_sukses'] = $data['februari_internet_uiwsu'][0]['persentasi_sla'];
-			$data['februari_internet_uiwsu_ok'] = number_format($data['februari_internet_uiwsu_sukses'],2,",",".");
-			if(($data['februari_internet_uiwsu_ok'])==0){ $data['februari_internet_uiwsu_ok']=100;}	
-			
+			$data['februari_internet_uiwsu_ok'] = number_format($data['februari_internet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['februari_internet_uiwsu_ok']) == 0) {
+				$data['februari_internet_uiwsu_ok'] = 100;
+			}
+
 			$data['maret_internet_uiwsu'] = $this->Sla_model->maret_internet_uiwsu();
 			$data['maret_internet_uiwsu_sukses'] = $data['maret_internet_uiwsu'][0]['persentasi_sla'];
-			$data['maret_internet_uiwsu_ok'] = number_format($data['maret_internet_uiwsu_sukses'],2,",",".");
-			if(($data['maret_internet_uiwsu_ok'])==0){ $data['maret_internet_uiwsu_ok']=100;}	
-			
+			$data['maret_internet_uiwsu_ok'] = number_format($data['maret_internet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['maret_internet_uiwsu_ok']) == 0) {
+				$data['maret_internet_uiwsu_ok'] = 100;
+			}
+
 			$data['april_internet_uiwsu'] = $this->Sla_model->april_internet_uiwsu();
 			$data['april_internet_uiwsu_sukses'] = $data['april_internet_uiwsu'][0]['persentasi_sla'];
-			$data['april_internet_uiwsu_ok'] = number_format($data['april_internet_uiwsu_sukses'],2,",",".");
-			if(($data['april_internet_uiwsu_ok'])==0){ $data['april_internet_uiwsu_ok']=100;}	
-			
+			$data['april_internet_uiwsu_ok'] = number_format($data['april_internet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['april_internet_uiwsu_ok']) == 0) {
+				$data['april_internet_uiwsu_ok'] = 100;
+			}
+
 			$data['mei_internet_uiwsu'] = $this->Sla_model->mei_internet_uiwsu();
 			$data['mei_internet_uiwsu_sukses'] = $data['mei_internet_uiwsu'][0]['persentasi_sla'];
-			$data['mei_internet_uiwsu_ok'] = number_format($data['mei_internet_uiwsu_sukses'],2,",",".");
-			if(($data['mei_internet_uiwsu_ok'])==0){ $data['mei_internet_uiwsu_ok']=100;}	
-			
+			$data['mei_internet_uiwsu_ok'] = number_format($data['mei_internet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['mei_internet_uiwsu_ok']) == 0) {
+				$data['mei_internet_uiwsu_ok'] = 100;
+			}
+
 			$data['juni_internet_uiwsu'] = $this->Sla_model->juni_internet_uiwsu();
 			$data['juni_internet_uiwsu_sukses'] = $data['juni_internet_uiwsu'][0]['persentasi_sla'];
-			$data['juni_internet_uiwsu_ok'] = number_format($data['juni_internet_uiwsu_sukses'],2,",",".");
-			if(($data['juni_internet_uiwsu_ok'])==0){ $data['juni_internet_uiwsu_ok']=100;}	
-			
+			$data['juni_internet_uiwsu_ok'] = number_format($data['juni_internet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['juni_internet_uiwsu_ok']) == 0) {
+				$data['juni_internet_uiwsu_ok'] = 100;
+			}
+
 			$data['juli_internet_uiwsu'] = $this->Sla_model->juli_internet_uiwsu();
 			$data['juli_internet_uiwsu_sukses'] = $data['juli_internet_uiwsu'][0]['persentasi_sla'];
-			$data['juli_internet_uiwsu_ok'] = number_format($data['juli_internet_uiwsu_sukses'],2,",",".");
-			if(($data['juli_internet_uiwsu_ok'])==0){ $data['juli_internet_uiwsu_ok']=100;}	
-			
+			$data['juli_internet_uiwsu_ok'] = number_format($data['juli_internet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['juli_internet_uiwsu_ok']) == 0) {
+				$data['juli_internet_uiwsu_ok'] = 100;
+			}
+
 			$data['agustus_internet_uiwsu'] = $this->Sla_model->agustus_internet_uiwsu();
 			$data['agustus_internet_uiwsu_sukses'] = $data['agustus_internet_uiwsu'][0]['persentasi_sla'];
-			$data['agustus_internet_uiwsu_ok'] = number_format($data['agustus_internet_uiwsu_sukses'],2,",",".");
-			if(($data['agustus_internet_uiwsu_ok'])==0){ $data['agustus_internet_uiwsu_ok']=100;}	
-			
+			$data['agustus_internet_uiwsu_ok'] = number_format($data['agustus_internet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['agustus_internet_uiwsu_ok']) == 0) {
+				$data['agustus_internet_uiwsu_ok'] = 100;
+			}
+
 			$data['september_internet_uiwsu'] = $this->Sla_model->september_internet_uiwsu();
 			$data['september_internet_uiwsu_sukses'] = $data['september_internet_uiwsu'][0]['persentasi_sla'];
-			$data['september_internet_uiwsu_ok'] = number_format($data['september_internet_uiwsu_sukses'],2,",",".");
-			if(($data['september_internet_uiwsu_ok'])==0){ $data['september_internet_uiwsu_ok']=100;}	
-			
+			$data['september_internet_uiwsu_ok'] = number_format($data['september_internet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['september_internet_uiwsu_ok']) == 0) {
+				$data['september_internet_uiwsu_ok'] = 100;
+			}
+
 			$data['oktober_internet_uiwsu'] = $this->Sla_model->oktober_internet_uiwsu();
 			$data['oktober_internet_uiwsu_sukses'] = $data['oktober_internet_uiwsu'][0]['persentasi_sla'];
-			$data['oktober_internet_uiwsu_ok'] = number_format($data['oktober_internet_uiwsu_sukses'],2,",",".");
-			if(($data['oktober_internet_uiwsu_ok'])==0){ $data['oktober_internet_uiwsu_ok']=100;}	
-			
+			$data['oktober_internet_uiwsu_ok'] = number_format($data['oktober_internet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['oktober_internet_uiwsu_ok']) == 0) {
+				$data['oktober_internet_uiwsu_ok'] = 100;
+			}
+
 			$data['november_internet_uiwsu'] = $this->Sla_model->november_internet_uiwsu();
 			$data['november_internet_uiwsu_sukses'] = $data['november_internet_uiwsu'][0]['persentasi_sla'];
-			$data['november_internet_uiwsu_ok'] = number_format($data['november_internet_uiwsu_sukses'],2,",",".");
-			if(($data['november_internet_uiwsu_ok'])==0){ $data['november_internet_uiwsu_ok']=100;}	
-			
+			$data['november_internet_uiwsu_ok'] = number_format($data['november_internet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['november_internet_uiwsu_ok']) == 0) {
+				$data['november_internet_uiwsu_ok'] = 100;
+			}
+
 			$data['desember_internet_uiwsu'] = $this->Sla_model->desember_internet_uiwsu();
 			$data['desember_internet_uiwsu_sukses'] = $data['desember_internet_uiwsu'][0]['persentasi_sla'];
-			$data['desember_internet_uiwsu_ok'] = number_format($data['desember_internet_uiwsu_sukses'],2,",",".");
-			if(($data['desember_internet_uiwsu_ok'])==0){ $data['desember_internet_uiwsu_ok']=100;}	
-			
+			$data['desember_internet_uiwsu_ok'] = number_format($data['desember_internet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['desember_internet_uiwsu_ok']) == 0) {
+				$data['desember_internet_uiwsu_ok'] = 100;
+			}
+
 			//ipvpn_UIWSU
 			$data['januari_ipvpn_uiwsu'] = $this->Sla_model->januari_ipvpn_uiwsu();
 			$data['januari_ipvpn_uiwsu_sukses'] = $data['januari_ipvpn_uiwsu'][0]['persentasi_sla'];
-			$data['januari_ipvpn_uiwsu_ok'] = number_format($data['januari_ipvpn_uiwsu_sukses'],2,",",".");
-			if(($data['januari_ipvpn_uiwsu_ok'])==0){ $data['januari_ipvpn_uiwsu_ok']=100;}	
-			
+			$data['januari_ipvpn_uiwsu_ok'] = number_format($data['januari_ipvpn_uiwsu_sukses'], 2, ",", ".");
+			if (($data['januari_ipvpn_uiwsu_ok']) == 0) {
+				$data['januari_ipvpn_uiwsu_ok'] = 100;
+			}
+
 			$data['februari_ipvpn_uiwsu'] = $this->Sla_model->februari_ipvpn_uiwsu();
 			$data['februari_ipvpn_uiwsu_sukses'] = $data['februari_ipvpn_uiwsu'][0]['persentasi_sla'];
-			$data['februari_ipvpn_uiwsu_ok'] = number_format($data['februari_ipvpn_uiwsu_sukses'],2,",",".");
-			if(($data['februari_ipvpn_uiwsu_ok'])==0){ $data['februari_ipvpn_uiwsu_ok']=100;}	
-			
+			$data['februari_ipvpn_uiwsu_ok'] = number_format($data['februari_ipvpn_uiwsu_sukses'], 2, ",", ".");
+			if (($data['februari_ipvpn_uiwsu_ok']) == 0) {
+				$data['februari_ipvpn_uiwsu_ok'] = 100;
+			}
+
 			$data['maret_ipvpn_uiwsu'] = $this->Sla_model->maret_ipvpn_uiwsu();
 			$data['maret_ipvpn_uiwsu_sukses'] = $data['maret_ipvpn_uiwsu'][0]['persentasi_sla'];
-			$data['maret_ipvpn_uiwsu_ok'] = number_format($data['maret_ipvpn_uiwsu_sukses'],2,",",".");
-			if(($data['maret_ipvpn_uiwsu_ok'])==0){ $data['maret_ipvpn_uiwsu_ok']=100;}	
-			
+			$data['maret_ipvpn_uiwsu_ok'] = number_format($data['maret_ipvpn_uiwsu_sukses'], 2, ",", ".");
+			if (($data['maret_ipvpn_uiwsu_ok']) == 0) {
+				$data['maret_ipvpn_uiwsu_ok'] = 100;
+			}
+
 			$data['april_ipvpn_uiwsu'] = $this->Sla_model->april_ipvpn_uiwsu();
 			$data['april_ipvpn_uiwsu_sukses'] = $data['april_ipvpn_uiwsu'][0]['persentasi_sla'];
-			$data['april_ipvpn_uiwsu_ok'] = number_format($data['april_ipvpn_uiwsu_sukses'],2,",",".");
-			if(($data['april_ipvpn_uiwsu_ok'])==0){ $data['april_ipvpn_uiwsu_ok']=100;}	
-			
+			$data['april_ipvpn_uiwsu_ok'] = number_format($data['april_ipvpn_uiwsu_sukses'], 2, ",", ".");
+			if (($data['april_ipvpn_uiwsu_ok']) == 0) {
+				$data['april_ipvpn_uiwsu_ok'] = 100;
+			}
+
 			$data['mei_ipvpn_uiwsu'] = $this->Sla_model->mei_ipvpn_uiwsu();
 			$data['mei_ipvpn_uiwsu_sukses'] = $data['mei_ipvpn_uiwsu'][0]['persentasi_sla'];
-			$data['mei_ipvpn_uiwsu_ok'] = number_format($data['mei_ipvpn_uiwsu_sukses'],2,",",".");
-			if(($data['mei_ipvpn_uiwsu_ok'])==0){ $data['mei_ipvpn_uiwsu_ok']=100;}	
-			
+			$data['mei_ipvpn_uiwsu_ok'] = number_format($data['mei_ipvpn_uiwsu_sukses'], 2, ",", ".");
+			if (($data['mei_ipvpn_uiwsu_ok']) == 0) {
+				$data['mei_ipvpn_uiwsu_ok'] = 100;
+			}
+
 			$data['juni_ipvpn_uiwsu'] = $this->Sla_model->juni_ipvpn_uiwsu();
 			$data['juni_ipvpn_uiwsu_sukses'] = $data['juni_ipvpn_uiwsu'][0]['persentasi_sla'];
-			$data['juni_ipvpn_uiwsu_ok'] = number_format($data['juni_ipvpn_uiwsu_sukses'],2,",",".");
-			if(($data['juni_ipvpn_uiwsu_ok'])==0){ $data['juni_ipvpn_uiwsu_ok']=100;}	
-			
+			$data['juni_ipvpn_uiwsu_ok'] = number_format($data['juni_ipvpn_uiwsu_sukses'], 2, ",", ".");
+			if (($data['juni_ipvpn_uiwsu_ok']) == 0) {
+				$data['juni_ipvpn_uiwsu_ok'] = 100;
+			}
+
 			$data['juli_ipvpn_uiwsu'] = $this->Sla_model->juli_ipvpn_uiwsu();
 			$data['juli_ipvpn_uiwsu_sukses'] = $data['juli_ipvpn_uiwsu'][0]['persentasi_sla'];
-			$data['juli_ipvpn_uiwsu_ok'] = number_format($data['juli_ipvpn_uiwsu_sukses'],2,",",".");
-			if(($data['juli_ipvpn_uiwsu_ok'])==0){ $data['juli_ipvpn_uiwsu_ok']=100;}	
-			
+			$data['juli_ipvpn_uiwsu_ok'] = number_format($data['juli_ipvpn_uiwsu_sukses'], 2, ",", ".");
+			if (($data['juli_ipvpn_uiwsu_ok']) == 0) {
+				$data['juli_ipvpn_uiwsu_ok'] = 100;
+			}
+
 			$data['agustus_ipvpn_uiwsu'] = $this->Sla_model->agustus_ipvpn_uiwsu();
 			$data['agustus_ipvpn_uiwsu_sukses'] = $data['agustus_ipvpn_uiwsu'][0]['persentasi_sla'];
-			$data['agustus_ipvpn_uiwsu_ok'] = number_format($data['agustus_ipvpn_uiwsu_sukses'],2,",",".");
-			if(($data['agustus_ipvpn_uiwsu_ok'])==0){ $data['agustus_ipvpn_uiwsu_ok']=100;}	
-			
+			$data['agustus_ipvpn_uiwsu_ok'] = number_format($data['agustus_ipvpn_uiwsu_sukses'], 2, ",", ".");
+			if (($data['agustus_ipvpn_uiwsu_ok']) == 0) {
+				$data['agustus_ipvpn_uiwsu_ok'] = 100;
+			}
+
 			$data['september_ipvpn_uiwsu'] = $this->Sla_model->september_ipvpn_uiwsu();
 			$data['september_ipvpn_uiwsu_sukses'] = $data['september_ipvpn_uiwsu'][0]['persentasi_sla'];
-			$data['september_ipvpn_uiwsu_ok'] = number_format($data['september_ipvpn_uiwsu_sukses'],2,",",".");
-			if(($data['september_ipvpn_uiwsu_ok'])==0){ $data['september_ipvpn_uiwsu_ok']=100;}	
-			
+			$data['september_ipvpn_uiwsu_ok'] = number_format($data['september_ipvpn_uiwsu_sukses'], 2, ",", ".");
+			if (($data['september_ipvpn_uiwsu_ok']) == 0) {
+				$data['september_ipvpn_uiwsu_ok'] = 100;
+			}
+
 			$data['oktober_ipvpn_uiwsu'] = $this->Sla_model->oktober_ipvpn_uiwsu();
 			$data['oktober_ipvpn_uiwsu_sukses'] = $data['oktober_ipvpn_uiwsu'][0]['persentasi_sla'];
-			$data['oktober_ipvpn_uiwsu_ok'] = number_format($data['oktober_ipvpn_uiwsu_sukses'],2,",",".");
-			if(($data['oktober_ipvpn_uiwsu_ok'])==0){ $data['oktober_ipvpn_uiwsu_ok']=100;}	
-			
+			$data['oktober_ipvpn_uiwsu_ok'] = number_format($data['oktober_ipvpn_uiwsu_sukses'], 2, ",", ".");
+			if (($data['oktober_ipvpn_uiwsu_ok']) == 0) {
+				$data['oktober_ipvpn_uiwsu_ok'] = 100;
+			}
+
 			$data['november_ipvpn_uiwsu'] = $this->Sla_model->november_ipvpn_uiwsu();
 			$data['november_ipvpn_uiwsu_sukses'] = $data['november_ipvpn_uiwsu'][0]['persentasi_sla'];
-			$data['november_ipvpn_uiwsu_ok'] = number_format($data['november_ipvpn_uiwsu_sukses'],2,",",".");
-			if(($data['november_ipvpn_uiwsu_ok'])==0){ $data['november_ipvpn_uiwsu_ok']=100;}	
-			
+			$data['november_ipvpn_uiwsu_ok'] = number_format($data['november_ipvpn_uiwsu_sukses'], 2, ",", ".");
+			if (($data['november_ipvpn_uiwsu_ok']) == 0) {
+				$data['november_ipvpn_uiwsu_ok'] = 100;
+			}
+
 			$data['desember_ipvpn_uiwsu'] = $this->Sla_model->desember_ipvpn_uiwsu();
 			$data['desember_ipvpn_uiwsu_sukses'] = $data['desember_ipvpn_uiwsu'][0]['persentasi_sla'];
-			$data['desember_ipvpn_uiwsu_ok'] = number_format($data['desember_ipvpn_uiwsu_sukses'],2,",",".");
-			if(($data['desember_ipvpn_uiwsu_ok'])==0){ $data['desember_ipvpn_uiwsu_ok']=100;}	
-			
+			$data['desember_ipvpn_uiwsu_ok'] = number_format($data['desember_ipvpn_uiwsu_sukses'], 2, ",", ".");
+			if (($data['desember_ipvpn_uiwsu_ok']) == 0) {
+				$data['desember_ipvpn_uiwsu_ok'] = 100;
+			}
+
 			//metronet_UIWSU
 			$data['januari_metronet_uiwsu'] = $this->Sla_model->januari_metronet_uiwsu();
 			$data['januari_metronet_uiwsu_sukses'] = $data['januari_metronet_uiwsu'][0]['persentasi_sla'];
-			$data['januari_metronet_uiwsu_ok'] = number_format($data['januari_metronet_uiwsu_sukses'],2,",",".");
-			if(($data['januari_metronet_uiwsu_ok'])==0){ $data['januari_metronet_uiwsu_ok']=100;}	
-			
+			$data['januari_metronet_uiwsu_ok'] = number_format($data['januari_metronet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['januari_metronet_uiwsu_ok']) == 0) {
+				$data['januari_metronet_uiwsu_ok'] = 100;
+			}
+
 			$data['februari_metronet_uiwsu'] = $this->Sla_model->februari_metronet_uiwsu();
 			$data['februari_metronet_uiwsu_sukses'] = $data['februari_metronet_uiwsu'][0]['persentasi_sla'];
-			$data['februari_metronet_uiwsu_ok'] = number_format($data['februari_metronet_uiwsu_sukses'],2,",",".");
-			if(($data['februari_metronet_uiwsu_ok'])==0){ $data['februari_metronet_uiwsu_ok']=100;}	
-			
+			$data['februari_metronet_uiwsu_ok'] = number_format($data['februari_metronet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['februari_metronet_uiwsu_ok']) == 0) {
+				$data['februari_metronet_uiwsu_ok'] = 100;
+			}
+
 			$data['maret_metronet_uiwsu'] = $this->Sla_model->maret_metronet_uiwsu();
 			$data['maret_metronet_uiwsu_sukses'] = $data['maret_metronet_uiwsu'][0]['persentasi_sla'];
-			$data['maret_metronet_uiwsu_ok'] = number_format($data['maret_metronet_uiwsu_sukses'],2,",",".");
-			if(($data['maret_metronet_uiwsu_ok'])==0){ $data['maret_metronet_uiwsu_ok']=100;}	
-			
+			$data['maret_metronet_uiwsu_ok'] = number_format($data['maret_metronet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['maret_metronet_uiwsu_ok']) == 0) {
+				$data['maret_metronet_uiwsu_ok'] = 100;
+			}
+
 			$data['april_metronet_uiwsu'] = $this->Sla_model->april_metronet_uiwsu();
 			$data['april_metronet_uiwsu_sukses'] = $data['april_metronet_uiwsu'][0]['persentasi_sla'];
-			$data['april_metronet_uiwsu_ok'] = number_format($data['april_metronet_uiwsu_sukses'],2,",",".");
-			if(($data['april_metronet_uiwsu_ok'])==0){ $data['april_metronet_uiwsu_ok']=100;}	
-			
+			$data['april_metronet_uiwsu_ok'] = number_format($data['april_metronet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['april_metronet_uiwsu_ok']) == 0) {
+				$data['april_metronet_uiwsu_ok'] = 100;
+			}
+
 			$data['mei_metronet_uiwsu'] = $this->Sla_model->mei_metronet_uiwsu();
 			$data['mei_metronet_uiwsu_sukses'] = $data['mei_metronet_uiwsu'][0]['persentasi_sla'];
-			$data['mei_metronet_uiwsu_ok'] = number_format($data['mei_metronet_uiwsu_sukses'],2,",",".");
-			if(($data['mei_metronet_uiwsu_ok'])==0){ $data['mei_metronet_uiwsu_ok']=100;}	
-			
+			$data['mei_metronet_uiwsu_ok'] = number_format($data['mei_metronet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['mei_metronet_uiwsu_ok']) == 0) {
+				$data['mei_metronet_uiwsu_ok'] = 100;
+			}
+
 			$data['juni_metronet_uiwsu'] = $this->Sla_model->juni_metronet_uiwsu();
 			$data['juni_metronet_uiwsu_sukses'] = $data['juni_metronet_uiwsu'][0]['persentasi_sla'];
-			$data['juni_metronet_uiwsu_ok'] = number_format($data['juni_metronet_uiwsu_sukses'],2,",",".");
-			if(($data['juni_metronet_uiwsu_ok'])==0){ $data['juni_metronet_uiwsu_ok']=100;}	
-			
+			$data['juni_metronet_uiwsu_ok'] = number_format($data['juni_metronet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['juni_metronet_uiwsu_ok']) == 0) {
+				$data['juni_metronet_uiwsu_ok'] = 100;
+			}
+
 			$data['juli_metronet_uiwsu'] = $this->Sla_model->juli_metronet_uiwsu();
 			$data['juli_metronet_uiwsu_sukses'] = $data['juli_metronet_uiwsu'][0]['persentasi_sla'];
-			$data['juli_metronet_uiwsu_ok'] = number_format($data['juli_metronet_uiwsu_sukses'],2,",",".");
-			if(($data['juli_metronet_uiwsu_ok'])==0){ $data['juli_metronet_uiwsu_ok']=100;}	
-			
+			$data['juli_metronet_uiwsu_ok'] = number_format($data['juli_metronet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['juli_metronet_uiwsu_ok']) == 0) {
+				$data['juli_metronet_uiwsu_ok'] = 100;
+			}
+
 			$data['agustus_metronet_uiwsu'] = $this->Sla_model->agustus_metronet_uiwsu();
 			$data['agustus_metronet_uiwsu_sukses'] = $data['agustus_metronet_uiwsu'][0]['persentasi_sla'];
-			$data['agustus_metronet_uiwsu_ok'] = number_format($data['agustus_metronet_uiwsu_sukses'],2,",",".");
-			if(($data['agustus_metronet_uiwsu_ok'])==0){ $data['agustus_metronet_uiwsu_ok']=100;}	
-			
+			$data['agustus_metronet_uiwsu_ok'] = number_format($data['agustus_metronet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['agustus_metronet_uiwsu_ok']) == 0) {
+				$data['agustus_metronet_uiwsu_ok'] = 100;
+			}
+
 			$data['september_metronet_uiwsu'] = $this->Sla_model->september_metronet_uiwsu();
 			$data['september_metronet_uiwsu_sukses'] = $data['september_metronet_uiwsu'][0]['persentasi_sla'];
-			$data['september_metronet_uiwsu_ok'] = number_format($data['september_metronet_uiwsu_sukses'],2,",",".");
-			if(($data['september_metronet_uiwsu_ok'])==0){ $data['september_metronet_uiwsu_ok']=100;}	
-			
+			$data['september_metronet_uiwsu_ok'] = number_format($data['september_metronet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['september_metronet_uiwsu_ok']) == 0) {
+				$data['september_metronet_uiwsu_ok'] = 100;
+			}
+
 			$data['oktober_metronet_uiwsu'] = $this->Sla_model->oktober_metronet_uiwsu();
 			$data['oktober_metronet_uiwsu_sukses'] = $data['oktober_metronet_uiwsu'][0]['persentasi_sla'];
-			$data['oktober_metronet_uiwsu_ok'] = number_format($data['oktober_metronet_uiwsu_sukses'],2,",",".");
-			if(($data['oktober_metronet_uiwsu_ok'])==0){ $data['oktober_metronet_uiwsu_ok']=100;}	
-			
+			$data['oktober_metronet_uiwsu_ok'] = number_format($data['oktober_metronet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['oktober_metronet_uiwsu_ok']) == 0) {
+				$data['oktober_metronet_uiwsu_ok'] = 100;
+			}
+
 			$data['november_metronet_uiwsu'] = $this->Sla_model->november_metronet_uiwsu();
 			$data['november_metronet_uiwsu_sukses'] = $data['november_metronet_uiwsu'][0]['persentasi_sla'];
-			$data['november_metronet_uiwsu_ok'] = number_format($data['november_metronet_uiwsu_sukses'],2,",",".");
-			if(($data['november_metronet_uiwsu_ok'])==0){ $data['november_metronet_uiwsu_ok']=100;}	
-			
+			$data['november_metronet_uiwsu_ok'] = number_format($data['november_metronet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['november_metronet_uiwsu_ok']) == 0) {
+				$data['november_metronet_uiwsu_ok'] = 100;
+			}
+
 			$data['desember_metronet_uiwsu'] = $this->Sla_model->desember_metronet_uiwsu();
 			$data['desember_metronet_uiwsu_sukses'] = $data['desember_metronet_uiwsu'][0]['persentasi_sla'];
-			$data['desember_metronet_uiwsu_ok'] = number_format($data['desember_metronet_uiwsu_sukses'],2,",",".");
-			if(($data['desember_metronet_uiwsu_ok'])==0){ $data['desember_metronet_uiwsu_ok']=100;}	
-			
+			$data['desember_metronet_uiwsu_ok'] = number_format($data['desember_metronet_uiwsu_sukses'], 2, ",", ".");
+			if (($data['desember_metronet_uiwsu_ok']) == 0) {
+				$data['desember_metronet_uiwsu_ok'] = 100;
+			}
+
 			//vsat_UIWSU
 			$data['januari_vsat_uiwsu'] = $this->Sla_model->januari_vsat_uiwsu();
 			$data['januari_vsat_uiwsu_sukses'] = $data['januari_vsat_uiwsu'][0]['persentasi_sla'];
-			$data['januari_vsat_uiwsu_ok'] = number_format($data['januari_vsat_uiwsu_sukses'],2,",",".");
-			if(($data['januari_vsat_uiwsu_ok'])==0){ $data['januari_vsat_uiwsu_ok']=100;}	
-			
+			$data['januari_vsat_uiwsu_ok'] = number_format($data['januari_vsat_uiwsu_sukses'], 2, ",", ".");
+			if (($data['januari_vsat_uiwsu_ok']) == 0) {
+				$data['januari_vsat_uiwsu_ok'] = 100;
+			}
+
 			$data['februari_vsat_uiwsu'] = $this->Sla_model->februari_vsat_uiwsu();
 			$data['februari_vsat_uiwsu_sukses'] = $data['februari_vsat_uiwsu'][0]['persentasi_sla'];
-			$data['februari_vsat_uiwsu_ok'] = number_format($data['februari_vsat_uiwsu_sukses'],2,",",".");
-			if(($data['februari_vsat_uiwsu_ok'])==0){ $data['februari_vsat_uiwsu_ok']=100;}	
-			
+			$data['februari_vsat_uiwsu_ok'] = number_format($data['februari_vsat_uiwsu_sukses'], 2, ",", ".");
+			if (($data['februari_vsat_uiwsu_ok']) == 0) {
+				$data['februari_vsat_uiwsu_ok'] = 100;
+			}
+
 			$data['maret_vsat_uiwsu'] = $this->Sla_model->maret_vsat_uiwsu();
 			$data['maret_vsat_uiwsu_sukses'] = $data['maret_vsat_uiwsu'][0]['persentasi_sla'];
-			$data['maret_vsat_uiwsu_ok'] = number_format($data['maret_vsat_uiwsu_sukses'],2,",",".");
-			if(($data['maret_vsat_uiwsu_ok'])==0){ $data['maret_vsat_uiwsu_ok']=100;}	
-			
+			$data['maret_vsat_uiwsu_ok'] = number_format($data['maret_vsat_uiwsu_sukses'], 2, ",", ".");
+			if (($data['maret_vsat_uiwsu_ok']) == 0) {
+				$data['maret_vsat_uiwsu_ok'] = 100;
+			}
+
 			$data['april_vsat_uiwsu'] = $this->Sla_model->april_vsat_uiwsu();
 			$data['april_vsat_uiwsu_sukses'] = $data['april_vsat_uiwsu'][0]['persentasi_sla'];
-			$data['april_vsat_uiwsu_ok'] = number_format($data['april_vsat_uiwsu_sukses'],2,",",".");
-			if(($data['april_vsat_uiwsu_ok'])==0){ $data['april_vsat_uiwsu_ok']=100;}	
-			
+			$data['april_vsat_uiwsu_ok'] = number_format($data['april_vsat_uiwsu_sukses'], 2, ",", ".");
+			if (($data['april_vsat_uiwsu_ok']) == 0) {
+				$data['april_vsat_uiwsu_ok'] = 100;
+			}
+
 			$data['mei_vsat_uiwsu'] = $this->Sla_model->mei_vsat_uiwsu();
 			$data['mei_vsat_uiwsu_sukses'] = $data['mei_vsat_uiwsu'][0]['persentasi_sla'];
-			$data['mei_vsat_uiwsu_ok'] = number_format($data['mei_vsat_uiwsu_sukses'],2,",",".");
-			if(($data['mei_vsat_uiwsu_ok'])==0){ $data['mei_vsat_uiwsu_ok']=100;}	
-			
+			$data['mei_vsat_uiwsu_ok'] = number_format($data['mei_vsat_uiwsu_sukses'], 2, ",", ".");
+			if (($data['mei_vsat_uiwsu_ok']) == 0) {
+				$data['mei_vsat_uiwsu_ok'] = 100;
+			}
+
 			$data['juni_vsat_uiwsu'] = $this->Sla_model->juni_vsat_uiwsu();
 			$data['juni_vsat_uiwsu_sukses'] = $data['juni_vsat_uiwsu'][0]['persentasi_sla'];
-			$data['juni_vsat_uiwsu_ok'] = number_format($data['juni_vsat_uiwsu_sukses'],2,",",".");
-			if(($data['juni_vsat_uiwsu_ok'])==0){ $data['juni_vsat_uiwsu_ok']=100;}	
-			
+			$data['juni_vsat_uiwsu_ok'] = number_format($data['juni_vsat_uiwsu_sukses'], 2, ",", ".");
+			if (($data['juni_vsat_uiwsu_ok']) == 0) {
+				$data['juni_vsat_uiwsu_ok'] = 100;
+			}
+
 			$data['juli_vsat_uiwsu'] = $this->Sla_model->juli_vsat_uiwsu();
 			$data['juli_vsat_uiwsu_sukses'] = $data['juli_vsat_uiwsu'][0]['persentasi_sla'];
-			$data['juli_vsat_uiwsu_ok'] = number_format($data['juli_vsat_uiwsu_sukses'],2,",",".");
-			if(($data['juli_vsat_uiwsu_ok'])==0){ $data['juli_vsat_uiwsu_ok']=100;}	
-			
+			$data['juli_vsat_uiwsu_ok'] = number_format($data['juli_vsat_uiwsu_sukses'], 2, ",", ".");
+			if (($data['juli_vsat_uiwsu_ok']) == 0) {
+				$data['juli_vsat_uiwsu_ok'] = 100;
+			}
+
 			$data['agustus_vsat_uiwsu'] = $this->Sla_model->agustus_vsat_uiwsu();
 			$data['agustus_vsat_uiwsu_sukses'] = $data['agustus_vsat_uiwsu'][0]['persentasi_sla'];
-			$data['agustus_vsat_uiwsu_ok'] = number_format($data['agustus_vsat_uiwsu_sukses'],2,",",".");
-			if(($data['agustus_vsat_uiwsu_ok'])==0){ $data['agustus_vsat_uiwsu_ok']=100;}	
-			
+			$data['agustus_vsat_uiwsu_ok'] = number_format($data['agustus_vsat_uiwsu_sukses'], 2, ",", ".");
+			if (($data['agustus_vsat_uiwsu_ok']) == 0) {
+				$data['agustus_vsat_uiwsu_ok'] = 100;
+			}
+
 			$data['september_vsat_uiwsu'] = $this->Sla_model->september_vsat_uiwsu();
 			$data['september_vsat_uiwsu_sukses'] = $data['september_vsat_uiwsu'][0]['persentasi_sla'];
-			$data['september_vsat_uiwsu_ok'] = number_format($data['september_vsat_uiwsu_sukses'],2,",",".");
-			if(($data['september_vsat_uiwsu_ok'])==0){ $data['september_vsat_uiwsu_ok']=100;}	
-			
+			$data['september_vsat_uiwsu_ok'] = number_format($data['september_vsat_uiwsu_sukses'], 2, ",", ".");
+			if (($data['september_vsat_uiwsu_ok']) == 0) {
+				$data['september_vsat_uiwsu_ok'] = 100;
+			}
+
 			$data['oktober_vsat_uiwsu'] = $this->Sla_model->oktober_vsat_uiwsu();
 			$data['oktober_vsat_uiwsu_sukses'] = $data['oktober_vsat_uiwsu'][0]['persentasi_sla'];
-			$data['oktober_vsat_uiwsu_ok'] = number_format($data['oktober_vsat_uiwsu_sukses'],2,",",".");
-			if(($data['oktober_vsat_uiwsu_ok'])==0){ $data['oktober_vsat_uiwsu_ok']=100;}	
-			
+			$data['oktober_vsat_uiwsu_ok'] = number_format($data['oktober_vsat_uiwsu_sukses'], 2, ",", ".");
+			if (($data['oktober_vsat_uiwsu_ok']) == 0) {
+				$data['oktober_vsat_uiwsu_ok'] = 100;
+			}
+
 			$data['november_vsat_uiwsu'] = $this->Sla_model->november_vsat_uiwsu();
 			$data['november_vsat_uiwsu_sukses'] = $data['november_vsat_uiwsu'][0]['persentasi_sla'];
-			$data['november_vsat_uiwsu_ok'] = number_format($data['november_vsat_uiwsu_sukses'],2,",",".");
-			if(($data['november_vsat_uiwsu_ok'])==0){ $data['november_vsat_uiwsu_ok']=100;}	
-			
+			$data['november_vsat_uiwsu_ok'] = number_format($data['november_vsat_uiwsu_sukses'], 2, ",", ".");
+			if (($data['november_vsat_uiwsu_ok']) == 0) {
+				$data['november_vsat_uiwsu_ok'] = 100;
+			}
+
 			$data['desember_vsat_uiwsu'] = $this->Sla_model->desember_vsat_uiwsu();
 			$data['desember_vsat_uiwsu_sukses'] = $data['desember_vsat_uiwsu'][0]['persentasi_sla'];
-			$data['desember_vsat_uiwsu_ok'] = number_format($data['desember_vsat_uiwsu_sukses'],2,",",".");
-			if(($data['desember_vsat_uiwsu_ok'])==0){ $data['desember_vsat_uiwsu_ok']=100;}	
-			
+			$data['desember_vsat_uiwsu_ok'] = number_format($data['desember_vsat_uiwsu_sukses'], 2, ",", ".");
+			if (($data['desember_vsat_uiwsu_ok']) == 0) {
+				$data['desember_vsat_uiwsu_ok'] = 100;
+			}
+
 			//internet_UIKSBU
 			$data['januari_internet_uiksbu'] = $this->Sla_model->januari_internet_uiksbu();
 			$data['januari_internet_uiksbu_sukses'] = $data['januari_internet_uiksbu'][0]['persentasi_sla'];
-			$data['januari_internet_uiksbu_ok'] = number_format($data['januari_internet_uiksbu_sukses'],2,",",".");
-			if(($data['januari_internet_uiksbu_ok'])==0){ $data['januari_internet_uiksbu_ok']=100;}	
-			
+			$data['januari_internet_uiksbu_ok'] = number_format($data['januari_internet_uiksbu_sukses'], 2, ",", ".");
+			if (($data['januari_internet_uiksbu_ok']) == 0) {
+				$data['januari_internet_uiksbu_ok'] = 100;
+			}
+
 			$data['februari_internet_uiksbu'] = $this->Sla_model->februari_internet_uiksbu();
 			$data['februari_internet_uiksbu_sukses'] = $data['februari_internet_uiksbu'][0]['persentasi_sla'];
-			$data['februari_internet_uiksbu_ok'] = number_format($data['februari_internet_uiksbu_sukses'],2,",",".");
-			if(($data['februari_internet_uiksbu_ok'])==0){ $data['februari_internet_uiksbu_ok']=100;}	
-			
+			$data['februari_internet_uiksbu_ok'] = number_format($data['februari_internet_uiksbu_sukses'], 2, ",", ".");
+			if (($data['februari_internet_uiksbu_ok']) == 0) {
+				$data['februari_internet_uiksbu_ok'] = 100;
+			}
+
 			$data['maret_internet_uiksbu'] = $this->Sla_model->maret_internet_uiksbu();
 			$data['maret_internet_uiksbu_sukses'] = $data['maret_internet_uiksbu'][0]['persentasi_sla'];
-			$data['maret_internet_uiksbu_ok'] = number_format($data['maret_internet_uiksbu_sukses'],2,",",".");
-			if(($data['maret_internet_uiksbu_ok'])==0){ $data['maret_internet_uiksbu_ok']=100;}	
-			
+			$data['maret_internet_uiksbu_ok'] = number_format($data['maret_internet_uiksbu_sukses'], 2, ",", ".");
+			if (($data['maret_internet_uiksbu_ok']) == 0) {
+				$data['maret_internet_uiksbu_ok'] = 100;
+			}
+
 			$data['april_internet_uiksbu'] = $this->Sla_model->april_internet_uiksbu();
 			$data['april_internet_uiksbu_sukses'] = $data['april_internet_uiksbu'][0]['persentasi_sla'];
-			$data['april_internet_uiksbu_ok'] = number_format($data['april_internet_uiksbu_sukses'],2,",",".");
-			if(($data['april_internet_uiksbu_ok'])==0){ $data['april_internet_uiksbu_ok']=100;}	
-			
+			$data['april_internet_uiksbu_ok'] = number_format($data['april_internet_uiksbu_sukses'], 2, ",", ".");
+			if (($data['april_internet_uiksbu_ok']) == 0) {
+				$data['april_internet_uiksbu_ok'] = 100;
+			}
+
 			$data['mei_internet_uiksbu'] = $this->Sla_model->mei_internet_uiksbu();
 			$data['mei_internet_uiksbu_sukses'] = $data['mei_internet_uiksbu'][0]['persentasi_sla'];
-			$data['mei_internet_uiksbu_ok'] = number_format($data['mei_internet_uiksbu_sukses'],2,",",".");
-			if(($data['mei_internet_uiksbu_ok'])==0){ $data['mei_internet_uiksbu_ok']=100;}	
-			
+			$data['mei_internet_uiksbu_ok'] = number_format($data['mei_internet_uiksbu_sukses'], 2, ",", ".");
+			if (($data['mei_internet_uiksbu_ok']) == 0) {
+				$data['mei_internet_uiksbu_ok'] = 100;
+			}
+
 			$data['juni_internet_uiksbu'] = $this->Sla_model->juni_internet_uiksbu();
 			$data['juni_internet_uiksbu_sukses'] = $data['juni_internet_uiksbu'][0]['persentasi_sla'];
-			$data['juni_internet_uiksbu_ok'] = number_format($data['juni_internet_uiksbu_sukses'],2,",",".");
-			if(($data['juni_internet_uiksbu_ok'])==0){ $data['juni_internet_uiksbu_ok']=100;}	
-			
+			$data['juni_internet_uiksbu_ok'] = number_format($data['juni_internet_uiksbu_sukses'], 2, ",", ".");
+			if (($data['juni_internet_uiksbu_ok']) == 0) {
+				$data['juni_internet_uiksbu_ok'] = 100;
+			}
+
 			$data['juli_internet_uiksbu'] = $this->Sla_model->juli_internet_uiksbu();
 			$data['juli_internet_uiksbu_sukses'] = $data['juli_internet_uiksbu'][0]['persentasi_sla'];
-			$data['juli_internet_uiksbu_ok'] = number_format($data['juli_internet_uiksbu_sukses'],2,",",".");
-			if(($data['juli_internet_uiksbu_ok'])==0){ $data['juli_internet_uiksbu_ok']=100;}	
-			
+			$data['juli_internet_uiksbu_ok'] = number_format($data['juli_internet_uiksbu_sukses'], 2, ",", ".");
+			if (($data['juli_internet_uiksbu_ok']) == 0) {
+				$data['juli_internet_uiksbu_ok'] = 100;
+			}
+
 			$data['agustus_internet_uiksbu'] = $this->Sla_model->agustus_internet_uiksbu();
 			$data['agustus_internet_uiksbu_sukses'] = $data['agustus_internet_uiksbu'][0]['persentasi_sla'];
-			$data['agustus_internet_uiksbu_ok'] = number_format($data['agustus_internet_uiksbu_sukses'],2,",",".");
-			if(($data['agustus_internet_uiksbu_ok'])==0){ $data['agustus_internet_uiksbu_ok']=100;}	
-			
+			$data['agustus_internet_uiksbu_ok'] = number_format($data['agustus_internet_uiksbu_sukses'], 2, ",", ".");
+			if (($data['agustus_internet_uiksbu_ok']) == 0) {
+				$data['agustus_internet_uiksbu_ok'] = 100;
+			}
+
 			$data['september_internet_uiksbu'] = $this->Sla_model->september_internet_uiksbu();
 			$data['september_internet_uiksbu_sukses'] = $data['september_internet_uiksbu'][0]['persentasi_sla'];
-			$data['september_internet_uiksbu_ok'] = number_format($data['september_internet_uiksbu_sukses'],2,",",".");
-			if(($data['september_internet_uiksbu_ok'])==0){ $data['september_internet_uiksbu_ok']=100;}	
-			
+			$data['september_internet_uiksbu_ok'] = number_format($data['september_internet_uiksbu_sukses'], 2, ",", ".");
+			if (($data['september_internet_uiksbu_ok']) == 0) {
+				$data['september_internet_uiksbu_ok'] = 100;
+			}
+
 			$data['oktober_internet_uiksbu'] = $this->Sla_model->oktober_internet_uiksbu();
 			$data['oktober_internet_uiksbu_sukses'] = $data['oktober_internet_uiksbu'][0]['persentasi_sla'];
-			$data['oktober_internet_uiksbu_ok'] = number_format($data['oktober_internet_uiksbu_sukses'],2,",",".");
-			if(($data['oktober_internet_uiksbu_ok'])==0){ $data['oktober_internet_uiksbu_ok']=100;}	
-			
+			$data['oktober_internet_uiksbu_ok'] = number_format($data['oktober_internet_uiksbu_sukses'], 2, ",", ".");
+			if (($data['oktober_internet_uiksbu_ok']) == 0) {
+				$data['oktober_internet_uiksbu_ok'] = 100;
+			}
+
 			$data['november_internet_uiksbu'] = $this->Sla_model->november_internet_uiksbu();
 			$data['november_internet_uiksbu_sukses'] = $data['november_internet_uiksbu'][0]['persentasi_sla'];
-			$data['november_internet_uiksbu_ok'] = number_format($data['november_internet_uiksbu_sukses'],2,",",".");
-			if(($data['november_internet_uiksbu_ok'])==0){ $data['november_internet_uiksbu_ok']=100;}	
-			
+			$data['november_internet_uiksbu_ok'] = number_format($data['november_internet_uiksbu_sukses'], 2, ",", ".");
+			if (($data['november_internet_uiksbu_ok']) == 0) {
+				$data['november_internet_uiksbu_ok'] = 100;
+			}
+
 			$data['desember_internet_uiksbu'] = $this->Sla_model->desember_internet_uiksbu();
 			$data['desember_internet_uiksbu_sukses'] = $data['desember_internet_uiksbu'][0]['persentasi_sla'];
-			$data['desember_internet_uiksbu_ok'] = number_format($data['desember_internet_uiksbu_sukses'],2,",",".");
-			if(($data['desember_internet_uiksbu_ok'])==0){ $data['desember_internet_uiksbu_ok']=100;}	
-			
+			$data['desember_internet_uiksbu_ok'] = number_format($data['desember_internet_uiksbu_sukses'], 2, ",", ".");
+			if (($data['desember_internet_uiksbu_ok']) == 0) {
+				$data['desember_internet_uiksbu_ok'] = 100;
+			}
+
 			//ipvpn_uiksbu
 			$data['januari_ipvpn_uiksbu'] = $this->Sla_model->januari_ipvpn_uiksbu();
 			$data['januari_ipvpn_uiksbu_sukses'] = $data['januari_ipvpn_uiksbu'][0]['persentasi_sla'];
-			$data['januari_ipvpn_uiksbu_ok'] = number_format($data['januari_ipvpn_uiksbu_sukses'],2,",",".");
-			if(($data['januari_ipvpn_uiksbu_ok'])==0){ $data['januari_ipvpn_uiksbu_ok']=100;}	
-			
+			$data['januari_ipvpn_uiksbu_ok'] = number_format($data['januari_ipvpn_uiksbu_sukses'], 2, ",", ".");
+			if (($data['januari_ipvpn_uiksbu_ok']) == 0) {
+				$data['januari_ipvpn_uiksbu_ok'] = 100;
+			}
+
 			$data['februari_ipvpn_uiksbu'] = $this->Sla_model->februari_ipvpn_uiksbu();
 			$data['februari_ipvpn_uiksbu_sukses'] = $data['februari_ipvpn_uiksbu'][0]['persentasi_sla'];
-			$data['februari_ipvpn_uiksbu_ok'] = number_format($data['februari_ipvpn_uiksbu_sukses'],2,",",".");
-			if(($data['februari_ipvpn_uiksbu_ok'])==0){ $data['februari_ipvpn_uiksbu_ok']=100;}	
-			
+			$data['februari_ipvpn_uiksbu_ok'] = number_format($data['februari_ipvpn_uiksbu_sukses'], 2, ",", ".");
+			if (($data['februari_ipvpn_uiksbu_ok']) == 0) {
+				$data['februari_ipvpn_uiksbu_ok'] = 100;
+			}
+
 			$data['maret_ipvpn_uiksbu'] = $this->Sla_model->maret_ipvpn_uiksbu();
 			$data['maret_ipvpn_uiksbu_sukses'] = $data['maret_ipvpn_uiksbu'][0]['persentasi_sla'];
-			$data['maret_ipvpn_uiksbu_ok'] = number_format($data['maret_ipvpn_uiksbu_sukses'],2,",",".");
-			if(($data['maret_ipvpn_uiksbu_ok'])==0){ $data['maret_ipvpn_uiksbu_ok']=100;}	
-			
+			$data['maret_ipvpn_uiksbu_ok'] = number_format($data['maret_ipvpn_uiksbu_sukses'], 2, ",", ".");
+			if (($data['maret_ipvpn_uiksbu_ok']) == 0) {
+				$data['maret_ipvpn_uiksbu_ok'] = 100;
+			}
+
 			$data['april_ipvpn_uiksbu'] = $this->Sla_model->april_ipvpn_uiksbu();
 			$data['april_ipvpn_uiksbu_sukses'] = $data['april_ipvpn_uiksbu'][0]['persentasi_sla'];
-			$data['april_ipvpn_uiksbu_ok'] = number_format($data['april_ipvpn_uiksbu_sukses'],2,",",".");
-			if(($data['april_ipvpn_uiksbu_ok'])==0){ $data['april_ipvpn_uiksbu_ok']=100;}	
-			
+			$data['april_ipvpn_uiksbu_ok'] = number_format($data['april_ipvpn_uiksbu_sukses'], 2, ",", ".");
+			if (($data['april_ipvpn_uiksbu_ok']) == 0) {
+				$data['april_ipvpn_uiksbu_ok'] = 100;
+			}
+
 			$data['mei_ipvpn_uiksbu'] = $this->Sla_model->mei_ipvpn_uiksbu();
 			$data['mei_ipvpn_uiksbu_sukses'] = $data['mei_ipvpn_uiksbu'][0]['persentasi_sla'];
-			$data['mei_ipvpn_uiksbu_ok'] = number_format($data['mei_ipvpn_uiksbu_sukses'],2,",",".");
-			if(($data['mei_ipvpn_uiksbu_ok'])==0){ $data['mei_ipvpn_uiksbu_ok']=100;}	
-			
+			$data['mei_ipvpn_uiksbu_ok'] = number_format($data['mei_ipvpn_uiksbu_sukses'], 2, ",", ".");
+			if (($data['mei_ipvpn_uiksbu_ok']) == 0) {
+				$data['mei_ipvpn_uiksbu_ok'] = 100;
+			}
+
 			$data['juni_ipvpn_uiksbu'] = $this->Sla_model->juni_ipvpn_uiksbu();
 			$data['juni_ipvpn_uiksbu_sukses'] = $data['juni_ipvpn_uiksbu'][0]['persentasi_sla'];
-			$data['juni_ipvpn_uiksbu_ok'] = number_format($data['juni_ipvpn_uiksbu_sukses'],2,",",".");
-			if(($data['juni_ipvpn_uiksbu_ok'])==0){ $data['juni_ipvpn_uiksbu_ok']=100;}	
-			
+			$data['juni_ipvpn_uiksbu_ok'] = number_format($data['juni_ipvpn_uiksbu_sukses'], 2, ",", ".");
+			if (($data['juni_ipvpn_uiksbu_ok']) == 0) {
+				$data['juni_ipvpn_uiksbu_ok'] = 100;
+			}
+
 			$data['juli_ipvpn_uiksbu'] = $this->Sla_model->juli_ipvpn_uiksbu();
 			$data['juli_ipvpn_uiksbu_sukses'] = $data['juli_ipvpn_uiksbu'][0]['persentasi_sla'];
-			$data['juli_ipvpn_uiksbu_ok'] = number_format($data['juli_ipvpn_uiksbu_sukses'],2,",",".");
-			if(($data['juli_ipvpn_uiksbu_ok'])==0){ $data['juli_ipvpn_uiksbu_ok']=100;}	
-			
+			$data['juli_ipvpn_uiksbu_ok'] = number_format($data['juli_ipvpn_uiksbu_sukses'], 2, ",", ".");
+			if (($data['juli_ipvpn_uiksbu_ok']) == 0) {
+				$data['juli_ipvpn_uiksbu_ok'] = 100;
+			}
+
 			$data['agustus_ipvpn_uiksbu'] = $this->Sla_model->agustus_ipvpn_uiksbu();
 			$data['agustus_ipvpn_uiksbu_sukses'] = $data['agustus_ipvpn_uiksbu'][0]['persentasi_sla'];
-			$data['agustus_ipvpn_uiksbu_ok'] = number_format($data['agustus_ipvpn_uiksbu_sukses'],2,",",".");
-			if(($data['agustus_ipvpn_uiksbu_ok'])==0){ $data['agustus_ipvpn_uiksbu_ok']=100;}	
-			
+			$data['agustus_ipvpn_uiksbu_ok'] = number_format($data['agustus_ipvpn_uiksbu_sukses'], 2, ",", ".");
+			if (($data['agustus_ipvpn_uiksbu_ok']) == 0) {
+				$data['agustus_ipvpn_uiksbu_ok'] = 100;
+			}
+
 			$data['september_ipvpn_uiksbu'] = $this->Sla_model->september_ipvpn_uiksbu();
 			$data['september_ipvpn_uiksbu_sukses'] = $data['september_ipvpn_uiksbu'][0]['persentasi_sla'];
-			$data['september_ipvpn_uiksbu_ok'] = number_format($data['september_ipvpn_uiksbu_sukses'],2,",",".");
-			if(($data['september_ipvpn_uiksbu_ok'])==0){ $data['september_ipvpn_uiksbu_ok']=100;}	
-			
+			$data['september_ipvpn_uiksbu_ok'] = number_format($data['september_ipvpn_uiksbu_sukses'], 2, ",", ".");
+			if (($data['september_ipvpn_uiksbu_ok']) == 0) {
+				$data['september_ipvpn_uiksbu_ok'] = 100;
+			}
+
 			$data['oktober_ipvpn_uiksbu'] = $this->Sla_model->oktober_ipvpn_uiksbu();
 			$data['oktober_ipvpn_uiksbu_sukses'] = $data['oktober_ipvpn_uiksbu'][0]['persentasi_sla'];
-			$data['oktober_ipvpn_uiksbu_ok'] = number_format($data['oktober_ipvpn_uiksbu_sukses'],2,",",".");
-			if(($data['oktober_ipvpn_uiksbu_ok'])==0){ $data['oktober_ipvpn_uiksbu_ok']=100;}	
-			
+			$data['oktober_ipvpn_uiksbu_ok'] = number_format($data['oktober_ipvpn_uiksbu_sukses'], 2, ",", ".");
+			if (($data['oktober_ipvpn_uiksbu_ok']) == 0) {
+				$data['oktober_ipvpn_uiksbu_ok'] = 100;
+			}
+
 			$data['november_ipvpn_uiksbu'] = $this->Sla_model->november_ipvpn_uiksbu();
 			$data['november_ipvpn_uiksbu_sukses'] = $data['november_ipvpn_uiksbu'][0]['persentasi_sla'];
-			$data['november_ipvpn_uiksbu_ok'] = number_format($data['november_ipvpn_uiksbu_sukses'],2,",",".");
-			if(($data['november_ipvpn_uiksbu_ok'])==0){ $data['november_ipvpn_uiksbu_ok']=100;}	
-			
+			$data['november_ipvpn_uiksbu_ok'] = number_format($data['november_ipvpn_uiksbu_sukses'], 2, ",", ".");
+			if (($data['november_ipvpn_uiksbu_ok']) == 0) {
+				$data['november_ipvpn_uiksbu_ok'] = 100;
+			}
+
 			$data['desember_ipvpn_uiksbu'] = $this->Sla_model->desember_ipvpn_uiksbu();
 			$data['desember_ipvpn_uiksbu_sukses'] = $data['desember_ipvpn_uiksbu'][0]['persentasi_sla'];
-			$data['desember_ipvpn_uiksbu_ok'] = number_format($data['desember_ipvpn_uiksbu_sukses'],2,",",".");
-			if(($data['desember_ipvpn_uiksbu_ok'])==0){ $data['desember_ipvpn_uiksbu_ok']=100;}	
-			
-								
+			$data['desember_ipvpn_uiksbu_ok'] = number_format($data['desember_ipvpn_uiksbu_sukses'], 2, ",", ".");
+			if (($data['desember_ipvpn_uiksbu_ok']) == 0) {
+				$data['desember_ipvpn_uiksbu_ok'] = 100;
+			}
+
+
 			//internet_UIpSBU
 			$data['januari_internet_uipsbu'] = $this->Sla_model->januari_internet_uipsbu();
 			$data['januari_internet_uipsbu_sukses'] = $data['januari_internet_uipsbu'][0]['persentasi_sla'];
-			$data['januari_internet_uipsbu_ok'] = number_format($data['januari_internet_uipsbu_sukses'],2,",",".");
-			if(($data['januari_internet_uipsbu_ok'])==0){ $data['januari_internet_uipsbu_ok']=100;}	
-			
+			$data['januari_internet_uipsbu_ok'] = number_format($data['januari_internet_uipsbu_sukses'], 2, ",", ".");
+			if (($data['januari_internet_uipsbu_ok']) == 0) {
+				$data['januari_internet_uipsbu_ok'] = 100;
+			}
+
 			$data['februari_internet_uipsbu'] = $this->Sla_model->februari_internet_uipsbu();
 			$data['februari_internet_uipsbu_sukses'] = $data['februari_internet_uipsbu'][0]['persentasi_sla'];
-			$data['februari_internet_uipsbu_ok'] = number_format($data['februari_internet_uipsbu_sukses'],2,",",".");
-			if(($data['februari_internet_uipsbu_ok'])==0){ $data['februari_internet_uipsbu_ok']=100;}	
-			
+			$data['februari_internet_uipsbu_ok'] = number_format($data['februari_internet_uipsbu_sukses'], 2, ",", ".");
+			if (($data['februari_internet_uipsbu_ok']) == 0) {
+				$data['februari_internet_uipsbu_ok'] = 100;
+			}
+
 			$data['maret_internet_uipsbu'] = $this->Sla_model->maret_internet_uipsbu();
 			$data['maret_internet_uipsbu_sukses'] = $data['maret_internet_uipsbu'][0]['persentasi_sla'];
-			$data['maret_internet_uipsbu_ok'] = number_format($data['maret_internet_uipsbu_sukses'],2,",",".");
-			if(($data['maret_internet_uipsbu_ok'])==0){ $data['maret_internet_uipsbu_ok']=100;}	
-			
+			$data['maret_internet_uipsbu_ok'] = number_format($data['maret_internet_uipsbu_sukses'], 2, ",", ".");
+			if (($data['maret_internet_uipsbu_ok']) == 0) {
+				$data['maret_internet_uipsbu_ok'] = 100;
+			}
+
 			$data['april_internet_uipsbu'] = $this->Sla_model->april_internet_uipsbu();
 			$data['april_internet_uipsbu_sukses'] = $data['april_internet_uipsbu'][0]['persentasi_sla'];
-			$data['april_internet_uipsbu_ok'] = number_format($data['april_internet_uipsbu_sukses'],2,",",".");
-			if(($data['april_internet_uipsbu_ok'])==0){ $data['april_internet_uipsbu_ok']=100;}	
-			
+			$data['april_internet_uipsbu_ok'] = number_format($data['april_internet_uipsbu_sukses'], 2, ",", ".");
+			if (($data['april_internet_uipsbu_ok']) == 0) {
+				$data['april_internet_uipsbu_ok'] = 100;
+			}
+
 			$data['mei_internet_uipsbu'] = $this->Sla_model->mei_internet_uipsbu();
 			$data['mei_internet_uipsbu_sukses'] = $data['mei_internet_uipsbu'][0]['persentasi_sla'];
-			$data['mei_internet_uipsbu_ok'] = number_format($data['mei_internet_uipsbu_sukses'],2,",",".");
-			if(($data['mei_internet_uipsbu_ok'])==0){ $data['mei_internet_uipsbu_ok']=100;}	
-			
+			$data['mei_internet_uipsbu_ok'] = number_format($data['mei_internet_uipsbu_sukses'], 2, ",", ".");
+			if (($data['mei_internet_uipsbu_ok']) == 0) {
+				$data['mei_internet_uipsbu_ok'] = 100;
+			}
+
 			$data['juni_internet_uipsbu'] = $this->Sla_model->juni_internet_uipsbu();
 			$data['juni_internet_uipsbu_sukses'] = $data['juni_internet_uipsbu'][0]['persentasi_sla'];
-			$data['juni_internet_uipsbu_ok'] = number_format($data['juni_internet_uipsbu_sukses'],2,",",".");
-			if(($data['juni_internet_uipsbu_ok'])==0){ $data['juni_internet_uipsbu_ok']=100;}	
-			
+			$data['juni_internet_uipsbu_ok'] = number_format($data['juni_internet_uipsbu_sukses'], 2, ",", ".");
+			if (($data['juni_internet_uipsbu_ok']) == 0) {
+				$data['juni_internet_uipsbu_ok'] = 100;
+			}
+
 			$data['juli_internet_uipsbu'] = $this->Sla_model->juli_internet_uipsbu();
 			$data['juli_internet_uipsbu_sukses'] = $data['juli_internet_uipsbu'][0]['persentasi_sla'];
-			$data['juli_internet_uipsbu_ok'] = number_format($data['juli_internet_uipsbu_sukses'],2,",",".");
-			if(($data['juli_internet_uipsbu_ok'])==0){ $data['juli_internet_uipsbu_ok']=100;}	
-			
+			$data['juli_internet_uipsbu_ok'] = number_format($data['juli_internet_uipsbu_sukses'], 2, ",", ".");
+			if (($data['juli_internet_uipsbu_ok']) == 0) {
+				$data['juli_internet_uipsbu_ok'] = 100;
+			}
+
 			$data['agustus_internet_uipsbu'] = $this->Sla_model->agustus_internet_uipsbu();
 			$data['agustus_internet_uipsbu_sukses'] = $data['agustus_internet_uipsbu'][0]['persentasi_sla'];
-			$data['agustus_internet_uipsbu_ok'] = number_format($data['agustus_internet_uipsbu_sukses'],2,",",".");
-			if(($data['agustus_internet_uipsbu_ok'])==0){ $data['agustus_internet_uipsbu_ok']=100;}	
-			
+			$data['agustus_internet_uipsbu_ok'] = number_format($data['agustus_internet_uipsbu_sukses'], 2, ",", ".");
+			if (($data['agustus_internet_uipsbu_ok']) == 0) {
+				$data['agustus_internet_uipsbu_ok'] = 100;
+			}
+
 			$data['september_internet_uipsbu'] = $this->Sla_model->september_internet_uipsbu();
 			$data['september_internet_uipsbu_sukses'] = $data['september_internet_uipsbu'][0]['persentasi_sla'];
-			$data['september_internet_uipsbu_ok'] = number_format($data['september_internet_uipsbu_sukses'],2,",",".");
-			if(($data['september_internet_uipsbu_ok'])==0){ $data['september_internet_uipsbu_ok']=100;}	
-			
+			$data['september_internet_uipsbu_ok'] = number_format($data['september_internet_uipsbu_sukses'], 2, ",", ".");
+			if (($data['september_internet_uipsbu_ok']) == 0) {
+				$data['september_internet_uipsbu_ok'] = 100;
+			}
+
 			$data['oktober_internet_uipsbu'] = $this->Sla_model->oktober_internet_uipsbu();
 			$data['oktober_internet_uipsbu_sukses'] = $data['oktober_internet_uipsbu'][0]['persentasi_sla'];
-			$data['oktober_internet_uipsbu_ok'] = number_format($data['oktober_internet_uipsbu_sukses'],2,",",".");
-			if(($data['oktober_internet_uipsbu_ok'])==0){ $data['oktober_internet_uipsbu_ok']=100;}	
-			
+			$data['oktober_internet_uipsbu_ok'] = number_format($data['oktober_internet_uipsbu_sukses'], 2, ",", ".");
+			if (($data['oktober_internet_uipsbu_ok']) == 0) {
+				$data['oktober_internet_uipsbu_ok'] = 100;
+			}
+
 			$data['november_internet_uipsbu'] = $this->Sla_model->november_internet_uipsbu();
 			$data['november_internet_uipsbu_sukses'] = $data['november_internet_uipsbu'][0]['persentasi_sla'];
-			$data['november_internet_uipsbu_ok'] = number_format($data['november_internet_uipsbu_sukses'],2,",",".");
-			if(($data['november_internet_uipsbu_ok'])==0){ $data['november_internet_uipsbu_ok']=100;}	
-			
+			$data['november_internet_uipsbu_ok'] = number_format($data['november_internet_uipsbu_sukses'], 2, ",", ".");
+			if (($data['november_internet_uipsbu_ok']) == 0) {
+				$data['november_internet_uipsbu_ok'] = 100;
+			}
+
 			$data['desember_internet_uipsbu'] = $this->Sla_model->desember_internet_uipsbu();
 			$data['desember_internet_uipsbu_sukses'] = $data['desember_internet_uipsbu'][0]['persentasi_sla'];
-			$data['desember_internet_uipsbu_ok'] = number_format($data['desember_internet_uipsbu_sukses'],2,",",".");
-			if(($data['desember_internet_uipsbu_ok'])==0){ $data['desember_internet_uipsbu_ok']=100;}	
-			
+			$data['desember_internet_uipsbu_ok'] = number_format($data['desember_internet_uipsbu_sukses'], 2, ",", ".");
+			if (($data['desember_internet_uipsbu_ok']) == 0) {
+				$data['desember_internet_uipsbu_ok'] = 100;
+			}
+
 			//ipvpn_uipsbu
 			$data['januari_ipvpn_uipsbu'] = $this->Sla_model->januari_ipvpn_uipsbu();
 			$data['januari_ipvpn_uipsbu_sukses'] = $data['januari_ipvpn_uipsbu'][0]['persentasi_sla'];
-			$data['januari_ipvpn_uipsbu_ok'] = number_format($data['januari_ipvpn_uipsbu_sukses'],2,",",".");
-			if(($data['januari_ipvpn_uipsbu_ok'])==0){ $data['januari_ipvpn_uipsbu_ok']=100;}	
-			
+			$data['januari_ipvpn_uipsbu_ok'] = number_format($data['januari_ipvpn_uipsbu_sukses'], 2, ",", ".");
+			if (($data['januari_ipvpn_uipsbu_ok']) == 0) {
+				$data['januari_ipvpn_uipsbu_ok'] = 100;
+			}
+
 			$data['februari_ipvpn_uipsbu'] = $this->Sla_model->februari_ipvpn_uipsbu();
 			$data['februari_ipvpn_uipsbu_sukses'] = $data['februari_ipvpn_uipsbu'][0]['persentasi_sla'];
-			$data['februari_ipvpn_uipsbu_ok'] = number_format($data['februari_ipvpn_uipsbu_sukses'],2,",",".");
-			if(($data['februari_ipvpn_uipsbu_ok'])==0){ $data['februari_ipvpn_uipsbu_ok']=100;}	
-			
+			$data['februari_ipvpn_uipsbu_ok'] = number_format($data['februari_ipvpn_uipsbu_sukses'], 2, ",", ".");
+			if (($data['februari_ipvpn_uipsbu_ok']) == 0) {
+				$data['februari_ipvpn_uipsbu_ok'] = 100;
+			}
+
 			$data['maret_ipvpn_uipsbu'] = $this->Sla_model->maret_ipvpn_uipsbu();
 			$data['maret_ipvpn_uipsbu_sukses'] = $data['maret_ipvpn_uipsbu'][0]['persentasi_sla'];
-			$data['maret_ipvpn_uipsbu_ok'] = number_format($data['maret_ipvpn_uipsbu_sukses'],2,",",".");
-			if(($data['maret_ipvpn_uipsbu_ok'])==0){ $data['maret_ipvpn_uipsbu_ok']=100;}	
-			
+			$data['maret_ipvpn_uipsbu_ok'] = number_format($data['maret_ipvpn_uipsbu_sukses'], 2, ",", ".");
+			if (($data['maret_ipvpn_uipsbu_ok']) == 0) {
+				$data['maret_ipvpn_uipsbu_ok'] = 100;
+			}
+
 			$data['april_ipvpn_uipsbu'] = $this->Sla_model->april_ipvpn_uipsbu();
 			$data['april_ipvpn_uipsbu_sukses'] = $data['april_ipvpn_uipsbu'][0]['persentasi_sla'];
-			$data['april_ipvpn_uipsbu_ok'] = number_format($data['april_ipvpn_uipsbu_sukses'],2,",",".");
-			if(($data['april_ipvpn_uipsbu_ok'])==0){ $data['april_ipvpn_uipsbu_ok']=100;}	
-			
+			$data['april_ipvpn_uipsbu_ok'] = number_format($data['april_ipvpn_uipsbu_sukses'], 2, ",", ".");
+			if (($data['april_ipvpn_uipsbu_ok']) == 0) {
+				$data['april_ipvpn_uipsbu_ok'] = 100;
+			}
+
 			$data['mei_ipvpn_uipsbu'] = $this->Sla_model->mei_ipvpn_uipsbu();
 			$data['mei_ipvpn_uipsbu_sukses'] = $data['mei_ipvpn_uipsbu'][0]['persentasi_sla'];
-			$data['mei_ipvpn_uipsbu_ok'] = number_format($data['mei_ipvpn_uipsbu_sukses'],2,",",".");
-			if(($data['mei_ipvpn_uipsbu_ok'])==0){ $data['mei_ipvpn_uipsbu_ok']=100;}	
-			
+			$data['mei_ipvpn_uipsbu_ok'] = number_format($data['mei_ipvpn_uipsbu_sukses'], 2, ",", ".");
+			if (($data['mei_ipvpn_uipsbu_ok']) == 0) {
+				$data['mei_ipvpn_uipsbu_ok'] = 100;
+			}
+
 			$data['juni_ipvpn_uipsbu'] = $this->Sla_model->juni_ipvpn_uipsbu();
 			$data['juni_ipvpn_uipsbu_sukses'] = $data['juni_ipvpn_uipsbu'][0]['persentasi_sla'];
-			$data['juni_ipvpn_uipsbu_ok'] = number_format($data['juni_ipvpn_uipsbu_sukses'],2,",",".");
-			if(($data['juni_ipvpn_uipsbu_ok'])==0){ $data['juni_ipvpn_uipsbu_ok']=100;}	
-			
+			$data['juni_ipvpn_uipsbu_ok'] = number_format($data['juni_ipvpn_uipsbu_sukses'], 2, ",", ".");
+			if (($data['juni_ipvpn_uipsbu_ok']) == 0) {
+				$data['juni_ipvpn_uipsbu_ok'] = 100;
+			}
+
 			$data['juli_ipvpn_uipsbu'] = $this->Sla_model->juli_ipvpn_uipsbu();
 			$data['juli_ipvpn_uipsbu_sukses'] = $data['juli_ipvpn_uipsbu'][0]['persentasi_sla'];
-			$data['juli_ipvpn_uipsbu_ok'] = number_format($data['juli_ipvpn_uipsbu_sukses'],2,",",".");
-			if(($data['juli_ipvpn_uipsbu_ok'])==0){ $data['juli_ipvpn_uipsbu_ok']=100;}	
-			
+			$data['juli_ipvpn_uipsbu_ok'] = number_format($data['juli_ipvpn_uipsbu_sukses'], 2, ",", ".");
+			if (($data['juli_ipvpn_uipsbu_ok']) == 0) {
+				$data['juli_ipvpn_uipsbu_ok'] = 100;
+			}
+
 			$data['agustus_ipvpn_uipsbu'] = $this->Sla_model->agustus_ipvpn_uipsbu();
 			$data['agustus_ipvpn_uipsbu_sukses'] = $data['agustus_ipvpn_uipsbu'][0]['persentasi_sla'];
-			$data['agustus_ipvpn_uipsbu_ok'] = number_format($data['agustus_ipvpn_uipsbu_sukses'],2,",",".");
-			if(($data['agustus_ipvpn_uipsbu_ok'])==0){ $data['agustus_ipvpn_uipsbu_ok']=100;}	
-			
+			$data['agustus_ipvpn_uipsbu_ok'] = number_format($data['agustus_ipvpn_uipsbu_sukses'], 2, ",", ".");
+			if (($data['agustus_ipvpn_uipsbu_ok']) == 0) {
+				$data['agustus_ipvpn_uipsbu_ok'] = 100;
+			}
+
 			$data['september_ipvpn_uipsbu'] = $this->Sla_model->september_ipvpn_uipsbu();
 			$data['september_ipvpn_uipsbu_sukses'] = $data['september_ipvpn_uipsbu'][0]['persentasi_sla'];
-			$data['september_ipvpn_uipsbu_ok'] = number_format($data['september_ipvpn_uipsbu_sukses'],2,",",".");
-			if(($data['september_ipvpn_uipsbu_ok'])==0){ $data['september_ipvpn_uipsbu_ok']=100;}	
-			
+			$data['september_ipvpn_uipsbu_ok'] = number_format($data['september_ipvpn_uipsbu_sukses'], 2, ",", ".");
+			if (($data['september_ipvpn_uipsbu_ok']) == 0) {
+				$data['september_ipvpn_uipsbu_ok'] = 100;
+			}
+
 			$data['oktober_ipvpn_uipsbu'] = $this->Sla_model->oktober_ipvpn_uipsbu();
 			$data['oktober_ipvpn_uipsbu_sukses'] = $data['oktober_ipvpn_uipsbu'][0]['persentasi_sla'];
-			$data['oktober_ipvpn_uipsbu_ok'] = number_format($data['oktober_ipvpn_uipsbu_sukses'],2,",",".");
-			if(($data['oktober_ipvpn_uipsbu_ok'])==0){ $data['oktober_ipvpn_uipsbu_ok']=100;}	
-			
+			$data['oktober_ipvpn_uipsbu_ok'] = number_format($data['oktober_ipvpn_uipsbu_sukses'], 2, ",", ".");
+			if (($data['oktober_ipvpn_uipsbu_ok']) == 0) {
+				$data['oktober_ipvpn_uipsbu_ok'] = 100;
+			}
+
 			$data['november_ipvpn_uipsbu'] = $this->Sla_model->november_ipvpn_uipsbu();
 			$data['november_ipvpn_uipsbu_sukses'] = $data['november_ipvpn_uipsbu'][0]['persentasi_sla'];
-			$data['november_ipvpn_uipsbu_ok'] = number_format($data['november_ipvpn_uipsbu_sukses'],2,",",".");
-			if(($data['november_ipvpn_uipsbu_ok'])==0){ $data['november_ipvpn_uipsbu_ok']=100;}	
-			
+			$data['november_ipvpn_uipsbu_ok'] = number_format($data['november_ipvpn_uipsbu_sukses'], 2, ",", ".");
+			if (($data['november_ipvpn_uipsbu_ok']) == 0) {
+				$data['november_ipvpn_uipsbu_ok'] = 100;
+			}
+
 			$data['desember_ipvpn_uipsbu'] = $this->Sla_model->desember_ipvpn_uipsbu();
 			$data['desember_ipvpn_uipsbu_sukses'] = $data['desember_ipvpn_uipsbu'][0]['persentasi_sla'];
-			$data['desember_ipvpn_uipsbu_ok'] = number_format($data['desember_ipvpn_uipsbu_sukses'],2,",",".");
-			if(($data['desember_ipvpn_uipsbu_ok'])==0){ $data['desember_ipvpn_uipsbu_ok']=100;}	
-			
+			$data['desember_ipvpn_uipsbu_ok'] = number_format($data['desember_ipvpn_uipsbu_sukses'], 2, ",", ".");
+			if (($data['desember_ipvpn_uipsbu_ok']) == 0) {
+				$data['desember_ipvpn_uipsbu_ok'] = 100;
+			}
+
 			//internet_uipkitsum
 			$data['januari_internet_uipkitsum'] = $this->Sla_model->januari_internet_uipkitsum();
 			$data['januari_internet_uipkitsum_sukses'] = $data['januari_internet_uipkitsum'][0]['persentasi_sla'];
-			$data['januari_internet_uipkitsum_ok'] = number_format($data['januari_internet_uipkitsum_sukses'],2,",",".");
-			if(($data['januari_internet_uipkitsum_ok'])==0){ $data['januari_internet_uipkitsum_ok']=100;}	
-			
+			$data['januari_internet_uipkitsum_ok'] = number_format($data['januari_internet_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['januari_internet_uipkitsum_ok']) == 0) {
+				$data['januari_internet_uipkitsum_ok'] = 100;
+			}
+
 			$data['februari_internet_uipkitsum'] = $this->Sla_model->februari_internet_uipkitsum();
 			$data['februari_internet_uipkitsum_sukses'] = $data['februari_internet_uipkitsum'][0]['persentasi_sla'];
-			$data['februari_internet_uipkitsum_ok'] = number_format($data['februari_internet_uipkitsum_sukses'],2,",",".");
-			if(($data['februari_internet_uipkitsum_ok'])==0){ $data['februari_internet_uipkitsum_ok']=100;}	
-			
+			$data['februari_internet_uipkitsum_ok'] = number_format($data['februari_internet_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['februari_internet_uipkitsum_ok']) == 0) {
+				$data['februari_internet_uipkitsum_ok'] = 100;
+			}
+
 			$data['maret_internet_uipkitsum'] = $this->Sla_model->maret_internet_uipkitsum();
 			$data['maret_internet_uipkitsum_sukses'] = $data['maret_internet_uipkitsum'][0]['persentasi_sla'];
-			$data['maret_internet_uipkitsum_ok'] = number_format($data['maret_internet_uipkitsum_sukses'],2,",",".");
-			if(($data['maret_internet_uipkitsum_ok'])==0){ $data['maret_internet_uipkitsum_ok']=100;}	
-			
+			$data['maret_internet_uipkitsum_ok'] = number_format($data['maret_internet_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['maret_internet_uipkitsum_ok']) == 0) {
+				$data['maret_internet_uipkitsum_ok'] = 100;
+			}
+
 			$data['april_internet_uipkitsum'] = $this->Sla_model->april_internet_uipkitsum();
 			$data['april_internet_uipkitsum_sukses'] = $data['april_internet_uipkitsum'][0]['persentasi_sla'];
-			$data['april_internet_uipkitsum_ok'] = number_format($data['april_internet_uipkitsum_sukses'],2,",",".");
-			if(($data['april_internet_uipkitsum_ok'])==0){ $data['april_internet_uipkitsum_ok']=100;}	
-			
+			$data['april_internet_uipkitsum_ok'] = number_format($data['april_internet_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['april_internet_uipkitsum_ok']) == 0) {
+				$data['april_internet_uipkitsum_ok'] = 100;
+			}
+
 			$data['mei_internet_uipkitsum'] = $this->Sla_model->mei_internet_uipkitsum();
 			$data['mei_internet_uipkitsum_sukses'] = $data['mei_internet_uipkitsum'][0]['persentasi_sla'];
-			$data['mei_internet_uipkitsum_ok'] = number_format($data['mei_internet_uipkitsum_sukses'],2,",",".");
-			if(($data['mei_internet_uipkitsum_ok'])==0){ $data['mei_internet_uipkitsum_ok']=100;}	
-			
+			$data['mei_internet_uipkitsum_ok'] = number_format($data['mei_internet_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['mei_internet_uipkitsum_ok']) == 0) {
+				$data['mei_internet_uipkitsum_ok'] = 100;
+			}
+
 			$data['juni_internet_uipkitsum'] = $this->Sla_model->juni_internet_uipkitsum();
 			$data['juni_internet_uipkitsum_sukses'] = $data['juni_internet_uipkitsum'][0]['persentasi_sla'];
-			$data['juni_internet_uipkitsum_ok'] = number_format($data['juni_internet_uipkitsum_sukses'],2,",",".");
-			if(($data['juni_internet_uipkitsum_ok'])==0){ $data['juni_internet_uipkitsum_ok']=100;}	
-			
+			$data['juni_internet_uipkitsum_ok'] = number_format($data['juni_internet_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['juni_internet_uipkitsum_ok']) == 0) {
+				$data['juni_internet_uipkitsum_ok'] = 100;
+			}
+
 			$data['juli_internet_uipkitsum'] = $this->Sla_model->juli_internet_uipkitsum();
 			$data['juli_internet_uipkitsum_sukses'] = $data['juli_internet_uipkitsum'][0]['persentasi_sla'];
-			$data['juli_internet_uipkitsum_ok'] = number_format($data['juli_internet_uipkitsum_sukses'],2,",",".");
-			if(($data['juli_internet_uipkitsum_ok'])==0){ $data['juli_internet_uipkitsum_ok']=100;}	
-			
+			$data['juli_internet_uipkitsum_ok'] = number_format($data['juli_internet_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['juli_internet_uipkitsum_ok']) == 0) {
+				$data['juli_internet_uipkitsum_ok'] = 100;
+			}
+
 			$data['agustus_internet_uipkitsum'] = $this->Sla_model->agustus_internet_uipkitsum();
 			$data['agustus_internet_uipkitsum_sukses'] = $data['agustus_internet_uipkitsum'][0]['persentasi_sla'];
-			$data['agustus_internet_uipkitsum_ok'] = number_format($data['agustus_internet_uipkitsum_sukses'],2,",",".");
-			if(($data['agustus_internet_uipkitsum_ok'])==0){ $data['agustus_internet_uipkitsum_ok']=100;}	
-			
+			$data['agustus_internet_uipkitsum_ok'] = number_format($data['agustus_internet_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['agustus_internet_uipkitsum_ok']) == 0) {
+				$data['agustus_internet_uipkitsum_ok'] = 100;
+			}
+
 			$data['september_internet_uipkitsum'] = $this->Sla_model->september_internet_uipkitsum();
 			$data['september_internet_uipkitsum_sukses'] = $data['september_internet_uipkitsum'][0]['persentasi_sla'];
-			$data['september_internet_uipkitsum_ok'] = number_format($data['september_internet_uipkitsum_sukses'],2,",",".");
-			if(($data['september_internet_uipkitsum_ok'])==0){ $data['september_internet_uipkitsum_ok']=100;}	
-			
+			$data['september_internet_uipkitsum_ok'] = number_format($data['september_internet_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['september_internet_uipkitsum_ok']) == 0) {
+				$data['september_internet_uipkitsum_ok'] = 100;
+			}
+
 			$data['oktober_internet_uipkitsum'] = $this->Sla_model->oktober_internet_uipkitsum();
 			$data['oktober_internet_uipkitsum_sukses'] = $data['oktober_internet_uipkitsum'][0]['persentasi_sla'];
-			$data['oktober_internet_uipkitsum_ok'] = number_format($data['oktober_internet_uipkitsum_sukses'],2,",",".");
-			if(($data['oktober_internet_uipkitsum_ok'])==0){ $data['oktober_internet_uipkitsum_ok']=100;}	
-			
+			$data['oktober_internet_uipkitsum_ok'] = number_format($data['oktober_internet_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['oktober_internet_uipkitsum_ok']) == 0) {
+				$data['oktober_internet_uipkitsum_ok'] = 100;
+			}
+
 			$data['november_internet_uipkitsum'] = $this->Sla_model->november_internet_uipkitsum();
 			$data['november_internet_uipkitsum_sukses'] = $data['november_internet_uipkitsum'][0]['persentasi_sla'];
-			$data['november_internet_uipkitsum_ok'] = number_format($data['november_internet_uipkitsum_sukses'],2,",",".");
-			if(($data['november_internet_uipkitsum_ok'])==0){ $data['november_internet_uipkitsum_ok']=100;}	
-			
+			$data['november_internet_uipkitsum_ok'] = number_format($data['november_internet_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['november_internet_uipkitsum_ok']) == 0) {
+				$data['november_internet_uipkitsum_ok'] = 100;
+			}
+
 			$data['desember_internet_uipkitsum'] = $this->Sla_model->desember_internet_uipkitsum();
 			$data['desember_internet_uipkitsum_sukses'] = $data['desember_internet_uipkitsum'][0]['persentasi_sla'];
-			$data['desember_internet_uipkitsum_ok'] = number_format($data['desember_internet_uipkitsum_sukses'],2,",",".");
-			if(($data['desember_internet_uipkitsum_ok'])==0){ $data['desember_internet_uipkitsum_ok']=100;}	
-			
+			$data['desember_internet_uipkitsum_ok'] = number_format($data['desember_internet_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['desember_internet_uipkitsum_ok']) == 0) {
+				$data['desember_internet_uipkitsum_ok'] = 100;
+			}
+
 			//ipvpn_uipkitsum
 			$data['januari_ipvpn_uipkitsum'] = $this->Sla_model->januari_ipvpn_uipkitsum();
 			$data['januari_ipvpn_uipkitsum_sukses'] = $data['januari_ipvpn_uipkitsum'][0]['persentasi_sla'];
-			$data['januari_ipvpn_uipkitsum_ok'] = number_format($data['januari_ipvpn_uipkitsum_sukses'],2,",",".");
-			if(($data['januari_ipvpn_uipkitsum_ok'])==0){ $data['januari_ipvpn_uipkitsum_ok']=100;}	
-			
+			$data['januari_ipvpn_uipkitsum_ok'] = number_format($data['januari_ipvpn_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['januari_ipvpn_uipkitsum_ok']) == 0) {
+				$data['januari_ipvpn_uipkitsum_ok'] = 100;
+			}
+
 			$data['februari_ipvpn_uipkitsum'] = $this->Sla_model->februari_ipvpn_uipkitsum();
 			$data['februari_ipvpn_uipkitsum_sukses'] = $data['februari_ipvpn_uipkitsum'][0]['persentasi_sla'];
-			$data['februari_ipvpn_uipkitsum_ok'] = number_format($data['februari_ipvpn_uipkitsum_sukses'],2,",",".");
-			if(($data['februari_ipvpn_uipkitsum_ok'])==0){ $data['februari_ipvpn_uipkitsum_ok']=100;}	
-			
+			$data['februari_ipvpn_uipkitsum_ok'] = number_format($data['februari_ipvpn_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['februari_ipvpn_uipkitsum_ok']) == 0) {
+				$data['februari_ipvpn_uipkitsum_ok'] = 100;
+			}
+
 			$data['maret_ipvpn_uipkitsum'] = $this->Sla_model->maret_ipvpn_uipkitsum();
 			$data['maret_ipvpn_uipkitsum_sukses'] = $data['maret_ipvpn_uipkitsum'][0]['persentasi_sla'];
-			$data['maret_ipvpn_uipkitsum_ok'] = number_format($data['maret_ipvpn_uipkitsum_sukses'],2,",",".");
-			if(($data['maret_ipvpn_uipkitsum_ok'])==0){ $data['maret_ipvpn_uipkitsum_ok']=100;}	
-			
+			$data['maret_ipvpn_uipkitsum_ok'] = number_format($data['maret_ipvpn_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['maret_ipvpn_uipkitsum_ok']) == 0) {
+				$data['maret_ipvpn_uipkitsum_ok'] = 100;
+			}
+
 			$data['april_ipvpn_uipkitsum'] = $this->Sla_model->april_ipvpn_uipkitsum();
 			$data['april_ipvpn_uipkitsum_sukses'] = $data['april_ipvpn_uipkitsum'][0]['persentasi_sla'];
-			$data['april_ipvpn_uipkitsum_ok'] = number_format($data['april_ipvpn_uipkitsum_sukses'],2,",",".");
-			if(($data['april_ipvpn_uipkitsum_ok'])==0){ $data['april_ipvpn_uipkitsum_ok']=100;}	
-			
+			$data['april_ipvpn_uipkitsum_ok'] = number_format($data['april_ipvpn_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['april_ipvpn_uipkitsum_ok']) == 0) {
+				$data['april_ipvpn_uipkitsum_ok'] = 100;
+			}
+
 			$data['mei_ipvpn_uipkitsum'] = $this->Sla_model->mei_ipvpn_uipkitsum();
 			$data['mei_ipvpn_uipkitsum_sukses'] = $data['mei_ipvpn_uipkitsum'][0]['persentasi_sla'];
-			$data['mei_ipvpn_uipkitsum_ok'] = number_format($data['mei_ipvpn_uipkitsum_sukses'],2,",",".");
-			if(($data['mei_ipvpn_uipkitsum_ok'])==0){ $data['mei_ipvpn_uipkitsum_ok']=100;}	
-			
+			$data['mei_ipvpn_uipkitsum_ok'] = number_format($data['mei_ipvpn_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['mei_ipvpn_uipkitsum_ok']) == 0) {
+				$data['mei_ipvpn_uipkitsum_ok'] = 100;
+			}
+
 			$data['juni_ipvpn_uipkitsum'] = $this->Sla_model->juni_ipvpn_uipkitsum();
 			$data['juni_ipvpn_uipkitsum_sukses'] = $data['juni_ipvpn_uipkitsum'][0]['persentasi_sla'];
-			$data['juni_ipvpn_uipkitsum_ok'] = number_format($data['juni_ipvpn_uipkitsum_sukses'],2,",",".");
-			if(($data['juni_ipvpn_uipkitsum_ok'])==0){ $data['juni_ipvpn_uipkitsum_ok']=100;}	
-			
+			$data['juni_ipvpn_uipkitsum_ok'] = number_format($data['juni_ipvpn_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['juni_ipvpn_uipkitsum_ok']) == 0) {
+				$data['juni_ipvpn_uipkitsum_ok'] = 100;
+			}
+
 			$data['juli_ipvpn_uipkitsum'] = $this->Sla_model->juli_ipvpn_uipkitsum();
 			$data['juli_ipvpn_uipkitsum_sukses'] = $data['juli_ipvpn_uipkitsum'][0]['persentasi_sla'];
-			$data['juli_ipvpn_uipkitsum_ok'] = number_format($data['juli_ipvpn_uipkitsum_sukses'],2,",",".");
-			if(($data['juli_ipvpn_uipkitsum_ok'])==0){ $data['juli_ipvpn_uipkitsum_ok']=100;}	
-			
+			$data['juli_ipvpn_uipkitsum_ok'] = number_format($data['juli_ipvpn_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['juli_ipvpn_uipkitsum_ok']) == 0) {
+				$data['juli_ipvpn_uipkitsum_ok'] = 100;
+			}
+
 			$data['agustus_ipvpn_uipkitsum'] = $this->Sla_model->agustus_ipvpn_uipkitsum();
 			$data['agustus_ipvpn_uipkitsum_sukses'] = $data['agustus_ipvpn_uipkitsum'][0]['persentasi_sla'];
-			$data['agustus_ipvpn_uipkitsum_ok'] = number_format($data['agustus_ipvpn_uipkitsum_sukses'],2,",",".");
-			if(($data['agustus_ipvpn_uipkitsum_ok'])==0){ $data['agustus_ipvpn_uipkitsum_ok']=100;}	
-			
+			$data['agustus_ipvpn_uipkitsum_ok'] = number_format($data['agustus_ipvpn_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['agustus_ipvpn_uipkitsum_ok']) == 0) {
+				$data['agustus_ipvpn_uipkitsum_ok'] = 100;
+			}
+
 			$data['september_ipvpn_uipkitsum'] = $this->Sla_model->september_ipvpn_uipkitsum();
 			$data['september_ipvpn_uipkitsum_sukses'] = $data['september_ipvpn_uipkitsum'][0]['persentasi_sla'];
-			$data['september_ipvpn_uipkitsum_ok'] = number_format($data['september_ipvpn_uipkitsum_sukses'],2,",",".");
-			if(($data['september_ipvpn_uipkitsum_ok'])==0){ $data['september_ipvpn_uipkitsum_ok']=100;}	
-			
+			$data['september_ipvpn_uipkitsum_ok'] = number_format($data['september_ipvpn_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['september_ipvpn_uipkitsum_ok']) == 0) {
+				$data['september_ipvpn_uipkitsum_ok'] = 100;
+			}
+
 			$data['oktober_ipvpn_uipkitsum'] = $this->Sla_model->oktober_ipvpn_uipkitsum();
 			$data['oktober_ipvpn_uipkitsum_sukses'] = $data['oktober_ipvpn_uipkitsum'][0]['persentasi_sla'];
-			$data['oktober_ipvpn_uipkitsum_ok'] = number_format($data['oktober_ipvpn_uipkitsum_sukses'],2,",",".");
-			if(($data['oktober_ipvpn_uipkitsum_ok'])==0){ $data['oktober_ipvpn_uipkitsum_ok']=100;}	
-			
+			$data['oktober_ipvpn_uipkitsum_ok'] = number_format($data['oktober_ipvpn_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['oktober_ipvpn_uipkitsum_ok']) == 0) {
+				$data['oktober_ipvpn_uipkitsum_ok'] = 100;
+			}
+
 			$data['november_ipvpn_uipkitsum'] = $this->Sla_model->november_ipvpn_uipkitsum();
 			$data['november_ipvpn_uipkitsum_sukses'] = $data['november_ipvpn_uipkitsum'][0]['persentasi_sla'];
-			$data['november_ipvpn_uipkitsum_ok'] = number_format($data['november_ipvpn_uipkitsum_sukses'],2,",",".");
-			if(($data['november_ipvpn_uipkitsum_ok'])==0){ $data['november_ipvpn_uipkitsum_ok']=100;}	
-			
+			$data['november_ipvpn_uipkitsum_ok'] = number_format($data['november_ipvpn_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['november_ipvpn_uipkitsum_ok']) == 0) {
+				$data['november_ipvpn_uipkitsum_ok'] = 100;
+			}
+
 			$data['desember_ipvpn_uipkitsum'] = $this->Sla_model->desember_ipvpn_uipkitsum();
 			$data['desember_ipvpn_uipkitsum_sukses'] = $data['desember_ipvpn_uipkitsum'][0]['persentasi_sla'];
-			$data['desember_ipvpn_uipkitsum_ok'] = number_format($data['desember_ipvpn_uipkitsum_sukses'],2,",",".");
-			if(($data['desember_ipvpn_uipkitsum_ok'])==0){ $data['desember_ipvpn_uipkitsum_ok']=100;}	
-								
+			$data['desember_ipvpn_uipkitsum_ok'] = number_format($data['desember_ipvpn_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['desember_ipvpn_uipkitsum_ok']) == 0) {
+				$data['desember_ipvpn_uipkitsum_ok'] = 100;
+			}
+
 			//vsat_uipkitsum
 			$data['januari_vsat_uipkitsum'] = $this->Sla_model->januari_vsat_uipkitsum();
 			$data['januari_vsat_uipkitsum_sukses'] = $data['januari_vsat_uipkitsum'][0]['persentasi_sla'];
-			$data['januari_vsat_uipkitsum_ok'] = number_format($data['januari_vsat_uipkitsum_sukses'],2,",",".");
-			if(($data['januari_vsat_uipkitsum_ok'])==0){ $data['januari_vsat_uipkitsum_ok']=100;}	
-			
+			$data['januari_vsat_uipkitsum_ok'] = number_format($data['januari_vsat_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['januari_vsat_uipkitsum_ok']) == 0) {
+				$data['januari_vsat_uipkitsum_ok'] = 100;
+			}
+
 			$data['februari_vsat_uipkitsum'] = $this->Sla_model->februari_vsat_uipkitsum();
 			$data['februari_vsat_uipkitsum_sukses'] = $data['februari_vsat_uipkitsum'][0]['persentasi_sla'];
-			$data['februari_vsat_uipkitsum_ok'] = number_format($data['februari_vsat_uipkitsum_sukses'],2,",",".");
-			if(($data['februari_vsat_uipkitsum_ok'])==0){ $data['februari_vsat_uipkitsum_ok']=100;}	
-			
+			$data['februari_vsat_uipkitsum_ok'] = number_format($data['februari_vsat_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['februari_vsat_uipkitsum_ok']) == 0) {
+				$data['februari_vsat_uipkitsum_ok'] = 100;
+			}
+
 			$data['maret_vsat_uipkitsum'] = $this->Sla_model->maret_vsat_uipkitsum();
 			$data['maret_vsat_uipkitsum_sukses'] = $data['maret_vsat_uipkitsum'][0]['persentasi_sla'];
-			$data['maret_vsat_uipkitsum_ok'] = number_format($data['maret_vsat_uipkitsum_sukses'],2,",",".");
-			if(($data['maret_vsat_uipkitsum_ok'])==0){ $data['maret_vsat_uipkitsum_ok']=100;}	
-			
+			$data['maret_vsat_uipkitsum_ok'] = number_format($data['maret_vsat_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['maret_vsat_uipkitsum_ok']) == 0) {
+				$data['maret_vsat_uipkitsum_ok'] = 100;
+			}
+
 			$data['april_vsat_uipkitsum'] = $this->Sla_model->april_vsat_uipkitsum();
 			$data['april_vsat_uipkitsum_sukses'] = $data['april_vsat_uipkitsum'][0]['persentasi_sla'];
-			$data['april_vsat_uipkitsum_ok'] = number_format($data['april_vsat_uipkitsum_sukses'],2,",",".");
-			if(($data['april_vsat_uipkitsum_ok'])==0){ $data['april_vsat_uipkitsum_ok']=100;}	
-			
+			$data['april_vsat_uipkitsum_ok'] = number_format($data['april_vsat_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['april_vsat_uipkitsum_ok']) == 0) {
+				$data['april_vsat_uipkitsum_ok'] = 100;
+			}
+
 			$data['mei_vsat_uipkitsum'] = $this->Sla_model->mei_vsat_uipkitsum();
 			$data['mei_vsat_uipkitsum_sukses'] = $data['mei_vsat_uipkitsum'][0]['persentasi_sla'];
-			$data['mei_vsat_uipkitsum_ok'] = number_format($data['mei_vsat_uipkitsum_sukses'],2,",",".");
-			if(($data['mei_vsat_uipkitsum_ok'])==0){ $data['mei_vsat_uipkitsum_ok']=100;}	
-			
+			$data['mei_vsat_uipkitsum_ok'] = number_format($data['mei_vsat_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['mei_vsat_uipkitsum_ok']) == 0) {
+				$data['mei_vsat_uipkitsum_ok'] = 100;
+			}
+
 			$data['juni_vsat_uipkitsum'] = $this->Sla_model->juni_vsat_uipkitsum();
 			$data['juni_vsat_uipkitsum_sukses'] = $data['juni_vsat_uipkitsum'][0]['persentasi_sla'];
-			$data['juni_vsat_uipkitsum_ok'] = number_format($data['juni_vsat_uipkitsum_sukses'],2,",",".");
-			if(($data['juni_vsat_uipkitsum_ok'])==0){ $data['juni_vsat_uipkitsum_ok']=100;}	
-			
+			$data['juni_vsat_uipkitsum_ok'] = number_format($data['juni_vsat_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['juni_vsat_uipkitsum_ok']) == 0) {
+				$data['juni_vsat_uipkitsum_ok'] = 100;
+			}
+
 			$data['juli_vsat_uipkitsum'] = $this->Sla_model->juli_vsat_uipkitsum();
 			$data['juli_vsat_uipkitsum_sukses'] = $data['juli_vsat_uipkitsum'][0]['persentasi_sla'];
-			$data['juli_vsat_uipkitsum_ok'] = number_format($data['juli_vsat_uipkitsum_sukses'],2,",",".");
-			if(($data['juli_vsat_uipkitsum_ok'])==0){ $data['juli_vsat_uipkitsum_ok']=100;}	
-			
+			$data['juli_vsat_uipkitsum_ok'] = number_format($data['juli_vsat_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['juli_vsat_uipkitsum_ok']) == 0) {
+				$data['juli_vsat_uipkitsum_ok'] = 100;
+			}
+
 			$data['agustus_vsat_uipkitsum'] = $this->Sla_model->agustus_vsat_uipkitsum();
 			$data['agustus_vsat_uipkitsum_sukses'] = $data['agustus_vsat_uipkitsum'][0]['persentasi_sla'];
-			$data['agustus_vsat_uipkitsum_ok'] = number_format($data['agustus_vsat_uipkitsum_sukses'],2,",",".");
-			if(($data['agustus_vsat_uipkitsum_ok'])==0){ $data['agustus_vsat_uipkitsum_ok']=100;}	
-			
+			$data['agustus_vsat_uipkitsum_ok'] = number_format($data['agustus_vsat_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['agustus_vsat_uipkitsum_ok']) == 0) {
+				$data['agustus_vsat_uipkitsum_ok'] = 100;
+			}
+
 			$data['september_vsat_uipkitsum'] = $this->Sla_model->september_vsat_uipkitsum();
 			$data['september_vsat_uipkitsum_sukses'] = $data['september_vsat_uipkitsum'][0]['persentasi_sla'];
-			$data['september_vsat_uipkitsum_ok'] = number_format($data['september_vsat_uipkitsum_sukses'],2,",",".");
-			if(($data['september_vsat_uipkitsum_ok'])==0){ $data['september_vsat_uipkitsum_ok']=100;}	
-			
+			$data['september_vsat_uipkitsum_ok'] = number_format($data['september_vsat_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['september_vsat_uipkitsum_ok']) == 0) {
+				$data['september_vsat_uipkitsum_ok'] = 100;
+			}
+
 			$data['oktober_vsat_uipkitsum'] = $this->Sla_model->oktober_vsat_uipkitsum();
 			$data['oktober_vsat_uipkitsum_sukses'] = $data['oktober_vsat_uipkitsum'][0]['persentasi_sla'];
-			$data['oktober_vsat_uipkitsum_ok'] = number_format($data['oktober_vsat_uipkitsum_sukses'],2,",",".");
-			if(($data['oktober_vsat_uipkitsum_ok'])==0){ $data['oktober_vsat_uipkitsum_ok']=100;}	
-			
+			$data['oktober_vsat_uipkitsum_ok'] = number_format($data['oktober_vsat_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['oktober_vsat_uipkitsum_ok']) == 0) {
+				$data['oktober_vsat_uipkitsum_ok'] = 100;
+			}
+
 			$data['november_vsat_uipkitsum'] = $this->Sla_model->november_vsat_uipkitsum();
 			$data['november_vsat_uipkitsum_sukses'] = $data['november_vsat_uipkitsum'][0]['persentasi_sla'];
-			$data['november_vsat_uipkitsum_ok'] = number_format($data['november_vsat_uipkitsum_sukses'],2,",",".");
-			if(($data['november_vsat_uipkitsum_ok'])==0){ $data['november_vsat_uipkitsum_ok']=100;}	
-			
+			$data['november_vsat_uipkitsum_ok'] = number_format($data['november_vsat_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['november_vsat_uipkitsum_ok']) == 0) {
+				$data['november_vsat_uipkitsum_ok'] = 100;
+			}
+
 			$data['desember_vsat_uipkitsum'] = $this->Sla_model->desember_vsat_uipkitsum();
 			$data['desember_vsat_uipkitsum_sukses'] = $data['desember_vsat_uipkitsum'][0]['persentasi_sla'];
-			$data['desember_vsat_uipkitsum_ok'] = number_format($data['desember_vsat_uipkitsum_sukses'],2,",",".");
-			if(($data['desember_vsat_uipkitsum_ok'])==0){ $data['desember_vsat_uipkitsum_ok']=100;}
-			
-			
-			
+			$data['desember_vsat_uipkitsum_ok'] = number_format($data['desember_vsat_uipkitsum_sukses'], 2, ",", ".");
+			if (($data['desember_vsat_uipkitsum_ok']) == 0) {
+				$data['desember_vsat_uipkitsum_ok'] = 100;
+			}
+
+
+
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/index', $data);
@@ -823,39 +1087,42 @@ class Admin extends CI_Controller
 		echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 	}
 	//HI
-	public function hi() {
-        if($this->session->userdata('status') != "login"){
-					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+	public function hi()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$data['hi'] = $this->admin_model->tampil_hi();
 			$data['non_hi'] = $this->admin_model->tampil_non_hi();
 			$this->load->view('header');
-            $this->load->view('sidebar');
-            $this->load->view('admin/hi',$data);
-            $this->load->view('footer');
-		}
-	}
-	
-	public function hi_view() {
-		if($this->session->userdata('status') != "login"){
-					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-			} else {
-			
-			$id_unit = $this->input->get('id_unit');
-			$data['detail_hi'] = $this->admin_model->get_hi_unit($id_unit);
-			$data['list_unit'] = $this->admin_model->list_unit_hi($id_unit);
-            $this->data['title'] = 'Detail Health Index';
-            $this->load->view('header', $this->data);
-            $this->load->view('sidebar', $data);
-            $this->load->view('admin/hi_view', $data);
-            $this->load->view('footer');
+			$this->load->view('sidebar');
+			$this->load->view('admin/hi', $data);
+			$this->load->view('footer');
 		}
 	}
 
-	public function hi_add() {
-		if($this->session->userdata('status') != "login"){
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-			} else {
+	public function hi_view()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+
+			$id_unit = $this->input->get('id_unit');
+			$data['detail_hi'] = $this->admin_model->get_hi_unit($id_unit);
+			$data['list_unit'] = $this->admin_model->list_unit_hi($id_unit);
+			$this->data['title'] = 'Detail Health Index';
+			$this->load->view('header', $this->data);
+			$this->load->view('sidebar', $data);
+			$this->load->view('admin/hi_view', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function hi_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
 
 			$id_unit = $this->input->get('id_unit');
 			$data['list_network_device'] = $this->admin_model->list_network_device($id_unit);
@@ -864,13 +1131,14 @@ class Admin extends CI_Controller
 			$data['get_max_id_hi_standard'] = $this->admin_model->get_max_id_hi_standard();
 			$this->load->view('header');
 			$this->load->view('sidebar');
-			$this->load->view('admin/hi_add',$data);
+			$this->load->view('admin/hi_add', $data);
 			$this->load->view('footer');
 		}
 	}
 
-	public function action_hi_add() {
-		if($this->session->userdata('status') != "login"){
+	public function action_hi_add()
+	{
+		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$id_unit = $this->input->post('id_unit');
@@ -894,13 +1162,13 @@ class Admin extends CI_Controller
 			$latest_db = $this->db->insert_id();
 			$status = '1';
 			$data1 = array(
-				'id_hi_standard' => $id_hi_standard+1,
-				'bobot_kondisi' => $kondisi*$bobot_kondisi,
-				'bobot_port' => $kondisi*$port*$bobot_port,
-				'bobot_urgensi' => $kondisi*$bobot_urgensi,
-				'bobot_standard' => $standard*$bobot_standard,
-				'bobot_lifetime' => $lifetime*$bobot_lifetime,
-				'bobot_gangguan' => $gangguan*$bobot_gangguan,
+				'id_hi_standard' => $id_hi_standard + 1,
+				'bobot_kondisi' => $kondisi * $bobot_kondisi,
+				'bobot_port' => $kondisi * $port * $bobot_port,
+				'bobot_urgensi' => $kondisi * $bobot_urgensi,
+				'bobot_standard' => $standard * $bobot_standard,
+				'bobot_lifetime' => $lifetime * $bobot_lifetime,
+				'bobot_gangguan' => $gangguan * $bobot_gangguan,
 				'updated_at' => $updated_at,
 				'status' => $status
 			);
@@ -913,7 +1181,7 @@ class Admin extends CI_Controller
 				'bobot_gangguan' => $bobot_gangguan
 			);
 			$data3 = array(
-				'id_hi'		=> $id_hi+1,
+				'id_hi'		=> $id_hi + 1,
 				'port'      => $s_port
 
 			);
@@ -923,15 +1191,16 @@ class Admin extends CI_Controller
 			$update  = $this->admin_model->update_network_device($data3, $id_network_device);
 			if ($insert1 && $insert2 && $update) {
 				echo "<script>alert('Berhasil Menambah Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/hi_view?id_unit=".$id_unit.">";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/hi_view?id_unit=" . $id_unit . ">";
 			}
 		}
 	}
 
-	public function hi_edit() {
-		if($this->session->userdata('status') != "login"){
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-			} else {
+	public function hi_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
 
 			$id_hi = $this->input->get('id_hi');
 			$id_unit = $this->input->get('id_unit');
@@ -941,13 +1210,14 @@ class Admin extends CI_Controller
 			$data['get_id_hi_standard'] = $this->admin_model->get_id_hi_standard($id_hi);
 			$this->load->view('header');
 			$this->load->view('sidebar');
-			$this->load->view('admin/hi_edit',$data);
+			$this->load->view('admin/hi_edit', $data);
 			$this->load->view('footer');
 		}
 	}
 
-	public function action_hi_edit() {
-		if($this->session->userdata('status') != "login"){
+	public function action_hi_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$id_unit = $this->input->post('id_unit');
@@ -968,25 +1238,26 @@ class Admin extends CI_Controller
 			$bobot_gangguan = $this->input->post('bobot_gangguan');
 			$updated_at = date('Y-m-d h:i:s');
 			$data = array(
-				'bobot_kondisi' => $kondisi*$bobot_kondisi,
-				'bobot_port' => $kondisi*$port*$bobot_port,
-				'bobot_urgensi' => $kondisi*$bobot_urgensi,
-				'bobot_standard' => $standard*$bobot_standard,
-				'bobot_lifetime' => $lifetime*$bobot_lifetime,
-				'bobot_gangguan' => $gangguan*$bobot_gangguan,
+				'bobot_kondisi' => $kondisi * $bobot_kondisi,
+				'bobot_port' => $kondisi * $port * $bobot_port,
+				'bobot_urgensi' => $kondisi * $bobot_urgensi,
+				'bobot_standard' => $standard * $bobot_standard,
+				'bobot_lifetime' => $lifetime * $bobot_lifetime,
+				'bobot_gangguan' => $gangguan * $bobot_gangguan,
 				'updated_at' => $updated_at,
 			);
 			// echo'<pre>';print_r($data);die();
 			$update  = $this->admin_model->update_hi($data, $id_hi);
 			if ($update) {
 				echo "<script>alert('Berhasil Mengubah Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/hi_view?id_unit=".$id_unit.">";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/hi_view?id_unit=" . $id_unit . ">";
 			}
 		}
 	}
 
-	public function hi_delete() {
-		if($this->session->userdata('status') != "login"){
+	public function hi_delete()
+	{
+		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$id_unit = $this->input->get('id_unit');
@@ -1005,61 +1276,64 @@ class Admin extends CI_Controller
 			$update2  = $this->admin_model->update_network_device($data2, $id_network_device);
 			if ($update1 & $update2) {
 				echo "<script>alert('Berhasil Menghapus Data')</script>";
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/hi_view?id_unit=".$id_unit.">";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/hi_view?id_unit=" . $id_unit . ">";
 			}
 		}
 	}
 	//Gangguan
-	public function gangguan() {
-        if($this->session->userdata('status') != "login"){
-					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+	public function gangguan()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$data['gangguan'] = $this->admin_model->gangguan();
 			$this->load->view('header');
-            $this->load->view('sidebar');
-            $this->load->view('admin/gangguan',$data);
-            $this->load->view('footer');
+			$this->load->view('sidebar');
+			$this->load->view('admin/gangguan', $data);
+			$this->load->view('footer');
 		}
 	}
-	public function gangguan_view() {
-        if($this->session->userdata('status') != "login"){
-					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+	public function gangguan_view()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$id_ggn = $this->input->get('id_ggn');
 			$data['gangguan_view'] = $this->admin_model->get_gangguan($id_ggn);
 			$this->load->view('header');
-            $this->load->view('sidebar');
-            $this->load->view('admin/gangguan_view',$data);
-            $this->load->view('footer');
+			$this->load->view('sidebar');
+			$this->load->view('admin/gangguan_view', $data);
+			$this->load->view('footer');
 		}
-    }
-	public function gangguan_add() {
-		if($this->session->userdata('status') != "login"){
-				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-			} else {
+	}
+	public function gangguan_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
 
 			$id_unit = $this->input->get('id_unit');
 			$data['tampil_network_device'] = $this->admin_model->tampil_network_device();
 			$this->load->view('header');
 			$this->load->view('sidebar');
-			$this->load->view('admin/gangguan_add',$data);
+			$this->load->view('admin/gangguan_add', $data);
 			$this->load->view('footer');
 		}
 	}
-	public function action_gangguan_add() {
-		if($this->session->userdata('status') != "login"){
-				   echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-	   } else {
+	public function action_gangguan_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
 			$config['upload_path']          = './upload/';
 			$config['allowed_types']        = 'jpeg|gif|jpg|png';
 			$config['max_size']             = 100;
 
-			$this->load->library('upload', $config);  
-		   	if ( ! $this->upload->do_upload('foto_ggn')) {
+			$this->load->library('upload', $config);
+			if (!$this->upload->do_upload('foto_ggn')) {
 				$error = array('error' => $this->upload->display_errors());
-				echo "<script>".$error."</script>";
-			}
-	       else {
+				echo "<script>" . $error . "</script>";
+			} else {
 				$id_network_device = $this->input->post('id_network_device');
 				$tgl_gangguan = $this->input->post('tgl_gangguan');
 				$desk_ggn = $this->input->post('desk_ggn');
@@ -1074,7 +1348,7 @@ class Admin extends CI_Controller
 				);
 				// $error = array('error' => $this->upload->display_errors()); //associate view variable $error with upload errors
 				// print_r($data);die();
-    			
+
 				$insert = $this->admin_model->add_gangguan($data);
 				if ($insert) {
 					echo "<script>alert('Berhasil Membuat Laporan Gangguan')</script>";
@@ -1083,37 +1357,37 @@ class Admin extends CI_Controller
 					echo "<script>alert('Gagal Membuat Laporan Gangguan')</script>";
 					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/gangguan>";
 				}
-			
-		   }
-	   }
+			}
+		}
 	}
-	public function gangguan_edit() {
-        if($this->session->userdata('status') != "login"){
-					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+	public function gangguan_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$id_ggn = $this->input->get('id_ggn');
 			$data['gangguan_edit'] = $this->admin_model->get_gangguan($id_ggn);
 			$this->load->view('header');
-            $this->load->view('sidebar');
-            $this->load->view('admin/gangguan_edit',$data);
-            $this->load->view('footer');
+			$this->load->view('sidebar');
+			$this->load->view('admin/gangguan_edit', $data);
+			$this->load->view('footer');
 		}
-    }
-	public function action_gangguan_edit() {
-		if($this->session->userdata('status') != "login"){
-				   echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-	   } else {
+	}
+	public function action_gangguan_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
 			$config['upload_path']          = './upload/';
 			$config['allowed_types']        = 'gif|jpg|png|jpeg';
 			$config['max_size']             = 100;
 
-			$this->load->library('upload', $config);  
-		   	if ( ! $this->upload->do_upload('foto_solusi')) {
+			$this->load->library('upload', $config);
+			if (!$this->upload->do_upload('foto_solusi')) {
 				$error = array('error' => $this->upload->display_errors());
-				echo "<script>".$error."</script>";
+				echo "<script>" . $error . "</script>";
 				// print_r($error);
-			}
-	       else {
+			} else {
 				$id_ggn = $this->input->post('id_ggn');
 				$solusi = $this->input->post('solusi');
 				$foto_solusi = $this->upload->data('file_name');
@@ -1125,15 +1399,14 @@ class Admin extends CI_Controller
 				);
 				// $error = array('error' => $this->upload->display_errors()); //associate view variable $error with upload errors
 				// print_r($data);
-    			
+
 				$update = $this->admin_model->update_gangguan($data, $id_ggn);
 				if ($update) {
 					echo "<script>alert('Berhasil Close Laporan Gangguan')</script>";
 					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/gangguan>";
 				}
-			
-		   }
-	   }
+			}
+		}
 	}
 
 	//Merek
@@ -1241,12 +1514,13 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function detailKerusakanLaptop($serial_number){
+	public function detailKerusakanLaptop($serial_number)
+	{
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$data['serial_number'] = $serial_number;
-			$data['laptop_view'] = $this->db->get_where('report_kerusakan',["serial_number" => $serial_number])->result_array();
+			$data['laptop_view'] = $this->db->get_where('report_kerusakan', ["serial_number" => $serial_number])->result_array();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/detailKerusakanLaptop', $data);
@@ -1254,12 +1528,13 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function detailKerusakanKomputer($serial_number){
+	public function detailKerusakanKomputer($serial_number)
+	{
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$data['serial_number'] = $serial_number;
-			$data['komputer'] = $this->db->get_where('report_kerusakan',["serial_number" => $serial_number])->result_array();
+			$data['komputer'] = $this->db->get_where('report_kerusakan', ["serial_number" => $serial_number])->result_array();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/detailKerusakanKomputer', $data);
@@ -1267,38 +1542,38 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function table_laptop_view(){
+	public function table_laptop_view()
+	{
 		$data = array();
-		
+
 		$query = $this->admin_model->tampil_laptop();
-		if($query->num_rows() > 0){
+		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $key => $row) {
-				$row['no'] = $key+1;
-				if($row["status_kepemilikan"] == "Aset PLN"){
-					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">'.$row['status_kepemilikan'].'</button>';
-				}else{
-					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">'.$row['status_kepemilikan'].'</button>';
+				$row['no'] = $key + 1;
+				if ($row["status_kepemilikan"] == "Aset PLN") {
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">' . $row['status_kepemilikan'] . '</button>';
+				} else {
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">' . $row['status_kepemilikan'] . '</button>';
 				}
-				$row['linkNumber'] = "<a href=".base_url('admin/detailKerusakanLaptop/'.$row["serial_number"]).">".$row["serial_number"]."</a>";
-				$row['actionButton'] = "<a href=".base_url('admin/laptop_edit?id_laptop='.$row['id_laptop'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
-				<a href=".base_url('admin/laptop_delete?id_laptop='.$row['id_laptop'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				$row['linkNumber'] = "<a href=" . base_url('admin/detailKerusakanLaptop/' . $row["serial_number"]) . ">" . $row["serial_number"] . "</a>";
+				$row['actionButton'] = "<a href=" . base_url('admin/laptop_edit?id_laptop=' . $row['id_laptop']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/laptop_delete?id_laptop=' . $row['id_laptop']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				
 				
 				";
-				
+
 				$data[] = $row;
 			}
-
 		}
-		echo json_encode(array('data'=>$data));
+		echo json_encode(array('data' => $data));
 	}
 
 	public function laptop_add()
 	{
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
-		} else {			
-			$data['hasil']=$this->laporan_model->kantor_induk();
+		} else {
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['list_merek_laptop'] = $this->admin_model->list_merek_laptop();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$this->load->view('header');
@@ -1310,18 +1585,17 @@ class Admin extends CI_Controller
 
 	public function action_laptop_add()
 	{
-			// print_r($_POST); exit;
+		// print_r($_POST); exit;
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			
-			$this->form_validation->set_rules('serial_number','serial_number','required|is_unique[laptop.serial_number]');
 
-			if ($this->form_validation->run() == false){
+			$this->form_validation->set_rules('serial_number', 'serial_number', 'required|is_unique[laptop.serial_number]');
+
+			if ($this->form_validation->run() == false) {
 				echo "<script>alert('Serial Number sudah terdaftar')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_add>";
-			}
-			else {
+			} else {
 				$id_merek = $this->input->post('id_merek');
 				$spesifikasi = $this->input->post('spesifikasi');
 				$nama_pengguna = $this->input->post('nama_pengguna');
@@ -1348,9 +1622,7 @@ class Admin extends CI_Controller
 					echo "<script>alert('Berhasil Menambah Data')</script>";
 					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_view>";
 				}
-				
 			}
-			
 		}
 	}
 
@@ -1362,7 +1634,7 @@ class Admin extends CI_Controller
 
 			$id_laptop = $this->input->get('id_laptop');
 			$data['list_merek_laptop'] = $this->admin_model->list_merek_laptop();
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$data['laptopnya'] = $this->admin_model->get_laptop($id_laptop);
@@ -1382,10 +1654,10 @@ class Admin extends CI_Controller
 		} else {
 			$id_laptop = $this->input->get('id_laptop');
 			$current_laptop = $this->admin_model->get_laptop($id_laptop);
-			$this->form_validation->set_rules('serial_number','Serial_number','required|is_unique[laptop.serial_number]');
-			
+			$this->form_validation->set_rules('serial_number', 'Serial_number', 'required|is_unique[laptop.serial_number]');
 
-			if ($this->form_validation->run() == false && $this->input->post('serial_number') == $current_laptop['serial_number'] ) {
+
+			if ($this->form_validation->run() == false && $this->input->post('serial_number') == $current_laptop['serial_number']) {
 
 				$id_laptop = $this->input->post('id_laptop');
 				$id_merek = $this->input->post('id_merek');
@@ -1420,12 +1692,10 @@ class Admin extends CI_Controller
 					echo "<script>alert('Berhasil Mengubah Data')</script>";
 					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_view?id_laptop=" . $id_laptop . ">";
 				}
-			}
-			elseif ($this->form_validation->run() == false){
+			} elseif ($this->form_validation->run() == false) {
 				echo "<script>alert('Serial Number sudah terdaftar')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_edit?id_laptop=" . $id_laptop . ">";
-			}
-			else {
+			} else {
 				$id_laptop = $this->input->post('id_laptop');
 				$id_merek = $this->input->post('id_merek');
 				$spesifikasi = $this->input->post('spesifikasi');
@@ -1457,16 +1727,12 @@ class Admin extends CI_Controller
 					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/laptop_view?id_laptop=" . $id_laptop . ">";
 				}
 			}
-			
 		}
 	}
 
 
-	public function serial_number($sr){
-
-
-		
-
+	public function serial_number($sr)
+	{
 	}
 	public function laptop_delete()
 	{
@@ -1850,32 +2116,32 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function table_komputer_view(){
+	public function table_komputer_view()
+	{
 		$data = array();
-		
+
 		$query = $this->admin_model->tampil_komputer();
-		if($query->num_rows() > 0){
+		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $key => $row) {
-				$row['no'] = $key+1;
-				if($row["status_kepemilikan"] == "Aset PLN"){
-					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">'.$row['status_kepemilikan'].'</button>';
-				}else{
-					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">'.$row['status_kepemilikan'].'</button>';
+				$row['no'] = $key + 1;
+				if ($row["status_kepemilikan"] == "Aset PLN") {
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">' . $row['status_kepemilikan'] . '</button>';
+				} else {
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">' . $row['status_kepemilikan'] . '</button>';
 				}
-				$row['linkNumber'] = "<a href=".base_url('admin/detailKerusakanKomputer/'.$row["serial_number"]).">".$row["serial_number"]."</a>";
-				$row['actionButton'] = "<a href=".base_url('admin/komputer_edit?id_komputer='.$row['id_komputer'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
-				<a href=".base_url('admin/komputer_delete?id_komputer='.$row['id_komputer'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				$row['linkNumber'] = "<a href=" . base_url('admin/detailKerusakanKomputer/' . $row["serial_number"]) . ">" . $row["serial_number"] . "</a>";
+				$row['actionButton'] = "<a href=" . base_url('admin/komputer_edit?id_komputer=' . $row['id_komputer']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/komputer_delete?id_komputer=' . $row['id_komputer']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				
 				
 				";
-				
-				
+
+
 
 				$data[] = $row;
 			}
-
 		}
-		echo json_encode(array('data'=>$data));
+		echo json_encode(array('data' => $data));
 	}
 
 	public function komputer_add()
@@ -1883,7 +2149,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['list_merek_komputer'] = $this->admin_model->list_merek_komputer();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$this->load->view('header');
@@ -1935,7 +2201,7 @@ class Admin extends CI_Controller
 
 			$id_komputer = $this->input->get('id_komputer');
 			$data['list_merek_komputer'] = $this->admin_model->list_merek_komputer();
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['komputernya'] = $this->admin_model->get_komputer($id_komputer);
 			$data['list_vendor'] = $this->admin_model->list_vendor();
@@ -2018,32 +2284,32 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function table_monitor_view(){
+	public function table_monitor_view()
+	{
 		$data = array();
-		
+
 		$query = $this->admin_model->tampil_monitor();
-		if($query->num_rows() > 0){
+		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $key => $row) {
-				$row['no'] = $key+1;
-				if($row["status_kepemilikan"] == "Aset PLN"){
-					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">'.$row['status_kepemilikan'].'</button>';
-				}else{
-					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">'.$row['status_kepemilikan'].'</button>';
+				$row['no'] = $key + 1;
+				if ($row["status_kepemilikan"] == "Aset PLN") {
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">' . $row['status_kepemilikan'] . '</button>';
+				} else {
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">' . $row['status_kepemilikan'] . '</button>';
 				}
 
-				$row['actionButton'] = "<a href=".base_url('admin/monitor_edit?id_monitor='.$row['id_monitor'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
-				<a href=".base_url('admin/monitor_delete?id_monitor='.$row['id_monitor'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				$row['actionButton'] = "<a href=" . base_url('admin/monitor_edit?id_monitor=' . $row['id_monitor']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/monitor_delete?id_monitor=' . $row['id_monitor']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				
 				
 				";
-				
-				
+
+
 
 				$data[] = $row;
 			}
-
 		}
-		echo json_encode(array('data'=>$data));
+		echo json_encode(array('data' => $data));
 	}
 
 	public function monitor_add()
@@ -2051,7 +2317,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['list_merek_monitor'] = $this->admin_model->list_merek_monitor();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$this->load->view('header');
@@ -2095,7 +2361,7 @@ class Admin extends CI_Controller
 
 			$id_monitor = $this->input->get('id_monitor');
 			$data['list_merek_monitor'] = $this->admin_model->list_merek_monitor();
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$data['monitornya'] = $this->admin_model->get_monitor($id_monitor);
@@ -2168,32 +2434,32 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function table_printer_view(){
+	public function table_printer_view()
+	{
 		$data = array();
-		
+
 		$query = $this->admin_model->tampil_printer();
-		if($query->num_rows() > 0){
+		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $key => $row) {
-				$row['no'] = $key+1;
-				if($row["status_kepemilikan"] == "Aset PLN"){
-					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">'.$row['status_kepemilikan'].'</button>';
-				}else{
-					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">'.$row['status_kepemilikan'].'</button>';
+				$row['no'] = $key + 1;
+				if ($row["status_kepemilikan"] == "Aset PLN") {
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">' . $row['status_kepemilikan'] . '</button>';
+				} else {
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">' . $row['status_kepemilikan'] . '</button>';
 				}
 
-				$row['actionButton'] = "<a href=".base_url('admin/printer_edit?id_printer='.$row['id_printer'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
-				<a href=".base_url('admin/printer_delete?id_printer='.$row['id_printer'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				$row['actionButton'] = "<a href=" . base_url('admin/printer_edit?id_printer=' . $row['id_printer']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/printer_delete?id_printer=' . $row['id_printer']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				
 				
 				";
-				
-				
+
+
 
 				$data[] = $row;
 			}
-
 		}
-		echo json_encode(array('data'=>$data));
+		echo json_encode(array('data' => $data));
 	}
 
 	public function printer_add()
@@ -2201,7 +2467,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['list_merek_printer'] = $this->admin_model->list_merek_printer();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$this->load->view('header');
@@ -2244,7 +2510,7 @@ class Admin extends CI_Controller
 
 			$id_printer = $this->input->get('id_printer');
 			$data['list_merek_printer'] = $this->admin_model->list_merek_printer();
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$data['printernya'] = $this->admin_model->get_printer($id_printer);
@@ -2317,24 +2583,24 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function table_lokal_view(){
+	public function table_lokal_view()
+	{
 		$data = array();
-		
+
 		$query = $this->admin_model->tampil_aplikasi_lokal();
-		if($query->num_rows() > 0){
+		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $key => $row) {
-				$row['no'] = $key+1;
-				$row['actionButton'] = "<a href=".base_url('admin/aplikasi_lokal_edit?id_aplikasi_lokal='.$row['id_aplikasi_lokal'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
-				<a href=".base_url('admin/aplikasi_lokal_delete?id_aplikasi_lokal='.$row['id_aplikasi_lokal'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				$row['no'] = $key + 1;
+				$row['actionButton'] = "<a href=" . base_url('admin/aplikasi_lokal_edit?id_aplikasi_lokal=' . $row['id_aplikasi_lokal']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/aplikasi_lokal_delete?id_aplikasi_lokal=' . $row['id_aplikasi_lokal']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				";
-				
-				
+
+
 
 				$data[] = $row;
 			}
-
 		}
-		echo json_encode(array('data'=>$data));
+		echo json_encode(array('data' => $data));
 	}
 
 	public function aplikasi_lokal_add()
@@ -2342,7 +2608,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/aplikasi_lokal_add', $data);
@@ -2384,7 +2650,7 @@ class Admin extends CI_Controller
 		} else {
 
 			$id_aplikasi_lokal = $this->input->get('id_aplikasi_lokal');
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['aplikasi_lokalnya'] = $this->admin_model->get_aplikasi_lokal($id_aplikasi_lokal);
 			$this->data['title'] = 'Update Laptop :: ';
@@ -2450,32 +2716,32 @@ class Admin extends CI_Controller
 			$this->load->view('footer');
 		}
 	}
-	
-	public function table_network_device(){
+
+	public function table_network_device()
+	{
 		$data = array();
-		
+
 		$query = $this->admin_model->tampil_network_device();
-		if($query->num_rows() > 0){
+		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $key => $row) {
-				$row['no'] = $key+1;
-				if($row["status_kepemilikan"] == "Aset PLN"){
-					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">'.$row['status_kepemilikan'].'</button>';
-				}else{
-					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">'.$row['status_kepemilikan'].'</button>';
+				$row['no'] = $key + 1;
+				if ($row["status_kepemilikan"] == "Aset PLN") {
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-success">' . $row['status_kepemilikan'] . '</button>';
+				} else {
+					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">' . $row['status_kepemilikan'] . '</button>';
 				}
-				$row['actionButton'] = "<a href=".base_url('admin/network_device_edit?id_network_device='.$row['id_network_device'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
-				<a href=".base_url('admin/network_device_delete?id_network_device='.$row['id_network_device'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				$row['actionButton'] = "<a href=" . base_url('admin/network_device_edit?id_network_device=' . $row['id_network_device']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/network_device_delete?id_network_device=' . $row['id_network_device']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				
 				
 				";
-				
-				
+
+
 
 				$data[] = $row;
 			}
-
 		}
-		echo json_encode(array('data'=>$data));
+		echo json_encode(array('data' => $data));
 	}
 
 	public function network_device_add()
@@ -2483,7 +2749,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['list_merek_network_device'] = $this->admin_model->list_merek_network_device();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$this->load->view('header');
@@ -2536,7 +2802,7 @@ class Admin extends CI_Controller
 
 			$id_network_device = $this->input->get('id_network_device');
 			$data['list_merek_network_device'] = $this->admin_model->list_merek_network_device();
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$data['network_devicenya'] = $this->admin_model->get_network_device($id_network_device);
@@ -2616,27 +2882,27 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function table_server(){
+	public function table_server()
+	{
 		$data = array();
-		
-		$query = $this->admin_model->tampil_server();
-		if($query->num_rows() > 0){
-			foreach ($query->result_array() as $key => $row) {
-				$row['no'] = $key+1;
 
-				$row['actionButton'] = "<a href=".base_url('admin/server_edit?id_server='.$row['id_server'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
-				<a href=".base_url('admin/server_delete?id_server='.$row['id_server'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+		$query = $this->admin_model->tampil_server();
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key + 1;
+
+				$row['actionButton'] = "<a href=" . base_url('admin/server_edit?id_server=' . $row['id_server']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/server_delete?id_server=' . $row['id_server']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				
 				
 				";
-				
-				
+
+
 
 				$data[] = $row;
 			}
-
 		}
-		echo json_encode(array('data'=>$data));
+		echo json_encode(array('data' => $data));
 	}
 
 	public function server_add()
@@ -2644,7 +2910,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['list_merek_server'] = $this->admin_model->list_merek_server();
 			$this->load->view('header');
 			$this->load->view('sidebar');
@@ -2692,7 +2958,7 @@ class Admin extends CI_Controller
 
 			$id_server = $this->input->get('id_server');
 			$data['list_merek_server'] = $this->admin_model->list_merek_server();
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['servernya'] = $this->admin_model->get_server($id_server);
 			$this->data['title'] = 'Update Laptop :: ';
@@ -2766,26 +3032,26 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function table_vicon(){
+	public function table_vicon()
+	{
 		$data = array();
-		
+
 		$query = $this->admin_model->tampil_vicon();
-		if($query->num_rows() > 0){
+		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $key => $row) {
-				$row['no'] = $key+1;
-				$row['actionButton'] = "<a href=".base_url('admin/vicon_edit?id_vicon='.$row['id_vicon'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
-				<a href=".base_url('admin/vicon_delete?id_vicon='.$row['id_vicon'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				$row['no'] = $key + 1;
+				$row['actionButton'] = "<a href=" . base_url('admin/vicon_edit?id_vicon=' . $row['id_vicon']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/vicon_delete?id_vicon=' . $row['id_vicon']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				
 				
 				";
-				
-				
+
+
 
 				$data[] = $row;
 			}
-
 		}
-		echo json_encode(array('data'=>$data));
+		echo json_encode(array('data' => $data));
 	}
 
 	public function vicon_add()
@@ -2793,7 +3059,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['list_merek_vicon'] = $this->admin_model->list_merek_vicon();
 			$this->load->view('header');
 			$this->load->view('sidebar');
@@ -2835,7 +3101,7 @@ class Admin extends CI_Controller
 
 			$id_vicon = $this->input->get('id_vicon');
 			$data['list_merek_vicon'] = $this->admin_model->list_merek_vicon();
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['viconnya'] = $this->admin_model->get_vicon($id_vicon);
 			$this->data['title'] = 'Update Laptop :: ';
@@ -2892,7 +3158,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['lgangguan_view'] = $this->admin_model->tampil_lgangguan();
 			$this->load->view('header');
 			$this->load->view('sidebar');
@@ -2912,12 +3178,12 @@ class Admin extends CI_Controller
 			$layanan = $this->input->post('filter_layanan');
 			$year = $this->input->post('filter_year');
 			$month = $this->input->post('filter_month');
-			
+
 			if (empty($no_tiket) && empty($asman) && empty($layanan) && empty($year) && empty($month) && empty($kantor_induk)) {
 				echo "<script>alert('Harap masukkan nomor tiket, asman, kantor induk, layanan, tahun, atau bulan untuk melakukan filter data log gangguan')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/lgangguan_view>";
 			} else {
-				$data['hasil']=$this->laporan_model->kantor_induk();
+				$data['hasil'] = $this->laporan_model->kantor_induk();
 				$data['lgangguan_view'] = $this->admin_model->lgangguan_filter($no_tiket, $asman, $kantor_induk, $layanan, $year, $month);
 				$data['list_kategori_gangguan'] = $this->admin_model->list_kategori_gangguan();
 				$data['filter_no_tiket'] = $no_tiket;
@@ -2939,7 +3205,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['list_kategori_gangguan'] = $this->admin_model->list_kategori_gangguan();
 			$this->load->view('header', $this->data);
 			$this->load->view('sidebar', $data);
@@ -3008,7 +3274,7 @@ class Admin extends CI_Controller
 				$tiket_open = $this->input->post('tiket_open');
 				$tiket_close = $this->input->post('tiket_close');
 				$stop_clock = $this->input->post('stop_clock');
-				
+
 				$before = date_create($tiket_open);
 				$after = date_create($tiket_close);
 				$diff = date_diff($before, $after, FALSE);
@@ -3017,7 +3283,7 @@ class Admin extends CI_Controller
 				$diffminus = $datediff->modify("-{$stop_clock} minutes");
 				$time = $diffminus->format("H:i:s");
 				$timeArr = explode(':', $time);
-    			$durasi = ($timeArr[0]*60) + ($timeArr[1]) + ($timeArr[2]/60);
+				$durasi = ($timeArr[0] * 60) + ($timeArr[1]) + ($timeArr[2] / 60);
 
 				$data = array(
 					'no_tiket' => $this->input->post('no_tiket'),
@@ -3056,7 +3322,7 @@ class Admin extends CI_Controller
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$log_id = $this->input->get('log_id');
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['list_kategori_gangguan'] = $this->admin_model->list_kategori_gangguan();
 			$data['lgangguannya'] = $this->admin_model->get_lgangguan($log_id, "log_id");
@@ -3140,7 +3406,7 @@ class Admin extends CI_Controller
 				$diffminus = $datediff->modify("-{$stop_clock} minutes");
 				$time = $diffminus->format("H:i:s");
 				$timeArr = explode(':', $time);
-    			$durasi = ($timeArr[0]*60) + ($timeArr[1]) + ($timeArr[2]/60);
+				$durasi = ($timeArr[0] * 60) + ($timeArr[1]) + ($timeArr[2] / 60);
 
 				$data = array(
 					'no_tiket' => $this->input->post('no_tiket'),
@@ -3190,7 +3456,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['hasil']=$this->laporan_model->kantor_induk();
+			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['data_network_view'] = $this->admin_model->tampil_data_network();
 			$this->load->view('header');
 			$this->load->view('sidebar');
@@ -3210,7 +3476,7 @@ class Admin extends CI_Controller
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/data_network_view>";
 			} else {
 				$data['data_network_view'] = $this->admin_model->data_network_filter($id_unit);
-				$data['hasil']=$this->laporan_model->kantor_induk();
+				$data['hasil'] = $this->laporan_model->kantor_induk();
 				$this->load->view('header');
 				$this->load->view('sidebar');
 				$this->load->view('admin/data_network_view', $data);
@@ -3251,16 +3517,16 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('asman', 'Asman', 'required', [
 				'required' => 'Asman harus di isi!'
 			]);
-			if($nomorasman == 1){
+			if ($nomorasman == 1) {
 				$this->form_validation->set_rules('id_unit1', 'Nama Unit', 'required|numeric', [
 					'required' => 'Nama unit harus di isi!'
 				]);
-			} else if ($nomorasman == 2){
+			} else if ($nomorasman == 2) {
 				$this->form_validation->set_rules('id_unit2', 'Nama Unit', 'required|numeric', [
 					'required' => 'Nama unit harus di isi!'
 				]);
 			}
-			
+
 			$this->form_validation->set_rules('keterangan', 'Keterangan', 'required', [
 				'required' => 'Keterangan harus di isi!'
 			]);
@@ -3295,9 +3561,9 @@ class Admin extends CI_Controller
 				$this->load->view('admin/data_network_add');
 				$this->load->view('footer');
 			} else {
-				if($nomorasman == 1){
+				if ($nomorasman == 1) {
 					$id_unit = $this->input->post('id_unit1');
-				} else if($nomorasman == 2){
+				} else if ($nomorasman == 2) {
 					$id_unit = $this->input->post('id_unit2');
 				}
 				$data = array(
@@ -3365,16 +3631,16 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('asman', 'Asman', 'required', [
 				'required' => 'Asman harus di isi!'
 			]);
-			if($asman == 1){
+			if ($asman == 1) {
 				$this->form_validation->set_rules('id_unit1', 'Nama Unit', 'required|numeric', [
 					'required' => 'Nama unit harus di isi!'
 				]);
-			} else if ($asman == 2){
+			} else if ($asman == 2) {
 				$this->form_validation->set_rules('id_unit2', 'Nama Unit', 'required|numeric', [
 					'required' => 'Nama unit harus di isi!'
 				]);
 			}
-			
+
 			$this->form_validation->set_rules('keterangan', 'Keterangan', 'required', [
 				'required' => 'Keterangan harus di isi!'
 			]);
@@ -3411,9 +3677,9 @@ class Admin extends CI_Controller
 					</div>');
 				redirect(base_url() . "admin/data_network_edit?data_id=" . $data_id);
 			} else {
-				if($asman == 1){
+				if ($asman == 1) {
 					$id_unit = $this->input->post('id_unit1');
-				} else if($asman == 2){
+				} else if ($asman == 2) {
 					$id_unit = $this->input->post('id_unit2');
 				} else {
 					$id_unit = $this->input->post('id_unit_lama');
@@ -3781,37 +4047,50 @@ class Admin extends CI_Controller
 		}
 	}
 
-	public function table_lgangguan_view(){
+	public function table_lgangguan_view()
+	{
 		$data = array();
-		
+
 		$query = $this->admin_model->tampil_lgangguan();
-		if($query->num_rows() > 0){
+		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $key => $row) {
-				$row['no'] = $key+1;
-				$row['kerja_wilayah'] = "STI Sumut ".$row["wilayah_kerja"];
-				if($row["scada"] == 1){
+				$row['no'] = $key + 1;
+				$row['kerja_wilayah'] = "STI Sumut " . $row["wilayah_kerja"];
+				if ($row["scada"] == 1) {
 					$row['cekScada'] = "Scada";
-				}elseif($row['scada'] == 0){
+				} elseif ($row['scada'] == 0) {
 					$row['cekScada'] = "Non Scada";
 				}
 				$row['open_tiket'] = date('d/m/Y H:i:s', strtotime($row['tiket_open']));
-				$row['close_tiket'] = date('d/m/Y H:i:s', strtotime($row['tiket_close'])); 
-				$row['actionButton'] = "<a href=".base_url('admin/lgangguan_edit?log_id='.$row['log_id'])."><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
-				<a href=".base_url('admin/lgangguan_delete?log_id='.$row['log_id'])."><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				$row['close_tiket'] = date('d/m/Y H:i:s', strtotime($row['tiket_close']));
+				$row['actionButton'] = "<a href=" . base_url('admin/lgangguan_edit?log_id=' . $row['log_id']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/lgangguan_delete?log_id=' . $row['log_id']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				
 				
 				";
-				
-				
+
+
 
 				$data[] = $row;
 			}
-
 		}
-		echo json_encode(array('data'=>$data));
+		echo json_encode(array('data' => $data));
 	}
 
-	
-
+	//CORRECTIVE MAINTENANCE
+	public function corrective_maintenance()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['judul'] = 'Corrective Maintenance';
+			$data['stok_view'] = $this->admin_model->tampil_stok();
+			$data['waktu'] = $this->laporan_model->getWaktuPelaksanaan();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/corrective_maintenance', $data);
+			$this->load->view('footer');
+		}
+	}
 }
 			//internet_UIWSU
