@@ -1345,6 +1345,7 @@
   });
 </script>
 
+<!-- PIE CHART NETWORK DEVICE HAR -->
 <script type="text/javascript">
   var ctxNetwork = document.getElementById('chartNetwork').getContext('2d')
   <?php
@@ -1376,6 +1377,118 @@
           'rgba(255, 206, 86, 1)',
           'rgba(75, 192, 192, 1)',
           'rgba(153, 102, 255, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      legend: {
+        display: false
+      }
+    }
+  });
+</script>
+
+<script type="text/javascript">
+  var ctxNetwork = document.getElementById('chartNetworkDeviceList').getContext('2d')
+  <?php
+    $jumlah_device = array();
+    $device_name = array();
+    if(!empty($dashboard_network_device)) {
+      foreach ($dashboard_network_device->result_array() as $row) {
+        array_push($jumlah_device, $row['jumlah_device']);
+        array_push($device_name, $row['device_name']);
+      }
+    }
+  ?>
+  var myChart = new Chart(ctxNetwork, {
+    type: 'pie',
+    data: {
+      labels: <?php echo json_encode($device_name); ?>,
+      datasets: [{
+        label: 'INTERNET',
+        data: <?php echo json_encode($jumlah_device); ?>,
+        backgroundColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(116, 10, 249, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(247, 151, 10, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(224, 20, 133, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(224,160,9,1)',
+          'rgba(255, 235, 89, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(114, 37, 196, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(116, 10, 249, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(247, 151, 10, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(224, 20, 133, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(224,160,9,1)',
+          'rgba(255, 235, 89, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(114, 37, 196, 1)',
+          'rgba(75, 192, 192, 1)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(116, 10, 249, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(247, 151, 10, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(224, 20, 133, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(224,160,9,1)',
+          'rgba(255, 235, 89, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(114, 37, 196, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(116, 10, 249, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(247, 151, 10, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(224, 20, 133, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(224,160,9,1)',
+          'rgba(255, 235, 89, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(114, 37, 196, 1)',
+          'rgba(75, 192, 192, 1)'
         ],
         borderWidth: 1
       }]
