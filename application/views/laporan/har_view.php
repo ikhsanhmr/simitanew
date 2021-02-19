@@ -26,7 +26,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="table_har" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th class="center">No.</th>
@@ -41,42 +41,7 @@
                 </thead>
 
                 <tbody>
-                  <?php
-                  $no = 1;                  
-                  foreach ($waktu as $laporan):
-                  ?>
-                    <tr>
-                      <td class="text-center"><?= $no ?></td>
-                      <td class="text-center"><?= $laporan['nama_kantor_induk']; ?></td>
-                      <td class="text-center"><?= $laporan['lokasi']; ?></td>
-                      <td class="text-center">
-                      <?= date("d/M/Y", strtotime($laporan['tanggal_pergi'])); ?>  -  <?= date("d/M/Y", strtotime( $laporan['tanggal_pulang'])); ?></td>
-                      <td class="text-center"><?= $laporan['nama_perangkat']; ?></td>
-                      <td class="text-center">
-                      <a href="<?= base_url(); ?>laporan/detailDataHar/<?= $laporan['id']; ?>"class="btn btn-info">Detail </a>
-                      </td>
-                      <td class="text-center">
-                      <?php if ($laporan['approval'] == 'approved') { ?>
-                        <a class="btn btn-success">Approved </a>
-                     <?php
-                      }
-                      else { ?>
-                        <a class="btn btn-warning">Waiting </a>
-                     <?php }
-                      ?>
-                      
-                      </td>
-                      <td class="text-center">
-                        <a href="<?= base_url(); ?>laporan/editDataHar/<?= $laporan['id']; ?>"class="btn"><i class="fa fa-pencil bigger-130"></i> </a>
-                        <a href="<?= base_url(); ?>laporan/deleteDataHar/<?= $laporan['id']; ?>" class="btn " onclick="return confirm('Anda yakin ingin menghapus data ini?');"><i class="fa fa-trash-o bigger-130"></i></a>
-                      </td>
-                    </tr>
-                  <?php
-                    $no++;
-                  endforeach;
-         
-                  ?>
-				
+                 
                 </tbody>
                
               </table>

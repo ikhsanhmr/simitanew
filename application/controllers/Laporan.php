@@ -170,12 +170,31 @@ class Laporan extends CI_Controller {
         }
         else {
 	
-            $data['waktu'] = $this->laporan->getWaktuPelaksanaan();
+    	$data['waktu'] = $this->laporan->getWaktuPelaksanaan();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/har_view', $data);
 			$this->load->view('footer');
         }
+	}
+
+	public function table_har()
+	{
+		$data = array();
+		$query = $this->laporan->tampil_waktu_pelaksanaan();
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key + 1;
+				$row['waktu_pelaksanaan'] = date("d/M/Y", strtotime($row['tanggal_pergi']))." - ".date("d/M/Y", strtotime( $laporan['tanggal_pulang']));
+				$row['detail'] = "<a href=" . base_url('laporan/detailDataHar/' . $row['id']) . " class='btn btn-info'> Detail </a>";
+				$row["approval"] = $row['approval'] == 'approved' ? "<a class='btn btn-success'>Approved </a>" : "<a class='btn btn-warning'>Waiting </a>";
+				$row['actions'] = "<a href=" . base_url('laporan/editDataHar/' . $row['id']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('laporan/deleteDataHar/' . $row['id']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				";
+				$data[] = $row;
+			}
+		}
+		echo json_encode(array('data' => $data));
 	}
 
 	public function addDataHar(){

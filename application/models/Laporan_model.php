@@ -407,9 +407,15 @@ class laporan_model extends CI_Model {
           ->get()
           ->result();
 	}
+	
 	function getWaktuPelaksanaan(){
 		$query = $this->db->query("SELECT * FROM `jadwal_har` , `har_network` ,`kantor_induk` WHERE id_jadwal = waktu_pelaksanaan AND id_kantor_induk = kantor_induk ORDER BY id ");
 		return $query -> result_array();
+	}
+
+	function tampil_waktu_pelaksanaan(){
+		$get = $this->db->query("SELECT * FROM `jadwal_har` , `har_network` ,`kantor_induk` WHERE id_jadwal = waktu_pelaksanaan AND id_kantor_induk = kantor_induk ORDER BY id");
+		return $get;
 	}
 	
 	function getDataGangguan(){

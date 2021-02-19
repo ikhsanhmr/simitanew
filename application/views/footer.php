@@ -602,6 +602,40 @@
       ],
     });
 
+    var harTable = $('#table_har').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url: '<?php echo site_url('laporan/table_har'); ?>',
+        type: 'POST',
+      },
+      columns: [{
+          "data": "no"
+        },
+        {
+          "data": "nama_kantor_induk"
+        },
+        {
+          "data": "lokasi"
+        },
+        {
+          "data": "waktu_pelaksanaan"
+        },
+        {
+          "data": "nama_perangkat"
+        },
+        {
+          "data": "detail"
+        },
+        {
+          "data": "approval"
+        },
+        {
+          "data": "actions"
+        },
+      ],
+    });
+
     var kerusakanLaptop = $("#table_kerusakan_laptop").DataTable({
 
     });
