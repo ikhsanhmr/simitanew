@@ -41,6 +41,7 @@ class Admin extends CI_Controller
 			// $data['hi_sumut'] = $this->admin_model->tampil_hi_sumut();
 			// $data['hi_sumut1'] = $this->admin_model->tampil_hi_sumut1();
 			// $data['hi_sumut2'] = $this->admin_model->tampil_hi_sumut2();
+			$data['waktu'] = $this->laporan_model->getWaktuPelaksanaan();
 			$data['latest_sumut'] = $this->admin_model->tampil_latest_sumut();
 			$data['latest_sumut1'] = $this->admin_model->tampil_latest_sumut1();
 			$data['latest_sumut2'] = $this->admin_model->tampil_latest_sumut2();

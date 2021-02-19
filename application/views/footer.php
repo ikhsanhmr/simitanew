@@ -1,4 +1,3 @@
-
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
     <b>Version</b> 1.0.0
@@ -10,9 +9,9 @@
 
 <!-- Add the sidebar's background. This div must be placed
  immediately after the control sidebar -->
- <div class="control-sidebar-bg"></div>
+<div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->  
+<!-- ./wrapper -->
 <!-- jQuery 3 -->
 <script src="<?php echo base_url(); ?>public/assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -82,38 +81,38 @@
 <script src="<?php echo base_url(); ?>public/assets/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- Select2 -->
 <script>
-$('#tingkat_kerawanan').on('change', function() {
-  var value = $(this).find(':selected').attr('data-solusi');
-  $("#solusi_tingkat_kerawanan").val(value);
-});
+  $('#tingkat_kerawanan').on('change', function() {
+    var value = $(this).find(':selected').attr('data-solusi');
+    $("#solusi_tingkat_kerawanan").val(value);
+  });
 
 
   $(function() {
-    $("#inventory").on('change',function() {
+    $("#inventory").on('change', function() {
       var laptop = $(this).find(':selected').attr('data-laptop');
       var komputer = $(this).find(':selected').attr('data-komputer');
-      
+
       if (laptop) {
-        fetch("<?= base_url('laporan/laptop') ?>",{
-          method: 'GET',
-        }).then((response) => response.text())
-        .then((data) => {
-          document.getElementById('getInventory').innerHTML = data;
-        });
+        fetch("<?= base_url('laporan/laptop') ?>", {
+            method: 'GET',
+          }).then((response) => response.text())
+          .then((data) => {
+            document.getElementById('getInventory').innerHTML = data;
+          });
       } else if (komputer) {
-        fetch("<?= base_url('laporan/komputer') ?>",{
-          method: 'GET',
-        }).then((response) => response.text())
-        .then((data) => {
-          document.getElementById('getInventory').innerHTML = data;
-        });
+        fetch("<?= base_url('laporan/komputer') ?>", {
+            method: 'GET',
+          }).then((response) => response.text())
+          .then((data) => {
+            document.getElementById('getInventory').innerHTML = data;
+          });
       } else {
-        fetch("<?= base_url('laporan/inventoryNotFound') ?>",{
-          method: 'GET',
-        }).then((response) => response.text())
-        .then((data) => {
-          document.getElementById('getInventory').innerHTML = data;
-        });
+        fetch("<?= base_url('laporan/inventoryNotFound') ?>", {
+            method: 'GET',
+          }).then((response) => response.text())
+          .then((data) => {
+            document.getElementById('getInventory').innerHTML = data;
+          });
       }
 
 
@@ -122,145 +121,272 @@ $('#tingkat_kerawanan').on('change', function() {
 
     var komputerTable = $('#komputer_table').DataTable({
       ajax: {
-                processing: true,
-                serverSide: true,
-                url: '<?php echo site_url('admin/table_komputer_view');?>',
-                type : 'POST',
+        processing: true,
+        serverSide: true,
+        url: '<?php echo site_url('admin/table_komputer_view'); ?>',
+        type: 'POST',
       },
-      columns: [
-                { "data": "no" },
-                { "data": "nama_mereknya" },
-                { "data": "spesifikasi" },
-                { "data": "nama_pengguna" },
-                { "data": "nama_komputer" },
-                { "data": "linkNumber" },
-                { "data": "ip_address" },
-                { "data": "nama_unitnya" },
-                { "data": "kepemilikan_status" },
-                { "data": "nama_vendornya" },
-                { "data": "tahun" },
-                { "data": "actionButton" },
+      columns: [{
+          "data": "no"
+        },
+        {
+          "data": "nama_mereknya"
+        },
+        {
+          "data": "spesifikasi"
+        },
+        {
+          "data": "nama_pengguna"
+        },
+        {
+          "data": "nama_komputer"
+        },
+        {
+          "data": "linkNumber"
+        },
+        {
+          "data": "ip_address"
+        },
+        {
+          "data": "nama_unitnya"
+        },
+        {
+          "data": "kepemilikan_status"
+        },
+        {
+          "data": "nama_vendornya"
+        },
+        {
+          "data": "tahun"
+        },
+        {
+          "data": "actionButton"
+        },
       ],
     });
 
     var printerTable = $('#table_printer').DataTable({
       ajax: {
-                processing: true,
-                serverSide: true,
-                url: '<?php echo site_url('admin/table_printer_view');?>',
-                type : 'POST',
-      },        
-      columns: [
-                { "data": "no" },
-                { "data": "nama_mereknya" },
-                { "data": "nama_pengguna" },
-                { "data": "nama_unitnya" },
-                { "data": "kepemilikan_status" },
-                { "data": "nama_vendornya" },
-                { "data": "tahun" },
-                { "data": "actionButton" },
+        processing: true,
+        serverSide: true,
+        url: '<?php echo site_url('admin/table_printer_view'); ?>',
+        type: 'POST',
+      },
+      columns: [{
+          "data": "no"
+        },
+        {
+          "data": "nama_mereknya"
+        },
+        {
+          "data": "nama_pengguna"
+        },
+        {
+          "data": "nama_unitnya"
+        },
+        {
+          "data": "kepemilikan_status"
+        },
+        {
+          "data": "nama_vendornya"
+        },
+        {
+          "data": "tahun"
+        },
+        {
+          "data": "actionButton"
+        },
       ],
     });
 
     var viconTable = $('#table_vicon').DataTable({
       ajax: {
-                processing: true,
-                serverSide: true,
-                url: '<?php echo site_url('admin/table_vicon');?>',
-                type : 'POST',
-      },        
-      columns: [
-                { "data": "no" },
-                { "data": "nama_mereknya" },
-                { "data": "type" },
-                { "data": "tahun" },
-                { "data": "no_seri" },
-                { "data": "ip_address" },
-                { "data": "mac_address" },
-                { "data": "nama_unitnya" },
-                { "data": "actionButton" },
+        processing: true,
+        serverSide: true,
+        url: '<?php echo site_url('admin/table_vicon'); ?>',
+        type: 'POST',
+      },
+      columns: [{
+          "data": "no"
+        },
+        {
+          "data": "nama_mereknya"
+        },
+        {
+          "data": "type"
+        },
+        {
+          "data": "tahun"
+        },
+        {
+          "data": "no_seri"
+        },
+        {
+          "data": "ip_address"
+        },
+        {
+          "data": "mac_address"
+        },
+        {
+          "data": "nama_unitnya"
+        },
+        {
+          "data": "actionButton"
+        },
       ],
     });
 
     var networkTable = $('#table_network').DataTable({
       ajax: {
-                processing: true,
-                serverSide: true,
-                url: '<?php echo site_url('admin/table_network_device');?>',
-                type : 'POST',
-      },        
-      columns: [
-                { "data": "no" },
-                { "data": "nama_mereknya" },
-                { "data": "device_type" },
-                { "data": "ip_address" },
-                { "data": "username" },
-                { "data": "password" },
-                { "data": "nama_pengguna" },
-                { "data": "nama_unitnya" },
-                { "data": "kepemilikan_status" },
-                { "data": "nama_vendornya" },
-                { "data": "tahun" },
-                { "data": "actionButton" },
+        processing: true,
+        serverSide: true,
+        url: '<?php echo site_url('admin/table_network_device'); ?>',
+        type: 'POST',
+      },
+      columns: [{
+          "data": "no"
+        },
+        {
+          "data": "nama_mereknya"
+        },
+        {
+          "data": "device_type"
+        },
+        {
+          "data": "ip_address"
+        },
+        {
+          "data": "username"
+        },
+        {
+          "data": "password"
+        },
+        {
+          "data": "nama_pengguna"
+        },
+        {
+          "data": "nama_unitnya"
+        },
+        {
+          "data": "kepemilikan_status"
+        },
+        {
+          "data": "nama_vendornya"
+        },
+        {
+          "data": "tahun"
+        },
+        {
+          "data": "actionButton"
+        },
       ],
     });
 
     var serverTable = $('#table_server').DataTable({
       ajax: {
-                processing: true,
-                serverSide: true,
-                url: '<?php echo site_url('admin/table_server');?>',
-                type : 'POST',
-      },        
-      columns: [
-                { "data": "no" },
-                { "data": "nama_mereknya" },
-                { "data": "keterangan" },
-                { "data": "ip_address" },
-                { "data": "username" },
-                { "data": "password" },
-                { "data": "nama_pengguna" },
-                { "data": "nama_unitnya" },
-                { "data": "tahun" },
-                { "data": "actionButton" },
+        processing: true,
+        serverSide: true,
+        url: '<?php echo site_url('admin/table_server'); ?>',
+        type: 'POST',
+      },
+      columns: [{
+          "data": "no"
+        },
+        {
+          "data": "nama_mereknya"
+        },
+        {
+          "data": "keterangan"
+        },
+        {
+          "data": "ip_address"
+        },
+        {
+          "data": "username"
+        },
+        {
+          "data": "password"
+        },
+        {
+          "data": "nama_pengguna"
+        },
+        {
+          "data": "nama_unitnya"
+        },
+        {
+          "data": "tahun"
+        },
+        {
+          "data": "actionButton"
+        },
       ],
     });
 
     var lokaTable = $('#table_lokal').DataTable({
       ajax: {
-                processing: true,
-                serverSide: true,
-                url: '<?php echo site_url('admin/table_lokal_view');?>',
-                type : 'POST',
-      },        
-      columns: [
-                { "data": "no" },
-                { "data": "nama_aplikasi" },
-                { "data": "link_aplikasi" },
-                { "data": "username" },
-                { "data": "password" },
-                { "data": "jenis_database" },
-                { "data": "nama_unitnya" },
-                { "data": "actionButton" },
+        processing: true,
+        serverSide: true,
+        url: '<?php echo site_url('admin/table_lokal_view'); ?>',
+        type: 'POST',
+      },
+      columns: [{
+          "data": "no"
+        },
+        {
+          "data": "nama_aplikasi"
+        },
+        {
+          "data": "link_aplikasi"
+        },
+        {
+          "data": "username"
+        },
+        {
+          "data": "password"
+        },
+        {
+          "data": "jenis_database"
+        },
+        {
+          "data": "nama_unitnya"
+        },
+        {
+          "data": "actionButton"
+        },
       ],
     });
 
     var monitorTable = $('#table_monitor').DataTable({
       ajax: {
-                processing: true,
-                serverSide: true,
-                url: '<?php echo site_url('admin/table_monitor_view');?>',
-                type : 'POST',
+        processing: true,
+        serverSide: true,
+        url: '<?php echo site_url('admin/table_monitor_view'); ?>',
+        type: 'POST',
       },
-      columns: [
-                { "data": "no" },
-                { "data": "nama_mereknya" },
-                { "data": "nama_pengguna" },
-                { "data": "nama_unitnya" },
-                { "data": "kepemilikan_status" },
-                { "data": "nama_vendornya" },
-                { "data": "tahun" },
-                { "data": "actionButton" },
+      columns: [{
+          "data": "no"
+        },
+        {
+          "data": "nama_mereknya"
+        },
+        {
+          "data": "nama_pengguna"
+        },
+        {
+          "data": "nama_unitnya"
+        },
+        {
+          "data": "kepemilikan_status"
+        },
+        {
+          "data": "nama_vendornya"
+        },
+        {
+          "data": "tahun"
+        },
+        {
+          "data": "actionButton"
+        },
       ],
     });
 
@@ -270,24 +396,47 @@ $('#tingkat_kerawanan').on('change', function() {
 
     var table = $('#example1').DataTable({
       ajax: {
-                processing: true,
-                serverSide: true,
-                url: '<?php echo site_url('admin/table_laptop_view');?>',
-                type : 'POST',
+        processing: true,
+        serverSide: true,
+        url: '<?php echo site_url('admin/table_laptop_view'); ?>',
+        type: 'POST',
       },
-      columns: [
-                { "data": "no" },
-                { "data": "nama_mereknya" },
-                { "data": "spesifikasi" },
-                { "data": "nama_pengguna" },
-                { "data": "laptop_name" },
-                { "data": "linkNumber" },
-                { "data": "ip_address" },
-                { "data": "nama_unitnya" },
-                { "data": "kepemilikan_status" },
-                { "data": "nama_vendornya" },
-                { "data": "tahun" },
-                { "data": "actionButton" },
+      columns: [{
+          "data": "no"
+        },
+        {
+          "data": "nama_mereknya"
+        },
+        {
+          "data": "spesifikasi"
+        },
+        {
+          "data": "nama_pengguna"
+        },
+        {
+          "data": "laptop_name"
+        },
+        {
+          "data": "linkNumber"
+        },
+        {
+          "data": "ip_address"
+        },
+        {
+          "data": "nama_unitnya"
+        },
+        {
+          "data": "kepemilikan_status"
+        },
+        {
+          "data": "nama_vendornya"
+        },
+        {
+          "data": "tahun"
+        },
+        {
+          "data": "actionButton"
+        },
       ],
       lengthChange: true,
       buttons: [{
@@ -308,69 +457,99 @@ $('#tingkat_kerawanan').on('change', function() {
       'autoWidth': false
     })
     table.buttons().container()
-    .appendTo('#example1_wrapper .col-sm-6:eq(0)');
+      .appendTo('#example1_wrapper .col-sm-6:eq(0)');
   })
-   $(function () {
-   var table = $('#example3').DataTable({
-	
-	  lengthChange: true,
+  $(function() {
+    var table = $('#example3').DataTable({
+
+      lengthChange: true,
       buttons: [{
-                  extend: 'excel',
-                  text : '<i class="fa fa-file-excel-o"></i>&nbsp Export to Excel (*.xls)',
-                  className : 'btn btn-sm',
-                  exportOptions: {
-                    columns: 'th:not(:last-child)'
-                  },
-              }],
-			  });
-  
-	table.buttons().container()
-        .appendTo( '#example3_wrapper .col-sm-6:eq(0)' );
+        extend: 'excel',
+        text: '<i class="fa fa-file-excel-o"></i>&nbsp Export to Excel (*.xls)',
+        className: 'btn btn-sm',
+        exportOptions: {
+          columns: 'th:not(:last-child)'
+        },
+      }],
+    });
+
+    table.buttons().container()
+      .appendTo('#example3_wrapper .col-sm-6:eq(0)');
   })
   $(function() {
     var table = $('#example4').DataTable({
       ajax: {
-                processing: true,
-                serverSide: true,
-                url: '<?php echo site_url('admin/table_lgangguan_view');?>',
-                type : 'POST',
+        processing: true,
+        serverSide: true,
+        url: '<?php echo site_url('admin/table_lgangguan_view'); ?>',
+        type: 'POST',
       },
-      columns: [
-                { "data": "no" },
-                { "data": "no_tiket" },
-                { "data": "nama_service" },
-                { "data": "sid" },
-                { "data": "nama_kantor_induk" },
-                { "data": "kerja_wilayah" },
-                { "data": "layanan" },
-                { "data": "cekScada" },
-                { "data": "open_tiket" },
-                { "data": "close_tiket" },
-                { "data": "stop_clock" },
-                { "data": "durasi" },
-                { "data": "kategori" },
-                { "data": "action" },
-                { "data": "status_log" },
-                { "data": "actionButton" },
+      columns: [{
+          "data": "no"
+        },
+        {
+          "data": "no_tiket"
+        },
+        {
+          "data": "nama_service"
+        },
+        {
+          "data": "sid"
+        },
+        {
+          "data": "nama_kantor_induk"
+        },
+        {
+          "data": "kerja_wilayah"
+        },
+        {
+          "data": "layanan"
+        },
+        {
+          "data": "cekScada"
+        },
+        {
+          "data": "open_tiket"
+        },
+        {
+          "data": "close_tiket"
+        },
+        {
+          "data": "stop_clock"
+        },
+        {
+          "data": "durasi"
+        },
+        {
+          "data": "kategori"
+        },
+        {
+          "data": "action"
+        },
+        {
+          "data": "status_log"
+        },
+        {
+          "data": "actionButton"
+        },
       ],
       lengthChange: true,
       scrollX: true,
-      buttons: [
-       {
-           extend: 'pdf',
-           orientation: 'landscape',
-           pageSize: 'TABLOID',
-           footer: true,
-           exportOptions: {
-                columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]
-            }
-       },
-       {
-           extend: 'excel',
-           footer: false
-       }         
-    ]  
-      
+      buttons: [{
+          extend: 'pdf',
+          orientation: 'landscape',
+          pageSize: 'TABLOID',
+          footer: true,
+          exportOptions: {
+            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+          }
+        },
+        {
+          extend: 'excel',
+          footer: false
+        }
+      ]
+
     });
     $('#example2').DataTable({
       'paging': true,
@@ -381,29 +560,28 @@ $('#tingkat_kerawanan').on('change', function() {
       'autoWidth': false
     })
     table.buttons().container()
-    .appendTo('#example4_wrapper .col-sm-6:eq(0)');
+      .appendTo('#example4_wrapper .col-sm-6:eq(0)');
   })
   $(function() {
     var table = $('#example5').DataTable({
 
       lengthChange: true,
       scrollX: true,
-      buttons: [
-       {
-           extend: 'pdf',
-           orientation: 'landscape',
-           pageSize: 'TABLOID',
-           footer: true,
-           exportOptions: {
-                columns: [0,1,2,3,4,5,6,7,8,9,10,11,12,13]
-            }
-       },
-       {
-           extend: 'excel',
-           footer: false
-       }         
-    ]  
-      
+      buttons: [{
+          extend: 'pdf',
+          orientation: 'landscape',
+          pageSize: 'TABLOID',
+          footer: true,
+          exportOptions: {
+            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+          }
+        },
+        {
+          extend: 'excel',
+          footer: false
+        }
+      ]
+
     });
     $('#example2').DataTable({
       'paging': true,
@@ -414,9 +592,8 @@ $('#tingkat_kerawanan').on('change', function() {
       'autoWidth': false
     })
     table.buttons().container()
-    .appendTo('#example5_wrapper .col-sm-6:eq(0)');
+      .appendTo('#example5_wrapper .col-sm-6:eq(0)');
   })
-  
 </script>
 
 <!-- bootstrap datepicker -->
@@ -509,41 +686,41 @@ $('#tingkat_kerawanan').on('change', function() {
     var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [{
-      value: <?php echo $dashboard_merek_laptop_hp['jumlahnya']; ?>,
-      color: '#f56954',
-      highlight: '#f56954',
-      label: '<?php echo $dashboard_merek_laptop_hp['nama_merek']; ?>'
-    },
-    {
-      value: <?php echo $dashboard_merek_laptop_apple['jumlahnya']; ?>,
-      color: '#00a65a',
-      highlight: '#00a65a',
-      label: '<?php echo $dashboard_merek_laptop_apple['nama_merek']; ?>'
-    },
-    {
-      value: <?php echo $dashboard_merek_laptop_asus['jumlahnya']; ?>,
-      color: '#f39c12',
-      highlight: '#f39c12',
-      label: '<?php echo $dashboard_merek_laptop_asus['nama_merek']; ?>'
-    },
-    {
-      value: <?php echo $dashboard_merek_laptop_lenovo['jumlahnya']; ?>,
-      color: '#00c0ef',
-      highlight: '#00c0ef',
-      label: '<?php echo $dashboard_merek_laptop_lenovo['nama_merek']; ?>'
-    },
-    {
-      value: <?php echo $dashboard_merek_laptop_toshiba['jumlahnya']; ?>,
-      color: '#3c8dbc',
-      highlight: '#3c8dbc',
-      label: '<?php echo $dashboard_merek_laptop_toshiba['nama_merek']; ?>'
-    },
-    {
-      value: <?php echo $dashboard_merek_laptop_dell['jumlahnya']; ?>,
-      color: '#d2d6de',
-      highlight: '#d2d6de',
-      label: '<?php echo $dashboard_merek_laptop_dell['nama_merek']; ?>'
-    },
+        value: <?php echo $dashboard_merek_laptop_hp['jumlahnya']; ?>,
+        color: '#f56954',
+        highlight: '#f56954',
+        label: '<?php echo $dashboard_merek_laptop_hp['nama_merek']; ?>'
+      },
+      {
+        value: <?php echo $dashboard_merek_laptop_apple['jumlahnya']; ?>,
+        color: '#00a65a',
+        highlight: '#00a65a',
+        label: '<?php echo $dashboard_merek_laptop_apple['nama_merek']; ?>'
+      },
+      {
+        value: <?php echo $dashboard_merek_laptop_asus['jumlahnya']; ?>,
+        color: '#f39c12',
+        highlight: '#f39c12',
+        label: '<?php echo $dashboard_merek_laptop_asus['nama_merek']; ?>'
+      },
+      {
+        value: <?php echo $dashboard_merek_laptop_lenovo['jumlahnya']; ?>,
+        color: '#00c0ef',
+        highlight: '#00c0ef',
+        label: '<?php echo $dashboard_merek_laptop_lenovo['nama_merek']; ?>'
+      },
+      {
+        value: <?php echo $dashboard_merek_laptop_toshiba['jumlahnya']; ?>,
+        color: '#3c8dbc',
+        highlight: '#3c8dbc',
+        label: '<?php echo $dashboard_merek_laptop_toshiba['nama_merek']; ?>'
+      },
+      {
+        value: <?php echo $dashboard_merek_laptop_dell['jumlahnya']; ?>,
+        color: '#d2d6de',
+        highlight: '#d2d6de',
+        label: '<?php echo $dashboard_merek_laptop_dell['nama_merek']; ?>'
+      },
     ]
     var pieOptions = {
       //Boolean - Whether we should show a stroke on each segment
@@ -580,51 +757,50 @@ $('#tingkat_kerawanan').on('change', function() {
     var barChart = new Chart(barChartCanvas)
 
     var barChartData = {
-      labels: ['JANUARI', 'FEBRUARI', 'MARET', 'APRIL','MEI','JUNI','JULI','AGUSTUS','SEPTEMBER','OKTOBER','NOVEMBER','DESEMBER'],
-      datasets: [
-      {
-        fillColor: 'rgba(210, 214, 222, 1)',
-        strokeColor: 'rgba(210, 214, 222, 1)',
-        pointColor: 'rgba(210, 214, 222, 1)',
-        pointStrokeColor: '#c1c7d1',
-        pointHighlightFill: '#fff',
-        pointHighlightStroke: 'rgba(220,220,220,1)',
-      label: ['IPVPN','VSAT','INTERNET','METRONET'],
-        data: [100,99,100,99,]
-      },
+      labels: ['JANUARI', 'FEBRUARI', 'MARET', 'APRIL', 'MEI', 'JUNI', 'JULI', 'AGUSTUS', 'SEPTEMBER', 'OKTOBER', 'NOVEMBER', 'DESEMBER'],
+      datasets: [{
+          fillColor: 'rgba(210, 214, 222, 1)',
+          strokeColor: 'rgba(210, 214, 222, 1)',
+          pointColor: 'rgba(210, 214, 222, 1)',
+          pointStrokeColor: '#c1c7d1',
+          pointHighlightFill: '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          label: ['IPVPN', 'VSAT', 'INTERNET', 'METRONET'],
+          data: [100, 99, 100, 99, ]
+        },
 
-      {
-        label: 'METRONET',
-        fillColor: 'rgba(60,141,188,0.9)',
-        strokeColor: 'rgba(60,141,188,0.8)',
-        pointColor: '#3b8bba',
-        pointStrokeColor: 'rgba(60,141,188,1)',
-        pointHighlightFill: '#fff',
-        pointHighlightStroke: 'rgba(60,141,188,1)',
-        data: [100,99,100,99,]
+        {
+          label: 'METRONET',
+          fillColor: 'rgba(60,141,188,0.9)',
+          strokeColor: 'rgba(60,141,188,0.8)',
+          pointColor: '#3b8bba',
+          pointStrokeColor: 'rgba(60,141,188,1)',
+          pointHighlightFill: '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data: [100, 99, 100, 99, ]
 
-      },
-	  {
-        label: 'INTERNET',
-        fillColor: 'rgba(60,141,188,0.9)',
-        strokeColor: 'rgba(60,141,188,0.8)',
-        pointColor: '#3b8bba',
-        pointStrokeColor: 'rgba(60,141,188,1)',
-        pointHighlightFill: '#fff',
-        pointHighlightStroke: 'rgba(60,141,188,1)',
-        data:[100,99,100,99,]
+        },
+        {
+          label: 'INTERNET',
+          fillColor: 'rgba(60,141,188,0.9)',
+          strokeColor: 'rgba(60,141,188,0.8)',
+          pointColor: '#3b8bba',
+          pointStrokeColor: 'rgba(60,141,188,1)',
+          pointHighlightFill: '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data: [100, 99, 100, 99, ]
 
-      },
-	   {
-        label: 'VSAT',
-        fillColor: 'rgba(210, 214, 222, 1)',
-        strokeColor: 'rgba(210, 214, 222, 1)',
-        pointColor: 'rgba(210, 214, 222, 1)',
-        pointStrokeColor: '#c1c7d1',
-        pointHighlightFill: '#fff',
-        pointHighlightStroke: 'rgba(220,220,220,1)',
-        data: [100,99,100,99,]
-      }
+        },
+        {
+          label: 'VSAT',
+          fillColor: 'rgba(210, 214, 222, 1)',
+          strokeColor: 'rgba(210, 214, 222, 1)',
+          pointColor: 'rgba(210, 214, 222, 1)',
+          pointStrokeColor: '#c1c7d1',
+          pointHighlightFill: '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data: [100, 99, 100, 99, ]
+        }
       ],
     }
 
@@ -671,41 +847,41 @@ $('#tingkat_kerawanan').on('change', function() {
     var pieChartCanvas = $('#pieChart').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [{
-      value: <?php echo $dashboard_merek_laptop_hp['jumlahnya']; ?>,
-      color: '#f56954',
-      highlight: '#f56954',
-      label: '<?php echo $dashboard_merek_laptop_hp['nama_merek']; ?>'
-    },
-    {
-      value: <?php echo $dashboard_merek_laptop_apple['jumlahnya']; ?>,
-      color: '#00a65a',
-      highlight: '#00a65a',
-      label: '<?php echo $dashboard_merek_laptop_apple['nama_merek']; ?>'
-    },
-    {
-      value: <?php echo $dashboard_merek_laptop_asus['jumlahnya']; ?>,
-      color: '#f39c12',
-      highlight: '#f39c12',
-      label: '<?php echo $dashboard_merek_laptop_asus['nama_merek']; ?>'
-    },
-    {
-      value: <?php echo $dashboard_merek_laptop_lenovo['jumlahnya']; ?>,
-      color: '#00c0ef',
-      highlight: '#00c0ef',
-      label: '<?php echo $dashboard_merek_laptop_lenovo['nama_merek']; ?>'
-    },
-    {
-      value: <?php echo $dashboard_merek_laptop_toshiba['jumlahnya']; ?>,
-      color: '#3c8dbc',
-      highlight: '#3c8dbc',
-      label: '<?php echo $dashboard_merek_laptop_toshiba['nama_merek']; ?>'
-    },
-    {
-      value: <?php echo $dashboard_merek_laptop_dell['jumlahnya']; ?>,
-      color: '#d2d6de',
-      highlight: '#d2d6de',
-      label: '<?php echo $dashboard_merek_laptop_dell['nama_merek']; ?>'
-    },
+        value: <?php echo $dashboard_merek_laptop_hp['jumlahnya']; ?>,
+        color: '#f56954',
+        highlight: '#f56954',
+        label: '<?php echo $dashboard_merek_laptop_hp['nama_merek']; ?>'
+      },
+      {
+        value: <?php echo $dashboard_merek_laptop_apple['jumlahnya']; ?>,
+        color: '#00a65a',
+        highlight: '#00a65a',
+        label: '<?php echo $dashboard_merek_laptop_apple['nama_merek']; ?>'
+      },
+      {
+        value: <?php echo $dashboard_merek_laptop_asus['jumlahnya']; ?>,
+        color: '#f39c12',
+        highlight: '#f39c12',
+        label: '<?php echo $dashboard_merek_laptop_asus['nama_merek']; ?>'
+      },
+      {
+        value: <?php echo $dashboard_merek_laptop_lenovo['jumlahnya']; ?>,
+        color: '#00c0ef',
+        highlight: '#00c0ef',
+        label: '<?php echo $dashboard_merek_laptop_lenovo['nama_merek']; ?>'
+      },
+      {
+        value: <?php echo $dashboard_merek_laptop_toshiba['jumlahnya']; ?>,
+        color: '#3c8dbc',
+        highlight: '#3c8dbc',
+        label: '<?php echo $dashboard_merek_laptop_toshiba['nama_merek']; ?>'
+      },
+      {
+        value: <?php echo $dashboard_merek_laptop_dell['jumlahnya']; ?>,
+        color: '#d2d6de',
+        highlight: '#d2d6de',
+        label: '<?php echo $dashboard_merek_laptop_dell['nama_merek']; ?>'
+      },
     ]
     var pieOptions = {
       //Boolean - Whether we should show a stroke on each segment
@@ -741,16 +917,16 @@ $('#tingkat_kerawanan').on('change', function() {
     var pieChartCanvas = $('#pieChartPC').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [
-    <?php if (!empty($dashboard_merek_pc)) {
-      foreach ($dashboard_merek_pc->result_array() as $data) { ?> {
-        value: <?php echo $data['jumlahnya']; ?>,
-        color: getRandomColor(),
-        label: '<?php echo $data['nama_merek']; ?>'
-      },
-    <?php }
-  } ?>
-  ]
-  pieChart.Doughnut(PieData, pieOptions)
+      <?php if (!empty($dashboard_merek_pc)) {
+        foreach ($dashboard_merek_pc->result_array() as $data) { ?> {
+            value: <?php echo $data['jumlahnya']; ?>,
+            color: getRandomColor(),
+            label: '<?php echo $data['nama_merek']; ?>'
+          },
+      <?php }
+      } ?>
+    ]
+    pieChart.Doughnut(PieData, pieOptions)
 
     //-------------
     //- PIE CHART MEREK PRINTER-
@@ -758,16 +934,16 @@ $('#tingkat_kerawanan').on('change', function() {
     var pieChartCanvas = $('#pieChartPrinter').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [
-    <?php if (!empty($dashboard_merek_printer)) {
-      foreach ($dashboard_merek_printer->result_array() as $data) { ?> {
-        value: <?php echo $data['jumlahnya']; ?>,
-        color: getRandomColor(),
-        label: '<?php echo $data['nama_merek']; ?>'
-      },
-    <?php }
-  } ?>
-  ]
-  pieChart.Doughnut(PieData, pieOptions)
+      <?php if (!empty($dashboard_merek_printer)) {
+        foreach ($dashboard_merek_printer->result_array() as $data) { ?> {
+            value: <?php echo $data['jumlahnya']; ?>,
+            color: getRandomColor(),
+            label: '<?php echo $data['nama_merek']; ?>'
+          },
+      <?php }
+      } ?>
+    ]
+    pieChart.Doughnut(PieData, pieOptions)
 
     //-------------
     //- PIE CHART MEREK NETWORK DEVICE-
@@ -775,16 +951,16 @@ $('#tingkat_kerawanan').on('change', function() {
     var pieChartCanvas = $('#pieChartNetworkDevice').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [
-    <?php if (!empty($dashboard_merek_network_device)) {
-      foreach ($dashboard_merek_network_device->result_array() as $data) { ?> {
-        value: <?php echo $data['jumlahnya']; ?>,
-        color: getRandomColor(),
-        label: '<?php echo $data['nama_merek']; ?>'
-      },
-    <?php }
-  } ?>
-  ]
-  pieChart.Doughnut(PieData, pieOptions)
+      <?php if (!empty($dashboard_merek_network_device)) {
+        foreach ($dashboard_merek_network_device->result_array() as $data) { ?> {
+            value: <?php echo $data['jumlahnya']; ?>,
+            color: getRandomColor(),
+            label: '<?php echo $data['nama_merek']; ?>'
+          },
+      <?php }
+      } ?>
+    ]
+    pieChart.Doughnut(PieData, pieOptions)
 
     //-------------
     //- PIE CHART MEREK SERVER-
@@ -792,16 +968,16 @@ $('#tingkat_kerawanan').on('change', function() {
     var pieChartCanvas = $('#pieChartServer').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [
-    <?php if (!empty($dashboard_merek_server)) {
-      foreach ($dashboard_merek_server->result_array() as $data) { ?> {
-        value: <?php echo $data['jumlahnya']; ?>,
-        color: getRandomColor(),
-        label: '<?php echo $data['nama_merek']; ?>'
-      },
-    <?php }
-  } ?>
-  ]
-  pieChart.Doughnut(PieData, pieOptions)
+      <?php if (!empty($dashboard_merek_server)) {
+        foreach ($dashboard_merek_server->result_array() as $data) { ?> {
+            value: <?php echo $data['jumlahnya']; ?>,
+            color: getRandomColor(),
+            label: '<?php echo $data['nama_merek']; ?>'
+          },
+      <?php }
+      } ?>
+    ]
+    pieChart.Doughnut(PieData, pieOptions)
 
     //-------------
     //- PIE CHART MEREK VICON-
@@ -809,40 +985,41 @@ $('#tingkat_kerawanan').on('change', function() {
     var pieChartCanvas = $('#pieChartVicon').get(0).getContext('2d')
     var pieChart = new Chart(pieChartCanvas)
     var PieData = [
-    <?php if (!empty($dashboard_merek_vicon)) {
-      foreach ($dashboard_merek_vicon->result_array() as $data) { ?> {
-        value: <?php echo $data['jumlahnya']; ?>,
-        color: getRandomColor(),
-        label: '<?php echo $data['nama_merek']; ?>'
-      },
-    <?php }
-  } ?>
-  ]
-  pieChart.Doughnut(PieData, pieOptions)
+      <?php if (!empty($dashboard_merek_vicon)) {
+        foreach ($dashboard_merek_vicon->result_array() as $data) { ?> {
+            value: <?php echo $data['jumlahnya']; ?>,
+            color: getRandomColor(),
+            label: '<?php echo $data['nama_merek']; ?>'
+          },
+      <?php }
+      } ?>
+    ]
+    pieChart.Doughnut(PieData, pieOptions)
 
-})
+  })
 </script>
 
 
 <!-- PIE CHART SID BERMASALAH -->
-  <script type="text/javascript">
+<script type="text/javascript">
   var ctx = document.getElementById("chartSID").getContext('2d');
-  <?php 
-    $sid_label = array();
-    $sid_value = array();
-    if(!empty($dashboard_sid_bermasalah)) {
-    foreach($dashboard_sid_bermasalah->result_array() as $row){
+  <?php
+  $sid_label = array();
+  $sid_value = array();
+  if (!empty($dashboard_sid_bermasalah)) {
+    foreach ($dashboard_sid_bermasalah->result_array() as $row) {
       array_push($sid_label, $row['nama_unit_level3']);
       array_push($sid_value, $row['jumlahnya']);
-    }}; ?>
-    var myChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: <?php echo json_encode($sid_label); ?>,
-        datasets: [{
-          label: 'INTERNET',
-          data: <?php echo json_encode($sid_value); ?>,
-          backgroundColor: [
+    }
+  }; ?>
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: <?php echo json_encode($sid_label); ?>,
+      datasets: [{
+        label: 'INTERNET',
+        data: <?php echo json_encode($sid_value); ?>,
+        backgroundColor: [
           'rgba(255,99,132,1)',
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
@@ -853,8 +1030,8 @@ $('#tingkat_kerawanan').on('change', function() {
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
           'rgba(75, 192, 192, 1)'
-          ],
-          borderColor: [
+        ],
+        borderColor: [
           'rgba(255,99,132,1)',
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
@@ -865,55 +1042,60 @@ $('#tingkat_kerawanan').on('change', function() {
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
           'rgba(75, 192, 192, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        legend : { display: false}
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      legend: {
+        display: false
       }
-    });
+    }
+  });
 </script>
 
 <!-- PIE CHART KATEGORI GANGGUAN TERBANYAK -->
-  <script type="text/javascript">
+<script type="text/javascript">
   var ctx = document.getElementById("chartGangguan").getContext('2d');
-  <?php 
-    $sid_label = array();
-    $sid_value = array();
-    if(!empty($dashboard_gangguan_terbanyak)) {
-    foreach($dashboard_gangguan_terbanyak->result_array() as $row){
+  <?php
+  $sid_label = array();
+  $sid_value = array();
+  if (!empty($dashboard_gangguan_terbanyak)) {
+    foreach ($dashboard_gangguan_terbanyak->result_array() as $row) {
       array_push($sid_label, $row['kategori']);
       array_push($sid_value, $row['jumlahnya']);
-    }}; ?>
-    var myChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: <?php echo json_encode($sid_label); ?>,
-        datasets: [{
-          label: 'INTERNET',
-          data: <?php echo json_encode($sid_value); ?>,
-          backgroundColor: [
+    }
+  }; ?>
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: <?php echo json_encode($sid_label); ?>,
+      datasets: [{
+        label: 'INTERNET',
+        data: <?php echo json_encode($sid_value); ?>,
+        backgroundColor: [
           'rgba(54, 162, 235, 0.2)',
           'rgba(255, 99, 132, 0.2)',
           'rgba(255, 206, 86, 0.2)',
           'rgba(75, 192, 192, 0.2)',
           'rgba(153, 102, 255, 0.2)'
-          ],
-          borderColor: [
+        ],
+        borderColor: [
           'rgba(54, 162, 235, 0.2)',
           'rgba(255, 99, 132, 0.2)',
           'rgba(255, 206, 86, 0.2)',
           'rgba(75, 192, 192, 0.2)',
           'rgba(153, 102, 255, 0.2)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        legend : { display: false}
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      legend: {
+        display: false
       }
-    });
+    }
+  });
 </script>
 
 <script type="text/javascript">
@@ -939,7 +1121,7 @@ $('#tingkat_kerawanan').on('change', function() {
       ele1.style.display = "block";
       ele2.style.display = "none";
       document.getElementById("nomorasman").value = 1;
-    } else if(tes === "2"){
+    } else if (tes === "2") {
       ele2.style.display = "block";
       ele1.style.display = "none";
       document.getElementById("nomorasman").value = 2;
@@ -961,7 +1143,7 @@ $('#tingkat_kerawanan').on('change', function() {
       ele1.style.display = "block";
       ele2.style.display = "none";
       ele3.style.display = "none";
-    } else if(tes === "2"){
+    } else if (tes === "2") {
       ele2.style.display = "block";
       ele1.style.display = "none";
       ele3.style.display = "none";
@@ -975,954 +1157,968 @@ $('#tingkat_kerawanan').on('change', function() {
 <!-- CHART -->
 <!-- CHART data sla wilsu-->
 <script type="text/javascript">
-var ctx = document.getElementById("myChart1").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
-				datasets: [{
-					label: 'IP VPN',
-					data: [<?php echo round($januari_ipvpn_uiwsu_ok,0); ?>, <?php echo round($februari_ipvpn_uiwsu_ok,0); ?>, <?php echo round($maret_ipvpn_uiwsu_ok,0); ?>, 
-					<?php echo round($april_ipvpn_uiwsu_ok,0); ?>, <?php echo round($mei_ipvpn_uiwsu_ok,0); ?>,<?php echo round($juni_ipvpn_uiwsu_ok,0); ?>,<?php echo round($juli_ipvpn_uiwsu_ok,0); ?>,
-					<?php echo round($agustus_ipvpn_uiwsu_ok,0); ?>,<?php echo round($september_ipvpn_uiwsu_ok,0); ?>,<?php echo round($oktober_ipvpn_uiwsu_ok,0); ?>,
-					<?php echo round($november_ipvpn_uiwsu_ok,0); ?>,
-					<?php echo round($desember_ipvpn_uiwsu_ok,0); ?>],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)',
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
+  var ctx = document.getElementById("myChart1").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"],
+      datasets: [{
+        label: 'IP VPN',
+        data: [<?php echo round($januari_ipvpn_uiwsu_ok, 0); ?>, <?php echo round($februari_ipvpn_uiwsu_ok, 0); ?>, <?php echo round($maret_ipvpn_uiwsu_ok, 0); ?>,
+          <?php echo round($april_ipvpn_uiwsu_ok, 0); ?>, <?php echo round($mei_ipvpn_uiwsu_ok, 0); ?>, <?php echo round($juni_ipvpn_uiwsu_ok, 0); ?>, <?php echo round($juli_ipvpn_uiwsu_ok, 0); ?>,
+          <?php echo round($agustus_ipvpn_uiwsu_ok, 0); ?>, <?php echo round($september_ipvpn_uiwsu_ok, 0); ?>, <?php echo round($oktober_ipvpn_uiwsu_ok, 0); ?>,
+          <?php echo round($november_ipvpn_uiwsu_ok, 0); ?>,
+          <?php echo round($desember_ipvpn_uiwsu_ok, 0); ?>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 </script>
 <script type="text/javascript">
-var ctx = document.getElementById("myChart2").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
-				datasets: [{
-					label: 'VSAT IP',
-					data: [<?php echo round($januari_vsat_uiwsu_ok,0); ?>, <?php echo round($februari_vsat_uiwsu_ok,0); ?>, <?php echo round($maret_vsat_uiwsu_ok,0); ?>, 
-					<?php echo round($april_vsat_uiwsu_ok,0); ?>, <?php echo round($mei_vsat_uiwsu_ok,0); ?>,<?php echo round($juni_vsat_uiwsu_ok,0); ?>,<?php echo round($juli_vsat_uiwsu_ok,0); ?>,
-					<?php echo round($agustus_vsat_uiwsu_ok,0); ?>,<?php echo round($september_vsat_uiwsu_ok,0); ?>,<?php echo round($oktober_vsat_uiwsu_ok,0); ?>,
-					<?php echo round($november_vsat_uiwsu_ok,0); ?>,
-					<?php echo round($desember_vsat_uiwsu_ok,0); ?>],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)',
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
+  var ctx = document.getElementById("myChart2").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"],
+      datasets: [{
+        label: 'VSAT IP',
+        data: [<?php echo round($januari_vsat_uiwsu_ok, 0); ?>, <?php echo round($februari_vsat_uiwsu_ok, 0); ?>, <?php echo round($maret_vsat_uiwsu_ok, 0); ?>,
+          <?php echo round($april_vsat_uiwsu_ok, 0); ?>, <?php echo round($mei_vsat_uiwsu_ok, 0); ?>, <?php echo round($juni_vsat_uiwsu_ok, 0); ?>, <?php echo round($juli_vsat_uiwsu_ok, 0); ?>,
+          <?php echo round($agustus_vsat_uiwsu_ok, 0); ?>, <?php echo round($september_vsat_uiwsu_ok, 0); ?>, <?php echo round($oktober_vsat_uiwsu_ok, 0); ?>,
+          <?php echo round($november_vsat_uiwsu_ok, 0); ?>,
+          <?php echo round($desember_vsat_uiwsu_ok, 0); ?>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 </script>
 <script type="text/javascript">
-var ctx = document.getElementById("myChart3").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
-				datasets: [{
-					label: 'METRONET',
-					data: [<?php echo round($januari_metronet_uiwsu_ok,0); ?>, <?php echo round($februari_metronet_uiwsu_ok,0); ?>, <?php echo round($maret_metronet_uiwsu_ok,0); ?>, 
-					<?php echo round($april_metronet_uiwsu_ok,0); ?>, <?php echo round($mei_metronet_uiwsu_ok,0); ?>,<?php echo round($juni_metronet_uiwsu_ok,0); ?>,<?php echo round($juli_metronet_uiwsu_ok,0); ?>,
-					<?php echo round($agustus_metronet_uiwsu_ok,0); ?>,<?php echo round($september_metronet_uiwsu_ok,0); ?>,<?php echo round($oktober_metronet_uiwsu_ok,0); ?>,
-					<?php echo round($november_metronet_uiwsu_ok,0); ?>,
-					<?php echo round($desember_metronet_uiwsu_ok,0); ?>],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)',
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
+  var ctx = document.getElementById("myChart3").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"],
+      datasets: [{
+        label: 'METRONET',
+        data: [<?php echo round($januari_metronet_uiwsu_ok, 0); ?>, <?php echo round($februari_metronet_uiwsu_ok, 0); ?>, <?php echo round($maret_metronet_uiwsu_ok, 0); ?>,
+          <?php echo round($april_metronet_uiwsu_ok, 0); ?>, <?php echo round($mei_metronet_uiwsu_ok, 0); ?>, <?php echo round($juni_metronet_uiwsu_ok, 0); ?>, <?php echo round($juli_metronet_uiwsu_ok, 0); ?>,
+          <?php echo round($agustus_metronet_uiwsu_ok, 0); ?>, <?php echo round($september_metronet_uiwsu_ok, 0); ?>, <?php echo round($oktober_metronet_uiwsu_ok, 0); ?>,
+          <?php echo round($november_metronet_uiwsu_ok, 0); ?>,
+          <?php echo round($desember_metronet_uiwsu_ok, 0); ?>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 </script>
 <script type="text/javascript">
-var ctx = document.getElementById("myChart4").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
-				datasets: [{
-					label: 'INTERNET',
-					data: [<?php echo round($januari_internet_uiwsu_ok,0); ?>, <?php echo round($februari_internet_uiwsu_ok,0); ?>, <?php echo round($maret_internet_uiwsu_ok,0); ?>, 
-					<?php echo round($april_internet_uiwsu_ok,0); ?>, <?php echo round($mei_internet_uiwsu_ok,0); ?>,<?php echo round($juni_internet_uiwsu_ok,0); ?>,<?php echo round($juli_internet_uiwsu_ok,0); ?>,
-					<?php echo round($agustus_internet_uiwsu_ok,0); ?>,<?php echo round($september_internet_uiwsu_ok,0); ?>,<?php echo round($oktober_internet_uiwsu_ok,0); ?>,
-					<?php echo round($november_internet_uiwsu_ok,0); ?>,
-					<?php echo round($desember_internet_uiwsu_ok,0); ?>],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)',
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
+  var ctx = document.getElementById("myChart4").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"],
+      datasets: [{
+        label: 'INTERNET',
+        data: [<?php echo round($januari_internet_uiwsu_ok, 0); ?>, <?php echo round($februari_internet_uiwsu_ok, 0); ?>, <?php echo round($maret_internet_uiwsu_ok, 0); ?>,
+          <?php echo round($april_internet_uiwsu_ok, 0); ?>, <?php echo round($mei_internet_uiwsu_ok, 0); ?>, <?php echo round($juni_internet_uiwsu_ok, 0); ?>, <?php echo round($juli_internet_uiwsu_ok, 0); ?>,
+          <?php echo round($agustus_internet_uiwsu_ok, 0); ?>, <?php echo round($september_internet_uiwsu_ok, 0); ?>, <?php echo round($oktober_internet_uiwsu_ok, 0); ?>,
+          <?php echo round($november_internet_uiwsu_ok, 0); ?>,
+          <?php echo round($desember_internet_uiwsu_ok, 0); ?>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 </script>
 <!-- CHART data sla wilsu close -->
 
 <!-- CHART data sla uiksbu-->
 <script type="text/javascript">
-var ctx = document.getElementById("myChart5").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
-				datasets: [{
-					label: 'IP VPN',
-					data: [<?php echo round($januari_ipvpn_uiksbu_ok,0); ?>, <?php echo round($februari_ipvpn_uiksbu_ok,0); ?>, <?php echo round($maret_ipvpn_uiksbu_ok,0); ?>, 
-					<?php echo round($april_ipvpn_uiksbu_ok,0); ?>, <?php echo round($mei_ipvpn_uiksbu_ok,0); ?>,<?php echo round($juni_ipvpn_uiksbu_ok,0); ?>,<?php echo round($juli_ipvpn_uiksbu_ok,0); ?>,
-					<?php echo round($agustus_ipvpn_uiksbu_ok,0); ?>,<?php echo round($september_ipvpn_uiksbu_ok,0); ?>,<?php echo round($oktober_ipvpn_uiksbu_ok,0); ?>,
-					<?php echo round($november_ipvpn_uiksbu_ok,0); ?>,
-					<?php echo round($desember_ipvpn_uiksbu_ok,0); ?>],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)',
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
+  var ctx = document.getElementById("myChart5").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"],
+      datasets: [{
+        label: 'IP VPN',
+        data: [<?php echo round($januari_ipvpn_uiksbu_ok, 0); ?>, <?php echo round($februari_ipvpn_uiksbu_ok, 0); ?>, <?php echo round($maret_ipvpn_uiksbu_ok, 0); ?>,
+          <?php echo round($april_ipvpn_uiksbu_ok, 0); ?>, <?php echo round($mei_ipvpn_uiksbu_ok, 0); ?>, <?php echo round($juni_ipvpn_uiksbu_ok, 0); ?>, <?php echo round($juli_ipvpn_uiksbu_ok, 0); ?>,
+          <?php echo round($agustus_ipvpn_uiksbu_ok, 0); ?>, <?php echo round($september_ipvpn_uiksbu_ok, 0); ?>, <?php echo round($oktober_ipvpn_uiksbu_ok, 0); ?>,
+          <?php echo round($november_ipvpn_uiksbu_ok, 0); ?>,
+          <?php echo round($desember_ipvpn_uiksbu_ok, 0); ?>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 </script>
 <script type="text/javascript">
-var ctx = document.getElementById("myChart6").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
-				datasets: [{
-					label: 'INTERNET',
-					data: [<?php echo round($januari_internet_uiksbu_ok,0); ?>, <?php echo round($februari_internet_uiksbu_ok,0); ?>, <?php echo round($maret_internet_uiksbu_ok,0); ?>, 
-					<?php echo round($april_internet_uiksbu_ok,0); ?>, <?php echo round($mei_internet_uiksbu_ok,0); ?>,<?php echo round($juni_internet_uiksbu_ok,0); ?>,<?php echo round($juli_internet_uiksbu_ok,0); ?>,
-					<?php echo round($agustus_internet_uiksbu_ok,0); ?>,<?php echo round($september_internet_uiksbu_ok,0); ?>,<?php echo round($oktober_internet_uiksbu_ok,0); ?>,
-					<?php echo round($november_internet_uiksbu_ok,0); ?>,
-					<?php echo round($desember_internet_uiksbu_ok,0); ?>],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)',
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
+  var ctx = document.getElementById("myChart6").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"],
+      datasets: [{
+        label: 'INTERNET',
+        data: [<?php echo round($januari_internet_uiksbu_ok, 0); ?>, <?php echo round($februari_internet_uiksbu_ok, 0); ?>, <?php echo round($maret_internet_uiksbu_ok, 0); ?>,
+          <?php echo round($april_internet_uiksbu_ok, 0); ?>, <?php echo round($mei_internet_uiksbu_ok, 0); ?>, <?php echo round($juni_internet_uiksbu_ok, 0); ?>, <?php echo round($juli_internet_uiksbu_ok, 0); ?>,
+          <?php echo round($agustus_internet_uiksbu_ok, 0); ?>, <?php echo round($september_internet_uiksbu_ok, 0); ?>, <?php echo round($oktober_internet_uiksbu_ok, 0); ?>,
+          <?php echo round($november_internet_uiksbu_ok, 0); ?>,
+          <?php echo round($desember_internet_uiksbu_ok, 0); ?>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 </script>
 
 <!-- CHART data sla uipsbu-->
 <script type="text/javascript">
-var ctx = document.getElementById("myChart7").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
-				datasets: [{
-					label: 'IP VPN',
-					data: [<?php echo round($januari_ipvpn_uipsbu_ok,0); ?>, <?php echo round($februari_ipvpn_uipsbu_ok,0); ?>, <?php echo round($maret_ipvpn_uipsbu_ok,0); ?>, 
-					<?php echo round($april_ipvpn_uipsbu_ok,0); ?>, <?php echo round($mei_ipvpn_uipsbu_ok,0); ?>,<?php echo round($juni_ipvpn_uipsbu_ok,0); ?>,<?php echo round($juli_ipvpn_uipsbu_ok,0); ?>,
-					<?php echo round($agustus_ipvpn_uipsbu_ok,0); ?>,<?php echo round($september_ipvpn_uipsbu_ok,0); ?>,<?php echo round($oktober_ipvpn_uipsbu_ok,0); ?>,
-					<?php echo round($november_ipvpn_uipsbu_ok,0); ?>,
-					<?php echo round($desember_ipvpn_uipsbu_ok,0); ?>],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)',
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
+  var ctx = document.getElementById("myChart7").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"],
+      datasets: [{
+        label: 'IP VPN',
+        data: [<?php echo round($januari_ipvpn_uipsbu_ok, 0); ?>, <?php echo round($februari_ipvpn_uipsbu_ok, 0); ?>, <?php echo round($maret_ipvpn_uipsbu_ok, 0); ?>,
+          <?php echo round($april_ipvpn_uipsbu_ok, 0); ?>, <?php echo round($mei_ipvpn_uipsbu_ok, 0); ?>, <?php echo round($juni_ipvpn_uipsbu_ok, 0); ?>, <?php echo round($juli_ipvpn_uipsbu_ok, 0); ?>,
+          <?php echo round($agustus_ipvpn_uipsbu_ok, 0); ?>, <?php echo round($september_ipvpn_uipsbu_ok, 0); ?>, <?php echo round($oktober_ipvpn_uipsbu_ok, 0); ?>,
+          <?php echo round($november_ipvpn_uipsbu_ok, 0); ?>,
+          <?php echo round($desember_ipvpn_uipsbu_ok, 0); ?>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 </script>
 <script type="text/javascript">
-var ctx = document.getElementById("myChart8").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
-				datasets: [{
-					label: 'INTERNET',
-					data: [<?php echo round($januari_internet_uipsbu_ok,0); ?>, <?php echo round($februari_internet_uipsbu_ok,0); ?>, <?php echo round($maret_internet_uipsbu_ok,0); ?>, 
-					<?php echo round($april_internet_uipsbu_ok,0); ?>, <?php echo round($mei_internet_uipsbu_ok,0); ?>,<?php echo round($juni_internet_uipsbu_ok,0); ?>,<?php echo round($juli_internet_uipsbu_ok,0); ?>,
-					<?php echo round($agustus_internet_uipsbu_ok,0); ?>,<?php echo round($september_internet_uipsbu_ok,0); ?>,<?php echo round($oktober_internet_uipsbu_ok,0); ?>,
-					<?php echo round($november_internet_uipsbu_ok,0); ?>,
-					<?php echo round($desember_internet_uipsbu_ok,0); ?>],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)',
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
+  var ctx = document.getElementById("myChart8").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"],
+      datasets: [{
+        label: 'INTERNET',
+        data: [<?php echo round($januari_internet_uipsbu_ok, 0); ?>, <?php echo round($februari_internet_uipsbu_ok, 0); ?>, <?php echo round($maret_internet_uipsbu_ok, 0); ?>,
+          <?php echo round($april_internet_uipsbu_ok, 0); ?>, <?php echo round($mei_internet_uipsbu_ok, 0); ?>, <?php echo round($juni_internet_uipsbu_ok, 0); ?>, <?php echo round($juli_internet_uipsbu_ok, 0); ?>,
+          <?php echo round($agustus_internet_uipsbu_ok, 0); ?>, <?php echo round($september_internet_uipsbu_ok, 0); ?>, <?php echo round($oktober_internet_uipsbu_ok, 0); ?>,
+          <?php echo round($november_internet_uipsbu_ok, 0); ?>,
+          <?php echo round($desember_internet_uipsbu_ok, 0); ?>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 </script>
 <script type="text/javascript">
-var ctx = document.getElementById("myChart9").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
-				datasets: [{
-					label: 'IP VPN',
-					data: [<?php echo round($januari_ipvpn_uipkitsum_ok,0); ?>, <?php echo round($februari_ipvpn_uipkitsum_ok,0); ?>, <?php echo round($maret_ipvpn_uipkitsum_ok,0); ?>, 
-					<?php echo round($april_ipvpn_uipkitsum_ok,0); ?>, <?php echo round($mei_ipvpn_uipkitsum_ok,0); ?>,<?php echo round($juni_ipvpn_uipkitsum_ok,0); ?>,<?php echo round($juli_ipvpn_uipkitsum_ok,0); ?>,
-					<?php echo round($agustus_ipvpn_uipkitsum_ok,0); ?>,<?php echo round($september_ipvpn_uipkitsum_ok,0); ?>,<?php echo round($oktober_ipvpn_uipkitsum_ok,0); ?>,
-					<?php echo round($november_ipvpn_uipkitsum_ok,0); ?>,
-					<?php echo round($desember_ipvpn_uipkitsum_ok,0); ?>],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)',
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
+  var ctx = document.getElementById("myChart9").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"],
+      datasets: [{
+        label: 'IP VPN',
+        data: [<?php echo round($januari_ipvpn_uipkitsum_ok, 0); ?>, <?php echo round($februari_ipvpn_uipkitsum_ok, 0); ?>, <?php echo round($maret_ipvpn_uipkitsum_ok, 0); ?>,
+          <?php echo round($april_ipvpn_uipkitsum_ok, 0); ?>, <?php echo round($mei_ipvpn_uipkitsum_ok, 0); ?>, <?php echo round($juni_ipvpn_uipkitsum_ok, 0); ?>, <?php echo round($juli_ipvpn_uipkitsum_ok, 0); ?>,
+          <?php echo round($agustus_ipvpn_uipkitsum_ok, 0); ?>, <?php echo round($september_ipvpn_uipkitsum_ok, 0); ?>, <?php echo round($oktober_ipvpn_uipkitsum_ok, 0); ?>,
+          <?php echo round($november_ipvpn_uipkitsum_ok, 0); ?>,
+          <?php echo round($desember_ipvpn_uipkitsum_ok, 0); ?>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 </script>
 <script type="text/javascript">
-var ctx = document.getElementById("myChart10").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
-				datasets: [{
-					label: 'INTERNET',
-					data: [<?php echo round($januari_internet_uipkitsum_ok,0); ?>, <?php echo round($februari_internet_uipkitsum_ok,0); ?>, <?php echo round($maret_internet_uipkitsum_ok,0); ?>, 
-					<?php echo round($april_internet_uipkitsum_ok,0); ?>, <?php echo round($mei_internet_uipkitsum_ok,0); ?>,<?php echo round($juni_internet_uipkitsum_ok,0); ?>,<?php echo round($juli_internet_uipkitsum_ok,0); ?>,
-					<?php echo round($agustus_internet_uipkitsum_ok,0); ?>,<?php echo round($september_internet_uipkitsum_ok,0); ?>,<?php echo round($oktober_internet_uipkitsum_ok,0); ?>,
-					<?php echo round($november_internet_uipkitsum_ok,0); ?>,
-					<?php echo round($desember_internet_uipkitsum_ok,0); ?>],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)',
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
+  var ctx = document.getElementById("myChart10").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"],
+      datasets: [{
+        label: 'INTERNET',
+        data: [<?php echo round($januari_internet_uipkitsum_ok, 0); ?>, <?php echo round($februari_internet_uipkitsum_ok, 0); ?>, <?php echo round($maret_internet_uipkitsum_ok, 0); ?>,
+          <?php echo round($april_internet_uipkitsum_ok, 0); ?>, <?php echo round($mei_internet_uipkitsum_ok, 0); ?>, <?php echo round($juni_internet_uipkitsum_ok, 0); ?>, <?php echo round($juli_internet_uipkitsum_ok, 0); ?>,
+          <?php echo round($agustus_internet_uipkitsum_ok, 0); ?>, <?php echo round($september_internet_uipkitsum_ok, 0); ?>, <?php echo round($oktober_internet_uipkitsum_ok, 0); ?>,
+          <?php echo round($november_internet_uipkitsum_ok, 0); ?>,
+          <?php echo round($desember_internet_uipkitsum_ok, 0); ?>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 </script>
 <script type="text/javascript">
-var ctx = document.getElementById("myChart11").getContext('2d');
-		var myChart = new Chart(ctx, {
-			type: 'bar',
-			data: {
-				labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER","NOVEMBER","DESEMBER"],
-				datasets: [{
-					label: 'VSAT',
-					data: [<?php echo round($januari_vsat_uipkitsum_ok,0); ?>, <?php echo round($februari_vsat_uipkitsum_ok,0); ?>, <?php echo round($maret_vsat_uipkitsum_ok,0); ?>, 
-					<?php echo round($april_vsat_uipkitsum_ok,0); ?>, <?php echo round($mei_vsat_uipkitsum_ok,0); ?>,<?php echo round($juni_vsat_uipkitsum_ok,0); ?>,<?php echo round($juli_vsat_uipkitsum_ok,0); ?>,
-					<?php echo round($agustus_vsat_uipkitsum_ok,0); ?>,<?php echo round($september_vsat_uipkitsum_ok,0); ?>,<?php echo round($oktober_vsat_uipkitsum_ok,0); ?>,
-					<?php echo round($november_vsat_uipkitsum_ok,0); ?>,
-					<?php echo round($desember_vsat_uipkitsum_ok,0); ?>],
-					backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)',
-					'rgba(255,99,132,1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				scales: {
-					yAxes: [{
-						ticks: {
-							beginAtZero:true
-						}
-					}]
-				}
-			}
-		});
+  var ctx = document.getElementById("myChart11").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"],
+      datasets: [{
+        label: 'VSAT',
+        data: [<?php echo round($januari_vsat_uipkitsum_ok, 0); ?>, <?php echo round($februari_vsat_uipkitsum_ok, 0); ?>, <?php echo round($maret_vsat_uipkitsum_ok, 0); ?>,
+          <?php echo round($april_vsat_uipkitsum_ok, 0); ?>, <?php echo round($mei_vsat_uipkitsum_ok, 0); ?>, <?php echo round($juni_vsat_uipkitsum_ok, 0); ?>, <?php echo round($juli_vsat_uipkitsum_ok, 0); ?>,
+          <?php echo round($agustus_vsat_uipkitsum_ok, 0); ?>, <?php echo round($september_vsat_uipkitsum_ok, 0); ?>, <?php echo round($oktober_vsat_uipkitsum_ok, 0); ?>,
+          <?php echo round($november_vsat_uipkitsum_ok, 0); ?>,
+          <?php echo round($desember_vsat_uipkitsum_ok, 0); ?>
+        ],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  });
 </script>
 <!-- CHART data sla wilsu close -->
 
 <!-- CHART data sla wilsu close -->
 <script>
+  $("#kantor_induk").change(function() {
 
-        $("#kantor_induk").change(function(){
+    // variabel dari nilai combo box kendaraan
+    var id_kantor_induk = $("#kantor_induk").val();
 
-            // variabel dari nilai combo box kendaraan
-            var id_kantor_induk = $("#kantor_induk").val();
+    // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+    $.ajax({
+      url: "<?php echo base_url(); ?>/laporan/get_unit_level2",
+      method: "POST",
+      data: {
+        id_kantor_induk: id_kantor_induk
+      },
+      async: false,
+      dataType: 'json',
+      success: function(data) {
+        var html = '';
+        var i;
+        html += '<option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>';
 
-            // Menggunakan ajax untuk mengirim dan dan menerima data dari server
-            $.ajax({
-                url : "<?php echo base_url();?>/laporan/get_unit_level2",
-                method : "POST",
-                data : {id_kantor_induk:id_kantor_induk},
-                async : false,
-                dataType : 'json',
-                success: function(data){
-                    var html = '';
-                    var i;
-                    html += '<option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>';
+        for (i = 0; i < data.length; i++) {
+          html += '<option value=' + data[i].id_unit_level2 + '>' + data[i].nama_unit_level2 + '</option>';
+        }
+        $('#unit_level2').html(html);
 
-                    for(i=0; i<data.length; i++){
-                        html += '<option value='+data[i].id_unit_level2+'>'+data[i].nama_unit_level2+'</option>';
-                    }
-                    $('#unit_level2').html(html);
+      }
+    });
+  });
 
-                }
-            });
-        });
+  $("#unit_level2").change(function() {
 
-        $("#unit_level2").change(function(){
+    // variabel dari nilai combo box kendaraan
+    var id_unit_level2 = $("#unit_level2").val();
 
-            // variabel dari nilai combo box kendaraan
-            var id_unit_level2 = $("#unit_level2").val();
+    // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+    $.ajax({
+      url: "<?php echo base_url(); ?>/laporan/get_unit_level3",
+      method: "POST",
+      data: {
+        id_unit_level2: id_unit_level2
+      },
+      async: false,
+      dataType: 'json',
+      success: function(data) {
+        var html = '';
+        var i;
+        html += '<option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>';
 
-            // Menggunakan ajax untuk mengirim dan dan menerima data dari server
-            $.ajax({
-                url : "<?php echo base_url();?>/laporan/get_unit_level3",
-                method : "POST",
-                data : {id_unit_level2:id_unit_level2},
-                async : false,
-                dataType : 'json',
-                success: function(data){
-                    var html = '';
-                    var i;
-                    html += '<option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>';
+        for (i = 0; i < data.length; i++) {
+          html += '<option value=' + data[i].id_unit_level3 + '>' + data[i].nama_unit_level3 + '</option>';
+        }
+        $('#unit_level3').html(html);
 
-                    for(i=0; i<data.length; i++){
-                        html += '<option value='+data[i].id_unit_level3+'>'+data[i].nama_unit_level3+'</option>';
-                    }
-                    $('#unit_level3').html(html);
+      }
+    });
+  });
+</script>
 
-                }
-            });
-        });
-    </script>
-
-        <!-- HAR NETWORK -->
-    <script>
-    $("#nama_perangkat").change(function(){
+<!-- HAR NETWORK -->
+<script>
+  $("#nama_perangkat").change(function() {
 
     // variabel dari nilai combo box kendaraan
     var nama_perangkat = $("#nama_perangkat").val();
 
     // Menggunakan ajax untuk mengirim dan dan menerima data dari server
     $.ajax({
-      url : "<?php echo base_url();?>/laporan/get_data_device_name",
-      method : "POST",
-      data : {nama_perangkat:nama_perangkat},
-      async : false,
-      dataType : 'json',
-      success: function(data){
+      url: "<?php echo base_url(); ?>/laporan/get_data_device_name",
+      method: "POST",
+      data: {
+        nama_perangkat: nama_perangkat
+      },
+      async: false,
+      dataType: 'json',
+      success: function(data) {
         var html = '<option selected="selected" value=""> -- Pilih Perangkat -- </option>';
         var i;
 
-        for(i=0; i<data.length; i++){
-          html += '<option value='+data[i].type+'>'+data[i].type+'</option>';
+        for (i = 0; i < data.length; i++) {
+          html += '<option value=' + data[i].type + '>' + data[i].type + '</option>';
         }
         $('#type').html(html);
-        
+
       }
     });
-    });
-    </script>
-    <script>
-    $("#type").change(function(){
+  });
+</script>
+<script>
+  $("#type").change(function() {
 
     // variabel dari nilai combo box kendaraan
     var type = $("#type").val();
 
     // Menggunakan ajax untuk mengirim dan dan menerima data dari server
     $.ajax({
-      url : "<?php echo base_url();?>/laporan/get_data_device_type",
-      method : "POST",
-      data : {type:type},
-      async : false,
-      dataType : 'json',
-      success: function(data){
+      url: "<?php echo base_url(); ?>/laporan/get_data_device_type",
+      method: "POST",
+      data: {
+        type: type
+      },
+      async: false,
+      dataType: 'json',
+      success: function(data) {
         var html = '<option selected="selected" value=""> -- Pilih Serial Number -- </option>';
         var i;
 
-        for(i=0; i<data.length; i++){
-          html += '<option value='+data[i].serial_number+'>'+data[i].serial_number+'</option>';
+        for (i = 0; i < data.length; i++) {
+          html += '<option value=' + data[i].serial_number + '>' + data[i].serial_number + '</option>';
         }
         $('#serial_number').html(html);
-        
+
       }
     });
-    });
-    </script>
-
-  <script>
-        $("#serial_number").change(function(){
-
-        // variabel dari nilai combo box kendaraan
-        var serial_number = $("#serial_number").val();
-
-        // Menggunakan ajax untuk mengirim dan dan menerima data dari server
-        $.ajax({
-          url : "<?php echo base_url();?>/laporan/get_data_serial",
-          method : "POST",
-          data : {serial_number:serial_number},
-          async : false,
-          dataType : 'json',
-          success: function(data){
-            var html = '';
-            var i;
-            
-            for(i=0; i<data.length; i++){
-              html += data[i].ip_address;
-            }
-            if(html == ''){
-                html += '-';
-              }
-              else {
-                html;
-              }
-            $('#id_address').val(html);
-          }
-        });
-        });
-    </script>
-
-    <script>
-          $("#serial_number").change(function(){
-
-          // variabel dari nilai combo box kendaraan
-          var serial_number = $("#serial_number").val();
-
-          // Menggunakan ajax untuk mengirim dan dan menerima data dari server
-          $.ajax({
-            url : "<?php echo base_url();?>/laporan/get_data_serial",
-            method : "POST",
-            data : {serial_number:serial_number},
-            async : false,
-            dataType : 'json',
-            success: function(data){
-              var html = '';
-              var i;
-              
-              for(i=0; i<data.length; i++){
-                html += data[i].mac_address;
-              }
-              if(html == ''){
-                html += '-';
-              }
-              else {
-                html;
-              }
-              $('#mac_address').val(html);
-            }
-          });
-          });
-      </script>
+  });
+</script>
 
 <script>
-          $("#serial_number").change(function(){
+  $("#serial_number").change(function() {
 
-          // variabel dari nilai combo box kendaraan
-          var serial_number = $("#serial_number").val();
+    // variabel dari nilai combo box kendaraan
+    var serial_number = $("#serial_number").val();
 
-          // Menggunakan ajax untuk mengirim dan dan menerima data dari server
-          $.ajax({
-            url : "<?php echo base_url();?>/laporan/get_data_serial",
-            method : "POST",
-            data : {serial_number:serial_number},
-            async : false,
-            dataType : 'json',
-            success: function(data){
-              var html = '';
-              var i;
-              
-              for(i=0; i<data.length; i++){
-                html += data[i].mac_address;
-              }
-              if(html == ''){
-                html += '-';
-              }
-              else {
-                html;
-              }
-              $('#mac_address').val(html);
-            }
-          });
-          });
-      </script>
+    // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+    $.ajax({
+      url: "<?php echo base_url(); ?>/laporan/get_data_serial",
+      method: "POST",
+      data: {
+        serial_number: serial_number
+      },
+      async: false,
+      dataType: 'json',
+      success: function(data) {
+        var html = '';
+        var i;
+
+        for (i = 0; i < data.length; i++) {
+          html += data[i].ip_address;
+        }
+        if (html == '') {
+          html += '-';
+        } else {
+          html;
+        }
+        $('#id_address').val(html);
+      }
+    });
+  });
+</script>
+
+<script>
+  $("#serial_number").change(function() {
+
+    // variabel dari nilai combo box kendaraan
+    var serial_number = $("#serial_number").val();
+
+    // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+    $.ajax({
+      url: "<?php echo base_url(); ?>/laporan/get_data_serial",
+      method: "POST",
+      data: {
+        serial_number: serial_number
+      },
+      async: false,
+      dataType: 'json',
+      success: function(data) {
+        var html = '';
+        var i;
+
+        for (i = 0; i < data.length; i++) {
+          html += data[i].mac_address;
+        }
+        if (html == '') {
+          html += '-';
+        } else {
+          html;
+        }
+        $('#mac_address').val(html);
+      }
+    });
+  });
+</script>
+
+<script>
+  $("#serial_number").change(function() {
+
+    // variabel dari nilai combo box kendaraan
+    var serial_number = $("#serial_number").val();
+
+    // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+    $.ajax({
+      url: "<?php echo base_url(); ?>/laporan/get_data_serial",
+      method: "POST",
+      data: {
+        serial_number: serial_number
+      },
+      async: false,
+      dataType: 'json',
+      success: function(data) {
+        var html = '';
+        var i;
+
+        for (i = 0; i < data.length; i++) {
+          html += data[i].mac_address;
+        }
+        if (html == '') {
+          html += '-';
+        } else {
+          html;
+        }
+        $('#mac_address').val(html);
+      }
+    });
+  });
+</script>
 
 <script type="text/javascript">
-			$(function(){
-				$(":radio").click(function(){
-          
-          // if($('#tampak_fisik').attr('checked','tampak_fisik' )){
-          //   console.log('1');
-          // }
-          // else{
-          // }
+  $(function() {
+    $(":radio").click(function() {
 
-         //Variabel
-         var t_fisik_val='';
-         var i_lampu_val='';
-         var port_val='';
-         var lan_val='';
-         var p_supply_val='';
-         var port_val='';
-         var konfig_val='';
-         var backup_val='';
-         var genset_val='';
-         var ups_val='';
-         var inverter_val='';
-         var t_fisik=  $("input[type='radio'][name='tampak_fisik']:checked").val();
-         var i_lampu=  $("input[type='radio'][name='indikator_lampu']:checked").val();
-         var p_supply=  $("input[type='radio'][name='power_supply']:checked").val();
-         var lan=  $("input[type='radio'][name='lan']:checked").val();
-         var port=  $("input[type='radio'][name='port']:checked").val();
-         var konfig=  $("input[type='radio'][name='konfigurasi']:checked").val();
-         var backup=  $("input[type='radio'][name='backup_setting']:checked").val();
-         var genset=  $("input[type='radio'][name='genset']:checked").val();
-         var ups=  $("input[type='radio'][name='ups']:checked").val();
-         var inverter=  $("input[type='radio'][name='inverter']:checked").val();
+      // if($('#tampak_fisik').attr('checked','tampak_fisik' )){
+      //   console.log('1');
+      // }
+      // else{
+      // }
 
-        //TAMPAK FISIK
-         if(t_fisik == "Rusak"){
-          t_fisik_val += 'Penggantian tampilan fisik dari perangkat.';
-         }
-         else if(t_fisik == "Ada error") {
-          t_fisik_val +='Perbaikan tampilan fisik dari perangkat';
-         }
-         $('#solusi_tampak_fisik').val(t_fisik_val);
+      //Variabel
+      var t_fisik_val = '';
+      var i_lampu_val = '';
+      var port_val = '';
+      var lan_val = '';
+      var p_supply_val = '';
+      var port_val = '';
+      var konfig_val = '';
+      var backup_val = '';
+      var genset_val = '';
+      var ups_val = '';
+      var inverter_val = '';
+      var t_fisik = $("input[type='radio'][name='tampak_fisik']:checked").val();
+      var i_lampu = $("input[type='radio'][name='indikator_lampu']:checked").val();
+      var p_supply = $("input[type='radio'][name='power_supply']:checked").val();
+      var lan = $("input[type='radio'][name='lan']:checked").val();
+      var port = $("input[type='radio'][name='port']:checked").val();
+      var konfig = $("input[type='radio'][name='konfigurasi']:checked").val();
+      var backup = $("input[type='radio'][name='backup_setting']:checked").val();
+      var genset = $("input[type='radio'][name='genset']:checked").val();
+      var ups = $("input[type='radio'][name='ups']:checked").val();
+      var inverter = $("input[type='radio'][name='inverter']:checked").val();
 
-         //Indikator
-         if(i_lampu == "Rusak"){
-          i_lampu_val += 'Penggantian pada perangkat indikator lampu';
-         }
-         else if(i_lampu == "Ada error") {
-          i_lampu_val +='Perbaikan pada perangkat indikator lampu';
-         }
-         $('#solusi_indikator_lampu').val(i_lampu_val);
+      //TAMPAK FISIK
+      if (t_fisik == "Rusak") {
+        t_fisik_val += 'Penggantian tampilan fisik dari perangkat.';
+      } else if (t_fisik == "Ada error") {
+        t_fisik_val += 'Perbaikan tampilan fisik dari perangkat';
+      }
+      $('#solusi_tampak_fisik').val(t_fisik_val);
 
-         //POWER SUPPPLY
-         if(p_supply == "Rusak"){
-          p_supply_val += 'Penggantian Power Supply dari perangkat.';
-         }
-         else if(p_supply == "Ada error") {
-          p_supply_val +='Perbaikan pada perangkat Power Supply lampu';
-         }
-         $('#solusi_power_supply').val(p_supply_val);
+      //Indikator
+      if (i_lampu == "Rusak") {
+        i_lampu_val += 'Penggantian pada perangkat indikator lampu';
+      } else if (i_lampu == "Ada error") {
+        i_lampu_val += 'Perbaikan pada perangkat indikator lampu';
+      }
+      $('#solusi_indikator_lampu').val(i_lampu_val);
 
-         //PORT
-         if(port == "Rusak"){
-          port_val += 'Penggantian Port pada perangkat.';
-         }
-         else if(port == "Ada error") {
-          port_val +='Perbaikan Port pada perangkat';
-         }
-         $('#solusi_port').val(port_val);
+      //POWER SUPPPLY
+      if (p_supply == "Rusak") {
+        p_supply_val += 'Penggantian Power Supply dari perangkat.';
+      } else if (p_supply == "Ada error") {
+        p_supply_val += 'Perbaikan pada perangkat Power Supply lampu';
+      }
+      $('#solusi_power_supply').val(p_supply_val);
 
-         //UPS
-         if(ups == "Tidak ada"){
-          ups_val += 'Disarankan untuk menambahkan UPS';
-         }
-         $('#solusi_ups').val(ups_val);
+      //PORT
+      if (port == "Rusak") {
+        port_val += 'Penggantian Port pada perangkat.';
+      } else if (port == "Ada error") {
+        port_val += 'Perbaikan Port pada perangkat';
+      }
+      $('#solusi_port').val(port_val);
 
-         //GENSET
-         if(genset == "Tidak ada"){
-          genset_val += 'Disarankan untuk menambahkan Genset';
-         
-         }
-         $('#solusi_genset').val(genset_val);
+      //UPS
+      if (ups == "Tidak ada") {
+        ups_val += 'Disarankan untuk menambahkan UPS';
+      }
+      $('#solusi_ups').val(ups_val);
 
-         //INVERTER
-         if(inverter == "Tidak ada"){
-          inverter_val += 'Disarankan untuk menambahkan Inverter';
-          console.log('hi');
-         }
-         $('#solusi_inverter').val(inverter_val);
+      //GENSET
+      if (genset == "Tidak ada") {
+        genset_val += 'Disarankan untuk menambahkan Genset';
 
-         //BACKUP SETTING
-         if(backup == "Rusak"){
-          backup_val += 'Penggantian Backup Setting pada perangkat.';
-         }
-         else if(backup == "Ada error") {
-          backup_val +='Perbaikan Backup Setting pada perangkat';
-         }
-         $('#solusi_backup_setting').val(backup_val);
+      }
+      $('#solusi_genset').val(genset_val);
 
-         //KONFIGURASI
-         if(konfig == "Rusak"){
-          konfig_val += 'Penggantian settingan konfigurasi pada perangkat.';
-         }
-         else if(konfig == "Ada error") {
-          konfig_val +='Perbaikan konfigurasi pada perangkat';
-         }
-         $('#solusi_konfigurasi').val(konfig_val);
+      //INVERTER
+      if (inverter == "Tidak ada") {
+        inverter_val += 'Disarankan untuk menambahkan Inverter';
+        console.log('hi');
+      }
+      $('#solusi_inverter').val(inverter_val);
 
-         //LAN
-         if(lan == "Rusak"){
-          lan_val += 'Penggantian LAN pada perangkat.';
-         }
-         else if(lan == "Ada error") {
-          lan_val +='Perbaikan LAN pada perangkat';
-         }
-         $('#solusi_lan').val(lan_val);
-         
-        ;
-					// if($(this).val() == "Rusak"){
-          //   html += 'Tampak Fisik : Device Harus segera diperbarui, ';
-          //   $('#solusi').text(html);
-					// }
-          // else if($(this).val() == "Ada error") {
-          //   html2 += 'Tampak Fisik : Error harus segera ditanganai';
-          //   $('#solusi').text(html2);
-          // }
-         
-				});
+      //BACKUP SETTING
+      if (backup == "Rusak") {
+        backup_val += 'Penggantian Backup Setting pada perangkat.';
+      } else if (backup == "Ada error") {
+        backup_val += 'Perbaikan Backup Setting pada perangkat';
+      }
+      $('#solusi_backup_setting').val(backup_val);
 
-			});
-		</script>
-    
+      //KONFIGURASI
+      if (konfig == "Rusak") {
+        konfig_val += 'Penggantian settingan konfigurasi pada perangkat.';
+      } else if (konfig == "Ada error") {
+        konfig_val += 'Perbaikan konfigurasi pada perangkat';
+      }
+      $('#solusi_konfigurasi').val(konfig_val);
+
+      //LAN
+      if (lan == "Rusak") {
+        lan_val += 'Penggantian LAN pada perangkat.';
+      } else if (lan == "Ada error") {
+        lan_val += 'Perbaikan LAN pada perangkat';
+      }
+      $('#solusi_lan').val(lan_val);
+
+      ;
+      // if($(this).val() == "Rusak"){
+      //   html += 'Tampak Fisik : Device Harus segera diperbarui, ';
+      //   $('#solusi').text(html);
+      // }
+      // else if($(this).val() == "Ada error") {
+      //   html2 += 'Tampak Fisik : Error harus segera ditanganai';
+      //   $('#solusi').text(html2);
+      // }
+
+    });
+
+  });
+</script>
+
 </body>
 
 </html>

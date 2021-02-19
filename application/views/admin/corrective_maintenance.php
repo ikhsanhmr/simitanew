@@ -24,278 +24,309 @@
            </div>
            <!-- /.box-header -->
            <div class="box-body">
-             <table class="table table-bordered table-responsive">
-               <thead>
-                 <tr class="bg-success">
-                   <th class="text-center">Nama Perangkat</th>
-                   <th class="text-center">Solusi</th>
-                   <th class="text-center">Rencana selanjutnya</th>
-                 </tr>
-               </thead>
-               <tbody>
-                 <?php foreach ($waktu as $data) { ?>
-                   <?php foreach ($stok_view->result_array() as $stok) { ?>
-                     <tr>
-                       <td width="15%" class="text-center">
-                         <label for="no_hp" class="control-label"><?= $data['nama_perangkat']; ?></label>
-                       </td>
-                       <td width="40%">
-                         <ul class="">
-                           <!-- //PERANGKAT HARDWARE -->
-                           <?php
-                            if ($data['solusi_tampak_fisik'] != null) { ?>
-                             <b>Solusi Tampak fisik : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px"><?php echo $data['solusi_tampak_fisik']; ?></li>
-                           <?php }
-                            ?>
-                           <?php
-                            if ($data['solusi_indikator_lampu'] != null) { ?>
-                             <b>Solusi Indikator Lampu : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px"><?php echo $data['solusi_indikator_lampu']; ?></li>
-                           <?php }
-                            ?>
-                           <?php
-                            if ($data['solusi_power_supply'] != null) { ?>
-                             <b>Solusi Power Supply : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px"><?php echo $data['solusi_power_supply']; ?></li>
-                           <?php }
-                            ?>
-                           <?php
-                            if ($data['solusi_lan'] != null) { ?>
-                             <b>Solusi LAN : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px"><?php echo $data['solusi_lan']; ?></li>
-                           <?php }
-                            ?>
-                           <?php
-                            if ($data['solusi_port'] != null) { ?>
-                             <b>Solusi Port : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px"><?php echo $data['solusi_port']; ?></li>
-                           <?php }
-                            ?>
-                           <?php
-                            if ($data['solusi_konfigurasi'] != null) { ?>
-                             <b>Solusi Konfigurasi : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px"><?php echo $data['solusi_konfigurasi']; ?></li>
-                           <?php }
-                            ?>
-                           <?php
-                            if ($data['solusi_backup_setting'] != null) { ?>
-                             <b>Solusi Backup Setting : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px"><?php echo $data['solusi_backup_setting']; ?></li>
-                           <?php }
-                            ?>
-                           <?php
-                            if ($data['solusi_genset'] != null) { ?>
-                             <b>Solusi Genset : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px"><?php echo $data['solusi_genset']; ?></li>
-                           <?php }
-                            ?>
-                           <?php
-                            if ($data['solusi_ups'] != null) { ?>
-                             <b>Solusi UPS : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px"><?php echo $data['solusi_ups']; ?></li>
-                           <?php }
-                            ?>
-                           <?php
-                            if ($data['solusi_inverter'] != null) { ?>
-                             <b>Solusi Inverter : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px"><?php echo $data['solusi_inverter']; ?></li>
-                           <?php }
-                            ?>
-                         </ul>
-                       </td>
-                       <td width="40%">
-                         <ul class="">
-                           <!-- TINDAK LANJUT -->
-                           <?php if ($data['solusi_tampak_fisik'] == 'Penggantian tampilan fisik dari perangkat.') { ?>
-                             <b>Tindak Lanjut Tampak fisik : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 ganti perangkat
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan perangkat
-                               <?php } ?>
-                             </li>
-                           <?php } elseif ($data['solusi_tampak_fisik'] == 'Perbaikan tampilan fisik dari perangkat') { ?>
-                             <b>Tindak Lanjut Tampak fisik : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 perbaikan perangkat
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan perangkat
-                               <?php } ?>
-                             </li>
-                           <?php } ?>
+             <div class="table-responsive">
+               <table class="table table-bordered">
+                 <thead>
+                   <tr class="bg-success">
+                     <th width="2%" class="text-center">No</th>
+                     <th width="10%" class="text-center">Nama Perangkat</th>
+                     <th width="10%" class="text-center">Device Type</th>
+                     <th width="10%" class="text-center">Serial Number</th>
+                     <th width="25%" class="text-center">Solusi</th>
+                     <th width="25%" class="text-center" rowa="2">Rencana selanjutnya</th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <?php
+                    $no = 1;
+                    foreach ($waktu as $data) { ?>
+                     <?php foreach ($stok_view->result_array() as $stok) { ?>
+                       <tr>
+                         <td><?= $no++; ?></td>
+                         <td class="text-center">
+                           <p><?= $data['nama_perangkat']; ?></p>
+                         </td>
+                         <td class="text-center">
+                           <p><?= $data['type']; ?></p>
+                         </td>
+                         <td class="text-center">
+                           <p><?= $data['serial_number']; ?></p>
+                         </td>
+                         <td>
+                           <ul class="list-group">
+                             <!-- SOLUSI -->
+                             <?php
+                              if ($data['solusi_tampak_fisik'] != null) { ?>
+                               <b>Solusi Tampak fisik : </b>
+                               <li class="list-group-item" style="height: 70px;margin-bottom: 10px"><?php echo $data['solusi_tampak_fisik']; ?></li>
+                             <?php }
+                              ?>
+                             <?php
+                              if ($data['solusi_indikator_lampu'] != null) { ?>
+                               <b>Solusi Indikator Lampu : </b>
+                               <li class="list-group-item" style="height: 70px;margin-bottom: 10px"><?php echo $data['solusi_indikator_lampu']; ?></li>
+                             <?php }
+                              ?>
+                             <?php
+                              if ($data['solusi_power_supply'] != null) { ?>
+                               <b>Solusi Power Supply : </b>
+                               <li class="list-group-item" style="height: 70px;margin-bottom: 10px"><?php echo $data['solusi_power_supply']; ?></li>
+                             <?php }
+                              ?>
+                             <?php
+                              if ($data['solusi_lan'] != null) { ?>
+                               <b>Solusi LAN : </b>
+                               <li class="list-group-item" style="height: 70px;margin-bottom: 10px"><?php echo $data['solusi_lan']; ?></li>
+                             <?php }
+                              ?>
+                             <?php
+                              if ($data['solusi_port'] != null) { ?>
+                               <b>Solusi Port : </b>
+                               <li class="list-group-item" style="height: 70px;margin-bottom: 10px"><?php echo $data['solusi_port']; ?></li>
+                             <?php }
+                              ?>
+                             <?php
+                              if ($data['solusi_konfigurasi'] != null) { ?>
+                               <b>Solusi Konfigurasi : </b>
+                               <li class="list-group-item" style="height: 70px;margin-bottom: 10px"><?php echo $data['solusi_konfigurasi']; ?></li>
+                             <?php }
+                              ?>
+                             <?php
+                              if ($data['solusi_backup_setting'] != null) { ?>
+                               <b>Solusi Backup Setting : </b>
+                               <li class="list-group-item" style="height: 70px;margin-bottom: 10px"><?php echo $data['solusi_backup_setting']; ?></li>
+                             <?php }
+                              ?>
+                             <?php
+                              if ($data['solusi_genset'] != null) { ?>
+                               <b>Solusi Genset : </b>
+                               <li class="list-group-item" style="height: 70px;margin-bottom: 10px"><?php echo $data['solusi_genset']; ?></li>
+                             <?php }
+                              ?>
+                             <?php
+                              if ($data['solusi_ups'] != null) { ?>
+                               <b>Solusi UPS : </b>
+                               <li class="list-group-item" style="height: 70px;margin-bottom: 10px"><?php echo $data['solusi_ups']; ?></li>
+                             <?php }
+                              ?>
+                             <?php
+                              if ($data['solusi_inverter'] != null) { ?>
+                               <b>Solusi Inverter : </b>
+                               <li class="list-group-item" style="height: 70px;margin-bottom: 10px"><?php echo $data['solusi_inverter']; ?></li>
+                             <?php }
+                              ?>
+                           </ul>
+                         </td>
+                         <td>
+                           <ul class="list-group">
+                             <!-- TINDAK LANJUT -->
+                             <?php if ($data['solusi_tampak_fisik'] == 'Penggantian tampilan fisik dari perangkat.') { ?>
+                               <b>Tindak Lanjut Tampak fisik : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian perangkat
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk perangkat
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } elseif ($data['solusi_tampak_fisik'] == 'Perbaikan tampilan fisik dari perangkat') { ?>
+                               <b>Tindak Lanjut Tampak fisik : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian perangkat
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk perangkat
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } ?>
 
-                           <!-- INDIKATOR -->
-                           <?php if ($data['solusi_indikator_lampu'] == 'Penggantian pada perangkat indikator lampu') { ?>
-                             <b>Tindak Lanjut Indikator Lampu : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 ganti indikator
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan indikator
-                               <?php } ?>
-                             </li>
-                           <?php } elseif ($data['solusi_indikator_lampu'] == 'Perbaikan pada perangkat indikator lampu') { ?>
-                             <b>Tindak Lanjut Indikator Lampu : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 perbaikan indikator
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan indikator
-                               <?php } ?>
-                             </li>
-                           <?php } ?>
+                             <!-- INDIKATOR -->
+                             <?php if ($data['solusi_indikator_lampu'] == 'Penggantian pada perangkat indikator lampu') { ?>
+                               <b>Tindak Lanjut Indikator Lampu : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian indikator
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk indikator
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } elseif ($data['solusi_indikator_lampu'] == 'Perbaikan pada perangkat indikator lampu') { ?>
+                               <b>Tindak Lanjut Indikator Lampu : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian indikator
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk indikator
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } ?>
 
-                           <!-- POWER SUPPLY -->
-                           <?php if ($data['solusi_power_supply'] == 'Penggantian Power Supply dari perangkat.') { ?>
-                             <b>Tindak Lanjut Power Supply : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 ganti power supply
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan power supply
-                               <?php } ?>
-                             </li>
-                           <?php } elseif ($data['solusi_power_supply'] == 'Perbaikan pada perangkat Power Supply lampu') { ?>
-                             <b>Tindak Lanjut Power supply : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 perbaikan power supply
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan power supply
-                               <?php } ?>
-                             </li>
-                           <?php } ?>
+                             <!-- POWER SUPPLY -->
+                             <?php if ($data['solusi_power_supply'] == 'Penggantian Power Supply dari perangkat.') { ?>
+                               <b>Tindak Lanjut Power Supply : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian power supply
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk power supply
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } elseif ($data['solusi_power_supply'] == 'Perbaikan pada perangkat Power Supply lampu') { ?>
+                               <b>Tindak Lanjut Power supply : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian power supply
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk power supply
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } ?>
 
-                           <!-- LAN -->
-                           <?php if ($data['solusi_lan'] == 'Penggantian LAN pada perangkat.') { ?>
-                             <b>Tindak Lanjut LAN : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 ganti LAN
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan LAN
-                               <?php } ?>
-                             </li>
-                           <?php } elseif ($data['solusi_lan'] == 'Perbaikan LAN pada perangkat') { ?>
-                             <b>Tindak Lanjut LAN : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 perbaikan LAN
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan LAN
-                               <?php } ?>
-                             </li>
-                           <?php } ?>
+                             <!-- LAN -->
+                             <?php if ($data['solusi_lan'] == 'Penggantian LAN pada perangkat.') { ?>
+                               <b>Tindak Lanjut LAN : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian LAN
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk LAN
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } elseif ($data['solusi_lan'] == 'Perbaikan LAN pada perangkat') { ?>
+                               <b>Tindak Lanjut LAN : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian LAN
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk LAN
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } ?>
 
-                           <!-- PORT -->
-                           <?php if ($data['solusi_port'] == 'Penggantian Port pada perangkat.') { ?>
-                             <b>Tindak Lanjut Port : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 ganti Port
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan Port
-                               <?php } ?>
-                             </li>
-                           <?php } elseif ($data['solusi_port'] == 'Perbaikan Port pada perangkat') { ?>
-                             <b>Tindak Lanjut Port : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 perbaikan Port
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan Port
-                               <?php } ?>
-                             </li>
-                           <?php } ?>
+                             <!-- PORT -->
+                             <?php if ($data['solusi_port'] == 'Penggantian Port pada perangkat.') { ?>
+                               <b>Tindak Lanjut Port : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian Port
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk Port
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } elseif ($data['solusi_port'] == 'Perbaikan Port pada perangkat') { ?>
+                               <b>Tindak Lanjut Port : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian Port
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk Port
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } ?>
 
-                           <!-- Konfigurasi -->
-                           <?php if ($data['solusi_konfigurasi'] == 'Penggantian settingan konfigurasi pada perangkat.') { ?>
-                             <b>Tindak Lanjut Konfigurasi : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 ganti settingan konfigurasi
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan settingan konfigurasi
-                               <?php } ?>
-                             </li>
-                           <?php } elseif ($data['solusi_konfigurasi'] == 'Perbaikan konfigurasi pada perangkat') { ?>
-                             <b>Tindak Lanjut Konfigurasi : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 perbaikan settingan konfigurasi
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan settingan konfigurasi
-                               <?php } ?>
-                             </li>
-                           <?php } ?>
+                             <!-- Konfigurasi -->
+                             <?php if ($data['solusi_konfigurasi'] == 'Penggantian settingan konfigurasi pada perangkat.') { ?>
+                               <b>Tindak Lanjut Konfigurasi : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian settingan konfigurasi
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk settingan konfigurasi
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } elseif ($data['solusi_konfigurasi'] == 'Perbaikan konfigurasi pada perangkat') { ?>
+                               <b>Tindak Lanjut Konfigurasi : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian settingan konfigurasi
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk settingan konfigurasi
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } ?>
 
-                           <!-- BACKUP SETTING -->
-                           <?php if ($data['solusi_backup_setting'] == 'Penggantian Backup Setting pada perangkat.') { ?>
-                             <b>Tindak Lanjut Backup Setting : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 ganti bakup setting
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan bakup setting
-                               <?php } ?>
-                             </li>
-                           <?php } elseif ($data['solusi_backup_setting'] == 'Perbaikan Backup Setting pada perangkat') { ?>
-                             <b>Tindak Lanjut Backup Setting : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 perbaikan backup setting
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan backup setting
-                               <?php } ?>
-                             </li>
-                           <?php } ?>
+                             <!-- BACKUP SETTING -->
+                             <?php if ($data['solusi_backup_setting'] == 'Penggantian Backup Setting pada perangkat.') { ?>
+                               <b>Tindak Lanjut Backup Setting : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian bakup setting
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk bakup setting
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } elseif ($data['solusi_backup_setting'] == 'Perbaikan Backup Setting pada perangkat') { ?>
+                               <b>Tindak Lanjut Backup Setting : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera melakukan pergantian backup setting
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk backup setting
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } ?>
 
-                           <!-- GENSET -->
-                           <?php if ($data['solusi_genset'] == 'Disarankan untuk menambahkan Genset') { ?>
-                             <b>Tindak Lanjut Genset : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 Tambah genset
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan genset
-                               <?php } ?>
-                             </li>
-                           <?php } ?>
+                             <!-- GENSET -->
+                             <?php if ($data['solusi_genset'] == 'Disarankan untuk menambahkan Genset') { ?>
+                               <b>Tindak Lanjut Genset : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera menambah genset
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk genset
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } ?>
 
-                           <!-- UPS -->
-                           <?php if ($data['solusi_ups'] == 'Disarankan untuk menambahkan UPS') { ?>
-                             <b>Tindak Lanjut UPS : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 Tambah UPS
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan UPS
-                               <?php } ?>
-                             </li>
-                           <?php } ?>
+                             <!-- UPS -->
+                             <?php if ($data['solusi_ups'] == 'Disarankan untuk menambahkan UPS') { ?>
+                               <b>Tindak Lanjut UPS : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera menambah UPS
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk UPS
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } ?>
 
-                           <!-- INVERTER -->
-                           <?php if ($data['solusi_inverter'] == 'Disarankan untuk menambahkan Inverter') { ?>
-                             <b>Tindak Lanjut Inverter : </b>
-                             <li class="form-control" style="height: 50px;margin-bottom: 10px">
-                               <?php if ($stok['jumlah_perangkat'] > 0) { ?>
-                                 Tambah Inverter
-                               <?php } else { ?>
-                                 stok kosong, harap lakukan pengadaan Inverter
-                               <?php } ?>
-                             </li>
-                           <?php } ?>
+                             <!-- INVERTER -->
+                             <?php if ($data['solusi_inverter'] == 'Disarankan untuk menambahkan Inverter') { ?>
+                               <b>Tindak Lanjut Inverter : </b>
+                               <li class="list-group-item d-flex justify-content-between align-items-center" style="height: 70px;margin-bottom: 10px">
+                                 <?php if ($stok['jumlah_perangkat'] > 0) { ?>
+                                   Diharapkan segera menambah Inverter
+                                 <?php } else { ?>
+                                   Diharapkan melakukan pengadaan untuk Inverter
+                                 <?php } ?>
+                                 <a class="badge" style="margin-top:10px;background-color:blue">finish</a>
+                               </li>
+                             <?php } ?>
 
-                         </ul>
-                       </td>
-                     </tr>
+                           </ul>
+                         </td>
+                       </tr>
+                     <?php } ?>
                    <?php } ?>
-                 <?php } ?>
-               </tbody>
-             </table>
+                 </tbody>
+               </table>
+             </div>
            </div>
            <!-- /.box-body -->
 
