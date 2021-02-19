@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Mar 2021 pada 04.23
--- Versi server: 10.4.17-MariaDB
--- Versi PHP: 7.4.15
+-- Waktu pembuatan: 19 Feb 2021 pada 06.23
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -2152,21 +2153,12 @@ CREATE TABLE `har_network` (
 --
 
 INSERT INTO `har_network` (`id`, `nama_unit`, `lokasi`, `waktu_pelaksanaan`, `working_permit`, `nama_perangkat`, `id_perangkat`, `serial_number`, `type`, `id_address`, `mac_address`, `tampak_fisik`, `indikator_lampu`, `power_supply`, `lan`, `port`, `konfigurasi`, `backup_setting`, `genset`, `ups`, `inverter`, `solusi_tampak_fisik`, `solusi_indikator_lampu`, `solusi_power_supply`, `solusi_lan`, `solusi_port`, `solusi_konfigurasi`, `solusi_backup_setting`, `solusi_genset`, `solusi_ups`, `solusi_inverter`, `catatan`, `solusi`, `pengawas_pekerjaan`, `pelaksana_pekerjaan`, `approval`, `kantor_induk`, `tingkat_kerawanan`, `solusi_tingkat_kerawanan`, `unit_level2`, `unit_level3`, `foto_sebelum_pengerjaan`, `foto_saat_pengerjaan`, `foto_sesudah_pengerjaan`) VALUES
-(55, '', 'Jallan sultan', '', '', 'Access Point', 0, '523453', 'Access Point', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'approved', '3', '', '', '', '', 'foto_sebelum_pengerjaan31.png', 'foto_sebelum_pengerjaan44.png', 'foto_sebelum_pengerjaan43.png'),
-(57, '', 'jalan sultan ibrahim', '', '', 'Access Point', 0, '676', 'Access Point', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '4', '', '', '', '', 'foto_sebelum_pengerjaan32.png', 'foto_sebelum_pengerjaan61.png', 'foto_sebelum_pengerjaan71.png'),
-(58, '', 'jalan sultan ibrahim', '3', '', 'Access Point', 0, '45377857', 'Access Point', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', ' ', '', '', '1', '', '', '3', '14', 'foto_sebelum_pengerjaan21.png', 'foto_sebelum_pengerjaan33.png', 'foto_sebelum_pengerjaan22.png'),
-(59, '', 'JAUH', '', 'foto_sebelum_pengerjaan62.png', 'Access Point', 0, '6794563', 'Access Point', '', '', 'Normal', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Rusak', 'Rusak', 'Rusak', 'Rusak', 'Rusak', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', 'foto_sebelum_pengerjaan23.png', 'foto_sebelum_pengerjaan25.png', 'foto_sebelum_pengerjaan24.png'),
-(60, '', 'RUANG ULP PANGKALAN SUSU', '3', '', 'Access Point', 0, '5363748', 'Access Point', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '4', '', '', '', '', 'foto_sebelum_pengerjaan26.png', 'foto_sebelum_pengerjaan35.png', 'foto_sebelum_pengerjaan34.png'),
-(62, '', 'KANTOR PERCOBAAN PEMATANG REBA', '7', '', 'Accses Point', 0, '26565659595', 'M-200', '', '', 'Normal', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Ada error', 'Tidak Ada', 'Normal', 'Tidak ada', '', 'Perbaikan pada perangkat indikator lampu', '', '', '', '', '', '', '', '', 'Blabla', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasution', '', '1', 'Perangkat Mudah Panas', '', '1', '4', 'mask5.jpg', 'finalImage_(2)11.png', 'foto_sesudah_pengerjaan11.png'),
-(63, '', 'RUANG ULP PANGKALAN SUSU', '7', '7_Teddy_Alfansyah21.pdf', 'Access Point', 0, '98765353', 'AP-AC-PRO', '10.26.33.7', '-', 'Ada error', 'Rusak', 'Ada error', 'Rusak', 'Rusak', 'Ada error', 'Rusak', 'Tidak ada', 'Normal', 'Tidak ada', 'Perbaikan tampilan fisik dari perangkat', 'Penggantian pada perangkat indikator lampu', '', '', '', '', '', '', '', '', 'gege', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasutions', '', '1', 'Perangkat mudah jatuh', '', '3', '14', 'mask6.jpg', 'mask11.jpg', 'mask41.jpg'),
-(64, '', 'PELALAWAN', '7', 'cashier2.pdf', 'Access Point', 0, '4576598687', 'Access Point', '10.26.33.7', '-', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'gGood', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasutions', '', '1', 'Perangkat mudah jatuh', '', '1', '', 'mask8.jpg', 'mask13.jpg', 'mask22.jpg'),
-(65, '', 'Jalan Kertajaya', '7', '', 'Access Point', 0, '46857333', 'Access Point', '10.26.33.7', '-', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', 'gege', '', 'August Jujung Hutauruk', 'Ahmad Suardi Nasutions', '', '1', '', '', '', '', 'Fw__Aircraft352.JPG', 'Fw__Aircraft2412.JPG', 'Fw__Aircraft8102.JPG'),
-(66, '', 'Kantor Sumatra Pusat', '1', '', 'Access Point', 0, '36468', 'ZoneFlex', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', 'Baterai sudah tidak berfungsi', '', 'oke', 'mantap', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '1', '4', '1.PNG', '131.PNG', '13.PNG'),
-(67, '', 'tgr', '1', '', 'Access Point', 0, '4578456967', 'EAP110', '', '', 'Rusak', 'Rusak', 'Rusak', 'Rusak', 'Rusak', 'Rusak', 'Rusak', 'Normal', 'Tidak ada', 'Tidak ada', 'Penggantian tampilan fisik dari perangkat.', 'Penggantian pada perangkat indikator lampu', 'Penggantian Power Supply dari perangkat.', 'Penggantian LAN pada perangkat.', 'Penggantian Port pada perangkat.', 'Penggantian settingan konfigurasi pada perangkat.', 'Penggantian Backup Setting pada perangkat.', '', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'asas', '', 'WOLFIANTO', 'WOLFIANTO', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '1', '4', '1.jpg', '12.jpg', '11.jpg'),
-(68, '', 'Jl. Pelajar', '1', '', 'Access Point', 138, '378576', 'Access Point', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', 'RINI ISSUSI LENING TIAS', 'SUDIRIANTO', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '2', '1', 'Screenshot_(1)2.png', 'Screenshot_(1)3.png', 'Screenshot_(2)1.png'),
-(69, '', 'Jl. Pelajar', '7', '', 'Access Point', 222, '', 'EAP110', '-', '-', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', 'Hanya Percobaan', '', 'ANITA OMPUSUNGGU', 'SUDIRIANTO', '', '2', 'Gampang Jatuh', '', '', '', 'Screenshot_(1)6.png', 'Screenshot_(1)7.png', 'Screenshot_(2)3.png'),
-(71, '', '', '8', '', 'Antena Powerbeam', 2022, '', 'SWITCH', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', 'ANITA OMPUSUNGGU', 'SUDIRIANTO', '', '3', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '', '', 'Screenshot_(2)5.png', 'Screenshot_(2)6.png', 'Screenshot_(1)10.png'),
-(72, '', 'Jl. Gatot Subroto', '8', '', 'Antivirus', 675, '', 'WR940N', '', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '6', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '', '', 'Screenshot_(2)7.png', 'Screenshot_(2)8.png', 'Screenshot_(1)11.png');
+(69, '', 'GEDUNG ULP KUALA LT.1', '9', '', 'Router', 214, '', 'Mikrotik RB 1200', '10.16.164.1', '', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', 'Perbaikan pada perangkat Power Supply lampu', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'sebelumnya belum ada router mikrotik, dari wan icon langsung ke switch, kemudian dilakukan pemasangan router mikrotik RB 1200 dan integrasi stroomnet. belum ada rack tempat perangkat router dan swiitch, sementara di atas lemari kabinet. rack icon berada d', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '8', '24', 'router_mikrotik_kuala_sebelum.jpg', 'router_mikrotik_kuala_saat_pekerjaan.png', 'router_mikrotik_setelah_pekerjaaan.jpg'),
+(70, '', 'GEDUNG ULP KUALA LT.1', '9', '', 'Switch', 144, '', 'HP V1910 JE006A', ' 10.16.164.3', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', 'Perbaikan Port pada perangkat', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'beberapa port switch rusak (port 1,2,3,4). Penempata switch diatas lemari kabinet. Kabel tidak rapi', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '8', '24', 'router_mikrotik_kuala_sebelum1.jpg', 'router_mikrotik_kuala_saat_pekerjaan1.png', 'router_mikrotik_setelah_pekerjaaan1.jpg'),
+(71, '', 'GEDUNG ULP KUALA LT.1', '9', '', 'Access Point', 222, '', 'HP V-M200', '10.16.164.123', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'Penempatan accest point tidak rapii (menggantung). Kabel power supply tidak rapi', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '8', '24', 'acces_point_kuala_sebelum.png', 'acces_point_kuala_saat.png', 'acces_point_kuala_setelah.png'),
+(72, '', 'GEDUNG ULP BRANDAN', '10', '', 'Router', 214, '', 'Mikrotik 1100AHx4', '10.16.168.1', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'tidak ada perangkat acces point, seluruh user menggunakan LAN', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', '', '', '9', '30', 'router_brandan_sebelum.png', 'router_brandan_sesaat.png', 'router_brandan_setelah.png'),
+(73, '', 'GEDUNG ULP P. BRANDAN', '10', '', 'Router', 214, '', 'Cisco2800 Series', '10.16.168.2', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'sudah tidak digunakan', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', '', '', '9', '30', 'cisco_brandan_sebelum.png', 'cisco_brandan_sesaat.png', 'cisco_brandan_sesudah.png'),
+(74, '', 'GEDUNG ULP P. BRANDAN', '10', '', 'Switch', 144, '', 'HP V1910 JE006A', '10.16.168.3', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', '', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', '', '', '9', '30', 'switch_brandan_sebelum.png', 'switch_brandan_sesaat.png', 'switch_brandan_setelah.png');
 
 -- --------------------------------------------------------
 
@@ -8958,7 +8950,23 @@ INSERT INTO `pegawai` (`pegawai_id`, `nip`, `nama`, `email`, `no_hp`) VALUES
 (1345, '98215601', 'NIKOLAS NAEK SIHOMBING', '', ''),
 (1346, '99185601', 'ID\' ADHARI', 'ID.ADHARI@PLN.CO.ID', ''),
 (1347, '99205600', 'JENNY WICAKSANA', 'jenny.wicaksana@pln.co.id', ''),
-(1348, '99205601', 'FADHLI RAMANDA', 'fadhli.ramanda@pln.co.id', '');
+(1348, '99205601', 'FADHLI RAMANDA', 'fadhli.ramanda@pln.co.id', ''),
+(1349, '8509117A2', 'AHMAD SUARDI NASUTION', NULL, NULL),
+(1350, '8710038A', 'SYAFRIZAL', NULL, NULL),
+(1351, '92161372ZY', 'MUHAMMAD IKHSAN', NULL, NULL),
+(1352, '9719716ZY', 'MEILLY SUMARNI', NULL, NULL),
+(1353, '8409086Z', 'RIZKY PRATAMA', NULL, NULL),
+(1354, '8812367ZY', 'AZHARI', NULL, NULL),
+(1355, '8408029A2', 'RUDY ARFANDY LUBIS', NULL, NULL),
+(1356, '8710287Z', 'AUGUS JUJUNG HUTAURUK', NULL, NULL),
+(1357, '93163681ZY', 'MUHAMMAD FADLI JANUAR\r\n', NULL, NULL),
+(1358, '87111068Z', 'DAHLIA SATRIANY SIDABUTAR\r\n', NULL, NULL),
+(1359, '8712308ZY', 'AFRILIANDO MALAU\r\n', NULL, NULL),
+(1360, '8809019PBS', 'HENRONIKO', NULL, NULL),
+(1361, '8811642Z', 'FRIMARETA', NULL, NULL),
+(1362, '8813058ZY', 'JHONI AFRIKA', NULL, NULL),
+(1363, '91161234ZY', 'LIGA ARORA', NULL, NULL),
+(1364, '9619711ZY', 'JORDI DWI YULIANTO', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -10604,7 +10612,7 @@ ALTER TABLE `gangguan`
 -- AUTO_INCREMENT untuk tabel `har_network`
 --
 ALTER TABLE `har_network`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT untuk tabel `hi`
@@ -10712,7 +10720,7 @@ ALTER TABLE `network_device`
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `pegawai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1349;
+  MODIFY `pegawai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1365;
 
 --
 -- AUTO_INCREMENT untuk tabel `printer`
