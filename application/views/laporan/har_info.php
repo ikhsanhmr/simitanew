@@ -79,7 +79,7 @@
                                          <div class="form-group">
                                              <label for="no_hp" class="col-sm-3 control-label">Waktu Pelaksanaan</label>
                                              <div class="col-sm-8">
-                                                 <div class="form-control"><?= $waktu['tanggal_pergi'] ?> -- <?= $waktu['tanggal_pulang'] ?> </div>
+                                                 <div class="form-control"><?= date("d/M/Y", strtotime($data['waktu_pelaksanaan'])); ?></div>
                                              </div>
                                          </div>
 

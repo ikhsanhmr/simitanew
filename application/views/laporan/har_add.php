@@ -75,23 +75,7 @@
                     <div class="form-group">
                         <label for="no_hp" class="col-sm-4 control-label">Waktu Pelaksanaan</label>
                         <div class="col-sm-6">
-                        <!-- <input class="form-control"type="date" name="waktu_pelaksanaan" id="waktu_pelaksanaan">  -->
-                        <select class="form-control select2" name="waktu_pelaksanaan" id="waktu_pelaksanaan">
-                        <?php
-                    
-                        foreach($waktu as $value): ?>
-
-                        <option value="<?php echo $value->id_jadwal;?>">
-                        <?php 
-                        echo date("d/M/Y", strtotime($value->tanggal_pergi));
-                        echo "     -      ";
-                        echo date("d/M/Y", strtotime($value->tanggal_pulang));
-                        ?>
-                        </option>
-                        <?php
-                        endforeach;
-                            ?>
-                        </select>
+                            <input type="date" class="form-control" id="waktu_pelaksanaan" name="waktu_pelaksanaan" required />
                         </div>
                     </div>
 
