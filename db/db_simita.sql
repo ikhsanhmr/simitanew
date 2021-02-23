@@ -5347,7 +5347,7 @@ CREATE TABLE `merek` (
   `merek` varchar(50) DEFAULT NULL,
   `kategori` varchar(50) DEFAULT NULL,
   KEY `id_merek` (`id_merek`)
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=latin1;
 
 /*Data for the table `merek` */
 
@@ -5460,7 +5460,10 @@ insert  into `merek`(`id_merek`,`merek`,`kategori`) values
 (108,'TENDA','Network Device'),
 (109,'TRENDNET','Network Device'),
 (110,'WD','Network Device'),
-(111,'ZTE','Network Device');
+(111,'ZTE','Network Device'),
+(112,'ZYXEL','Network Device'),
+(113,'INDIHOME','Network Device'),
+(114,'SMART-UPS SC 1 5 0 0','Network Device');
 
 /*Table structure for table `monitor` */
 
@@ -10133,7 +10136,7 @@ CREATE TABLE `unit_level3` (
   `id_unit_level2` int(11) DEFAULT NULL,
   `nama_unit_level3` varchar(100) DEFAULT NULL,
   KEY `id_unit_level3` (`id_unit_level3`)
-) ENGINE=InnoDB AUTO_INCREMENT=163 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=latin1;
 
 /*Data for the table `unit_level3` */
 
@@ -10295,7 +10298,13 @@ insert  into `unit_level3`(`id_unit_level3`,`id_kantor_induk`,`id_unit_level2`,`
 (159,10,27,'Unit Pelaksana Proyek Pembangkit Sumatera 6'),
 (160,11,28,'Unit Pelaksana Proyek Jaringan Sumatera Utara 1'),
 (161,11,30,'UPP JARSUM 2'),
-(3,11,29,'Gudang Logistik UIP SUMBAGUT Paya Pasir');
+(3,11,29,'Gudang Logistik UIP SUMBAGUT Paya Pasir'),
+(163,9,24,'ULTG TOBA'),
+(164,9,24,'GI PENYABUNGAN'),
+(165,9,24,'GI SARULLA'),
+(166,9,24,'GI SUBULUSALAM'),
+(167,9,24,'GI KOTACANE'),
+(168,9,24,'GI PANGURURAN');
 
 /*Table structure for table `users` */
 
