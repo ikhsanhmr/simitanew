@@ -264,6 +264,13 @@ class laporan_model extends CI_Model {
 		$this->db->update('har_network', $data);
 	}
 
+	 function serial_number(){
+		$this->db->order_by('serial_number', 'ASC');
+        return $this->db->from('network_device')
+          ->get()
+          ->result();
+	}
+
 	 function type_network_device(){
 		$this->db->order_by('device_type', 'ASC');
 		$this->db->group_by('device_type');
@@ -403,6 +410,49 @@ class laporan_model extends CI_Model {
 	}
 	function getWaktuPelaksanaan(){
 		$query = $this->db->query("SELECT * FROM `jadwal_har` , `har_network` ,`kantor_induk` WHERE id_jadwal = waktu_pelaksanaan AND id_kantor_induk = kantor_induk ORDER BY id ");
+		return $query -> result_array();
+	}
+	
+	function getDataGangguan(){
+		$query = $this->db->query("SELECT a.serial_number,a.type, 
+(SELECT nama_kantor_induk FROM kantor_induk WHERE id_kantor_induk = a.kantor_induk) AS nama_unit,
+CASE WHEN tampak_fisik <> 'Normal' THEN '1 Masalah Indikator Tampak Fisik'
+ELSE 'Normal'
+END AS tampak_fisik,
+CASE WHEN indikator_lampu <> 'Normal' THEN '1 Masalah Indikator Lampu'
+ELSE 'Normal'
+END AS indikator_lampu,
+CASE WHEN power_supply <> 'Normal' THEN '1 Masalah Indikator Power Supply'
+ELSE 'Normal'
+END AS power_supply,
+CASE WHEN lan <> 'Normal' THEN '1 Masalah Indikator LAN'
+ELSE 'Normal'
+END AS lan,
+CASE WHEN PORT <> 'Normal' THEN '1 Masalah Indikator Port'
+ELSE 'Normal'
+END AS PORT,
+CASE WHEN konfigurasi <> 'Normal' THEN '1 Masalah Konfigurasi'
+ELSE 'Normal'
+END AS konfigurasi,
+
+CASE WHEN backup_setting <> 'Normal' THEN '1 Masalah Backup Setting'
+ELSE 'Normal'
+END AS backup_setting,
+
+CASE WHEN genset <> 'Normal' THEN '1 Masalah Indikator Genset'
+ELSE 'Normal'
+END AS genset,
+
+CASE WHEN ups <> 'Normal' THEN '1 Masalah Indikator UPS'
+ELSE 'Normal'
+END AS ups,
+
+CASE WHEN inverter <> 'Normal' THEN '1 Masalah Indikator Inverter'
+ELSE 'Normal'
+END AS inverter
+
+
+FROM har_network a");
 		return $query -> result_array();
 	}
 

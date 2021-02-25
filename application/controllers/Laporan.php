@@ -173,6 +173,7 @@ class Laporan extends CI_Controller {
         }
         else {
 
+			$data['serial_number'] = $this->laporan->serial_number();
 			$data['network'] = $this->laporan->type_network_device();
 			$data['unit']=$this->laporan->kantor_induk();
 			$data['waktu']=$this->laporan->getJadwalHar();
@@ -717,7 +718,7 @@ class Laporan extends CI_Controller {
     {
 		$type=$this->input->post('type');
         $data=$this->laporan->filter_type($type);
-        echo json_encode($data);
+        echo json_encode($data); 
 	}
 	
 	function get_data_serial()

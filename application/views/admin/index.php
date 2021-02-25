@@ -454,19 +454,153 @@
                     <th>Nama Unit</th>
                     <th>Nama Perangkat</th>
                     <th>Device Type</th>
-                    <th>Jumlah Gangguan</th>
+                    <th>Indikator Tampak Fisik</th>
+                    <th>Indikator Indikator Lampu</th>
+                    <th>Indikator Power Supply</th>
+                    <th>Indikator Port</th>
+                    <th>Indikator LAN</th>
+                    <th>Indikator Konfigurasi</th>
+                    <th>Indikator Backup Setting</th>
+                    <th>Indikator Genset</th>
+                    <th>Indikator UPS</th>
+                    <th>Indikator Inverter</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
                   $no = 1;
-                  foreach ($waktu as $data) { ?>
+                  foreach ($data_gangguan as $data) { ?>
                     <tr>
                       <td><?= $no++; ?></td>
-                      <td><?= $data['nama_kantor_induk']; ?></td>
-                      <td><?= $data['nama_perangkat']; ?></td>
+                      <td><?= $data['nama_unit']; ?></td>
+                      <td><?= $data['serial_number']; ?></td>
                       <td><?= $data['type']; ?></td>
-                      <td>1</td>
+					                     
+					 <?php if ($data['tampak_fisik']!='Normal') {?>
+							<td><button type="button" class="btn btn-danger"><?= $data['tampak_fisik']; ?></button></td>
+					  <?php
+					  } else {  ?>
+					 
+					  <td><button type="button" class=" btn btn-success"><?= $data['tampak_fisik']; ?></button></td>
+					  <?php } ?>
+						  
+						  
+					  <?php
+					  if ($data['indikator_lampu']!='Normal') { ?>
+					  
+					  <td><button type="button" class="btn btn-danger"><?= $data['indikator_lampu']; ?></button></td>
+						   
+					  <?php
+					  } else {
+					  ?>
+					 
+					  <td><button type="button" class=" btn btn-success"><?= $data['indikator_lampu']; ?></button></td>
+					 
+					  <?php } ?>	
+					  
+					  <?php
+					  if ($data['power_supply']!='Normal') { ?>
+					  
+					  <td><button type="button" class="btn btn-danger"><?= $data['power_supply']; ?></button></td>
+						   
+					  <?php
+					  } else {
+					  ?>
+					 
+					  <td><button type="button" class=" btn btn-success"><?= $data['power_supply']; ?></button></td>
+					 
+					  <?php } ?>
+					  
+					  <?php
+					  if ($data['PORT']!='Normal') { ?>
+					  
+					  <td><button type="button" class="btn btn-danger"><?= $data['PORT']; ?></button></td>
+						   
+					  <?php
+					  } else {
+					  ?>
+					 
+					  <td><button type="button" class=" btn btn-success"><?= $data['PORT']; ?></button></td>
+					 
+					  <?php } ?>
+					  
+					  <?php
+					  if ($data['lan']!='Normal') { ?>
+					  
+					  <td><button type="button" class="btn btn-danger"><?= $data['lan']; ?></button></td>
+						   
+					  <?php
+					  } else {
+					  ?>
+					 
+					  <td><button type="button" class=" btn btn-success"><?= $data['lan']; ?></button></td>
+					 
+					  <?php } ?>
+					  
+					  <?php
+					  if ($data['konfigurasi']!='Normal') { ?>
+					  
+					  <td><button type="button" class="btn btn-danger"><?= $data['konfigurasi']; ?></button></td>
+						   
+					  <?php
+					  } else {
+					  ?>
+					 
+					  <td><button type="button" class=" btn btn-success"><?= $data['konfigurasi']; ?></button></td>
+					 
+					  <?php } ?>
+					  
+					  <?php
+					  if ($data['backup_setting']!='Normal') { ?>
+					  
+					  <td><button type="button" class="btn btn-danger"><?= $data['backup_setting']; ?></button></td>
+						   
+					  <?php
+					  } else {
+					  ?>
+					 
+					  <td><button type="button" class=" btn btn-success"><?= $data['backup_setting']; ?></button></td>
+					 
+					  <?php } ?>
+					  
+					  <?php
+					  if ($data['genset']!='Normal') { ?>
+					  
+					  <td><button type="button" class="btn btn-danger"><?= $data['genset']; ?></button></td>
+						   
+					  <?php
+					  } else {
+					  ?>
+					 
+					  <td><button type="button" class=" btn btn-success"><?= $data['genset']; ?></button></td>
+					 
+					  <?php } ?>
+					  
+					  <?php
+					  if ($data['ups']!='Normal') { ?>
+					  
+					  <td><button type="button" class="btn btn-danger"><?= $data['ups']; ?></button></td>
+						   
+					  <?php
+					  } else {
+					  ?>
+					 
+					  <td><button type="button" class=" btn btn-success"><?= $data['ups']; ?></button></td>
+					 
+					  <?php } ?>
+					  
+					  <?php
+					  if ($data['inverter']!='Normal') { ?>
+					  
+					  <td><button type="button" class="btn btn-danger"><?= $data['inverter']; ?></button></td>
+						   
+					  <?php
+					  } else {
+					  ?>
+					 
+					  <td><button type="button" class=" btn btn-success"><?= $data['inverter']; ?></button></td>
+					 
+					  <?php } ?>
                     </tr>
                   <?php } ?>
                 </tbody>
