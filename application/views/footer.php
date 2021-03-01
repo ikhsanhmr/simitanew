@@ -1843,6 +1843,7 @@
   $("#nama_perangkat").change(function() {
 
     // variabel dari nilai combo box kendaraan
+
     var nama_perangkat = $("#nama_perangkat").val();
 
     // Menggunakan ajax untuk mengirim dan dan menerima data dari server
@@ -1859,7 +1860,7 @@
         var i;
 
         for (i = 0; i < data.length; i++) {
-          html += '<option value=' + data[i].type + '>' + data[i].type + '</option>';
+          html += '<option value="' + data[i].type + '">' + data[i].type + '</option>';
         }
         $('#type').html(html);
 
@@ -1869,10 +1870,9 @@
 </script>
 <script>
   $("#type").change(function() {
-
+  	
     // variabel dari nilai combo box kendaraan
     var type = $("#type").val();
-
     // Menggunakan ajax untuk mengirim dan dan menerima data dari server
     $.ajax({
       url: "<?php echo base_url(); ?>/laporan/get_data_device_type",
@@ -1887,7 +1887,7 @@
         var i;
 
         for (i = 0; i < data.length; i++) {
-          html += '<option value=' + data[i].serial_number + '>' + data[i].serial_number + '</option>';
+          html += '<option value="' + data[i].serial_number + '">' + data[i].serial_number + '</option>';
         }
         $('#serial_number').html(html);
 

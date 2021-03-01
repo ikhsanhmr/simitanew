@@ -9,7 +9,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='januari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -25,7 +25,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 41760 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='februari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Internet')) / (SELECT 41760 * 
@@ -41,7 +41,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='maret' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -57,7 +57,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='april' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -73,7 +73,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='mei' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -88,7 +88,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juni' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -104,7 +104,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juli' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -119,7 +119,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='agustus' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -134,7 +134,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='september' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -149,7 +149,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='oktober' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -164,7 +164,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='november' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -179,7 +179,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='desember' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -195,7 +195,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 1 
-								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='januari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -211,7 +211,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 41760 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 1 
-								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='februari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'IP VPN')) / (SELECT 41760 * 
@@ -227,7 +227,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 1 
-								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='maret' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -243,7 +243,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 1 
-								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='april' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -259,7 +259,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 1 
-								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='mei' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -274,7 +274,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 1 
-								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juni' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -290,7 +290,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 1 
-								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juli' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -305,7 +305,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 1 
-								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='agustus' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -320,7 +320,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 1 
-								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='september' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -335,7 +335,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 1 
-								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='oktober' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -350,7 +350,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 1 
-								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='november' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -365,7 +365,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 1 
-								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='desember' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -381,7 +381,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Metronet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='januari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Metronet')) / (SELECT 44640 * 
@@ -397,7 +397,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 41760 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Metronet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='februari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Metronet')) / (SELECT 41760 * 
@@ -413,7 +413,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Metronet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='maret' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Metronet')) / (SELECT 44640 * 
@@ -429,7 +429,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Metronet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='april' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Metronet')) / (SELECT 43200 * 
@@ -445,7 +445,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Metronet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='mei' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Metronet')) / (SELECT 44640 * 
@@ -460,7 +460,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Metronet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juni' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Metronet')) / (SELECT 43200 * 
@@ -476,7 +476,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Metronet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juli' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Metronet')) / (SELECT 44640 * 
@@ -491,7 +491,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Metronet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='agustus' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Metronet')) / (SELECT 44640 * 
@@ -506,7 +506,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Metronet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='september' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Metronet')) / (SELECT 43200 * 
@@ -521,7 +521,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Metronet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='oktober' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Metronet')) / (SELECT 44640 * 
@@ -536,7 +536,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Metronet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='november' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Metronet')) / (SELECT 43200 * 
@@ -551,7 +551,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Metronet' AND id_unit = 1 
-								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='desember' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'Metronet')) / (SELECT 43200 * 
@@ -567,7 +567,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='VSAT' AND id_unit = 1 
-								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='januari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'VSAT')) / (SELECT 44640 * 
@@ -583,7 +583,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 41760 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='VSAT' AND id_unit = 1 
-								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='februari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'VSAT')) / (SELECT 41760 * 
@@ -599,7 +599,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='VSAT' AND id_unit = 1 
-								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='maret' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'VSAT')) / (SELECT 44640 * 
@@ -615,7 +615,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='VSAT' AND id_unit = 1 
-								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='april' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'VSAT')) / (SELECT 43200 * 
@@ -631,7 +631,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='VSAT' AND id_unit = 1 
-								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='mei' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'VSAT')) / (SELECT 44640 * 
@@ -646,7 +646,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='VSAT' AND id_unit = 1 
-								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juni' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'VSAT')) / (SELECT 43200 * 
@@ -662,7 +662,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='VSAT' AND id_unit = 1 
-								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juli' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'VSAT')) / (SELECT 44640 * 
@@ -677,7 +677,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='VSAT' AND id_unit = 1 
-								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='agustus' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'VSAT')) / (SELECT 44640 * 
@@ -692,7 +692,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='VSAT' AND id_unit = 1 
-								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='september' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'VSAT')) / (SELECT 43200 * 
@@ -707,7 +707,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='VSAT' AND id_unit = 1 
-								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='oktober' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'VSAT')) / (SELECT 44640 * 
@@ -722,7 +722,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='VSAT' AND id_unit = 1 
-								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='november' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'VSAT')) / (SELECT 43200 * 
@@ -737,7 +737,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='VSAT' AND id_unit = 1 
-								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='desember' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 1 
 								AND layanan = 'VSAT')) / (SELECT 43200 * 
@@ -754,7 +754,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 3 
-								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='januari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -770,7 +770,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 41760 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 3 
-								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='februari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'Internet')) / (SELECT 41760 * 
@@ -786,7 +786,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 3 
-								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='maret' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -802,7 +802,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 3 
-								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='april' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -818,7 +818,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 3 
-								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='mei' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -833,7 +833,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 3 
-								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juni' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -849,7 +849,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 3 
-								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juli' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -864,7 +864,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 3 
-								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='agustus' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -879,7 +879,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 3 
-								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='september' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -894,7 +894,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 3 
-								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='oktober' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -909,7 +909,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 3 
-								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='november' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -924,7 +924,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 3 
-								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='desember' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -940,7 +940,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 3 
-								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='januari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -956,7 +956,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 41760 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 3 
-								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='februari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'IP VPN')) / (SELECT 41760 * 
@@ -972,7 +972,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 3 
-								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='maret' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -988,7 +988,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 3 
-								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='april' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1004,7 +1004,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 3 
-								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='mei' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1019,7 +1019,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 3 
-								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juni' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1035,7 +1035,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 3 
-								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juli' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1050,7 +1050,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 3 
-								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='agustus' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1065,7 +1065,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 3 
-								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='september' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1080,7 +1080,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 3 
-								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='oktober' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1095,7 +1095,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 3 
-								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='november' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1110,7 +1110,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 3 
-								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='desember' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 3 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1127,7 +1127,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 2 
-								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='januari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -1143,7 +1143,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 41760 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 2 
-								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='februari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'Internet')) / (SELECT 41760 * 
@@ -1159,7 +1159,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 2 
-								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='maret' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -1175,7 +1175,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 2 
-								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='april' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -1191,7 +1191,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 2 
-								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='mei' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -1206,7 +1206,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 2 
-								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juni' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -1222,7 +1222,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 2 
-								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juli' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -1237,7 +1237,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 2 
-								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='agustus' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -1252,7 +1252,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 2 
-								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='september' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -1267,7 +1267,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 2 
-								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='oktober' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -1282,7 +1282,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 2 
-								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='november' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -1297,7 +1297,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 2 
-								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='desember' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -1313,7 +1313,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 2 
-								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='januari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1329,7 +1329,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 41760 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 2 
-								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='februari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'IP VPN')) / (SELECT 41760 * 
@@ -1345,7 +1345,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 2 
-								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='maret' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1361,7 +1361,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 2 
-								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='april' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1377,7 +1377,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 2 
-								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='mei' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1392,7 +1392,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 2 
-								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juni' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1408,7 +1408,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 2 
-								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juli' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1423,7 +1423,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 2 
-								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='agustus' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1438,7 +1438,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 2 
-								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='september' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1453,7 +1453,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 2 
-								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='oktober' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1468,7 +1468,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 2 
-								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='november' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1483,7 +1483,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 2 
-								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='desember' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 2 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1499,7 +1499,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 4 
-								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='januari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -1515,7 +1515,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 41760 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 4 
-								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='februari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'Internet')) / (SELECT 41760 * 
@@ -1531,7 +1531,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 4 
-								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='maret' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -1547,7 +1547,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 4 
-								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='april' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -1563,7 +1563,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 4 
-								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='mei' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -1578,7 +1578,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 4 
-								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juni' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -1594,7 +1594,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 4 
-								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juli' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -1609,7 +1609,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 4 
-								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='agustus' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -1624,7 +1624,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 4 
-								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='september' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -1639,7 +1639,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 4 
-								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='oktober' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'Internet')) / (SELECT 44640 * 
@@ -1654,7 +1654,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 4 
-								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='november' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -1669,7 +1669,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='Internet' AND id_unit = 4 
-								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='desember' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'Internet')) / (SELECT 43200 * 
@@ -1685,7 +1685,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='januari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1701,7 +1701,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 41760 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='februari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 41760 * 
@@ -1717,7 +1717,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='maret' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1733,7 +1733,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='april' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1749,7 +1749,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='mei' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1764,7 +1764,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juni' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1780,7 +1780,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juli' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1795,7 +1795,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='agustus' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1810,7 +1810,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='september' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1825,7 +1825,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='oktober' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1840,7 +1840,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='november' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1855,7 +1855,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='desember' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1871,7 +1871,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='januari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='januari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1887,7 +1887,7 @@ class Sla_model extends CI_Model {
     {
 		$get = $this->db->query("SELECT ((SELECT 41760 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='februari' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='februari' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 41760 * 
@@ -1903,7 +1903,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='maret' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='maret' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1919,7 +1919,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='april' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='april' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1935,7 +1935,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='mei' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='mei' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1950,7 +1950,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juni' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juni' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -1966,7 +1966,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='juli' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='juli' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1981,7 +1981,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='agustus' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='agustus' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -1996,7 +1996,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='september' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='september' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -2011,7 +2011,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='oktober' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='oktober' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 44640 * 
@@ -2026,7 +2026,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 43200 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='november' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='november' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
@@ -2041,7 +2041,7 @@ class Sla_model extends CI_Model {
 		{
 		$get = $this->db->query("SELECT ((SELECT 44640 * 
 								(SELECT COUNT(DATA_ID) FROM data_network WHERE service ='IP VPN' AND id_unit = 4 
-								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM LOG_GANGGUAN
+								AND STATUS='active' AND bulan='desember' AND tahun ='2020') - (SELECT SUM(durasi)FROM log_gangguan
 								WHERE  periode_bulan ='desember' 
 								AND periode_tahun = '2020' AND id_kantor_induk = 4 
 								AND layanan = 'IP VPN')) / (SELECT 43200 * 
