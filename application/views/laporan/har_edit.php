@@ -167,7 +167,7 @@
                             <label for="no_hp" class="col-sm-3 control-label">Type Perangkat</label>
                             <div class="col-sm-5">
                             <select class="form-control select2" name="type" id="type">
-                            <option selected="selected" value=""> -- Pilih  Type Perangkat -- </option>
+                            <option selected="selected" value="<?=$laporan['type']?>"><?=$laporan['type']?></option>
                             </select>
                             </div>
                         </div>
@@ -177,7 +177,7 @@
                             <label for="no_hp" class="col-sm-3 control-label">Serial Number</label>
                             <div class="col-sm-5">
                             <select  class="form-control select2" name="serial_number" id="serial_number"> 
-                            <option selected="selected" value=""> -- Pilih Serial Number -- </option>
+                            <option selected="selected" value="<?=$laporan['serial_number']?>"> <?=$laporan['serial_number']?></option>
                             </select>
                             </div>
                         </div>
@@ -521,7 +521,7 @@
 
                 <div class="col-lg-10">
                         <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Kondisi</label>
+                            <label for="no_hp" class="col-sm-3 control-label">Catatan</label>
                             <div class="col-sm-5">
                             <textarea class="form-control" id="catatan"  name="catatan" rows="3" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." ><?= $laporan['catatan']?></textarea>
                         </div>

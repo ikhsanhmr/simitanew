@@ -349,6 +349,7 @@ class Laporan extends CI_Controller {
 			$data['waktu'] = $this->laporan->filter_data_waktu($id_waktu);
 			$data['jadwal'] = $this->laporan->getJadwalHar();
 			$data['kerawanan'] = $this->db->get('kerawanan')->result_array();
+			// var_dump($data);die;
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/har_edit',$data);

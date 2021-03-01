@@ -411,7 +411,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <label class="col-sm-4">Kondisi Sebelum Pengerjaan</label>
+                        <label class="col-sm-4 control-label">Catatan</label>
                         <div class="col-sm-6">
                         <textarea name="catatan" class="form-control" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." rows="3"></textarea>
                         </div>
