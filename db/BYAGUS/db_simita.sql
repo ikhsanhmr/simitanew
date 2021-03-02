@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 01 Mar 2021 pada 08.00
+-- Waktu pembuatan: 02 Mar 2021 pada 04.34
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -2151,11 +2151,11 @@ CREATE TABLE `har_network` (
 --
 
 INSERT INTO `har_network` (`id`, `nama_unit`, `lokasi`, `waktu_pelaksanaan`, `working_permit`, `nama_perangkat`, `serial_number`, `type`, `id_address`, `mac_address`, `tampak_fisik`, `indikator_lampu`, `power_supply`, `lan`, `port`, `konfigurasi`, `backup_setting`, `genset`, `ups`, `inverter`, `solusi_tampak_fisik`, `solusi_indikator_lampu`, `solusi_power_supply`, `solusi_lan`, `solusi_port`, `solusi_konfigurasi`, `solusi_backup_setting`, `solusi_genset`, `solusi_ups`, `solusi_inverter`, `catatan`, `solusi`, `pengawas_pekerjaan`, `pelaksana_pekerjaan`, `approval`, `kantor_induk`, `tingkat_kerawanan`, `solusi_tingkat_kerawanan`, `unit_level2`, `unit_level3`, `foto_sebelum_pengerjaan`, `foto_saat_pengerjaan`, `foto_sesudah_pengerjaan`) VALUES
-(70, '', 'lotm', '1', '', 'Router', '#DOCSps', 'MOCACINO', '10.16.166.1', '00:0C:29:2D:94:A3', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', 'lorem', '', 'WOLFIANTO', 'WOLFIANTO', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '3', '14', '', '', ''),
-(71, '', 'LOrems3', '7', '', 'Access Point', '#ns1OPNSK', 'ZoneFlex 7372', '10.16.14.6', '00:0C:29:2D:94:A6', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', 'loter', '', 'RINI ISSUSI LENING TIAS', 'JONI PARNINGOTAN SUMBAYAK', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '3', '14', '', '', ''),
-(72, '', 'dos', '1', '', 'Router', '#A1227472J0', 'ZTE f60 Series', '192.168.1.1', '00:0C:29:2D:94:A1', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', 'loeesm', '', 'WOLFIANTO', 'JONI PARNINGOTAN SUMBAYAK', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '3', '14', '', '', ''),
-(73, '', 'asd', '1', '', 'Router board', '#oaso1221', 'RB1100AHx4', '10.16.202.1', '00:0C:29:2D:94:12', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', 'lotr', '', 'SUDIRIANTO', 'SUDIRIANTO', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '3', '14', '', '', ''),
-(74, '', 'Lotrm553', '1', '', 'Switch', '#Po230NK88N', 'Xiaomi Miwifi', '10.16.66.254', '00:0C:29:2D:94:L2', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', 'zx', '', 'ANITA OMPUSUNGGU', 'ANITA OMPUSUNGGU', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '3', '14', '', '', '');
+(75, '', 'lost', '8', 's.jpg', 'Router', '#A1227472J0', 'ZTE f60 Series', '192.168.1.1', '00:0C:29:2D:94:A1', 'Normal', 'Ada error', 'Normal', 'Normal', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Tidak ada', '', 'Perbaikan pada perangkat indikator lampu', '', '', '', '', 'Perbaikan Backup Setting pada perangkat', '', '', 'Disarankan untuk menambahkan Inverter', 'lorem', '', 'WOLFIANTO', 'WOLFIANTO', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '2', '2', '25231.png', 'ultron.jpg', 'smart-city-reuters-msl.jpg'),
+(76, '', 'lost', '8', 'Agustinus.pdf', 'Router', '#A1227472J0', 'ZTE f60 Series', '192.168.1.1', '00:0C:29:2D:94:A1', 'Normal', 'Ada error', 'Normal', 'Normal', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Tidak ada', '', 'Perbaikan pada perangkat indikator lampu', '', '', '', '', 'Perbaikan Backup Setting pada perangkat', '', '', 'Disarankan untuk menambahkan Inverter', 'lorem', '', 'WOLFIANTO', 'WOLFIANTO', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '2', '2', '252311.png', 'ultron1.jpg', 'smart-city-reuters-msl1.jpg'),
+(77, '', 'MORK', '8', 'Agustinus1.pdf', 'Router', '#A1227472J0', 'ZTE f60 Series', '192.168.1.1', '00:0C:29:2D:94:A1', 'Normal', 'Ada error', 'Normal', 'Normal', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Tidak ada', '', 'Perbaikan pada perangkat indikator lampu', '', '', '', '', 'Perbaikan Backup Setting pada perangkat', '', '', 'Disarankan untuk menambahkan Inverter', 'lorem', '', 'WOLFIANTO', 'WOLFIANTO', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '2', '2', '252312.png', 'ultron2.jpg', 'smart-city-reuters-msl2.jpg'),
+(78, '', 'DORK', '8', 'Agustinus2.pdf', 'Router', '#A1227472J0', 'ZTE f60 Series', '192.168.1.1', '00:0C:29:2D:94:A1', 'Normal', 'Ada error', 'Normal', 'Normal', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Tidak ada', '', 'Perbaikan pada perangkat indikator lampu', '', '', '', '', 'Perbaikan Backup Setting pada perangkat', '', '', 'Disarankan untuk menambahkan Inverter', 'lorem', '', 'WOLFIANTO', 'WOLFIANTO', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '2', '2', '252313.png', 'ultron3.jpg', 'smart-city-reuters-msl3.jpg'),
+(79, '', 'MOSKsaS', '8', 'Agustinus3.pdf', 'Router', '#A1227472J0', 'ZTE f60 Series', '192.168.1.1', '00:0C:29:2D:94:A1', 'Normal', 'Ada error', 'Normal', 'Normal', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Tidak ada', '', 'Perbaikan pada perangkat indikator lampu', '', '', '', '', 'Perbaikan Backup Setting pada perangkat', '', '', 'Disarankan untuk menambahkan Inverter', 'lorem', '', 'WOLFIANTO', 'WOLFIANTO', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '2', '2', '252314.png', 'ultron4.jpg', 'smart-city-reuters-msl4.jpg');
 
 -- --------------------------------------------------------
 
@@ -10730,7 +10730,7 @@ ALTER TABLE `gangguan`
 -- AUTO_INCREMENT untuk tabel `har_network`
 --
 ALTER TABLE `har_network`
-  MODIFY `id` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT untuk tabel `hi`

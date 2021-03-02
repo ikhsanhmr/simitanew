@@ -189,12 +189,13 @@ class Laporan extends CI_Controller {
 	}
 	
 	public function addDataHar_action(){
+		// var_dump($_POST);die;
 		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
             $config['upload_path']         =  './public/images/har_network/';  // folder upload 
             $config['allowed_types']        = 'gif|jpg|png|jpeg|pdf'; // jenis file
-            $config['max_size']             = 3000;
+            $config['max_size']             = 30000;
            
 			$this->load->library('upload', $config);
 			
