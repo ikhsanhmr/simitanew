@@ -103,13 +103,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="no_hp" class="col-sm-4 control-label">Nama Perangkat</label>
+                        <label for="id_perangkat" class="col-sm-4 control-label">Nama Perangkat</label>
                         <div class="col-sm-6">
-                        <select  class="form-control select2" name="nama_perangkat" id="nama_perangkat"> 
+                        <select  class="form-control select2" name="id_perangkat" id="id_perangkat"> 
                         <option selected="selected" value=""> -- Pilih  Nama Perangkat -- </option>
                         <?php
                         foreach($network as $value):
-                        echo "<option value='$value->device_type'>$value->device_type</option>";
+                        echo "<option value='$value->id_network_device'>$value->device_type</option>";
                         endforeach;
                             ?>
                         

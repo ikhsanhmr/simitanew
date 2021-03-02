@@ -38,6 +38,7 @@
 					<th>Status Aset</th>
 					<th>Vendor</th>
 					<th>Tahun</th>
+          <th>Last Inspection</th>
 					<th>Actions</th>
                 </tr>
                 </thead>

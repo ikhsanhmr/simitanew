@@ -51,7 +51,7 @@ class laporan_model extends CI_Model {
 			return $query->result_array();
 	  }
 
-	  public function getDetailDataHar($id)
+	public function getDetailDataHar($id)
 	{
 		return $this->db->get_where('har_network', ['id' => $id])->row_array();
 	}

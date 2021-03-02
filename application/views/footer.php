@@ -277,6 +277,9 @@
           "data": "tahun"
         },
         {
+          "data": "last_inspection"
+        },
+        {
           "data": "actionButton"
         },
       ],

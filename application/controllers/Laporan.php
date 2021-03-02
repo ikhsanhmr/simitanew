@@ -202,7 +202,8 @@ class Laporan extends CI_Controller {
 			
 				$lokasi = $this->input->post('lokasi');
 				$waktu_pelaksanaan = $this->input->post('waktu_pelaksanaan');
-				$nama_perangkat = $this->input->post('nama_perangkat');
+				$id_perangkat = $this->input->post('id_perangkat');
+				$nama_perangkat = $this->admin->get_network_device($id_perangkat);
 				$serial_number = $this->input->post('serial_number');
 				$type = $this->input->post('type');
 				$id_address = $this->input->post('id_address');
@@ -279,7 +280,8 @@ class Laporan extends CI_Controller {
 				$data = array(
 				'lokasi' => $lokasi
 				,'waktu_pelaksanaan' => $waktu_pelaksanaan
-				,'nama_perangkat' => $nama_perangkat,
+				,'nama_perangkat' => $nama_perangkat['device_type'],
+				'id_perangkat' => $id_perangkat,
 				'serial_number' => $serial_number,
 				'working_permit' => $working_permit,
 				'type' => $type,

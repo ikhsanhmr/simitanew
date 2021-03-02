@@ -899,7 +899,8 @@ function unit_level1()
       nama_vendor 
       FROM
       vendor 
-      WHERE id_vendor = a.id_vendor) AS nama_vendornya 
+      WHERE id_vendor = a.id_vendor) AS nama_vendornya,
+      (SELECT tanggal_pulang FROM jadwal_har,  `har_network`  WHERE id_jadwal = waktu_pelaksanaan AND id_perangkat = id_network_device) AS last_inspection 
       FROM
       network_device a 
       ORDER BY a.id_network_device DESC ");
