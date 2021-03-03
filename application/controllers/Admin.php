@@ -4099,6 +4099,7 @@ class Admin extends CI_Controller
 	{
 
 		$this->db->set($_GET['field'], 'Normal');
+		$this->db->set($_GET['solusi_field'], '');
 $this->db->where('id', $_GET['id']);
 $this->db->update('har_network');
 redirect('admin/corrective_maintenance');

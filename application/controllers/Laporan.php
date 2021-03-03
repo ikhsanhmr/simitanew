@@ -713,14 +713,16 @@ class Laporan extends CI_Controller {
 
 	function get_data_device_name()
     {
-		$nama_device=$this->input->post('nama_perangkat');
+		$nama_device=$this->input->post('id_perangkat');
         $data=$this->laporan->filter_device($nama_device);
         echo json_encode($data);
 	}
 	
 	function get_data_device_type()
     {
+			
 		$type=$this->input->post('type');
+		
         $data=$this->laporan->filter_type($type);
         echo json_encode($data); 
 	}

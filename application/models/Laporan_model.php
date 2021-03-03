@@ -456,10 +456,10 @@ FROM har_network a");
 		return $query -> result_array();
 	}
 
-	function filter_device($device_type){
+	function filter_device($id_perangkat){
 		$this->db->order_by('device_type', 'ASC');
 		$this->db->group_by('type');
-		$this->db->where('device_type', $device_type);
+		//$this->db->where('id_network_device', $id_perangkat);
         return $this->db->from('network_device')
           ->get()
           ->result();
@@ -467,7 +467,7 @@ FROM har_network a");
 
 	function filter_type($type){
 		$this->db->order_by('type', 'ASC');
-		$this->db->group_by('serial_number');	
+		//$this->db->group_by('serial_number');	
 	
 		$this->db->where('type', $type);
         return $this->db->from('network_device')

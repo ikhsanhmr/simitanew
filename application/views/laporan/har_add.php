@@ -111,6 +111,8 @@
                         foreach($network as $value):
                         echo "<option value='$value->id_network_device'>$value->device_type</option>";
                         endforeach;
+						
+						
                             ?>
                         
                         </select>

@@ -45,7 +45,7 @@
 										
 									
 									<tr>
-										<td><?= $no++.'/'.$data['id']; ?></td>
+										<td><?= $no++; ?></td>
 										<td class="text-center">
 											<p><?= $data['nama_perangkat']; ?></p>
 										</td>
@@ -141,7 +141,7 @@
 										<td>
 											<ul class="list-group">
 												<!-- TINDAK LANJUT -->
-												<?if ($data['tampak_fisik']!="Normal") {?>
+												<?php if ($data['tampak_fisik']!="Normal") {?>
 												<?php if ($data['solusi_tampak_fisik'] == 'Penggantian tampilan fisik dari perangkat.') { ?>
 												<b>Tindak Lanjut Tampak fisik : </b>
 												<li class="list-group-item d-flex justify-content-between align-items-center"
@@ -152,7 +152,7 @@
 													Diharapkan melakukan pengadaan untuk perangkat
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=tampak_fisik'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=tampak_fisik&solusi_field=solusi_tampak_fisik'?>">finish</a>
 												</li>
 												<?php } elseif ($data['solusi_tampak_fisik'] == 'Perbaikan tampilan fisik dari perangkat') { ?>
 												<b>Tindak Lanjut Tampak fisik : </b>
@@ -164,12 +164,12 @@
 													Diharapkan melakukan pengadaan untuk perangkat
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=tampak_fisik'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=tampak_fisik&solusi_field=solusi_tampak_fisik'?>">finish</a>
 												</li>
 												<?php } }?>
 
 												<!-- INDIKATOR -->
-												<?if ($data['tampak_fisik']!="Normal") {?>
+												<?php if ($data['indikator_lampu']!="Normal") {?>
 												<?php if ($data['solusi_indikator_lampu'] == 'Penggantian pada perangkat indikator lampu') { ?>
 												<b>Tindak Lanjut Indikator Lampu : </b>
 												<li class="list-group-item d-flex justify-content-between align-items-center"
@@ -180,7 +180,7 @@
 													Diharapkan melakukan pengadaan untuk indikator
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=indikator_lampu'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=indikator_lampu&solusi_field=solusi_indikator_lampu'?>">finish</a>
 												</li>
 												<?php } elseif ($data['solusi_indikator_lampu'] == 'Perbaikan pada perangkat indikator lampu') { ?>
 												<b>Tindak Lanjut Indikator Lampu : </b>
@@ -192,12 +192,12 @@
 													Diharapkan melakukan pengadaan untuk indikator
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=indikator_lampu'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=indikator_lampu&solusi_field=solusi_indikator_lampu'?>">finish</a>
 												</li>
 												<?php } }?>
 
 												<!-- POWER SUPPLY -->
-												<?if ($data['power_supply']!="Normal") {?>
+												<?php if ($data['power_supply']!="Normal") {?>
 												<?php if ($data['solusi_power_supply'] == 'Penggantian Power Supply dari perangkat.') { ?>
 												<b>Tindak Lanjut Power Supply : </b>
 												<li class="list-group-item d-flex justify-content-between align-items-center"
@@ -208,7 +208,7 @@
 													Diharapkan melakukan pengadaan untuk power supply
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=power_supply'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=power_supply&solusi_field=solusi_power_supply'?>">finish</a>
 												</li>
 												<?php } elseif ($data['solusi_power_supply'] == 'Perbaikan pada perangkat Power Supply lampu') { ?>
 												<b>Tindak Lanjut Power supply : </b>
@@ -220,12 +220,12 @@
 													Diharapkan melakukan pengadaan untuk power supply
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=power_supply'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=power_supply&solusi_field=solusi_power_supply'?>">finish</a>
 												</li>
 												<?php } }?>
 
 												<!-- LAN -->
-												<?if ($data['lan']!="Normal") {?>
+												<?php if ($data['lan']!="Normal") {?>
 												<?php if ($data['solusi_lan'] == 'Penggantian LAN pada perangkat.') { ?>
 												<b>Tindak Lanjut LAN : </b>
 												<li class="list-group-item d-flex justify-content-between align-items-center"
@@ -236,7 +236,7 @@
 													Diharapkan melakukan pengadaan untuk LAN
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=lan'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=lan&solusi_field=solusi_lan'?>">finish</a>
 												</li>
 												<?php } elseif ($data['solusi_lan'] == 'Perbaikan LAN pada perangkat') { ?>
 												<b>Tindak Lanjut LAN : </b>
@@ -248,12 +248,12 @@
 													Diharapkan melakukan pengadaan untuk LAN
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=lan'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=lan&solusi_field=solusi_lan'?>">finish</a>
 												</li>
 												<?php } }?>
 
 												<!-- PORT -->
-												<?if ($data['port']!="Normal") {?>
+												<?php if ($data['port']!="Normal") {?>
 												<?php if ($data['solusi_port'] == 'Penggantian Port pada perangkat.') { ?>
 												<b>Tindak Lanjut Port : </b>
 												<li class="list-group-item d-flex justify-content-between align-items-center"
@@ -264,7 +264,7 @@
 													Diharapkan melakukan pengadaan untuk Port
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=port'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=port&solusi_field=solusi_port'?>">finish</a>
 												</li>
 												<?php } elseif ($data['solusi_port'] == 'Perbaikan Port pada perangkat') { ?>
 												<b>Tindak Lanjut Port : </b>
@@ -276,12 +276,12 @@
 													Diharapkan melakukan pengadaan untuk Port
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=port'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=port&solusi_field=solusi_port'?>">finish</a>
 												</li>
 												<?php } }?>
 
 												<!-- Konfigurasi -->
-												<?if ($data['konfigurasi']!="Normal") {?>
+												<?php if ($data['konfigurasi']!="Normal") {?>
 												<?php if ($data['solusi_konfigurasi'] == 'Penggantian settingan konfigurasi pada perangkat.') { ?>
 												<b>Tindak Lanjut Konfigurasi : </b>
 												<li class="list-group-item d-flex justify-content-between align-items-center"
@@ -292,7 +292,7 @@
 													Diharapkan melakukan pengadaan untuk settingan konfigurasi
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=konfigurasi'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=konfigurasi&solusi_field=solusi_konfigurasi'?>">finish</a>
 												</li>
 												<?php } elseif ($data['solusi_konfigurasi'] == 'Perbaikan konfigurasi pada perangkat') { ?>
 												<b>Tindak Lanjut Konfigurasi : </b>
@@ -304,12 +304,12 @@
 													Diharapkan melakukan pengadaan untuk settingan konfigurasi
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=konfigurasi'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=konfigurasi&solusi_field=solusi_konfigurasi'?>">finish</a>
 												</li>
 												<?php }} ?>
 
 												<!-- BACKUP SETTING -->
-												<?if ($data['backup_setting']!="Normal") {?>
+												<?php if ($data['backup_setting']!="Normal") {?>
 												<?php if ($data['solusi_backup_setting'] == 'Penggantian Backup Setting pada perangkat.') { ?>
 												<b>Tindak Lanjut Backup Setting : </b>
 												<li class="list-group-item d-flex justify-content-between align-items-center"
@@ -320,7 +320,7 @@
 													Diharapkan melakukan pengadaan untuk bakup setting
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=backup_setting'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=backup_setting&solusi_field=solusi_backup_setting'?>">finish</a>
 												</li>
 												<?php } elseif ($data['solusi_backup_setting'] == 'Perbaikan Backup Setting pada perangkat') { ?>
 												<b>Tindak Lanjut Backup Setting : </b>
@@ -332,12 +332,12 @@
 													Diharapkan melakukan pengadaan untuk backup setting
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=backup_setting'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=backup_setting&solusi_field=solusi_backup_setting'?>">finish</a>
 												</li>
 												<?php } }?>
 
 												<!-- GENSET -->
-												<?if ($data['genset']!="Normal") {?>
+												<?php if ($data['genset']!="Normal") {?>
 												<?php if ($data['solusi_genset'] == 'Disarankan untuk menambahkan Genset') { ?>
 												<b>Tindak Lanjut Genset : </b>
 												<li class="list-group-item d-flex justify-content-between align-items-center"
@@ -348,12 +348,12 @@
 													Diharapkan melakukan pengadaan untuk genset
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=genset'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=genset&solusi_field=solusi_genset'?>">finish</a>
 												</li>
 												<?php } }?>
 
 												<!-- UPS -->
-												<?if ($data['ups']!="Normal") {?>
+												<?php if ($data['ups']!="Normal") {?>
 												<?php if ($data['solusi_ups'] == 'Disarankan untuk menambahkan UPS') { ?>
 												<b>Tindak Lanjut UPS : </b>
 												<li class="list-group-item d-flex justify-content-between align-items-center"
@@ -364,12 +364,12 @@
 													Diharapkan melakukan pengadaan untuk UPS
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=ups'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=ups&solusi_field=solusi_ups'?>">finish</a>
 												</li>
 												<?php } }?>
 
 												<!-- INVERTER -->
-												<?if ($data['inverter']!="Normal") {?>
+												<?php if ($data['inverter']!="Normal") {?>
 												<?php if ($data['solusi_inverter'] == 'Disarankan untuk menambahkan Inverter') { ?>
 												<b>Tindak Lanjut Inverter : </b>
 												<li class="list-group-item d-flex justify-content-between align-items-center"
@@ -380,7 +380,7 @@
 													Diharapkan melakukan pengadaan untuk Inverter
 													<?php } ?>
 													<a class="badge" style="margin-top:10px;background-color:blue"
-														href="<?='Pos?id='.$data['id'].'&field=Inverter'?>">finish</a>
+														href="<?='Pos?id='.$data['id'].'&field=Inverter&solusi_field=solusi_inverter'?>">finish</a>
 												</li>
 												<?php }}?>
 

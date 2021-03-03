@@ -447,7 +447,7 @@
           </div>
           <div class="box-body">
             <div class="col-12">
-              <table class="table table-bordered table-responsive" id="">
+              <table id = "example5" class="table table-bordered table-responsive" >
                 <thead>
                   <tr>
                     <th>No</th>
