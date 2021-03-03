@@ -4088,11 +4088,20 @@ class Admin extends CI_Controller
 			$data['judul'] = 'Corrective Maintenance';
 			$data['stok_view'] = $this->admin_model->tampil_stok();
 			$data['waktu'] = $this->laporan_model->getWaktuPelaksanaan();
+			// var_dump($data);die;
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/corrective_maintenance', $data);
 			$this->load->view('footer');
 		}
+	}
+	public function Pos()
+	{
+
+		$this->db->set($_GET['field'], 'Normal');
+$this->db->where('id', $_GET['id']);
+$this->db->update('har_network');
+redirect('admin/corrective_maintenance');
 	}
 }
 			//internet_UIWSU
