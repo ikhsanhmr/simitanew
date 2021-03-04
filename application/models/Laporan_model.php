@@ -413,7 +413,7 @@ class laporan_model extends CI_Model {
 	}
 	
 	function getDataGangguan(){
-		$query = $this->db->query("SELECT a.serial_number,a.type, 
+		$query = $this->db->query("SELECT a.id, a.serial_number,a.type, 
 (SELECT nama_kantor_induk FROM kantor_induk WHERE id_kantor_induk = a.kantor_induk) AS nama_unit,
 CASE WHEN tampak_fisik <> 'Normal' THEN '1 Masalah Indikator Tampak Fisik'
 ELSE 'Normal'

@@ -477,7 +477,7 @@
                       <td><?= $data['type']; ?></td>
 					                     
 					 <?php if ($data['tampak_fisik']!='Normal') {?>
-							<td><button type="button" class="btn btn-danger"><?= $data['tampak_fisik']; ?></button></td>
+							<td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['tampak_fisik']; ?></a></td>
 					  <?php
 					  } else {  ?>
 					 
@@ -488,7 +488,7 @@
 					  <?php
 					  if ($data['indikator_lampu']!='Normal') { ?>
 					  
-					  <td><button type="button" class="btn btn-danger"><?= $data['indikator_lampu']; ?></button></td>
+					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" type="button" class="btn btn-danger"><?= $data['indikator_lampu']; ?></a></td>
 						   
 					  <?php
 					  } else {
@@ -501,7 +501,7 @@
 					  <?php
 					  if ($data['power_supply']!='Normal') { ?>
 					  
-					  <td><button type="button" class="btn btn-danger"><?= $data['power_supply']; ?></button></td>
+					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" type="button" class="btn btn-danger"><?= $data['power_supply']; ?></a></td>
 						   
 					  <?php
 					  } else {
@@ -514,7 +514,7 @@
 					  <?php
 					  if ($data['PORT']!='Normal') { ?>
 					  
-					  <td><button type="button" class="btn btn-danger"><?= $data['PORT']; ?></button></td>
+					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" type="button" class="btn btn-danger"><?= $data['PORT']; ?></a></td>
 						   
 					  <?php
 					  } else {
@@ -527,7 +527,7 @@
 					  <?php
 					  if ($data['lan']!='Normal') { ?>
 					  
-					  <td><button type="button" class="btn btn-danger"><?= $data['lan']; ?></button></td>
+					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" type="button" class="btn btn-danger"><?= $data['lan']; ?></a></td>
 						   
 					  <?php
 					  } else {
@@ -540,7 +540,7 @@
 					  <?php
 					  if ($data['konfigurasi']!='Normal') { ?>
 					  
-					  <td><button type="button" class="btn btn-danger"><?= $data['konfigurasi']; ?></button></td>
+					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['konfigurasi']; ?></a></td>
 						   
 					  <?php
 					  } else {
@@ -553,7 +553,7 @@
 					  <?php
 					  if ($data['backup_setting']!='Normal') { ?>
 					  
-					  <td><button type="button" class="btn btn-danger"><?= $data['backup_setting']; ?></button></td>
+					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['backup_setting']; ?></a></td>
 						   
 					  <?php
 					  } else {
@@ -566,39 +566,39 @@
 					  <?php
 					  if ($data['genset']!='Normal') { ?>
 					  
-					  <td><button type="button" class="btn btn-danger"><?= $data['genset']; ?></button></td>
+					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['genset']; ?></a></td>
 						   
 					  <?php
 					  } else {
 					  ?>
 					 
-					  <td><button type="button" class=" btn btn-success"><?= $data['genset']; ?></button></td>
+					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class=" btn btn-success"><?= $data['genset']; ?></a></td>
 					 
 					  <?php } ?>
 					  
 					  <?php
 					  if ($data['ups']!='Normal') { ?>
 					  
-					  <td><button type="button" class="btn btn-danger"><?= $data['ups']; ?></button></td>
+					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['ups']; ?></a></td>
 						   
 					  <?php
 					  } else {
 					  ?>
 					 
-					  <td><button type="button" class=" btn btn-success"><?= $data['ups']; ?></button></td>
+					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class=" btn btn-success"><?= $data['ups']; ?></a></td>
 					 
 					  <?php } ?>
 					  
 					  <?php
 					  if ($data['inverter']!='Normal') { ?>
 					  
-					  <td><button type="button" class="btn btn-danger"><?= $data['inverter']; ?></button></td>
+					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['inverter']; ?></a></td>
 						   
 					  <?php
 					  } else {
 					  ?>
 					 
-					  <td><button type="button" class=" btn btn-success"><?= $data['inverter']; ?></button></td>
+					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class=" btn btn-success"><?= $data['inverter']; ?></a></td>
 					 
 					  <?php } ?>
                     </tr>
