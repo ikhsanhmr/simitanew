@@ -123,8 +123,34 @@
           });
       }
 
+    });
 
-
+    var pegawaiTable = $('#table_pegawai').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url:'<?php echo site_url('pegawai/table_pegawai') ?>',
+        type: 'POST'
+      },
+      columns: [{
+        "data":'no'
+      },
+      {
+        "data":'nip'
+      },
+      {
+        "data":'nama'
+      },
+      {
+        "data": "email"
+      },
+      {
+        "data": "no_hp"
+      },
+      {
+        "data": "actions"
+      }
+    ],
     });
 
     var komputerTable = $('#komputer_table').DataTable({

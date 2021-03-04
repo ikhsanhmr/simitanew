@@ -11,6 +11,12 @@ class pegawai_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function tampil_pegawai()
+	{
+		$get = $this->db->query("SELECT * FROM pegawai");
+		return $get;
+	}
+
 	public function addData()
 	{
 		$data = [

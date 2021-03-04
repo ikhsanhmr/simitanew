@@ -26,7 +26,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="table_pegawai" class="table table-bordered table-striped">
                 <thead>
                   <tr>
                     <th class="center">No.</th>
@@ -39,36 +39,15 @@
                 </thead>
 
                 <tbody>
-                  <?php
-                  $no = 1;
-                  foreach ($pegawai as $pegawai):
-                  ?>
-                    <tr>
-                      <td class="text-center"><?= $no ?></td>
-                      <td class="text-center"><?= $pegawai['nip']; ?></td>
-                      <td class="text-center"><?= $pegawai['nama']; ?></td>
-                      <td class="text-center"><?= $pegawai['email']; ?></td>
-                      <td class="text-center"><?= $pegawai['no_hp']; ?></td>
-                      <td class="text-center">
-                        <a href="<?= base_url(); ?>pegawai/deleteData/<?= $pegawai['pegawai_id']; ?>"
-                                class="btn btn-sm btn-danger tombol-hapus" onclick="return confirm('Anda yakin ingin menghapus data ini?');"><i class="fas fa-trash"></i> Hapus</a>
-                        <a href="<?= base_url(); ?>pegawai/editData/<?= $pegawai['pegawai_id']; ?>"
-                                class="btn btn-sm btn-success"><i class="fas fa-pen"></i> Edit</a>
-                      </td>
-                    </tr>
-                  <?php
-                    $no++;
-                  endforeach;
-                  ?>
 				
                 </tbody>
                
               </table>
-												<div class="row">
-														<div id="default-buttons" class="col-sm-6">
-														<a class="btn btn-primary" href="<?= base_url('pegawai/addData'); ?>">Add Data</a>
-														</div>
-												</div>
+              <div class="row">
+                  <div id="default-buttons" class="col-sm-6">
+                  <a class="btn btn-primary" href="<?= base_url('pegawai/addData'); ?>">Add Data</a>
+                  </div>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>

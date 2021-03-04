@@ -22,38 +22,38 @@
               <h3 class="box-title">Network Device Data</h3>
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
-			<div class="table-responsive">
+          <div class="box-body">
+            <div class="table-responsive">
               <table id="table_network" class="table table-bordered table-striped">
                 <thead>
-                <tr>
-                	<th class="center">No.</th>
-					<th>Merk Network Device</th>
-					<th>Device Type</th>
-          <th>Serial Number</th>
-					<th>IP Address</th>
-					<th>Username</th>
-					<th>Password</th>
-					<th>Pengguna</th>
-					<th>Unit</th>
-					<th>Status Aset</th>
-					<th>Vendor</th>
-					<th>Tahun</th>
-          <th>Last Inspection</th>
-					<th>Actions</th>
-                </tr>
+                  <tr>
+                    <th class="center">No.</th>
+                    <th>Merk Network Device</th>
+                    <th>Device Type</th>
+                    <th>Serial Number</th>
+                    <th>IP Address</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Pengguna</th>
+                    <th>Unit</th>
+                    <th>Status Aset</th>
+                    <th>Vendor</th>
+                    <th>Tahun</th>
+                    <th>Last Inspection</th>
+                    <th>Actions</th>
+                  </tr>
                 </thead>
 
                 <tbody>
                 </tbody>
                
               </table>
-			  </div>
-				<div class="row">
-						<div id="default-buttons" class="col-sm-6">
-						<a class="btn btn-primary" href="<?php echo site_url('admin/network_device_add'); ?>">Add Network Device</a>
-						</div>
-				</div>
+            </div>
+              <div class="row">
+                <div id="default-buttons" class="col-sm-6">
+                  <a class="btn btn-primary" href="<?php echo site_url('admin/network_device_add'); ?>">Add Network Device</a>
+                </div>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>

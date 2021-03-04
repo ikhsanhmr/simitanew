@@ -17,12 +17,28 @@ class Pegawai extends CI_Controller {
 		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['pegawai'] = $this->pegawai->getData();
+			$data['pegawai'] = $this->pegawai->tampil_pegawai();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('pegawai/index', $data);
 			$this->load->view('footer');
 		}
+	}
+
+	public function table_pegawai()
+	{
+		$data = array();
+		$query = $this->pegawai->tampil_pegawai();
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key + 1;
+				$row['actions'] = "<a href=" . base_url('pegawai/editData/' . $row['pegawai_id']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('pegawai/deleteData/' . $row['pegawai_id']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				";
+				$data[] = $row;
+			}
+		}
+		echo json_encode(array('data' => $data));
 	}
 
 	public function addData()
