@@ -153,7 +153,33 @@
     ],
     });
 
-    var pegawaiTable = $('#table_support').DataTable({
+    var userTable = $('#table_user').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url:'<?php echo site_url('admin/table_users') ?>',
+        type: 'POST'
+      },
+      columns: [{
+        "data":'no'
+      },
+      {
+        "data":'username'
+      },
+      {
+        "data":'password'
+      },
+      {
+        "data": "nama_role"
+      },
+      {
+        "data": "actions"
+      }
+    ],
+    });
+
+
+    var supportTable = $('#table_support').DataTable({
       ajax: {
         processing: true,
         serverSide: true,

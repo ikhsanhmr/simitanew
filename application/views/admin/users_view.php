@@ -23,75 +23,18 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="table_user" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                 <th class="center">
-				  No.
-				 </th>
+                  <th class="center">No.</th>
                   <th>Username</th>
                   <th>Password</th>
                   <th>ID Role</th>
-				  <th>Actions</th>
+                  <th>Actions</th>
                 </tr>
                 </thead>
-				<?php 
-				$no =1;
-				?>
                 <tbody>
-				<?php foreach ($users_view->result_array() as $data) { ?>
 				
-				
-                <tr>
-					<td class="center">
-						<?php echo $no; ?>
-					</td>
-                  <td>
-						<?php echo $data['username']; ?>
-				  </td>
-                  <td>
-						<?php echo $this->enkripsi->encrypt_decrypt('decrypt', $data['password']); ?>
-						
-						
-				  </td>
-                  <td>
-				  <?php
-				 // print_r ($data['id_role']); exit;
-				  if ($data['id_role'] == 1){ ?>
-				  <span class="label label-success"><?php echo $data['nama_role']; ?></span>
-					<?php
-				  } else{
-					  ?>
-				  <span class="label label-primary"><?php echo $data['nama_role']; ?></span>
-				  <?php
-						}
-					?>
-						
-				  </td>
-				  
-				  <td>
-														 <input type="hidden" name="id_users" value="<?php echo $data['id_users']; ?>">
-															<div class="hidden-sm hidden-xs action-buttons">
-																
-
-																<a class="green" value="<?php echo $data['id_users']; ?>" href="<?php echo base_url() . "admin/users_edit?id_users=".$data['id_users']?>">
-																	
-																	<i class="fa fa-pencil bigger-130"></i>
-																</a>
-																		&nbsp;
-																<a class="red" value="<?php echo $data['id_users']; ?>"  href="<?php echo base_url() . "admin/users_delete?id_users=".$data['id_users']?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');" >
-																	
-																	<i class="fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-															
-														</td>
-                </tr>
-				
-				<?php 
-					$no++;
-					}
-				?>
                 </tbody>
                
               </table>

@@ -1867,6 +1867,26 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function table_users()
+	{
+		$data = array();
+		$query = $this->admin_model->tampil_user();
+	
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key + 1;
+				$row['password'] = $this->enkripsi->encrypt_decrypt('decrypt', $row['password']);
+
+				$row['nama_role'] = $row['id_role'] == 1 ? "<span class='label label-success'>".$row['nama_role']."</span>" : "<span class='label label-primary'>".$row['nama_role']."</span>";
+				$row['actions'] = "<a href=" . base_url('admin/users_edit?id_users=' . $row['id_users']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/users_delete?id_users=' . $row['id_users']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				";
+				$data[] = $row;
+			}
+		}
+		echo json_encode(array('data' => $data));
+	}
+
 	public function users_add()
 	{
 
