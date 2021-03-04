@@ -40,7 +40,7 @@ class Laporan extends CI_Controller {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 		
-				$data['list_merek_printer'] = $this->admin->list_merek_printer();
+		$data['list_merek_printer'] = $this->admin->list_merek_printer();
 		$data['unit']=$this->laporan->kantor_induk();
 		$data['pegawainya'] = $this->pegawai->getData();
 		
@@ -67,6 +67,17 @@ class Laporan extends CI_Controller {
 		foreach($komputer as $l){
 			echo "
 			<option value=$l[serial_number]>$l[nama_komputer] - ($l[serial_number])</option>";
+		}
+	}
+
+	public function network(){
+		$networks = $this->admin_model->tampil_network_device()->result_array();
+		
+		echo "<option>-- Pilih Inventory Network Device --</option>";
+		foreach($networks as $network) {
+			echo "
+				<option value=$network[serial_number]>$network[device_type] - ($network[serial_number])</option>
+			";
 		}
 	}
 

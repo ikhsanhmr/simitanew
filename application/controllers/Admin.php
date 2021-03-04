@@ -2732,6 +2732,8 @@ class Admin extends CI_Controller
 				} else {
 					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">' . $row['status_kepemilikan'] . '</button>';
 				}
+				$row['serial_number'] = "<a href=" . base_url('admin/detailKerusakanNetwork/' . $row["serial_number"]) . ">" . $row["serial_number"] . "</a>";
+				
 				$row['actionButton'] = "<a href=" . base_url('admin/network_device_edit?id_network_device=' . $row['id_network_device']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
 				<a href=" . base_url('admin/network_device_delete?id_network_device=' . $row['id_network_device']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				
@@ -2865,6 +2867,20 @@ class Admin extends CI_Controller
 				echo "<script>alert('Berhasil Menghapus Data')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/network_device_view>";
 			}
+		}
+	}
+
+	public function detailKerusakanNetwork($serial_number)
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['serial_number'] = $serial_number;
+			$data['network_view'] = $this->db->get_where('report_kerusakan', ["serial_number" => $serial_number])->result_array();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/detailKerusakanNetwork', $data);
+			$this->load->view('footer');
 		}
 	}
 

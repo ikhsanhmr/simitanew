@@ -91,6 +91,7 @@
     $("#inventory").on('change', function() {
       var laptop = $(this).find(':selected').attr('data-laptop');
       var komputer = $(this).find(':selected').attr('data-komputer');
+      var network = $(this).find(':selected').attr('data-network');
 
       if (laptop) {
         fetch("<?= base_url('laporan/laptop') ?>", {
@@ -106,6 +107,13 @@
           .then((data) => {
             document.getElementById('getInventory').innerHTML = data;
           });
+      } else if (network){
+        fetch("<?= base_url('laporan/network')?>", {
+          method: 'GET',
+        }).then((response) => response.text())
+        .then((data) => {
+          document.getElementById('getInventory').innerHTML = data;
+        })
       } else {
         fetch("<?= base_url('laporan/inventoryNotFound') ?>", {
             method: 'GET',
@@ -251,6 +259,9 @@
         },
         {
           "data": "device_type"
+        },
+        {
+          "data": "serial_number"
         },
         {
           "data": "ip_address"

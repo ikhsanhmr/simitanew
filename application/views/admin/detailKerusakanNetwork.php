@@ -39,7 +39,7 @@
                 <tbody>
                   <?php
                   $no = 1;
-                  foreach ($laptop_view as $laporan):
+                  foreach ($network_view as $laporan):
                   ?>
                     <tr>
                       <td class="text-center"><?= $no ?></td>
@@ -51,9 +51,9 @@
                       <td class="text-center"><?= $laporan['pengguna']; ?></td>
                       <td class="text-center">
                         <a href="<?= base_url(); ?>laporan/deleteData/<?= $laporan['id_report']; ?>"
-                                class="btn " onclick="return confirm('Anda yakin ingin menghapus data ini?');"><i class="fa fa-trash-o bigger-130"></i></a>
+                            class="btn " onclick="return confirm('Anda yakin ingin menghapus data ini?');"><i class="fa fa-trash-o bigger-130"></i></a>
                         <a href="<?= base_url(); ?>laporan/editData/<?= $laporan['id_report']; ?>"
-                                class="btn"><i class="fa fa-pencil bigger-130"></i> </a>
+                            class="btn"><i class="fa fa-pencil bigger-130"></i> </a>
                       </td>
                     </tr>
                   <?php
@@ -63,12 +63,12 @@
 				
                 </tbody>
                
-              </table>
-              <div class="row">
-                  <div id="default-buttons" class="col-sm-6">
-                  <a class="btn btn-primary" href="<?= base_url('admin/laptop_view'); ?>">Kembali</a>
-                  </div>
-              </div>
+                </table>
+                <div class="row">
+                    <div id="default-buttons" class="col-sm-6">
+                    <a class="btn btn-primary" href="<?= base_url('admin/network_device_view'); ?>">Kembali</a>
+                </div>
+            </div>
             </div>
 
             <!-- /.box-body -->

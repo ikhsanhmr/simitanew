@@ -30,12 +30,12 @@
           <h3 class="box-title">Add Data</h3>
         </div>
         <div class="box-body">
-            <div class="col-lg-10">
-                        <div class="form-group">
+          <div class="col-lg-10">
+              <div class="form-group">
                            
-                            <div class="col-sm-5">
-             <input type="hidden" class="form-control" id="id_report" name="id_report" value = "<?php echo $laporan['id_report']; ?>" required/>
-                            </div>
+              <div class="col-sm-5">
+                <input type="hidden" class="form-control" id="id_report" name="id_report" value = "<?php echo $laporan['id_report']; ?>" required/>
+                       </div>
                         </div>
                     </div>
                     <div class="col-lg-10">
@@ -87,13 +87,13 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-                    <div class="pull-center">
-                    
-                        <a href="<?php echo base_url(); ?>laporan/getLaporan" class="btn btn-danger">Kembali</a>
-                        <button type="submit" class="btn btn-success">Submit</button>
-                    </div>
-                </div>
-                 </form>
+        <div class="pull-center">
+      
+          <a href="<?php echo base_url(); ?>laporan/getLaporan" class="btn btn-danger">Kembali</a>
+          <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+  </div>
+    </form>
       </div>
       <!-- /.box -->
                 

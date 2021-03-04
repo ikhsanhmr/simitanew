@@ -30,6 +30,7 @@
                 	<th class="center">No.</th>
 					<th>Merk Network Device</th>
 					<th>Device Type</th>
+          <th>Serial Number</th>
 					<th>IP Address</th>
 					<th>Username</th>
 					<th>Password</th>

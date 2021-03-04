@@ -21,7 +21,6 @@ class laporan_model extends CI_Model {
 	{
 		$data = [
 			'nama_item' => htmlspecialchars($this->input->post('nama_item'), true),
-			'merek_item' => htmlspecialchars($this->input->post('merek_item'), true),
 			'kondisi_item' => htmlspecialchars($this->input->post('kondisi_item'), true),
 			'tanggal_pelaporan' => htmlspecialchars($this->input->post('tanggal_pelaporan'), true),
 			'pengguna' => htmlspecialchars($this->input->post('pengguna'), true)

@@ -41,7 +41,7 @@
                                 <option value="Monitor">Monitor</option>
                                 <option value="Aplikasi Lokal">Aplikasi Lokal</option>
                                 <option value="Server">Server</option>
-                                <option value="Network Device">Network Device</option>
+                                <option value="Network Device" data-network="network">Network Device</option>
                                 <option value="Video Conference">Video Conference</option>    
                             </select>
                             </div>
@@ -52,13 +52,13 @@
                             <label for="nama" class="col-sm-3 control-label">Inventory</label>
                             <div class="col-sm-5">
                             <select class="form-control select2" id="getInventory" name="getInventory" style="width: 100%;">
-                            <option selected="selected"> -- Pilih Inventory Item Dahulu -- </option>
+                              <option selected="selected"> -- Pilih Inventory Item Dahulu -- </option>
                             </select>
                             </div>
                         </div>
                     </div>
        
-        <div class="col-lg-10">
+                    <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Kondisi</label>
                             <div class="col-sm-5">
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-        <div class="col-lg-10">
+                <div class="col-lg-10">
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Tanggal</label>
                             <div class="col-sm-5">
