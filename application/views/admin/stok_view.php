@@ -23,7 +23,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="table_stok" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                  <th class="center">
@@ -34,47 +34,9 @@
 				  <th>Actions</th>
                 </tr>
                 </thead>
-				<?php 
-				$no =1;
-				?>
+		
                 <tbody>
-				<?php foreach ($stok_view->result_array() as $data) { ?>
-				
-				
-                <tr>
-					<td class="center">
-						<?php echo $no; ?>
-					</td>
-                  <td>
-						<?php echo $data['jenis_perangkat']; ?>
-				  </td>
-                   <td>
-						<?php echo $data['jumlah_perangkat']; ?>
-				  </td>
-                 
-				  <td>
-														 <input type="hidden" name="id_stok" value="<?php echo $data['id_stok']; ?>">
-															<div class="hidden-sm hidden-xs action-buttons">
-																
-
-																<a class="green" value="<?php echo $data['id_stok']; ?>" href="<?php echo base_url() . "admin/stok_edit?id_stok=".$data['id_stok']?>">
-																	
-																	<i class="fa fa-pencil bigger-130"></i>
-																</a>
-																		&nbsp;
-																<a class="red" value="<?php echo $data['id_stok']; ?>"  href="<?php echo base_url() . "admin/stok_delete?id_stok=".$data['id_stok']?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');" >
-																	
-																	<i class="fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-															
-														</td>
-                </tr>
-				
-				<?php 
-					$no++;
-					}
-				?>
+			
                 </tbody>
                
               </table>

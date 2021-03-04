@@ -171,6 +171,29 @@
       }
     ],
     });
+
+    var stokTable = $('#table_stok').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url:'<?php echo site_url('admin/table_stok') ?>',
+        type: 'POST'
+      },
+      columns: [{
+        "data":'no'
+      },
+      {
+        "data": 'jenis_perangkat'
+      },
+      {
+        "data": 'jumlah_perangkat'
+      },
+      {
+        "data": "actions"
+      }
+    ],
+    });
+    
     var merekTable = $('#table_merek').DataTable({
       ajax: {
         processing: true,
