@@ -3790,6 +3790,22 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function table_kategori_gangguan()
+	{
+		$data = array();
+		$query = $this->admin_model->tampil_kategori_gangguan();
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key + 1;
+				$row['actions'] = "<a href=" . base_url('admin/kategori_gangguan_edit?data_id=' . $row['id_kategori']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('peadmin/kategori_gangguan_delete?data_id=' . $row['id_kategori']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				";
+				$data[] = $row;
+			}
+		}
+		echo json_encode(array('data' => $data));
+	}
+
 	public function kategori_gangguan_add()
 	{
 		if ($this->session->userdata('status') != "login") {

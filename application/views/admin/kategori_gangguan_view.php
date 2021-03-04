@@ -27,7 +27,7 @@
            <!-- /.box-header -->
 
            <div class="box-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="table_kategori_gangguan" class="table table-bordered table-striped">
                <thead>
                  <tr>
                    <th class="center">No.</th>
@@ -37,28 +37,8 @@
                </thead>
 
                <tbody>
-                 <?php
-                 $no = 1;
-                 foreach ($kategori_gangguan_view->result_array() as $data) :?>
-                   <tr>
-                     <td class="text-center"><?= $no ?></td>
-                     <td class="text-center"><?= $data['kategori']; ?></td>
-                     <td class="text-center">
-                       <div class="hidden-sm hidden-xs action-buttons">
-                         <a class="green" value="<?php echo $data['id_kategori']; ?>" href="<?php echo base_url() . "admin/kategori_gangguan_edit?data_id=" . $data['id_kategori'] ?>"><i class="fa fa-pencil bigger-130"></i></a>
-                         &nbsp;
-                         <a class="red" value="<?php echo $data['id_kategori']; ?>" href="<?php echo base_url() . "admin/kategori_gangguan_delete?data_id=" . $data['id_kategori'] ?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');">
-                           <i class="fa fa-trash-o bigger-130"></i>
-                         </a>
-                       </div>
-                     </td>
-                   </tr>
-                 <?php
-                 $no++;
-               endforeach;
-               ?>
-
-             </tbody>
+               
+                </tbody>
 
            </table>
            <div class="row">

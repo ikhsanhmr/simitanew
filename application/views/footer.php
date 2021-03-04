@@ -153,6 +153,24 @@
     ],
     });
 
+    var kategoriGangguanTable = $('#table_kategori_gangguan').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url:'<?php echo site_url('admin/table_kategori_gangguan') ?>',
+        type: 'POST'
+      },
+      columns: [{
+        "data":'no'
+      },
+      {
+        "data":'kategori'
+      },
+      {
+        "data": "actions"
+      }
+    ],
+    });
     var merekTable = $('#table_merek').DataTable({
       ajax: {
         processing: true,
