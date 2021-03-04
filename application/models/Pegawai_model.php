@@ -13,19 +13,12 @@ class pegawai_model extends CI_Model {
 
 	public function tampil_pegawai()
 	{
-		$get = $this->db->query("SELECT * FROM pegawai");
+		$get = $this->db->query("SELECT * FROM pegawai ORDER BY pegawai_id DESC");
 		return $get;
 	}
 
-	public function addData()
+	public function addData($data)
 	{
-		$data = [
-			'nip' => htmlspecialchars($this->input->post('nip'), true),
-			'nama' => htmlspecialchars($this->input->post('nama'), true),
-			'email' => htmlspecialchars($this->input->post('email'), true),
-			'no_hp' => htmlspecialchars($this->input->post('no_hp'), true)
-		];
-
 		$this->db->insert('pegawai', $data);
 	}
 

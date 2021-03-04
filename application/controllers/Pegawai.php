@@ -68,7 +68,14 @@ class Pegawai extends CI_Controller {
 			$this->load->view('pegawai/add');
 			$this->load->view('footer');
 		} else {
-			 $this->pegawai->addData();
+			$data = [
+				'nip' => htmlspecialchars($this->input->post('nip'), true),
+				'nama' => htmlspecialchars($this->input->post('nama'), true),
+				'email' => htmlspecialchars($this->input->post('email'), true),
+				'no_hp' => htmlspecialchars($this->input->post('no_hp'), true)
+			];
+			
+			 $this->pegawai->addData($data);
 			 $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible text-center " role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                     </button>

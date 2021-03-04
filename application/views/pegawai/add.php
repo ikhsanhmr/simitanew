@@ -24,20 +24,20 @@
 
           <!-- Form Element sizes -->
           <div class="box box-success">
-		   <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>pegawai/addData" enctype="multipart/form-data">
+		      <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>pegawai/addData" enctype="multipart/form-data">
 				
             <div class="box-header with-border">
               <h3 class="box-title">Add Data</h3>
             </div>
             <div class="box-body">
-                <div class="col-lg-10">
+                          <div class="col-lg-10">
                             <div class="form-group">
                                 <label for="nip" class="col-sm-3 control-label">NIP</label>
                                 <div class="col-sm-5">
-                 <input type="text" class="form-control" id="nip" name="nip" required/>
+                                  <input type="text" class="form-control" id="nip" name="nip" required/>
                                 </div>
                             </div>
-                        </div>
+                          </div>
 						<div class="col-lg-10">
                             <div class="form-group">
                                 <label for="nama" class="col-sm-3 control-label">Nama</label>
