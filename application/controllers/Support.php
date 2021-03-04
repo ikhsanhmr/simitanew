@@ -37,6 +37,22 @@ class Support extends CI_Controller {
 		}
 	}
 
+	public function table_support()
+	{
+		$data = array();
+		$query = $this->support->tampil_support();
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key + 1;
+				$row['actions'] = "<a href=" . base_url('support/editData/' . $row['id']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('support/deleteData/' . $row['id']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				";
+				$data[] = $row;
+			}
+		}
+		echo json_encode(array('data' => $data));
+	}
+
 	public function addData()
 	{
 		if($this->session->userdata('status') != "login"){

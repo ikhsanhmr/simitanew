@@ -11,6 +11,14 @@ class Support_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function tampil_support()
+	{
+		$this->db->select('*');
+		$this->db->from('it_support');
+		$query = $this->db->get();
+		return $query;
+	}
+
 	public function addData()
 	{
 		$data = [

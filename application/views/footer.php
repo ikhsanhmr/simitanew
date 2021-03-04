@@ -153,6 +153,34 @@
     ],
     });
 
+    var pegawaiTable = $('#table_support').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url:'<?php echo site_url('support/table_support') ?>',
+        type: 'POST'
+      },
+      columns: [{
+        "data":'no'
+      },
+      {
+        "data":'nama'
+      },
+      {
+        "data":'no_hp'
+      },
+      {
+        "data": "email"
+      },
+      {
+        "data": "penempatan"
+      },
+      {
+        "data": "actions"
+      }
+    ],
+    });
+
     var komputerTable = $('#komputer_table').DataTable({
       ajax: {
         processing: true,
