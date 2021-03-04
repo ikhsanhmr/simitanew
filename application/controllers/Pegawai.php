@@ -46,7 +46,7 @@ class Pegawai extends CI_Controller {
 		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$this->form_validation->set_rules('nip', 'NIP', 'required|numeric', [
+			$this->form_validation->set_rules('nip', 'NIP', 'required', [
 			'required' => 'NIP harus di isi!',
 			'required' => 'NIP harus di isi dengan angka!'
 		]);
