@@ -153,6 +153,28 @@
     ],
     });
 
+    var merekTable = $('#table_merek').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url:'<?php echo site_url('admin/table_merek') ?>',
+        type: 'POST'
+      },
+      columns: [{
+        "data":'no'
+      },
+      {
+        "data":'merek'
+      },
+      {
+        "data":'kategori'
+      },
+      {
+        "data": "actions"
+      }
+    ],
+    });
+
     var userTable = $('#table_user').DataTable({
       ajax: {
         processing: true,

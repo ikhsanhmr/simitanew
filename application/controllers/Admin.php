@@ -1425,6 +1425,22 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function table_merek()
+	{
+		$data = array();
+		$query = $this->admin_model->tampil_merek();
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key + 1;
+				$row['actions'] = "<a href=" . base_url('admin/merek_edit?id_merek=' . $row['id_merek']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admil/merek_delete?id_merek=' . $row['id_merek']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				";
+				$data[] = $row;
+			}
+		}
+		echo json_encode(array('data' => $data));
+	}
+
 	public function merek_add()
 	{
 		if ($this->session->userdata('status') != "login") {
