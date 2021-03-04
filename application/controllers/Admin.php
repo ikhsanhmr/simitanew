@@ -4026,6 +4026,22 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function table_kerawanan()
+	{
+		$data = array();
+		$query = $this->admin_model->tampil_tingkat_kerawanan();
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key + 1;
+				$row['actions'] = "<a href=" . base_url('admin/tingkat_kerawanan_edit?id_kerawanan=' . $row['id_kerawanan']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/tingkat_kerawanan_delete?id_kerawanan=' . $row['id_kerawanan']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				";
+				$data[] = $row;
+			}
+		}
+		echo json_encode(array('data' => $data));
+	}
+
 	public function tingkat_kerawanan_add()
 	{
 		if ($this->session->userdata('status') != "login") {

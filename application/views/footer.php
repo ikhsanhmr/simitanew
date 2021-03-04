@@ -194,6 +194,33 @@
     ],
     });
     
+    
+    var kerawananTable = $('#table_kerawanan').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url:'<?php echo site_url('admin/table_kerawanan') ?>',
+        type: 'POST'
+      },
+      columns: [{
+        "data":'no'
+      },
+      {
+        "data": 'tingkat_kerawanan'
+      },
+      {
+        "data": 'status_kerawanan'
+      },
+      {
+        "data": 'solusi_tingkat_kerawanan'
+      },
+      {
+        "data": "actions"
+      }
+    ],
+    });
+    
+
     var merekTable = $('#table_merek').DataTable({
       ajax: {
         processing: true,

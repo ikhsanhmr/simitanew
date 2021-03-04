@@ -27,7 +27,7 @@
            <!-- /.box-header -->
 
            <div class="box-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="table_kerawanan" class="table table-bordered table-striped">
                <thead>
                  <tr>
                    <th class="center">No.</th>
@@ -39,28 +39,7 @@
                </thead>
 
                <tbody>
-                 <?php
-                 $no = 1;
-                 foreach ($tingkat_kerawanan->result_array() as $data) :?>
-                   <tr>
-                     <td class="text-center"><?= $no ?></td>
-                     <td class="text-center"><?= $data['tingkat_kerawanan']; ?></td>
-                     <td class="text-center"><?= $data['status_kerawanan']; ?></td>
-                     <td class="text-center"><?= $data['solusi_tingkat_kerawanan']; ?></td>
-                     <td class="text-center">
-                       <div class="hidden-sm hidden-xs action-buttons">
-                         <a class="green" value="<?php echo $data['id_kerawanan']; ?>" href="<?php echo base_url() . "admin/tingkat_kerawanan_edit?id_kerawanan=" . $data['id_kerawanan'] ?>"><i class="fa fa-pencil bigger-130"></i></a>
-                         &nbsp;
-                         <a class="red" value="<?php echo $data['id_kerawanan']; ?>" href="<?php echo base_url() . "admin/tingkat_kerawanan_delete?id_kerawanan=" . $data['id_kerawanan'] ?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');">
-                           <i class="fa fa-trash-o bigger-130"></i>
-                         </a>
-                       </div>
-                     </td>
-                   </tr>
-                 <?php
-                 $no++;
-               endforeach;
-               ?>
+                
 
              </tbody>
 
