@@ -2003,6 +2003,22 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function table_unit()
+	{
+		$data = array();
+		$query = $this->admin_model->tampil_unit();
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key + 1;
+				$row['actions'] = "<a href=" . base_url('admin/unit_edit?id_unit=' . $row['id_unit_level3']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/unit_delete?id_unit=' . $row['id_unit_level3']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				";
+				$data[] = $row;
+			}
+		}
+		echo json_encode(array('data' => $data));
+	}
+
 	public function unit_add()
 	{
 		if ($this->session->userdata('status') != "login") {

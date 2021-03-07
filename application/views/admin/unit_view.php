@@ -23,7 +23,7 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="table_unit" class="table table-bordered table-striped">
               <thead>
                 <tr>
                  <th class="center">No.</th>
@@ -34,28 +34,10 @@
                  <th>Actions</th>
                </tr>
              </thead>
-             <tbody>
-              <?php 
-              $no =1;
-              foreach ($unit_view->result_array() as $data) { ?>
-                <tr>
-                 <td class="center"><?php echo $no; ?></td>
-                 <td><?php echo $data['nama_kantor_induk']; ?></td>
-                 <td><?php echo $data['nama_unit_level2']; ?></td>
-                 <td><?php echo $data['nama_unit_level3']; ?></td>
-                 <td>Asman Sumut <?php echo $data['wilayah_kerja']; ?></td>
-                 <td>
-                   <div class="hidden-sm hidden-xs action-buttons">
-                    <a class="green" value="<?php echo $data['id_unit_level3']; ?>" href="<?php echo base_url() . "admin/unit_edit?id_unit=".$data['id_unit_level3']?>"><i class="fa fa-pencil bigger-130"></i></a>
-                    &nbsp;
-                    <a class="red" value="<?php echo $data['id_unit_level3']; ?>"  href="<?php echo base_url() . "admin/unit_delete?id_unit=".$data['id_unit_level3']?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');" ><i class="fa fa-trash-o bigger-130"></i></a>
-                  </div>
-                </td>
-              </tr>
-              <?php $no++;}?>
-          </tbody>
 
-        </table>
+              <tbody>
+              </tbody>
+            </table>
         <div class="row">
           <div id="default-buttons" class="col-sm-6">
             <a class="btn btn-primary" href="<?php echo site_url('admin/unit_add'); ?>">Add Unit</a>

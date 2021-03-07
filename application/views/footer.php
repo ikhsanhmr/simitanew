@@ -220,6 +220,34 @@
     ],
     });
     
+    
+    var unitTable = $('#table_unit').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url:'<?php echo site_url('admin/table_unit') ?>',
+        type: 'POST'
+      },
+      columns: [{
+        "data":'no'
+      },
+      {
+        "data": 'nama_kantor_induk'
+      },
+      {
+        "data": 'nama_unit_level2'
+      },
+      {
+        "data": 'nama_unit_level3'
+      },
+      {
+        "data": 'wilayah_kerja'
+      },
+      {
+        "data": "actions"
+      }
+    ],
+    });
 
     var merekTable = $('#table_merek').DataTable({
       ajax: {
