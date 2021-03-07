@@ -1277,7 +1277,8 @@
       array_push($sid_label, $row['kategori']);
       array_push($sid_value, $row['jumlahnya']);
     }
-  }; ?>
+  }; 
+  ?>
   var myChart = new Chart(ctx, {
     type: 'pie',
     data: {
@@ -1286,18 +1287,61 @@
         label: 'INTERNET',
         data: <?php echo json_encode($sid_value); ?>,
         backgroundColor: [
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)'
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)'
         ],
         borderColor: [
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)'
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      legend: {
+        display: false
+      }
+    }
+  });
+</script>
+
+<script type="text/javascript">
+  var ctxNetwork = document.getElementById('chartNetwork').getContext('2d')
+  <?php
+    $network_count = array();
+    if(!empty($dashboard_network_device_har)) {
+      foreach ($dashboard_network_device_har->result_array() as $row) {
+        array_push($network_count, $row['har_network']);
+        array_push($network_count, $row['network_device']);
+      }
+    }
+  ?>
+  var myChart = new Chart(ctxNetwork, {
+    type: 'pie',
+    data: {
+      labels: ["Sudah Har", "Seluruh Network Device"],
+      datasets: [{
+        label: 'INTERNET',
+        data: <?php echo json_encode($network_count); ?>,
+        backgroundColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)'
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)'
         ],
         borderWidth: 1
       }]
@@ -2069,7 +2113,7 @@
       dataType: 'json',
       success: function(data) {
 	  //console.log(id_perangkat);
-        var html = '<option selected="selected" value=""> -- Pilih Perangkat -- </option>';
+        var html = '<option selected="selected" value=""> -- Pilih Type Perangkat -- </option>';
         var i;
 
         for (i = 0; i < data.length; i++) {

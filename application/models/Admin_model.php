@@ -1526,6 +1526,12 @@ function unit_level1()
     return $get;
   }
 
+  function dashboard_network_device_har()
+  {
+    $get = $this->db->query("SELECT COUNT(id_perangkat) as har_network, (SELECT COUNT(*) FROM network_device) as network_device FROM `har_network`");
+    return $get;
+  }
+
   //TINGKAT KERAWANAN
   function tampil_tingkat_kerawanan()
   {
