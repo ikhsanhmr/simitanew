@@ -66,6 +66,7 @@ class Admin extends CI_Controller
 			$data['dashboard_gangguan_terbanyak'] = $this->admin_model->dashboard_gangguan_terbanyak();
 			$data['dashboard_network_device_har'] = $this->admin_model->dashboard_network_device_har();
 			$data['dashboard_network_device'] = $this->admin_model->dashboard_network_device();
+			$data['dashboard_kerusakan_perangkat'] = $this->admin_model->dashboard_kerusakan_perangkat();
 			$data['januari_internet_uiwsu'] = $this->Sla_model->januari_internet_uiwsu();
 			$data['januari_internet_uiwsu_sukses'] = $data['januari_internet_uiwsu'][0]['persentasi_sla'];
 			$data['januari_internet_uiwsu_ok'] = number_format($data['januari_internet_uiwsu_sukses'], 2, ",", ".");

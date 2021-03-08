@@ -1532,6 +1532,12 @@ function unit_level1()
     return $get;
   }
 
+  function dashboard_kerusakan_perangkat()
+  {
+    $get = $this->db->query("SELECT COUNT(id_report) AS jumlah_perangkat_rusak, nama_item AS perangkat_name FROM report_kerusakan GROUP BY perangkat_name");
+    return $get;
+  }
+
   function dashboard_network_device()
   {
     $get = $this->db->query("SELECT COUNT(id_network_device) As jumlah_device, device_type AS device_name FROM `network_device` GROUP BY device_type ORDER BY jumlah_device DESC");

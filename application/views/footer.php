@@ -1501,6 +1501,51 @@
   });
 </script>
 
+<!-- PIE CHART PERANGKAT -->
+<script type="text/javascript">
+  var ctxNetwork = document.getElementById('chartPerangkatKerusakan').getContext('2d')
+  <?php
+    $kerusakan_perangkat_count = array();
+    $perangkat_name = array();
+    if(!empty($dashboard_kerusakan_perangkat)) {
+      foreach ($dashboard_kerusakan_perangkat->result_array() as $row) {
+        array_push($kerusakan_perangkat_count, $row['jumlah_perangkat_rusak']);
+        array_push($perangkat_name, $row['perangkat_name']);
+      }
+    }
+  ?>
+  var myChart = new Chart(ctxNetwork, {
+    type: 'pie',
+    data: {
+      labels: <?php echo  json_encode($perangkat_name);?>,
+      datasets: [{
+        label: 'INTERNET',
+        data: <?php echo json_encode($kerusakan_perangkat_count); ?>,
+        backgroundColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)'
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      legend: {
+        display: false
+      }
+    }
+  });
+</script>
+
 <script type="text/javascript">
   function statusnya() {
     var tes = document.getElementById("status_kepemilikan").value;
