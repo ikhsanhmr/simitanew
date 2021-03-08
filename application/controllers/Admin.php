@@ -4207,7 +4207,7 @@ class Admin extends CI_Controller
 			$data['judul'] = 'Corrective Maintenance';
 			$data['stok_view'] = $this->admin_model->tampil_stok();
 			$data['waktu'] = $this->laporan_model->getWaktuPelaksanaan();
-			// var_dump($data);die;
+			// var_dump($data['waktu']);die;
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/corrective_maintenance', $data);
