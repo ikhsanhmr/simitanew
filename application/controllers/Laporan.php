@@ -739,19 +739,26 @@ class Laporan extends CI_Controller {
 		}
 	}
 
-	function get_data_device_name()
+	function get_network_device_by_unitlv3()
+	{
+		$id_unit_level3 = $this->input->post('id_unit_level3');
+		$data = $this->laporan->filter_network_device_by_unitlv3($id_unit_level3);
+		echo json_encode($data);
+	}
+
+	function get_type_perangkat_by_id_perangkat()
     {
-		$nama_device=$this->input->post('id_perangkat');
-        $data=$this->laporan->filter_device($nama_device);
+		$id_perangkat=$this->input->post('id_perangkat');
+		$id_unit_level3 = $this->input->post('id_unit_level3');
+        $data=$this->laporan->filter_type_perangkat_by_id_perangkat($id_perangkat, $id_unit_level3);
         echo json_encode($data);
 	}
 	
-	function get_data_device_type()
+	function get_data_device_serial_num_by_type()
     {
-			
 		$type=$this->input->post('type');
 		
-        $data=$this->laporan->filter_type($type);
+        $data=$this->laporan->filter_serial_num_by_type($type);
         echo json_encode($data); 
 	}
 	

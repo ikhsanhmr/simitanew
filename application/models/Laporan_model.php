@@ -374,6 +374,7 @@ class laporan_model extends CI_Model {
             ->get()
             ->result();
     }
+
     function unit_level3($id_unit_level2)
     {
         $this->db->where('id_unit_level2', $id_unit_level2);
@@ -460,16 +461,21 @@ FROM har_network a");
 		return $query -> result_array();
 	}
 
-	function filter_device($id_perangkat){
-		$this->db->order_by('device_type', 'ASC');
-		$this->db->group_by('type');
-		//$this->db->where('id_network_device', $id_perangkat);
-        return $this->db->from('network_device')
-          ->get()
+	function filter_type_perangkat_by_id_perangkat($id_perangkat, $id_unit_level3){
+		$get = $this->db->query("SELECT type FROM `network_device` WHERE device_type=(SELECT device_type FROM network_device WHERE id_network_device=$id_perangkat) AND id_unit_level3=$id_unit_level3 ORDER BY `type` DESC");
+        return $get 
           ->result();
 	}
 
-	function filter_type($type){
+	function filter_network_device_by_unitlv3($id_unit_level3){
+		$this->db->order_by('device_type', 'ASC');
+		$this->db->where('id_unit_level3', $id_unit_level3);
+		return $this->db->from('network_device')
+			->get()
+			->result();
+	}
+
+	function filter_serial_num_by_type($type){
 		$this->db->order_by('type', 'ASC');
 		//$this->db->group_by('serial_number');	
 	

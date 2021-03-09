@@ -2261,7 +2261,6 @@
 
     // variabel dari nilai combo box kendaraan
     var id_unit_level2 = $("#unit_level2").val();
-
     // Menggunakan ajax untuk mengirim dan dan menerima data dari server
     $.ajax({
       url: "<?php echo base_url(); ?>/laporan/get_unit_level3",
@@ -2286,25 +2285,55 @@
   });
 </script>
 
-<!-- HAR NETWORK -->
 <script>
-  $("#id_perangkat").change(function() {
+  $("#unit_level3").change(function() {
+    
+    // variable id dari combobox level 3
+    var id_unit_level3 = $("#unit_level3").val();
 
-    // variabel dari nilai combo box kendaraan
-
-    var id_perangkat = $("#id_perangkat").val();
-
-    // Menggunakan ajax untuk mengirim dan dan menerima data dari server
     $.ajax({
-      url: "<?php echo base_url(); ?>/laporan/get_data_device_name",
-      method: "POST",
+      url: "<?php echo base_url(); ?>/laporan/get_network_device_by_unitlv3",
+      method: "POST", 
       data: {
-        id_perangkat: id_perangkat
+        id_unit_level3: id_unit_level3
       },
       async: false,
       dataType: 'json',
       success: function(data) {
-	  //console.log(id_perangkat);
+        var html = '<option selected="selected" value=""> -- Pilih Nama Perangkat -- </option>';
+        var i;
+        
+        for (i = 0; i < data.length; i++) {
+          html += '<option value="' + data[i].id_network_device + '">' + data[i].device_type + '</option>';
+        }
+        $('#id_perangkat').html(html);
+      }
+    })
+
+  })
+</script>
+
+<!-- HAR NETWORK -->
+<script>
+  $("#id_perangkat").change(function() {
+
+    // variabel dari nilai combo box 
+    var id_perangkat = $("#id_perangkat").val();
+    var id_unit_level3 = $("#unit_level3").val();
+    console.log(id_perangkat)
+    console.log(id_unit_level3)
+
+    // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+    $.ajax({
+      url: "<?php echo base_url(); ?>/laporan/get_type_perangkat_by_id_perangkat",
+      method: "POST",
+      data: {
+        id_perangkat: id_perangkat,
+        id_unit_level3: id_unit_level3
+      },
+      async: false,
+      dataType: 'json',
+      success: function(data) {
         var html = '<option selected="selected" value=""> -- Pilih Type Perangkat -- </option>';
         var i;
 
@@ -2312,7 +2341,6 @@
           html += '<option value="' + data[i].type + '">' + data[i].type + '</option>';
         }
         $('#type').html(html);
-
       }
     });
   });
@@ -2322,9 +2350,10 @@
   	
     // variabel dari nilai combo box kendaraan
     var type = $("#type").val();
+    console.log(type);
     // Menggunakan ajax untuk mengirim dan dan menerima data dari server
     $.ajax({
-      url: "<?php echo base_url(); ?>/laporan/get_data_device_type",
+      url: "<?php echo base_url(); ?>/laporan/get_data_device_serial_num_by_type",
       method: "POST",
       data: {
         type: type
