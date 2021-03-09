@@ -461,14 +461,15 @@ FROM har_network a");
 		return $query -> result_array();
 	}
 
-	function filter_type_perangkat_by_id_perangkat($id_perangkat, $id_unit_level3){
-		$get = $this->db->query("SELECT type FROM `network_device` WHERE device_type=(SELECT device_type FROM network_device WHERE id_network_device=$id_perangkat) AND id_unit_level3=$id_unit_level3 ORDER BY `type` DESC");
+	function filter_type_perangkat_by_id_perangkat($name_perangkat, $id_unit_level3){
+		$get = $this->db->query("SELECT type FROM `network_device` WHERE device_type='$name_perangkat' AND id_unit_level3=$id_unit_level3 ORDER BY `type` DESC");
         return $get 
           ->result();
 	}
 
 	function filter_network_device_by_unitlv3($id_unit_level3){
 		$this->db->order_by('device_type', 'ASC');
+		$this->db->group_by('device_type');
 		$this->db->where('id_unit_level3', $id_unit_level3);
 		return $this->db->from('network_device')
 			->get()

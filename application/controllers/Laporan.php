@@ -748,9 +748,9 @@ class Laporan extends CI_Controller {
 
 	function get_type_perangkat_by_id_perangkat()
     {
-		$id_perangkat=$this->input->post('id_perangkat');
 		$id_unit_level3 = $this->input->post('id_unit_level3');
-        $data=$this->laporan->filter_type_perangkat_by_id_perangkat($id_perangkat, $id_unit_level3);
+		$name_perangkat = $this->input->post('name_perangkat');
+        $data=$this->laporan->filter_type_perangkat_by_id_perangkat($name_perangkat, $id_unit_level3);
         echo json_encode($data);
 	}
 	

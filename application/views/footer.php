@@ -2300,11 +2300,12 @@
       async: false,
       dataType: 'json',
       success: function(data) {
+        console.log(data)
         var html = '<option selected="selected" value=""> -- Pilih Nama Perangkat -- </option>';
         var i;
         
         for (i = 0; i < data.length; i++) {
-          html += '<option value="' + data[i].id_network_device + '">' + data[i].device_type + '</option>';
+          html += '<option value="' + data[i].id_network_device  + '-' + data[i].device_type + '">' + data[i].device_type + '</option>';
         }
         $('#id_perangkat').html(html);
       }
@@ -2318,18 +2319,18 @@
   $("#id_perangkat").change(function() {
 
     // variabel dari nilai combo box 
-    var id_perangkat = $("#id_perangkat").val();
+    var input_perangkat = $("#id_perangkat").val();
     var id_unit_level3 = $("#unit_level3").val();
-    console.log(id_perangkat)
-    console.log(id_unit_level3)
+    var id_perangkat = String(input_perangkat).split('-')[0]
+    var name_perangkat = String(input_perangkat).split('-')[1]
 
     // Menggunakan ajax untuk mengirim dan dan menerima data dari server
     $.ajax({
       url: "<?php echo base_url(); ?>/laporan/get_type_perangkat_by_id_perangkat",
       method: "POST",
       data: {
-        id_perangkat: id_perangkat,
-        id_unit_level3: id_unit_level3
+        id_unit_level3: id_unit_level3,
+        name_perangkat: name_perangkat
       },
       async: false,
       dataType: 'json',
@@ -2338,7 +2339,9 @@
         var i;
 
         for (i = 0; i < data.length; i++) {
-          html += '<option value="' + data[i].type + '">' + data[i].type + '</option>';
+          if(data[i].type !== "") {
+            html += '<option value="' + data[i].type + '">' + data[i].type + '</option>';
+          } 
         }
         $('#type').html(html);
       }
@@ -2350,7 +2353,6 @@
   	
     // variabel dari nilai combo box kendaraan
     var type = $("#type").val();
-    console.log(type);
     // Menggunakan ajax untuk mengirim dan dan menerima data dari server
     $.ajax({
       url: "<?php echo base_url(); ?>/laporan/get_data_device_serial_num_by_type",
@@ -2365,7 +2367,9 @@
         var i;
 
         for (i = 0; i < data.length; i++) {
-          html += '<option value="' + data[i].serial_number + '">' + data[i].serial_number + '</option>';
+          if(data[i].serial_number !== "") {
+            html += '<option value="' + data[i].serial_number + '">' + data[i].serial_number + '</option>';
+          }
         }
         $('#serial_number').html(html);
 
@@ -2447,7 +2451,6 @@
     $(":radio").click(function() {
 
       // if($('#tampak_fisik').attr('checked','tampak_fisik' )){
-      //   console.log('1');
       // }
       // else{
       // }
@@ -2523,7 +2526,6 @@
       //INVERTER
       if (inverter == "Tidak ada") {
         inverter_val += 'Disarankan untuk menambahkan Inverter';
-        console.log('hi');
       }
       $('#solusi_inverter').val(inverter_val);
 
