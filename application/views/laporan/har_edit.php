@@ -598,19 +598,19 @@
                 
                 <!-- SOLUSI -->
                <!-- PERANGKAT HARDWARE -->
-               <input class="form-control" type="text" value="" name="solusi_tampak_fisik" id="solusi_tampak_fisik" >
-               <input class="form-control" type="hidden" value="" name="solusi_indikator_lampu" id="solusi_indikator_lampu" >  
-               <input class="form-control" type="hidden" value="" name="solusi_power_supply" id="solusi_power_supply" >  
-               <input class="form-control" type="hidden" value="" name="solusi_lan" id="solusi_lan" >  
-               <input class="form-control" type="hidden" value="" name="solusi_port" id="solusi_port" >  
+               <input class="form-control" type="text" value="<?= $laporan['solusi_tampak_fisik']; ?>" name="solusi_tampak_fisik" id="solusi_tampak_fisik" >
+               <input class="form-control" type="hidden" value="<?= $laporan['solusi_indikator_lampu']; ?>" name="solusi_indikator_lampu" id="solusi_indikator_lampu" >  
+               <input class="form-control" type="hidden" value="<?= $laporan['solusi_power_supply']; ?>" name="solusi_power_supply" id="solusi_power_supply" >  
+               <input class="form-control" type="hidden" value="<?= $laporan['solusi_lan']; ?>" name="solusi_lan" id="solusi_lan" >  
+               <input class="form-control" type="hidden" value="<?= $laporan['solusi_port']; ?>" name="solusi_port" id="solusi_port" >  
                <!-- PERANGKAT SOFTWARE -->
-               <input class="form-control" type="hidden" value="" name="solusi_konfigurasi" id="solusi_konfigurasi" > 
-               <input class="form-control" type="hidden" value="" name="solusi_backup_setting" id="solusi_backup_setting" > 
+               <input class="form-control" type="hidden" value="<?= $laporan['solusi_konfigurasi']; ?>" name="solusi_konfigurasi" id="solusi_konfigurasi" > 
+               <input class="form-control" type="hidden" value="<?= $laporan['solusi_backup_setting']; ?>" name="solusi_backup_setting" id="solusi_backup_setting" > 
 
                <!-- BACKUP POWER -->
-               <input class="form-control" type="hidden" value="" name="solusi_genset" id="solusi_genset" > 
-               <input class="form-control" type="hidden" value="" name="solusi_ups" id="solusi_ups" > 
-               <input class="form-control" type="hidden" value="" name="solusi_inverter" id="solusi_inverter" > 
+               <input class="form-control" type="hidden" value="<?= $laporan['solusi_genset']; ?>" name="solusi_genset" id="solusi_genset" > 
+               <input class="form-control" type="hidden" value="<?= $laporan['solusi_ups']; ?>" name="solusi_ups" id="solusi_ups" > 
+               <input class="form-control" type="hidden" value="<?= $laporan['solusi_inverter']; ?>" name="solusi_inverter" id="solusi_inverter" > 
         <!-- /.box-body -->
         <div class="box-footer">
                     <div class="pull-center">

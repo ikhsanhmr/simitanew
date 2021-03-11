@@ -202,6 +202,7 @@ class laporan_model extends CI_Model {
 		
 		];
 
+
 				if($this->upload->do_upload('foto_sebelum_pengerjaan')){
 					$file = $this->upload->data();
 					$foto_sebelum = $file["file_name"];
@@ -250,7 +251,7 @@ class laporan_model extends CI_Model {
 				}
 					$this->db->where('id', $this->input->post('id'));
 					$this->db->update('har_network', $data +$dataFoto1 + $dataFoto2 + $dataFoto3 +$filePDF);
-				}
+	}
 
 
 	public function approval(){
