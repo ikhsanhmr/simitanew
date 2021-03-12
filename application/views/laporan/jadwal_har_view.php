@@ -94,7 +94,7 @@
              </tr>
            </tbody>
          </table>
-         <table id="example1" class="table table-bordered table-striped">
+         <table id="table_har_view" class="table table-bordered table-striped">
           <thead>
             <tr>
               <th class="center">No.</th>
@@ -108,38 +108,8 @@
           </thead>
 
           <tbody>
-            <?php
-            $no = 1;
-            foreach ($jadwal_harnya->result_array() as $jadwal):
-              ?>
-              <tr>
-                <td class="text-center"><?= $no ?></td>
-                <td class="text-center"><?= date_format(new DateTime($jadwal['tanggal_pergi']), 'd/m/Y'); ?></td>
-                <td class="text-center"><?= date_format(new DateTime($jadwal['tanggal_pulang']), 'd/m/Y'); ?></td>
-                <?php foreach($pegawainya as $p){
-                  if($p['pegawai_id'] == $jadwal['petugas']) { ?>
-                    <td class="text-center"><?= $p['nama'] ?></td>
-                  <?php }} foreach($unitnya->result_array() as $unit){
-                    if($jadwal['tujuan_level2'] == $unit['id_unit_level2'] && $jadwal['tujuan_level3'] == $unit['id_unit_level3']) {?>
-                      <td class="text-center"><?php echo $unit['nama_unit_level2']; ?> </td>
-                      <td class="text-center"><?php echo $unit['nama_unit_level3']; ?> </td>
-                    <?php } }?>
-                    <td class="text-center">
-                     <div class="hidden-sm hidden-xs action-buttons">
-                       <a class="green" value="<?php echo $jadwal['id_jadwal']; ?>" href="<?php echo base_url() . "laporan/jadwal_har_edit?data_id=" . $jadwal['id_jadwal'] ?>"><i class="fa fa-pencil bigger-130"></i></a>
-                       &nbsp;
-                       <a class="red" value="<?php echo $jadwal['id_jadwal']; ?>" href="<?php echo base_url() . "laporan/jadwal_har_delete?data_id=" . $jadwal['id_jadwal'] ?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');">
-                         <i class="fa fa-trash-o bigger-130"></i>
-                       </a>
-                     </div>
-                   </td>
-                 </tr>
-                 <?php
-                 $no++;
-               endforeach;
-               ?>
-
-             </tbody>
+            
+          </tbody>
 
            </table>
            <div class="row">

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Mar 2021 pada 04.47
+-- Waktu pembuatan: 12 Mar 2021 pada 09.28
 -- Versi server: 10.4.17-MariaDB
--- Versi PHP: 7.4.15
+-- Versi PHP: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -2104,7 +2104,7 @@ CREATE TABLE `har_network` (
   `id` int(11) NOT NULL,
   `nama_unit` varchar(255) NOT NULL,
   `lokasi` varchar(255) NOT NULL,
-  `waktu_pelaksanaan` date NOT NULL DEFAULT current_timestamp(),
+  `waktu_pelaksanaan` date NOT NULL,
   `working_permit` varchar(255) NOT NULL,
   `nama_perangkat` varchar(255) NOT NULL,
   `id_perangkat` int(11) NOT NULL,
@@ -2152,7 +2152,7 @@ CREATE TABLE `har_network` (
 --
 
 INSERT INTO `har_network` (`id`, `nama_unit`, `lokasi`, `waktu_pelaksanaan`, `working_permit`, `nama_perangkat`, `id_perangkat`, `serial_number`, `type`, `id_address`, `mac_address`, `tampak_fisik`, `indikator_lampu`, `power_supply`, `lan`, `port`, `konfigurasi`, `backup_setting`, `genset`, `ups`, `inverter`, `solusi_tampak_fisik`, `solusi_indikator_lampu`, `solusi_power_supply`, `solusi_lan`, `solusi_port`, `solusi_konfigurasi`, `solusi_backup_setting`, `solusi_genset`, `solusi_ups`, `solusi_inverter`, `catatan`, `solusi`, `pengawas_pekerjaan`, `pelaksana_pekerjaan`, `approval`, `kantor_induk`, `tingkat_kerawanan`, `solusi_tingkat_kerawanan`, `unit_level2`, `unit_level3`, `foto_sebelum_pengerjaan`, `foto_saat_pengerjaan`, `foto_sesudah_pengerjaan`) VALUES
-(69, '', 'GEDUNG ULP KUALA LT.1', '2021-03-09', '', 'Router', 214, '', 'Mikrotik RB 1200', '10.16.164.1', '', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', 'Perbaikan pada perangkat Power Supply lampu', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'sebelumnya belum ada router mikrotik, dari wan icon langsung ke switch, kemudian dilakukan pemasangan router mikrotik RB 1200 dan integrasi stroomnet. belum ada rack tempat perangkat router dan swiitch, sementara di atas lemari kabinet. rack icon berada d', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '8', '24', 'router_mikrotik_kuala_sebelum.jpg', 'router_mikrotik_kuala_saat_pekerjaan.png', 'router_mikrotik_setelah_pekerjaaan.jpg'),
+(69, '', 'GEDUNG ULP KUALA LT.1', '2021-03-09', '', 'Router', 214, '', 'Mikrotik RB 1200', '10.16.164.1', '', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', 'Perbaikan pada perangkat Power Supply lampu', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'sebelumnya belum ada router mikrotik, dari wan icon langsung ke switch, kemudian dilakukan pemasangan router mikrotik RB 1200 dan integrasi stroomnet. belum ada rack tempat perangkat router dan swiitch, sementara di atas lemari kabinet. rack icon berada d', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '', '', 'router_mikrotik_kuala_sebelum.jpg', 'router_mikrotik_kuala_saat_pekerjaan.png', 'router_mikrotik_setelah_pekerjaaan.jpg'),
 (70, '', 'GEDUNG ULP KUALA LT.1', '2021-03-09', '', 'Switch', 144, '', 'HP V1910 JE006A', ' 10.16.164.3', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', 'Perbaikan Port pada perangkat', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'beberapa port switch rusak (port 1,2,3,4). Penempata switch diatas lemari kabinet. Kabel tidak rapi', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '8', '24', 'router_mikrotik_kuala_sebelum1.jpg', 'router_mikrotik_kuala_saat_pekerjaan1.png', 'router_mikrotik_setelah_pekerjaaan1.jpg'),
 (71, '', 'GEDUNG ULP KUALA LT.1', '2021-03-09', '', 'Access Point', 222, '', 'HP V-M200', '10.16.164.123', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'Penempatan accest point tidak rapii (menggantung). Kabel power supply tidak rapi', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '8', '24', 'acces_point_kuala_sebelum.png', 'acces_point_kuala_saat.png', 'acces_point_kuala_setelah.png'),
 (72, '', 'GEDUNG ULP BRANDAN', '2021-03-09', '', 'Router', 214, '', 'Mikrotik 1100AHx4', '10.16.168.1', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'tidak ada perangkat acces point, seluruh user menggunakan LAN', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', '', '', '9', '30', 'router_brandan_sebelum.png', 'router_brandan_sesaat.png', 'router_brandan_setelah.png'),

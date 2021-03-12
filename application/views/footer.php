@@ -172,6 +172,37 @@
     ],
     });
 
+    var kategoriGangguanTable = $('#table_har_view').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url:'<?php echo site_url('laporan/table_har_view') ?>',
+        type: 'POST'
+      },
+      columns: [{
+        "data":'no'
+      },
+      {
+        "data":'tanggal_pergi'
+      },
+      {
+        "data": "tanggal_pulang"
+      },
+      {
+        "data": "petugas"
+      },
+      {
+        "data": "nama_unit_level2"
+      },
+      {
+        "data": "nama_unit_level3"
+      },
+      {
+        "data": "actions"
+      }
+    ],
+    });
+
     var stokTable = $('#table_stok').DataTable({
       ajax: {
         processing: true,

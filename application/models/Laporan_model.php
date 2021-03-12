@@ -202,7 +202,6 @@ class laporan_model extends CI_Model {
 		
 		];
 
-
 				if($this->upload->do_upload('foto_sebelum_pengerjaan')){
 					$file = $this->upload->data();
 					$foto_sebelum = $file["file_name"];
@@ -301,6 +300,11 @@ class laporan_model extends CI_Model {
 	function tampil_jadwal_har() {
 		$get = $this->db->query("SELECT a.* FROM jadwal_har a ORDER BY a.id_jadwal DESC ");
 	    return $get;
+	}
+
+	function tampil_jadwal_har_with_pegawai_and_unit() {
+		$get = $this->db->query("SELECT jadwal_har.id_jadwal, jadwal_har.tanggal_pergi, jadwal_har.tanggal_pulang, (SELECT nama FROM pegawai WHERE pegawai_id=petugas) AS petugas, (SELECT nama_unit_level2 FROM unit_level2 WHERE id_unit_level2=tujuan_level2) AS nama_unit_level2, (SELECT nama_unit_level3 FROM unit_level3 WHERE id_unit_level3=tujuan_level3) AS nama_unit_level3 FROM `jadwal_har` ORDER BY jadwal_har.id_jadwal DESC");
+		return $get;
 	}
 
 	function add_jadwal_har_data($data) {

@@ -507,6 +507,21 @@ class Laporan extends CI_Controller {
 		}
 	}
 
+	public function table_har_view(){
+		$data = array();
+		$query = $this->laporan->tampil_jadwal_har_with_pegawai_and_unit();
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key + 1;
+				$row['actions'] = "<a href=" . base_url('laporan/jadwal_har_edit?data_id=' . $row['id_jadwal']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('laporan/jadwal_har_delete?data_id=' . $row['id_jadwal']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				";
+				$data[] = $row;
+			}
+		}
+		echo json_encode(array('data' => $data));
+	}
+
 	public function jadwal_har_add()
 	{
 		if ($this->session->userdata('status') != "login") {
@@ -680,6 +695,7 @@ class Laporan extends CI_Controller {
 			$petugas = $this->input->post('filter_petugas');
 			$year = $this->input->post('filter_year');
 			$month = $this->input->post('filter_month');
+			var_dump($petugas);die;
 			$monthname = "";
 			switch($month){
 				case 1 :
