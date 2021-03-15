@@ -349,7 +349,7 @@ class Admin_model extends CI_Model
 //UNIT
   function tampil_unit()
   {
-    $get = $this->db->query("SELECT a.id_kantor_induk, a.nama_kantor_induk, a.wilayah_kerja, b.id_unit_level2, b.nama_unit_level2, c.id_unit_level3, c.nama_unit_level3 FROM (unit_level3 c JOIN unit_level2 b ON c.id_unit_level2 = b.id_unit_level2) JOIN kantor_induk a ON c.id_kantor_induk = a.id_kantor_induk GROUP BY c.id_unit_level3");
+    $get = $this->db->query("SELECT a.id_kantor_induk, a.nama_kantor_induk, a.wilayah_kerja, b.id_unit_level2, b.nama_unit_level2, c.id_unit_level3, c.nama_unit_level3 FROM (unit_level3 c JOIN unit_level2 b ON c.id_unit_level2 = b.id_unit_level2) JOIN kantor_induk a ON c.id_kantor_induk = a.id_kantor_induk GROUP BY c.id_unit_level3 ORDER BY a.id_kantor_induk DESC");
     return $get;
   }
 
