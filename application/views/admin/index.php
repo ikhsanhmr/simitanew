@@ -78,14 +78,28 @@
         <!-- small box -->
         <div class="small-box bg-purple">
           <div class="inner">
-            <h3><?php echo $menghitung_jumlah_perangkat['jumlah_it_support']; ?></h3>
-
-            <p>Orang</p>
+            <table class="table table-borderless">
+              <tr>
+                <td>Switch</td>
+                <td><?php echo($jumlah_terganggu['switch']); ?></td>
+                <td>buah</td>
+              </tr>
+              <tr>
+                <td>Access Point</td>
+                <td><?php echo($jumlah_terganggu['access_point']); ?></td>
+                <td>buah</td>
+              </tr>
+              <tr>
+                <td>Router</td>
+                <td><?php echo($jumlah_terganggu['router']); ?></td>
+                <td>buah</td>
+              </tr>
+            </table>
           </div>
           <div class="icon">
-            <i class="ion ion-person"></i>
+            <i class="ion ion-wifi"></i>
           </div>
-          <a href="<?php echo site_url('support/index'); ?>" class="small-box-footer">IT Support di Sumatra Utara <i class="fa fa-users"></i></a>
+          <a href="<?php echo site_url('laporan/getDataHar'); ?>" class="small-box-footer">Jumlah perangkat yang ganguan<i class="fa fa-wifi"></i></a>
         </div>
       </div>
       <!-- ./col -->

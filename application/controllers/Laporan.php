@@ -695,7 +695,7 @@ class Laporan extends CI_Controller {
 			$petugas = $this->input->post('filter_petugas');
 			$year = $this->input->post('filter_year');
 			$month = $this->input->post('filter_month');
-			var_dump($petugas);die;
+
 			$monthname = "";
 			switch($month){
 				case 1 :

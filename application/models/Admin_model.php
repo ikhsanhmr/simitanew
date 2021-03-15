@@ -1072,6 +1072,12 @@ function unit_level1()
     }
   }
 
+  function jumlah_terganggu()
+  {
+    $get = $this->db->query('SELECT (SELECT COUNT(id) FROM `har_network` WHERE nama_perangkat="Router") AS router, (SELECT COUNT(id) FROM `har_network` WHERE nama_perangkat="Access Point") AS access_point, (SELECT COUNT(id) FROM `har_network` WHERE nama_perangkat="Switch") AS switch FROM har_network LIMIT 1');
+    return $get->row_array();
+  }
+
   function menghitung_jumlah_service_wilayah()
   {
     $get = $this->db->query('SELECT 
