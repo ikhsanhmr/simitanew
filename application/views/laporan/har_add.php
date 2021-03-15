@@ -4,12 +4,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Laporan 
+    Laporan Inspeksi Peralatan
     <small>Info Data</small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Master Data</a></li>
-    <li><a href="#">Laporan Kerusakan</a></li>
+    <li><a href="#">Laporan Inspeksi Peralatan</a></li>
     <li class="active">Detail Info</li>
   </ol>
 </section>
@@ -26,7 +26,7 @@
        <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>laporan/addDataHar_action" enctype="multipart/form-data">
             
         <div class="box-header with-border">
-          <h3 class="box-title">Formulir HAR</h3>
+          <h3 class="box-title">Formulir Inspeksi Peralatan</h3>
         </div>
         
         <div class="box-body ">

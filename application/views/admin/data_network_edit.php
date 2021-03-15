@@ -5,12 +5,12 @@
     <section class="content-header">
         <h1>
             Admin
-            <small>Edit Data Network</small>
+            <small>Edit Kontrak Jaringan Icon+</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Admin</a></li>
-            <li class="active">Edit Data Network</li>
+            <li class="active">Edit Kontrak Jaringan Icon+</li>
         </ol>
     </section>
 
@@ -30,7 +30,7 @@
                     <input type="hidden" id="data_id" name="data_id" value="<?php echo $data_networknya['data_id']; ?>">
                     <input type="hidden" id="id_unit_lama" name="id_unit_lama" value="<?php echo $data_networknya['id_unit']; ?>">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Edit Data Network</h3>
+                        <h3 class="box-title">Edit Kontrak Jaringan Icon+</h3>
                     </div>
                     <div class="box-body">
                         <div class="col-lg-10">

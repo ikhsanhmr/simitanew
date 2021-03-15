@@ -3,13 +3,13 @@
    <!-- Content Header (Page header) -->
    <section class="content-header">
      <h1>
-       Data Network
-       <small>Manage Data Network</small>
+       Kontrak Jaringan Icon+
+       <small>Manage Kontrak Jaringan Icon+</small>
      </h1>
      <ol class="breadcrumb">
        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-       <li><a href="#">Admin</a></li>
-       <li class="active">Manage Data Network</li>
+       <li><a href="<?= base_url(); ?>/admin/index">Admin</a></li>
+       <li class="active">Manage Kontrak Jaringan Icon+</li>
      </ol>
    </section>
 
@@ -22,7 +22,7 @@
        <div class="col-xs-12">
          <div class="box">
            <div class="box-header">
-             <h3 class="box-title">Data Network</h3>
+             <h3 class="box-title">Kontrak Jaringan Icon+</h3>
            </div>
            <!-- /.box-header -->
 

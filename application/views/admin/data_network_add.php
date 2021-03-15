@@ -3,13 +3,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Data Network
+            Kontrak Jaringan Icon+
             <small>Add Data</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Admin</a></li>
-            <li class="active">Add Data Network</li>
+            <li class="active">Add Kontrak Jaringan Icon+</li>
         </ol>
     </section>
 
@@ -204,7 +204,7 @@
                     <div class="box-footer">
                         <div class="pull-center">
 
-                            <a href="<?php echo base_url(); ?>admin" class="btn btn-danger">Kembali</a>
+                            <a href="<?php echo base_url(); ?>admin/data_network_view" class="btn btn-danger">Kembali</a>
                             <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                     </div>

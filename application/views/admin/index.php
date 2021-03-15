@@ -78,7 +78,7 @@
         <!-- small box -->
         <div class="small-box bg-purple">
           <div class="inner">
-            <table class="table table-borderless">
+            <table>
               <tr>
                 <td>Switch</td>
                 <td><?php echo($jumlah_terganggu['switch']); ?></td>

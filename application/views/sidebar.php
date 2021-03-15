@@ -143,7 +143,7 @@
              <li class="<?php if ($this->uri->segment(2) == "data_network_view" || $this->uri->segment(2) == "data_network_filter") {
                           echo 'active';
                         } ?>">
-               <a href="<?php echo site_url('admin/data_network_view'); ?>"><i class="fa fa-book"></i> Data Network
+               <a href="<?php echo site_url('admin/data_network_view'); ?>"><i class="fa fa-book"></i> Kontrak Jaringan Icon+
                  </span>
                </a>
              </li>
@@ -280,7 +280,7 @@
                       echo 'active';
                     } ?>">
            <a href="<?php echo site_url('laporan/getDataHar'); ?>">
-             <i class="fa fa-assistive-listening-systems"></i> <span>HAR Network</span>
+             <i class="fa fa-assistive-listening-systems"></i> <span>Inspeksi Peralatan</span>
            </a>
          </li>
 

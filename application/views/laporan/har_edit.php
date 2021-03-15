@@ -4,12 +4,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Laporan 
+    Laporan Inspeksi Peralatan
     <small>Info Data</small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Master Data</a></li>
-    <li><a href="#">Laporan Kerusakan</a></li>
+    <li><a href="#">Laporan Inspeksi Peralatan</a></li>
     <li class="active">Detail Info</li>
   </ol>
 </section>
