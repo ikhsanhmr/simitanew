@@ -90,11 +90,11 @@ class Pegawai extends CI_Controller {
 		if($this->session->userdata('status') != "login"){
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$this->form_validation->set_rules('nip', 'NIP', 'required|numeric', [
+		$this->form_validation->set_rules('nip', 'NIP', 'required', [
 			'required' => 'NIP harus di isi!',
 			'required' => 'NIP harus di isi dengan angka!'
 		]);
-			$this->form_validation->set_rules('nama', 'Nama', 'required', [
+		$this->form_validation->set_rules('nama', 'Nama', 'required', [
 			'required' => 'Nama harus di isi!'
 		]);
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email', [

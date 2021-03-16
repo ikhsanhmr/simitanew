@@ -7,6 +7,7 @@ class Support_model extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('it_support');
+		$this->db->order_by('id', 'asc');
 		$query = $this->db->get();
 		return $query->result_array();
 	}

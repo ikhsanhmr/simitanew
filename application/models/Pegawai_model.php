@@ -27,7 +27,7 @@ class pegawai_model extends CI_Model {
         return $this->db->get_where('pegawai', ['pegawai_id' => $id])->row_array();
     }
 
-    public function editData()
+	public function editData()
 	{
 		$data = [
 			'nip' => htmlspecialchars($this->input->post('nip'), true),

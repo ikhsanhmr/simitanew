@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label for="nip" class="col-sm-3 control-label">NIP</label>
                                 <div class="col-sm-5">
-                 <input type="number" class="form-control" id="nip" name="nip" required value="<?= $pegawai['nip']; ?>"/>
+                 <input type="text" class="form-control" id="nip" name="nip" required value="<?= $pegawai['nip']; ?>"/>
                                 </div>
                             </div>
                         </div>

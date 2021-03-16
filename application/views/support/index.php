@@ -43,11 +43,11 @@
                 </tbody>
                
               </table>
-												<div class="row">
-														<div id="default-buttons" class="col-sm-6">
-														<a class="btn btn-primary" href="<?= base_url('support/addData'); ?>">Add Data</a>
-														</div>
-												</div>
+              <div class="row">
+                  <div id="default-buttons" class="col-sm-6">
+                  <a class="btn btn-primary" href="<?= base_url('support/addData'); ?>">Add Data</a>
+                  </div>
+              </div>
             </div>
             <!-- /.box-body -->
           </div>
