@@ -78,23 +78,23 @@
         <!-- small box -->
         <div class="small-box bg-purple">
           <div class="inner">
-            <table>
-              <tr>
-                <td>Switch</td>
-                <td><?php echo($jumlah_terganggu['switch']); ?></td>
-                <td>buah</td>
-              </tr>
-              <tr>
-                <td>Access Point</td>
-                <td><?php echo($jumlah_terganggu['access_point']); ?></td>
-                <td>buah</td>
-              </tr>
-              <tr>
-                <td>Router</td>
-                <td><?php echo($jumlah_terganggu['router']); ?></td>
-                <td>buah</td>
-              </tr>
-            </table>
+            <div>
+              <div class="row h4">
+                <div class="col-md-6">Switch</div>
+                <div class="col-md-1"><?php echo($jumlah_terganggu['switch']); ?></div>
+                <div class="col-md-3">buah</div>
+              </div>
+              <div class="row h4">
+                <div class="col-md-6">Access Point</div>
+                <div class="col-md-1"><?php echo($jumlah_terganggu['access_point']); ?></div>
+                <div class="col-md-3">buah</div>
+              </div>
+              <div class="row h4">
+                <div class="col-md-6">Router</div>
+                <div class="col-md-1"><?php echo($jumlah_terganggu['router']); ?></div>
+                <div class="col-md-3">buah</div>
+              </div>
+            </div>
           </div>
           <div class="icon">
             <i class="ion ion-wifi"></i>
