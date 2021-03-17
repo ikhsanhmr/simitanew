@@ -667,6 +667,32 @@
       ],
     });
 
+    var tableVendor = $('#table_vendor').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url: '<?php echo site_url('admin/table_vendor'); ?>',
+        type: 'POST',
+      },
+      columns: [{
+          "data": "no"
+        },
+        {
+          "data": "nama_vendor"
+        },
+        {
+          "data": "alamat_vendor"
+        },
+        {
+          "data": "telepon"
+        },
+        {
+          "data": "actions"
+        },
+      ],
+     
+    });
+
     var kerusakanLaptop = $("#table_kerusakan_laptop").DataTable({
 
     });
@@ -736,6 +762,7 @@
     table.buttons().container()
       .appendTo('#example1_wrapper .col-sm-6:eq(0)');
   })
+
   $(function() {
     var table = $('#example3').DataTable({
 
@@ -753,6 +780,7 @@
     table.buttons().container()
       .appendTo('#example3_wrapper .col-sm-6:eq(0)');
   })
+
   $(function() {
     var table = $('#example4').DataTable({
       ajax: {
@@ -839,6 +867,7 @@
     table.buttons().container()
       .appendTo('#example4_wrapper .col-sm-6:eq(0)');
   })
+
   $(function() {
     var table = $('#example5').DataTable({
 

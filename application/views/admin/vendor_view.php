@@ -23,7 +23,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="table_vendor" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                  <th class="center">
@@ -32,55 +32,12 @@
                   <th>Nama Vendor</th>
                   <th>Alamat</th>
                   <th>Telepon</th>
-				  <th>Actions</th>
+                  <th>Actions</th>
                 </tr>
                 </thead>
-				<?php 
-				$no =1;
-				?>
-                <tbody>
-				<?php foreach ($vendor_view->result_array() as $data) { ?>
-				
-				
-                <tr>
-					<td class="center">
-						<?php echo $no; ?>
-					</td>
-                  <td>
-						<?php echo $data['nama_vendor']; ?>
-				  </td>
-                   <td>
-						<?php echo $data['alamat_vendor']; ?>
-				  </td>
-                 
-                   <td>
-						<?php echo $data['telepon']; ?>
-				  </td>
-                 
-				  
-				  <td>
-														 <input type="hidden" name="id_vendor" value="<?php echo $data['id_vendor']; ?>">
-															<div class="hidden-sm hidden-xs action-buttons">
-																
 
-																<a class="green" value="<?php echo $data['id_vendor']; ?>" href="<?php echo base_url() . "admin/vendor_edit?id_vendor=".$data['id_vendor']?>">
-																	
-																	<i class="fa fa-pencil bigger-130"></i>
-																</a>
-																		&nbsp;
-																<a class="red" value="<?php echo $data['id_vendor']; ?>"  href="<?php echo base_url() . "admin/vendor_delete?id_vendor=".$data['id_vendor']?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');" >
-																	
-																	<i class="fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-															
-														</td>
-                </tr>
+                <tbody>
 				
-				<?php 
-					$no++;
-					}
-				?>
                 </tbody>
                
               </table>
