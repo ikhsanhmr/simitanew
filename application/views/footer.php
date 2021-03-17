@@ -2527,6 +2527,7 @@
       var genset_val = '';
       var ups_val = '';
       var inverter_val = '';
+      var pop_val = '';
       var t_fisik = $("input[type='radio'][name='tampak_fisik']:checked").val();
       var i_lampu = $("input[type='radio'][name='indikator_lampu']:checked").val();
       var p_supply = $("input[type='radio'][name='power_supply']:checked").val();
@@ -2537,6 +2538,7 @@
       var genset = $("input[type='radio'][name='genset']:checked").val();
       var ups = $("input[type='radio'][name='ups']:checked").val();
       var inverter = $("input[type='radio'][name='inverter']:checked").val();
+      var pop = $("input[type='radio'][name='pop']:checked").val();
 
       //TAMPAK FISIK
       if (t_fisik == "Rusak") {
@@ -2613,15 +2615,11 @@
       }
       $('#solusi_lan').val(lan_val);
 
-      ;
-      // if($(this).val() == "Rusak"){
-      //   html += 'Tampak Fisik : Device Harus segera diperbarui, ';
-      //   $('#solusi').text(html);
-      // }
-      // else if($(this).val() == "Ada error") {
-      //   html2 += 'Tampak Fisik : Error harus segera ditanganai';
-      //   $('#solusi').text(html2);
-      // }
+       //pop
+      if (pop == "Tidak ada") {
+        pop_val += 'Diharapkam segera dilakukan penambahan backup pop';
+      }
+      $('#solusi_pop').val(pop_val);
 
     });
 

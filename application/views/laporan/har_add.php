@@ -344,6 +344,22 @@
                     </div>
 
                     <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Backup POP</label>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="pop" id="pop1" value="Ada"  >
+                                Ada
+                                </label>
+                            </div>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="pop" id="pop2" value="Tidak ada">
+                                Tidak ada 
+                                </label>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
                             <label for="no_hp" class="col-sm-4 control-label">Tingkat Kerawanan</label>
 							 <div class="col-sm-6" >
                             <select  class="form-control select2" name="tingkat_kerawanan" id="tingkat_kerawanan"> 
@@ -457,6 +473,10 @@
                <input class="form-control" type="hidden" value="" name="solusi_genset" id="solusi_genset" > 
                <input class="form-control" type="hidden" value="" name="solusi_ups" id="solusi_ups" > 
                <input class="form-control" type="hidden" value="" name="solusi_inverter" id="solusi_inverter" > 
+
+               <!-- BACKUP POP -->
+               <input class="form-control" type="hidden" value="" name="solusi_pop" id="solusi_pop" > 
+
         <!-- /.box-body -->
                 <div class="box-footer">
                     <div class="pull-center">

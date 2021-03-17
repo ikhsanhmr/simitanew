@@ -34,47 +34,9 @@
 				  <th>Actions</th>
                 </tr>
                 </thead>
-				<?php 
-				$no =1;
-				?>
+			
                 <tbody>
-				<?php foreach ($merek_view->result_array() as $data) { ?>
-				
-				
-                <tr>
-					<td class="center">
-						<?php echo $no; ?>
-					</td>
-                  <td>
-						<?php echo $data['merek']; ?>
-				  </td>
-                   <td>
-						<?php echo $data['kategori']; ?>
-				  </td>
-                 
-				  <td>
-														 <input type="hidden" name="id_merek" value="<?php echo $data['id_merek']; ?>">
-															<div class="hidden-sm hidden-xs action-buttons">
-																
-
-																<a class="green" value="<?php echo $data['id_merek']; ?>" href="<?php echo base_url() . "admin/merek_edit?id_merek=".$data['id_merek']?>">
-																	
-																	<i class="fa fa-pencil bigger-130"></i>
-																</a>
-																		&nbsp;
-																<a class="red" value="<?php echo $data['id_merek']; ?>"  href="<?php echo base_url() . "admin/merek_delete?id_merek=".$data['id_merek']?>" onclick="return confirm('Anda Yakin Menghapus Data Ini?');" >
-																	
-																	<i class="fa fa-trash-o bigger-130"></i>
-																</a>
-															</div>
-															
-														</td>
-                </tr>
-				
-				<?php 
-					$no++;
-					}
-				?>
+			
                 </tbody>
                
               </table>

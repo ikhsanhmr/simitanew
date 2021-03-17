@@ -233,6 +233,7 @@ class Laporan extends CI_Controller {
 				$lokasi = $this->input->post('lokasi');
 				$waktu_pelaksanaan = $this->input->post('waktu_pelaksanaan');
 				$id_perangkat = $this->input->post('id_perangkat');
+				$id_perangkat = explode("-", $id_perangkat)[0];
 				$nama_perangkat = $this->admin->get_network_device($id_perangkat);
 				$serial_number = $this->input->post('serial_number');
 				$type = $this->input->post('type');
@@ -266,7 +267,8 @@ class Laporan extends CI_Controller {
 				$solusi_inverter = $this->input->post('solusi_inverter');
 				$solusi_backup = $this->input->post('solusi_backup_setting');
 				$solusi_tingkat_kerawanan = $this->input->post('solusi_tingkat_kerawanan');
-				
+				$solusi_pop = $this->input->post('solusi_pop');
+				$pop = $this->input->post('pop');
 				;
 				// script uplaod file pdf
 				$filePdf = $this->upload->do_upload('working_permit');
@@ -330,7 +332,6 @@ class Laporan extends CI_Controller {
 				'catatan' => $catatan,
 				'tingkat_kerawanan' => $tingkat_kerawanan,
 				'solusi_tingkat_kerawanan' => $solusi_tingkat_kerawanan,
-				// 'solusi' => $solusi,
 				'kantor_induk' => $kantor_induk,
 				'unit_level2' => $unit_level2,
 				'unit_level3' => $unit_level3,
@@ -349,6 +350,8 @@ class Laporan extends CI_Controller {
 				'solusi_konfigurasi' => $solusi_konfig,	
 				'solusi_genset' => $solusi_genset,	
 				'solusi_ups' => $solusi_ups,	
+				'solusi_pop' => $solusi_pop,
+				'pop' => $pop,
 			);
 				$insert = $this->laporan->addDataHar($data);
 				if ($insert) {
