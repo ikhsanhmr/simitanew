@@ -427,6 +427,26 @@
                             
                         </div>
                      </div>
+
+                     <div class="col-lg-10">
+                        <div class="form-group">
+                            <label for="no_hp" class="col-sm-3 control-label">Backup POP</label>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="pop" id="pop1" value="Ada" <?php if($laporan['pop'] == 'Ada'){ echo "checked";}?>>
+                                Ada
+                                </label>
+                            </div>
+                            <div class="radio col-sm-2">
+                                <label>
+                                <input type="radio" name="pop" id="pop2" value="Tidak ada" <?php if($laporan['pop'] == 'Tidak ada'){ echo "checked";}?>>
+                                Tidak ada 
+                                </label>
+                            </div>
+                            
+                        </div>
+                     </div>
+
                      </div>
                 <div class="box-body">
                     <div class="col-lg-10">
@@ -611,6 +631,9 @@
                <input class="form-control" type="hidden" value="<?= $laporan['solusi_genset']; ?>" name="solusi_genset" id="solusi_genset" > 
                <input class="form-control" type="hidden" value="<?= $laporan['solusi_ups']; ?>" name="solusi_ups" id="solusi_ups" > 
                <input class="form-control" type="hidden" value="<?= $laporan['solusi_inverter']; ?>" name="solusi_inverter" id="solusi_inverter" > 
+
+               <!-- BACKUP POP -->
+               <input class="form-control" type="hidden" value="<?= $laporan['solusi_pop']; ?>" name="solusi_pop" id="solusi_pop" > 
         <!-- /.box-body -->
         <div class="box-footer">
                     <div class="pull-center">

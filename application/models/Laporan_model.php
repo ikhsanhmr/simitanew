@@ -180,6 +180,7 @@ class laporan_model extends CI_Model {
 			'genset' => htmlspecialchars($this->input->post('genset'), true),
 			'ups' => htmlspecialchars($this->input->post('ups'), true),
 			'inverter' => htmlspecialchars($this->input->post('inverter'), true),
+			'pop' => htmlspecialchars($this->input->post('pop'), true),
 			'backup_setting' => htmlspecialchars($this->input->post('backup_setting'), true),
 			'kantor_induk' => htmlspecialchars($this->input->post('kantor_induk'), true),
 			'tingkat_kerawanan' => htmlspecialchars($this->input->post('tingkat_kerawanan'), true),
@@ -198,8 +199,8 @@ class laporan_model extends CI_Model {
 			'solusi_port' => htmlspecialchars($this->input->post('solusi_port'), true),	
 			'solusi_konfigurasi' => htmlspecialchars($this->input->post('solusi_konfigurasi'), true),	
 			'solusi_genset' => htmlspecialchars($this->input->post('solusi_genset'), true),	
-			'solusi_ups' => htmlspecialchars($this->input->post('solusi_ups'), true)
-		
+			'solusi_ups' => htmlspecialchars($this->input->post('solusi_ups'), true),
+			'solusi_pop' => htmlspecialchars($this->input->post('solusi_pop'), true)
 		];
 
 				if($this->upload->do_upload('foto_sebelum_pengerjaan')){

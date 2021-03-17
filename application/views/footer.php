@@ -2617,7 +2617,9 @@
 
        //pop
       if (pop == "Tidak ada") {
-        pop_val += 'Diharapkam segera dilakukan penambahan backup pop';
+        pop_val += 'Diharapkan segera dilakukan penambahan backup pop';
+      } else {
+        pop_val += ''
       }
       $('#solusi_pop').val(pop_val);
 
