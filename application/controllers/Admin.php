@@ -1437,7 +1437,7 @@ class Admin extends CI_Controller
 			foreach ($query->result_array() as $key => $row) {
 				$row['no'] = $key + 1;
 				$row['actions'] = "<a href=" . base_url('admin/merek_edit?id_merek=' . $row['id_merek']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
-				<a href=" . base_url('admil/merek_delete?id_merek=' . $row['id_merek']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/merek_delete?id_merek=' . $row['id_merek']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				";
 				$data[] = $row;
 			}
