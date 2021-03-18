@@ -69,7 +69,7 @@
                             <div class="form-group">
                                 <label for="asman" class="col-sm-3 control-label">Asman</label>
                                 <div class="col-sm-5">
-                                    <select class="form-control select2" id="asman" name="asman" style="width: 100%;" onchange="editnamaunitnya()"> 
+                                    <select require class="form-control select2" id="asman" name="asman" style="width: 100%;" onchange="editnamaunitnya()"> 
                                         <option value="<?php echo $data_networknya['asman']; ?>" selected="selected">Asman Sumut <?php echo $data_networknya['asman']; ?></option>
                                         <option value=""> -- Pilih Asman -- </option>
                                         <option value="1">Asman Sumut 1</option>
@@ -78,15 +78,17 @@
                                 </div>
                             </div>
                         </div>
-                        <?php if ($data_networknya['asman']==1){ ?>
+                        <?php if ($data_networknya['asman']=='1'){ ?>
                             <div class="col-lg-10" id="toggleText3" style="display: block;">
                                 <div class="form-group">
                                     <label for="id_unit1" class="col-sm-3 control-label" >Nama Unit</label>
                                     <div class="col-sm-5">
-                                        <select class="form-control select2" name="id_unit1" id="id_unit1" style="width: 100%;">
-                                            <?php foreach ($list_unit_sumut1->result_array() as $data) { if ($data['id_unit'] == $data_networknya['id_unit']){ ?>
-                                                <option value="<?php echo $data['id_unit_level3']; ?>" selected="selected"><?php echo $data['nama_unit_level3']; ?></option>
-                                            <?php } } ?>
+                                        <select required class="form-control select2" name="id_unit1" id="id_unit1" style="width: 100%;">
+                                            <?php foreach ($list_unit_sumut1->result_array() as $data) : ?>
+                                                <?php if ($data['id_unit_level3'] == $data_networknya['id_unit']): ?>
+                                                    <option value="<?php echo $data['id_unit_level3']; ?>" selected="selected"><?php echo $data['nama_unit_level3']; ?></option>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
                                             <option value =""> -- Pilih Unit -- </option>
                                             <?php foreach ($list_unit_sumut1->result_array() as $data) { ?>
                                                <option value="<?php echo $data['id_unit_level3']; ?>"><?php echo $data['nama_unit_level3']; ?></option>
@@ -95,13 +97,13 @@
                                    </div>
                                </div>
                            </div>
-                       <?php   } else if($data_networknya['asman'] == 2) { ?>
+                       <?php   } else if($data_networknya['asman'] == '2') { ?>
                         <div class="col-lg-10" id="toggleText3" style="display: block;">
                             <div class="form-group">
                                 <label for="id_unit2" class="col-sm-3 control-label" >Nama Unit</label>
                                 <div class="col-sm-5">
-                                    <select class="form-control select2" name="id_unit2" id="id_unit2" style="width: 100%;">
-                                        <?php foreach ($list_unit_sumut2->result_array() as $data) { if ($data['id_unit_level3'] == $data_networknya['id_unit_level3']){ ?>
+                                    <select required class="form-control select2" name="id_unit2" id="id_unit2" style="width: 100%;">
+                                        <?php foreach ($list_unit_sumut2->result_array() as $data) { if ($data['id_unit_level3'] == $data_networknya['id_unit']){ ?>
                                             <option value="<?php echo $data['id_unit_level3']; ?>" selected="selected"><?php echo $data['nama_unit_level3']; ?></option>
                                         <?php } } ?>
                                         <option value =""> -- Pilih Unit -- </option>

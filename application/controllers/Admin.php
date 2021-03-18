@@ -3707,7 +3707,6 @@ class Admin extends CI_Controller
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$data_id = $this->input->post('data_id');
-			// $nomorasman = $this->input->post('nomorasman');
 			$asman = $this->input->post('asman');
 			$this->form_validation->set_rules('tanggal_aktivasi', 'Tanggal Aktivasi', 'required', [
 				'required' => 'Tanggal Aktivasi harus di isi!'
@@ -3721,15 +3720,15 @@ class Admin extends CI_Controller
 			$this->form_validation->set_rules('asman', 'Asman', 'required', [
 				'required' => 'Asman harus di isi!'
 			]);
-			if ($asman == 1) {
-				$this->form_validation->set_rules('id_unit1', 'Nama Unit', 'required|numeric', [
-					'required' => 'Nama unit harus di isi!'
-				]);
-			} else if ($asman == 2) {
-				$this->form_validation->set_rules('id_unit2', 'Nama Unit', 'required|numeric', [
-					'required' => 'Nama unit harus di isi!'
-				]);
-			}
+			// if ($asman == '1') {
+			// 	$this->form_validation->set_rules('id_unit1', 'Nama Unit', 'required', [
+			// 		'required' => 'Nama unit harus di isi!'
+			// 	]);
+			// } else {
+			// 	$this->form_validation->set_rules('id_unit2', 'Nama Unit', 'required', [
+			// 		'required' => 'Nama unit harus di isi!'
+			// 	]);
+			// }
 
 			$this->form_validation->set_rules('keterangan', 'Keterangan', 'required', [
 				'required' => 'Keterangan harus di isi!'
