@@ -22,7 +22,7 @@ class Laporan extends CI_Controller {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
         }
         else {
-            $data['laporan'] = $this->laporan->getData();
+				$data['laporan'] = $this->laporan->getData();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/laporan_view', $data);
@@ -43,7 +43,7 @@ class Laporan extends CI_Controller {
 		$data['list_merek_printer'] = $this->admin->list_merek_printer();
 		$data['unit']=$this->laporan->kantor_induk();
 		$data['pegawainya'] = $this->pegawai->getData();
-		
+		$data['kondisi'] = $this->laporan->kategori_gangguan();
 		
 		$this->load->view('header');
 		$this->load->view('sidebar');
@@ -110,9 +110,6 @@ class Laporan extends CI_Controller {
 		}
 	}
 
-
-
-
 	
 	//EDIT DATA
 	public function editData($id) {
@@ -123,6 +120,8 @@ class Laporan extends CI_Controller {
 		
 			$data['laporan'] = $this->laporan->getDataEdit($id);
 			$data['list_merek_printer'] = $this->admin->list_merek_printer();
+			$data['kondisi'] = $this->laporan->kategori_gangguan();
+			
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('laporan/edit',$data);

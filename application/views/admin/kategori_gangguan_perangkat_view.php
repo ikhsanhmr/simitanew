@@ -3,13 +3,13 @@
    <!-- Content Header (Page header) -->
    <section class="content-header">
      <h1>
-       Kategori Gangguan Jaringan
-       <small>Manage Kategori Gangguan Jaringan</small>
+       Kategori Gangguan Perangkat
+       <small>Manage Kategori Gangguan Perangkat</small>
      </h1>
      <ol class="breadcrumb">
        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
        <li><a href="#">Admin</a></li>
-       <li class="active">Manage Kategori Gangguan Jaringan</li>
+       <li class="active">Manage Kategori Gangguan Perangkat</li>
      </ol>
    </section>
 
@@ -22,16 +22,16 @@
        <div class="col-xs-12">
          <div class="box">
            <div class="box-header">
-             <h3 class="box-title">Kategori Gangguan Jaringan</h3>
+             <h3 class="box-title">Kategori Gangguan Perangkat</h3>
            </div>
            <!-- /.box-header -->
 
            <div class="box-body">
-            <table id="table_kategori_gangguan" class="table table-bordered table-striped">
+            <table id="table_kategori_gangguan_perangkat" class="table table-bordered table-striped">
                <thead>
                  <tr>
                    <th class="center">No.</th>
-                   <th class="text-center">Kategori Gangguan Jaringan</th>
+                   <th class="text-center">Kategori Gangguan Perangkat</th>
                    <th class="text-center">Actions</th>
                  </tr>
                </thead>
@@ -43,7 +43,7 @@
            </table>
            <div class="row">
              <div id="default-buttons" class="col-sm-6">
-               <a class="btn btn-primary" href="<?php echo site_url('admin/kategori_gangguan_add'); ?>">Add Data</a>
+               <a class="btn btn-primary" href="<?php echo site_url('admin/kategori_gangguan_perangkat_add'); ?>">Add Data</a>
              </div>
            </div>
          </div>

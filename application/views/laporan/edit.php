@@ -61,7 +61,15 @@
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Kondisi</label>
                             <div class="col-sm-5">
-                            <textarea class="form-control" id="kondisi_item" name="kondisi_item" rows="3" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." required><?php echo $laporan['kondisi_item']; ?></textarea>
+                            <select class="form-control select2" id="kondisi_item" name="kondisi_item" style="width: 100%">
+                                <option  selected="selected"> -- Pilih Kondisi -- </option>
+                                <?php foreach($kondisi as $kon): ?>
+                                  <?php if($kon['id_kategori'] == $laporan['kondisi_item']): ?>
+                                    <option  selected="selected" value="<?php echo $kon['id_kategori'] ?>"><?= $kon['kategori']; ?></option>
+                                  <?php endif; ?>
+                                  <option value="<?php echo $kon['id_kategori'] ?>"><?= $kon['kategori']; ?></option>
+                                <?php endforeach; ?>
+                              </select>
                             </div>
                         </div>
                     </div>

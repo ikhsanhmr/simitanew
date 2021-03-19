@@ -21,7 +21,6 @@
     <div class="col-md-12">
       <!-- general form elements -->
      
-
       <!-- Form Element sizes -->
       <div class="box box-success">
        <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>laporan/action_addData" enctype="multipart/form-data">
@@ -62,7 +61,12 @@
                         <div class="form-group">
                             <label for="no_hp" class="col-sm-3 control-label">Kondisi</label>
                             <div class="col-sm-5">
-                            <textarea class="form-control" id="kondisi_item" name="kondisi_item"  rows="3" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." required></textarea>
+                              <select class="form-control select2" id="kondisi_item" name="kondisi_item" style="width: 100%">
+                                <option selected="selected"> -- Pilih Kondisi -- </option>
+                                <?php foreach($kondisi as $kon): ?>
+                                  <option value="<?php echo $kon['id_kategori'] ?>"><?= $kon['kategori']; ?></option>
+                                <?php endforeach; ?>
+                              </select>
                             </div>
                         </div>
                     </div>

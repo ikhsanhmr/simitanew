@@ -3,13 +3,13 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Kategori Gangguan Jaringan
+            Kategori Gangguan Perangkat
             <small>Add Data</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Admin</a></li>
-            <li class="active">Add Kategori Gangguan Jaringan</li>
+            <li class="active">Add Kategori Gangguan Perangkat</li>
         </ol>
     </section>
 
@@ -24,7 +24,7 @@
 
                 <!-- Form Element sizes -->
                 <div class="box box-success">
-                    <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>admin/action_kategori_gangguan_add" enctype="multipart/form-data">
+                    <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>admin/action_kategori_gangguan_perangkat_add" enctype="multipart/form-data">
 
                         <div class="box-header with-border">
                             <h3 class="box-title">Add Data</h3>
@@ -32,7 +32,7 @@
                         <div class="box-body">
                             <div class="col-lg-10">
                                 <div class="form-group">
-                                    <label for="kategori" class="col-sm-3 control-label">Kategori Gangguan Jaringan</label>
+                                    <label for="kategori" class="col-sm-3 control-label">Kategori Gangguan Perangkat</label>
                                     <div class="col-sm-5">
                                         <input type="text" class="form-control" id="kategori" name="kategori" required />
                                     </div>

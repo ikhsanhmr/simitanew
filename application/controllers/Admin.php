@@ -3833,7 +3833,7 @@ class Admin extends CI_Controller
 			foreach ($query->result_array() as $key => $row) {
 				$row['no'] = $key + 1;
 				$row['actions'] = "<a href=" . base_url('admin/kategori_gangguan_edit?data_id=' . $row['id_kategori']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
-				<a href=" . base_url('peadmin/kategori_gangguan_delete?data_id=' . $row['id_kategori']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/kategori_gangguan_delete?data_id=' . $row['id_kategori']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				";
 				$data[] = $row;
 			}
@@ -3943,6 +3943,141 @@ class Admin extends CI_Controller
 			}
 		}
 	}
+
+	// KATEGORI GANGGUAN PERANGKAT
+	public function kategori_gangguan_perangkat_view()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['kategori_gangguan_view'] = $this->admin_model->tampil_kategori_gangguan();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/kategori_gangguan_perangkat_view', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function table_kategori_gangguan_perangkat()
+	{
+		$data = array();
+		$query = $this->admin_model->tampil_kategori_gangguan_perangkat();
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $key => $row) {
+				$row['no'] = $key + 1;
+				$row['actions'] = "<a href=" . base_url('admin/kategori_gangguan_perangkat_edit?data_id=' . $row['id_kategori']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+				<a href=" . base_url('admin/kategori_gangguan_perangkat_delete?data_id=' . $row['id_kategori']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				";
+				$data[] = $row;
+			}
+		}
+		echo json_encode(array('data' => $data));
+	}
+
+	public function kategori_gangguan_perangkat_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/kategori_gangguan_perangkat_add');
+			$this->load->view('footer');
+		}
+	}
+
+	function action_kategori_gangguan_perangkat_add ()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$this->form_validation->set_rules('kategori', 'Kategori Gangguan Perangkat', 'required', [
+				'required' => 'Kategori Gangguan harus di isi!'
+			]);
+
+			if ($this->form_validation->run() == false) {
+				$this->load->view('header');
+				$this->load->view('sidebar');
+				$this->load->view('admin/kategori_gangguan_add');
+				$this->load->view('footer');
+			} else {
+				$data = array(
+					'kategori' => $this->input->post('kategori')
+				);
+
+				$insert = $this->admin_model->add_kategori_gangguan_perangkat_data($data);
+				if ($insert) {
+					echo "<script>alert('Berhasil Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kategori_gangguan_perangkat_view>";
+				} else {
+					echo "<script>alert('Gagal Menambah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kategori_gangguan_perangkat_view>";
+				}
+			}
+		}
+	}
+
+	public function kategori_gangguan_perangkat_delete()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('data_id');
+			$delete = $this->admin_model->kategori_gangguan_perangkat_delete($data_id);
+			if ($delete) {
+				echo "<script>alert('Berhasil Menghapus Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kategori_gangguan_perangkat_view>";
+			}
+		}
+	}
+
+	public function kategori_gangguan_perangkat_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('data_id');
+			$data['kategori_gangguannya'] = $this->admin_model->get_kategori_gangguan_perangkat($data_id, "id_kategori");
+			$this->data['title'] = 'Update Kategori Gangguan Perangkat :: ';
+			$this->load->view('header', $this->data);
+			$this->load->view('sidebar', $data);
+			$this->load->view('admin/kategori_gangguan_perangkat_edit', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function action_kategori_gangguan_perangkat_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->post('id_kategori');
+			$this->form_validation->set_rules('kategori', 'Kategori Gangguan Perangkat', 'required', [
+				'required' => 'Kategori Gangguan harus di isi!'
+			]);
+
+			if ($this->form_validation->run() == false) {
+				$this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible text-center " role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+					</button>
+					Pastikan seluruh data terisi
+					</div>');
+				redirect(base_url() . "admin/kategori_gangguan_perangkat_edit?data_id=" . $data_id);
+			} else {
+				$data = array(
+					'kategori' => $this->input->post('kategori')
+				);
+
+				$update = $this->admin_model->update_kategori_gangguan_perangkat($data, $data_id);
+				if ($update) {
+					echo "<script>alert('Berhasil Mengubah Data')</script>";
+					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kategori_gangguan_perangkat_view?data_id=" . $data_id . ">";
+				}
+			}
+		}
+	}
+
+	
 	//Stok perangkat
 	public function stok_view()
 	{

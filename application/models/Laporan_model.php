@@ -4,11 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class laporan_model extends CI_Model {
 
 
-    public function getData()
+  public function getData()
 	{
-		$this->db->select('*');
-		$this->db->from('report_kerusakan');
-		$query = $this->db->get();
+		$query = $this->db->query('SELECT id_report, serial_number, nama_item, tanggal_pelaporan, pengguna, (SELECT kategori FROM kategori_gangguan_perangkat WHERE id_kategori=kondisi_item) AS kondisi_item FROM `report_kerusakan`');
 		return $query->result_array();
 	}
 
@@ -506,6 +504,13 @@ FROM har_network a");
         return $this->db->from('kerawanan')
           ->get()
           ->result();
+	}
+
+	function kategori_gangguan() {
+		$this->db->select('*');
+		$this->db->from('kategori_gangguan_perangkat');
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 		
 }

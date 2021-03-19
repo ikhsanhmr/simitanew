@@ -1356,6 +1356,40 @@ function unit_level1()
     return $delete;
   }
 
+  //KATEGORI GANGGUAN PERANGKAT
+  function tampil_kategori_gangguan_perangkat()
+  {
+    $get = $this->db->query("SELECT a.* FROM kategori_gangguan_perangkat a ORDER BY a.id_kategori DESC ");
+    return $get;
+  }
+
+  public function add_kategori_gangguan_perangkat_data($data)
+  {
+    $input = $this->db->insert('kategori_gangguan_perangkat', $data);
+    return $input;
+  }
+  
+  function kategori_gangguan_perangkat_delete($id)
+  {
+    $delete = $this->db->delete('kategori_gangguan_perangkat', array('id_kategori' => $id));
+    return $delete;
+  }
+
+  
+  function get_kategori_gangguan_perangkat($value, $column)
+  {
+    $get = $this->db->query("SELECT a.* FROM kategori_gangguan_perangkat a WHERE a.$column =$value");
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
+  }
+
+  function update_kategori_gangguan_perangkat($data, $data_id)
+  {
+    $update = $this->db->update('kategori_gangguan_perangkat', $data, array('id_kategori' => $data_id));
+    return $update;
+  }
+
   function dashboard_merek_laptop_dell()
   {
     $get = $this->db->query("SELECT 

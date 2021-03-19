@@ -172,6 +172,25 @@
     ],
     });
 
+    var kategoriGangguanTable = $('#table_kategori_gangguan_perangkat').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url:'<?php echo site_url('admin/table_kategori_gangguan_perangkat') ?>',
+        type: 'POST'
+      },
+      columns: [{
+        "data":'no'
+      },
+      {
+        "data":'kategori'
+      },
+      {
+        "data": "actions"
+      }
+    ],
+    });
+
     var kategoriGangguanTable = $('#table_har_view').DataTable({
       ajax: {
         processing: true,

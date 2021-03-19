@@ -151,10 +151,19 @@
              <li class="<?php if ($this->uri->segment(2) == "kategori_gangguan_view") {
                           echo 'active';
                         } ?>">
-               <a href="<?php echo site_url('admin/kategori_gangguan_view'); ?>"><i class="fa fa-book"></i> Kategori Gangguan
+               <a href="<?php echo site_url('admin/kategori_gangguan_view'); ?>"><i class="fa fa-book"></i> Kategori Gangguan Jaringan
                  </span>
                </a>
              </li>
+
+             <li class="<?php if ($this->uri->segment(2) == "kategori_gangguan_perangkat_view") {
+                          echo 'active';
+                        } ?>">
+               <a href="<?php echo site_url('admin/kategori_gangguan_perangkat_view'); ?>"><i class="fa fa-book"></i> Kategori Gangguan Perangkat
+                 </span>
+               </a>
+             </li>
+             
              <li class="<?php if ($this->uri->segment(2) == "tingkat_kerawanan_view") {
                           echo 'active';
                         } ?>">
