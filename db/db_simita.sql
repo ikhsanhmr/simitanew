@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Mar 2021 pada 13.28
+-- Waktu pembuatan: 19 Mar 2021 pada 10.52
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.3.27
 
@@ -360,7 +360,7 @@ INSERT INTO `data_network` (`data_id`, `tanggal_aktivasi`, `service_id`, `servic
 (776, '0000-00-00', '1000030163', 'Metronet', '1', 1, '[UIW SUMUT - UP2D] UP2D SUMUT - GI BERASTAGI (1)', '2819.BA/02/AKV/ICON+/2019', 1, '100000', '2 Mbps', 'active', 'juli', '2020'),
 (777, '0000-00-00', '1000024254', 'Metronet', '1', 1, '[UIW SUMUT - UP2D] UP2D SUMUT - GI BINJAI (1)', '2674.BA/02/AKV/ICON+/2019', 1, '100000', '2 Mbps', 'active', 'juli', '2020'),
 (778, '0000-00-00', '1000009394', 'Metronet', '1', 1, '[UIW SUMUT - UP2D] UP2D SUMUT - GI DENAI (1)', '0788.BA/05/AKV/ICON+/2018', 1, '100000', '2 Mbps', 'active', 'juli', '2020'),
-(779, '0000-00-00', '990000320643452', 'Metronet', '1', 1, '[UIW SUMUT - UP2D] UP2D SUMUT - GI GLUGUR (1)', '50282.BA/R8/AKV/ICON+/2017', 1, '100000', '2 Mbps', 'active', 'juli', '2020'),
+(779, '2021-03-19', '990000320643452', 'Metronet', '1', 0, '[UIW SUMUT - UP2D] UP2D SUMUT - GI GLUGUR (1)', '50282.BA/R8/AKV/ICON+/2017', 1, '100000', '2 Mbps', 'active', 'juli', '2020'),
 (780, '0000-00-00', '1000024251', 'Metronet', '1', 1, '[UIW SUMUT - UP2D] UP2D SUMUT - GI GUNUNG PARA (1)', '0968.BA/02/AKV/ICON+/2019', 1, '100000', '2 Mbps', 'active', 'juli', '2020'),
 (781, '0000-00-00', '1000009388', 'Metronet', '1', 1, '[UIW SUMUT - UP2D] UP2D SUMUT - GI KIM (1)', '0780.BA/05/AKV/ICON+/2018', 1, '100000', '2 Mbps', 'active', 'juli', '2020'),
 (782, '0000-00-00', '1000024280', 'Metronet', '1', 1, '[UIW SUMUT - UP2D] UP2D SUMUT - GI KISARAN', '1003.BA/02/AKV/ICON+/2019', 1, '100000', '2 Mbps', 'active', 'juli', '2020'),
@@ -2055,8 +2055,7 @@ INSERT INTO `data_network` (`data_id`, `tanggal_aktivasi`, `service_id`, `servic
 (2465, '0000-00-00', '1000069914', 'IP VPN', '2', 1, '[UIW SUMUT - UP2D] GI TELE (ROIP)', '', 0, '100000', '128 Kbps', 'active', 'desember', '2020'),
 (2466, '0000-00-00', '1000069908', 'IP VPN', '2', 1, '[UIW SUMUT - UP2D] GI PANGURURAN (ROIP)', '', 0, '100000', '128 Kbps', 'active', 'desember', '2020'),
 (2467, '0000-00-00', '1000069899', 'IP VPN', '2', 1, '[UIW SUMUT - UP2D] GI SIEMPAT RUBE (ROIP)', '', 0, '100000', '128 Kbps', 'active', 'desember', '2020'),
-(2468, '0000-00-00', '990000320480246', 'IP VPN', '1', 6, 'UNIT MANAJEMEN KONSTRUKSI IV (Medan)', '', 0, '100000', '2 Mbps', 'active', 'desember', '2020'),
-(2470, '2021-02-02', 'tes', 'Metronet', '1', 102, 'tes', 'tes', 0, '123', '128 Kbps', 'deactivated', 'Maret', '2021');
+(2468, '0000-00-00', '990000320480246', 'IP VPN', '1', 6, 'UNIT MANAJEMEN KONSTRUKSI IV (Medan)', '', 0, '100000', '2 Mbps', 'active', 'desember', '2020');
 
 -- --------------------------------------------------------
 
@@ -2144,20 +2143,23 @@ CREATE TABLE `har_network` (
   `unit_level3` varchar(200) NOT NULL,
   `foto_sebelum_pengerjaan` varchar(200) NOT NULL,
   `foto_saat_pengerjaan` varchar(255) NOT NULL,
-  `foto_sesudah_pengerjaan` varchar(255) NOT NULL
+  `foto_sesudah_pengerjaan` varchar(255) NOT NULL,
+  `pop` varchar(10) NOT NULL,
+  `solusi_pop` varchar(120) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `har_network`
 --
 
-INSERT INTO `har_network` (`id`, `nama_unit`, `lokasi`, `waktu_pelaksanaan`, `working_permit`, `nama_perangkat`, `id_perangkat`, `serial_number`, `type`, `id_address`, `mac_address`, `tampak_fisik`, `indikator_lampu`, `power_supply`, `lan`, `port`, `konfigurasi`, `backup_setting`, `genset`, `ups`, `inverter`, `solusi_tampak_fisik`, `solusi_indikator_lampu`, `solusi_power_supply`, `solusi_lan`, `solusi_port`, `solusi_konfigurasi`, `solusi_backup_setting`, `solusi_genset`, `solusi_ups`, `solusi_inverter`, `catatan`, `solusi`, `pengawas_pekerjaan`, `pelaksana_pekerjaan`, `approval`, `kantor_induk`, `tingkat_kerawanan`, `solusi_tingkat_kerawanan`, `unit_level2`, `unit_level3`, `foto_sebelum_pengerjaan`, `foto_saat_pengerjaan`, `foto_sesudah_pengerjaan`) VALUES
-(69, '', 'GEDUNG ULP KUALA LT.1', '2021-03-09', '', 'Router', 214, '', 'Mikrotik RB 1200', '10.16.164.1', '', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', 'Perbaikan pada perangkat Power Supply lampu', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'sebelumnya belum ada router mikrotik, dari wan icon langsung ke switch, kemudian dilakukan pemasangan router mikrotik RB 1200 dan integrasi stroomnet. belum ada rack tempat perangkat router dan swiitch, sementara di atas lemari kabinet. rack icon berada d', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '', '', 'router_mikrotik_kuala_sebelum.jpg', 'router_mikrotik_kuala_saat_pekerjaan.png', 'router_mikrotik_setelah_pekerjaaan.jpg'),
-(70, '', 'GEDUNG ULP KUALA LT.1', '2021-03-09', '', 'Switch', 144, '', 'HP V1910 JE006A', ' 10.16.164.3', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', 'Perbaikan Port pada perangkat', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'beberapa port switch rusak (port 1,2,3,4). Penempata switch diatas lemari kabinet. Kabel tidak rapi', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '8', '24', 'router_mikrotik_kuala_sebelum1.jpg', 'router_mikrotik_kuala_saat_pekerjaan1.png', 'router_mikrotik_setelah_pekerjaaan1.jpg'),
-(71, '', 'GEDUNG ULP KUALA LT.1', '2021-03-09', '', 'Access Point', 222, '', 'HP V-M200', '10.16.164.123', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'Penempatan accest point tidak rapii (menggantung). Kabel power supply tidak rapi', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '8', '24', 'acces_point_kuala_sebelum.png', 'acces_point_kuala_saat.png', 'acces_point_kuala_setelah.png'),
-(72, '', 'GEDUNG ULP BRANDAN', '2021-03-09', '', 'Router', 214, '', 'Mikrotik 1100AHx4', '10.16.168.1', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'tidak ada perangkat acces point, seluruh user menggunakan LAN', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', '', '', '9', '30', 'router_brandan_sebelum.png', 'router_brandan_sesaat.png', 'router_brandan_setelah.png'),
-(73, '', 'GEDUNG ULP P. BRANDAN', '2021-03-09', '', 'Router', 214, '', 'Cisco2800 Series', '10.16.168.2', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'sudah tidak digunakan', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', '', '', '9', '30', 'cisco_brandan_sebelum.png', 'cisco_brandan_sesaat.png', 'cisco_brandan_sesudah.png'),
-(74, '', 'GEDUNG ULP P. BRANDAN', '2021-03-09', '', 'Switch', 144, '', 'HP V1910 JE006A', '10.16.168.3', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', '', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', '', '', '9', '30', 'switch_brandan_sebelum.png', 'switch_brandan_sesaat.png', 'switch_brandan_setelah.png');
+INSERT INTO `har_network` (`id`, `nama_unit`, `lokasi`, `waktu_pelaksanaan`, `working_permit`, `nama_perangkat`, `id_perangkat`, `serial_number`, `type`, `id_address`, `mac_address`, `tampak_fisik`, `indikator_lampu`, `power_supply`, `lan`, `port`, `konfigurasi`, `backup_setting`, `genset`, `ups`, `inverter`, `solusi_tampak_fisik`, `solusi_indikator_lampu`, `solusi_power_supply`, `solusi_lan`, `solusi_port`, `solusi_konfigurasi`, `solusi_backup_setting`, `solusi_genset`, `solusi_ups`, `solusi_inverter`, `catatan`, `solusi`, `pengawas_pekerjaan`, `pelaksana_pekerjaan`, `approval`, `kantor_induk`, `tingkat_kerawanan`, `solusi_tingkat_kerawanan`, `unit_level2`, `unit_level3`, `foto_sebelum_pengerjaan`, `foto_saat_pengerjaan`, `foto_sesudah_pengerjaan`, `pop`, `solusi_pop`) VALUES
+(69, '', 'GEDUNG ULP KUALA LT.1', '2021-03-09', '', 'Router', 214, '', 'Mikrotik RB 1200', '10.16.164.1', '', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', 'Perbaikan pada perangkat Power Supply lampu', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'sebelumnya belum ada router mikrotik, dari wan icon langsung ke switch, kemudian dilakukan pemasangan router mikrotik RB 1200 dan integrasi stroomnet. belum ada rack tempat perangkat router dan swiitch, sementara di atas lemari kabinet. rack icon berada d', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '', '', 'router_mikrotik_kuala_sebelum.jpg', 'router_mikrotik_kuala_saat_pekerjaan.png', 'router_mikrotik_setelah_pekerjaaan.jpg', '', ''),
+(70, '', 'GEDUNG ULP KUALA LT.1', '2021-03-09', '', 'Switch', 144, '', 'HP V1910 JE006A', ' 10.16.164.3', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Ada error', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', 'Perbaikan Port pada perangkat', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'beberapa port switch rusak (port 1,2,3,4). Penempata switch diatas lemari kabinet. Kabel tidak rapi', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '8', '24', 'router_mikrotik_kuala_sebelum1.jpg', 'router_mikrotik_kuala_saat_pekerjaan1.png', 'router_mikrotik_setelah_pekerjaaan1.jpg', '', ''),
+(71, '', 'GEDUNG ULP KUALA LT.1', '2021-03-09', '', 'Access Point', 222, '', 'HP V-M200', '10.16.164.123', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'Penempatan accest point tidak rapii (menggantung). Kabel power supply tidak rapi', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '8', '24', 'acces_point_kuala_sebelum.png', 'acces_point_kuala_saat.png', 'acces_point_kuala_setelah.png', '', ''),
+(72, '', 'GEDUNG ULP BRANDAN', '2021-03-09', '', 'Router', 214, '', 'Mikrotik 1100AHx4', '10.16.168.1', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'tidak ada perangkat acces point, seluruh user menggunakan LAN', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', '', '', '9', '30', 'router_brandan_sebelum.png', 'router_brandan_sesaat.png', 'router_brandan_setelah.png', '', ''),
+(73, '', 'GEDUNG ULP P. BRANDAN', '2021-03-09', '', 'Router', 214, '', 'Cisco2800 Series', '10.16.168.2', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', 'sudah tidak digunakan', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', '', '', '9', '30', 'cisco_brandan_sebelum.png', 'cisco_brandan_sesaat.png', 'cisco_brandan_sesudah.png', '', ''),
+(74, '', 'GEDUNG ULP P. BRANDAN', '2021-03-09', '', 'Switch', 144, '', 'HP V1910 JE006A', '10.16.168.3', '', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Tidak ada', 'Tidak ada', 'Tidak ada', '', '', '', '', '', '', '', 'Disarankan untuk menambahkan Genset', 'Disarankan untuk menambahkan UPS', 'Disarankan untuk menambahkan Inverter', '', '', 'AHMAD SUARDI NASUTION', 'AHMAD SUARDI NASUTION', '', '1', '', '', '9', '30', 'switch_brandan_sebelum.png', 'switch_brandan_sesaat.png', 'switch_brandan_setelah.png', '', ''),
+(75, '', 'Jl. Pelajar', '2021-03-18', '', 'Access Point', 384, '', 'DAP-1360', '', '---------10.16.252.110.16.252.310.16.252.4ex - Indihome10.16.252.510.16.252.1610.16.252.1710.16.104.12310.16.104.7810.16.104.8110.16.104.8110.16.104.1210.16.252.1010.16.252.1110.16.252.8410.16.252.1210.16.252.1310.16.252.1410.16.252.1510.16.252.810.16.252', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', 'Normal', '', '', '', '', '', '', '', '', '', '', '', '', 'RINI ISSUSI LENING TIAS', 'RINI ISSUSI LENING TIAS', '', '1', 'Gampang Jatuh', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman', '', '', 'Whit_Board1.png', 'tim-mossholder-WE_Kv_ZB1l0-unsplash2.jpg', 'Whit_Board2.png', 'Ada', '');
 
 -- --------------------------------------------------------
 
@@ -2371,7 +2373,9 @@ INSERT INTO `kantor_induk` (`id_kantor_induk`, `nama_kantor_induk`, `wilayah_ker
 (10, 'Unit Induk Pembangunan Pembangkit Sumatera', 2),
 (11, 'Unit Induk Pembangunan Sumatera Bagian Utara', 2),
 (12, 'tes unit u', 2),
-(13, 'tes', 1);
+(13, 'tes', 1),
+(14, 'tes unit', 1),
+(15, 'tes', 1);
 
 -- --------------------------------------------------------
 
@@ -2391,7 +2395,7 @@ CREATE TABLE `kategori_gangguan` (
 INSERT INTO `kategori_gangguan` (`id_kategori`, `kategori`) VALUES
 (1, 'GANGGUAN SOFTWARE LASTMILE'),
 (2, 'GANGGUAN PUTUS CORE'),
-(3, 'GANGGUAN PUTUS KABEL'),
+(3, 'tes 1'),
 (4, 'GANGGUAN SOFTWARE'),
 (5, 'GANGGUAN WIRRING'),
 (6, 'GANGGUAN JALUR SEGMENT'),
@@ -2403,6 +2407,26 @@ INSERT INTO `kategori_gangguan` (`id_kategori`, `kategori`) VALUES
 (12, 'GANGGUAN PERANGKAT MODEM'),
 (13, 'GANGGUAN PERANGKAT SWITCH POP'),
 (14, 'GANGGUAN MODUL POWER');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kategori_gangguan_perangkat`
+--
+
+CREATE TABLE `kategori_gangguan_perangkat` (
+  `id_kategori` int(11) NOT NULL,
+  `kategori` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `kategori_gangguan_perangkat`
+--
+
+INSERT INTO `kategori_gangguan_perangkat` (`id_kategori`, `kategori`) VALUES
+(4, 'Instal ulang window 10 ORI'),
+(5, 'Penambahan Install ulang dual boot windows dan linux'),
+(6, 'Kabelnya rusak dikarenakan serangga');
 
 -- --------------------------------------------------------
 
@@ -11102,9 +11126,9 @@ CREATE TABLE `report_kerusakan` (
 --
 
 INSERT INTO `report_kerusakan` (`id_report`, `serial_number`, `nama_item`, `kondisi_item`, `tanggal_pelaporan`, `pengguna`) VALUES
-(1, '8872128212', 'Laptop', 'Install Ulang windows 10', '2021-02-11', 'Alfahri Harriza'),
-(2, '8872128212', 'Laptop', 'Penambahan Install ulang dual boot windows dan linux', '2021-02-11', 'Alfahri Harriza'),
-(3, 'H4ISNV000384', 'Network Device', 'Kabelnya rusak dikarenakan serangga', '2021-03-11', 'SUDIRIANTO');
+(1, '8872128212', 'Laptop', '5', '2021-02-11', 'Alfahri Harriza'),
+(2, '8872128212', 'Laptop', '4', '2021-02-11', 'Alfahri Harriza'),
+(3, 'H4ISNV000384', 'Network Device', '6', '2021-03-11', 'SUDIRIANTO');
 
 -- --------------------------------------------------------
 
@@ -11325,7 +11349,9 @@ INSERT INTO `unit_level2` (`id_unit_level2`, `id_kantor_induk`, `nama_unit_level
 (29, 11, 'Unit Pelaksana Proyek Jaringan Sumatera Utara 1'),
 (30, 11, 'UPP JARSUM 2'),
 (31, 12, 'tes unit 1'),
-(32, 13, 'tes');
+(32, 13, 'tes'),
+(33, 14, 'tes'),
+(34, 15, 'tes');
 
 -- --------------------------------------------------------
 
@@ -11659,6 +11685,12 @@ ALTER TABLE `kategori_gangguan`
   ADD KEY `id_kategori` (`id_kategori`);
 
 --
+-- Indeks untuk tabel `kategori_gangguan_perangkat`
+--
+ALTER TABLE `kategori_gangguan_perangkat`
+  ADD PRIMARY KEY (`id_kategori`);
+
+--
 -- Indeks untuk tabel `kerawanan`
 --
 ALTER TABLE `kerawanan`
@@ -11820,7 +11852,7 @@ ALTER TABLE `aplikasi_lokal`
 -- AUTO_INCREMENT untuk tabel `data_network`
 --
 ALTER TABLE `data_network`
-  MODIFY `data_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2471;
+  MODIFY `data_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2475;
 
 --
 -- AUTO_INCREMENT untuk tabel `gangguan`
@@ -11832,7 +11864,7 @@ ALTER TABLE `gangguan`
 -- AUTO_INCREMENT untuk tabel `har_network`
 --
 ALTER TABLE `har_network`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT untuk tabel `hi`
@@ -11850,7 +11882,7 @@ ALTER TABLE `hi_standard`
 -- AUTO_INCREMENT untuk tabel `it_support`
 --
 ALTER TABLE `it_support`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT untuk tabel `jadwal_har`
@@ -11862,13 +11894,19 @@ ALTER TABLE `jadwal_har`
 -- AUTO_INCREMENT untuk tabel `kantor_induk`
 --
 ALTER TABLE `kantor_induk`
-  MODIFY `id_kantor_induk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_kantor_induk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori_gangguan`
 --
 ALTER TABLE `kategori_gangguan`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT untuk tabel `kategori_gangguan_perangkat`
+--
+ALTER TABLE `kategori_gangguan_perangkat`
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `kerawanan`
@@ -11916,7 +11954,7 @@ ALTER TABLE `master_service_type`
 -- AUTO_INCREMENT untuk tabel `merek`
 --
 ALTER TABLE `merek`
-  MODIFY `id_merek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `id_merek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
 
 --
 -- AUTO_INCREMENT untuk tabel `monitor`
@@ -11940,7 +11978,7 @@ ALTER TABLE `network_device`
 -- AUTO_INCREMENT untuk tabel `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `pegawai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1365;
+  MODIFY `pegawai_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1366;
 
 --
 -- AUTO_INCREMENT untuk tabel `printer`
@@ -11952,7 +11990,7 @@ ALTER TABLE `printer`
 -- AUTO_INCREMENT untuk tabel `report_kerusakan`
 --
 ALTER TABLE `report_kerusakan`
-  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_report` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `role`
@@ -11982,19 +12020,19 @@ ALTER TABLE `tambak`
 -- AUTO_INCREMENT untuk tabel `unit_level2`
 --
 ALTER TABLE `unit_level2`
-  MODIFY `id_unit_level2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_unit_level2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT untuk tabel `unit_level3`
 --
 ALTER TABLE `unit_level3`
-  MODIFY `id_unit_level3` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `id_unit_level3` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

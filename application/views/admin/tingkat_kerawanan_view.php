@@ -27,7 +27,7 @@
            <!-- /.box-header -->
 
            <div class="box-body">
-            <table id="table_kerawanan" class="table table-bordered table-striped">
+             <table id="table_kerawanan" class="table table-bordered table-striped">
                <thead>
                  <tr>
                    <th class="center">No.</th>
@@ -39,25 +39,25 @@
                </thead>
 
                <tbody>
-                
 
-             </tbody>
 
-           </table>
-           <div class="row">
-             <div id="default-buttons" class="col-sm-6">
-               <a class="btn btn-primary" href="<?php echo site_url('admin/tingkat_kerawanan_add'); ?>">Add Data</a>
+               </tbody>
+
+             </table>
+             <div class="row">
+               <div id="default-buttons" class="col-sm-6">
+                 <a class="btn btn-primary" href="<?php echo site_url('admin/tingkat_kerawanan_add'); ?>">Add Data</a>
+               </div>
              </div>
            </div>
+           <!-- /.box-body -->
          </div>
-         <!-- /.box-body -->
+         <!-- /.box -->
        </div>
-       <!-- /.box -->
+       <!-- /.col -->
      </div>
-     <!-- /.col -->
-   </div>
-   <!-- /.row -->
- </section>
- <!-- /.content -->
-</div>
+     <!-- /.row -->
+   </section>
+   <!-- /.content -->
+ </div>
  <!-- /.content-wrapper -->

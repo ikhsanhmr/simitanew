@@ -73,7 +73,7 @@
                                 <div class="form-group">
                                     <label for="unit_level2" class="col-sm-3 control-label">Unit Level 2</label>
                                     <div class="col-sm-5">
-                                        <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;" >
+                                        <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;">
                                             <option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>
                                         </select>
                                     </div>
@@ -108,7 +108,7 @@
                                 <div class="form-group">
                                     <label for="scada" class="col-sm-3 control-label">Scada</label>
                                     <div class="col-sm-5">
-                                        <select class="form-control select2" id="scada" name="scada" style="width: 100%;"> 
+                                        <select class="form-control select2" id="scada" name="scada" style="width: 100%;">
                                             <option value=""> -- Pilih Scada -- </option>
                                             <option value="1">Scada</option>
                                             <option value="0">Non Scada</option>
@@ -160,8 +160,8 @@
 
                                             <option selected="selected" value=""> -- Pilih Penyebab -- </option>
                                             <?php foreach ($list_kategori_gangguan->result_array() as $data) { ?>
-                                                <option value="<?php echo $data['id_kategori']; ?>"><?php  echo $data['kategori']; ?></option>
-                                                <?php 
+                                                <option value="<?php echo $data['id_kategori']; ?>"><?php echo $data['kategori']; ?></option>
+                                            <?php
                                             }
                                             ?>
                                         </select>
