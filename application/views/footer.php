@@ -107,13 +107,13 @@
           .then((data) => {
             document.getElementById('getInventory').innerHTML = data;
           });
-      } else if (network){
-        fetch("<?= base_url('laporan/network')?>", {
-          method: 'GET',
-        }).then((response) => response.text())
-        .then((data) => {
-          document.getElementById('getInventory').innerHTML = data;
-        })
+      } else if (network) {
+        fetch("<?= base_url('laporan/network') ?>", {
+            method: 'GET',
+          }).then((response) => response.text())
+          .then((data) => {
+            document.getElementById('getInventory').innerHTML = data;
+          })
       } else {
         fetch("<?= base_url('laporan/inventoryNotFound') ?>", {
             method: 'GET',
@@ -129,221 +129,221 @@
       ajax: {
         processing: true,
         serverSide: true,
-        url:'<?php echo site_url('pegawai/table_pegawai') ?>',
+        url: '<?php echo site_url('pegawai/table_pegawai') ?>',
         type: 'POST'
       },
       columns: [{
-        "data":'no'
-      },
-      {
-        "data":'nip'
-      },
-      {
-        "data":'nama'
-      },
-      {
-        "data": "email"
-      },
-      {
-        "data": "no_hp"
-      },
-      {
-        "data": "actions"
-      }
-    ],
+          "data": 'no'
+        },
+        {
+          "data": 'nip'
+        },
+        {
+          "data": 'nama'
+        },
+        {
+          "data": "email"
+        },
+        {
+          "data": "no_hp"
+        },
+        {
+          "data": "actions"
+        }
+      ],
     });
 
     var kategoriGangguanTable = $('#table_kategori_gangguan').DataTable({
       ajax: {
         processing: true,
         serverSide: true,
-        url:'<?php echo site_url('admin/table_kategori_gangguan') ?>',
+        url: '<?php echo site_url('admin/table_kategori_gangguan') ?>',
         type: 'POST'
       },
       columns: [{
-        "data":'no'
-      },
-      {
-        "data":'kategori'
-      },
-      {
-        "data": "actions"
-      }
-    ],
+          "data": 'no'
+        },
+        {
+          "data": 'kategori'
+        },
+        {
+          "data": "actions"
+        }
+      ],
     });
 
     var kategoriGangguanTable = $('#table_kategori_gangguan_perangkat').DataTable({
       ajax: {
         processing: true,
         serverSide: true,
-        url:'<?php echo site_url('admin/table_kategori_gangguan_perangkat') ?>',
+        url: '<?php echo site_url('admin/table_kategori_gangguan_perangkat') ?>',
         type: 'POST'
       },
       columns: [{
-        "data":'no'
-      },
-      {
-        "data":'kategori'
-      },
-      {
-        "data": "actions"
-      }
-    ],
+          "data": 'no'
+        },
+        {
+          "data": 'kategori'
+        },
+        {
+          "data": "actions"
+        }
+      ],
     });
 
     var kategoriGangguanTable = $('#table_har_view').DataTable({
       ajax: {
         processing: true,
         serverSide: true,
-        url:'<?php echo site_url('laporan/table_har_view') ?>',
+        url: '<?php echo site_url('laporan/table_har_view') ?>',
         type: 'POST'
       },
       columns: [{
-        "data":'no'
-      },
-      {
-        "data":'tanggal_pergi'
-      },
-      {
-        "data": "tanggal_pulang"
-      },
-      {
-        "data": "petugas"
-      },
-      {
-        "data": "nama_unit_level2"
-      },
-      {
-        "data": "nama_unit_level3"
-      },
-      {
-        "data": "actions"
-      }
-    ],
+          "data": 'no'
+        },
+        {
+          "data": 'tanggal_pergi'
+        },
+        {
+          "data": "tanggal_pulang"
+        },
+        {
+          "data": "petugas"
+        },
+        {
+          "data": "nama_unit_level2"
+        },
+        {
+          "data": "nama_unit_level3"
+        },
+        {
+          "data": "actions"
+        }
+      ],
     });
 
     var stokTable = $('#table_stok').DataTable({
       ajax: {
         processing: true,
         serverSide: true,
-        url:'<?php echo site_url('admin/table_stok') ?>',
+        url: '<?php echo site_url('admin/table_stok') ?>',
         type: 'POST'
       },
       columns: [{
-        "data":'no'
-      },
-      {
-        "data": 'jenis_perangkat'
-      },
-      {
-        "data": 'jumlah_perangkat'
-      },
-      {
-        "data": "actions"
-      }
-    ],
+          "data": 'no'
+        },
+        {
+          "data": 'jenis_perangkat'
+        },
+        {
+          "data": 'jumlah_perangkat'
+        },
+        {
+          "data": "actions"
+        }
+      ],
     });
-    
-    
+
+
     var kerawananTable = $('#table_kerawanan').DataTable({
       ajax: {
         processing: true,
         serverSide: true,
-        url:'<?php echo site_url('admin/table_kerawanan') ?>',
+        url: '<?php echo site_url('admin/table_kerawanan') ?>',
         type: 'POST'
       },
       columns: [{
-        "data":'no'
-      },
-      {
-        "data": 'tingkat_kerawanan'
-      },
-      {
-        "data": 'status_kerawanan'
-      },
-      {
-        "data": 'solusi_tingkat_kerawanan'
-      },
-      {
-        "data": "actions"
-      }
-    ],
+          "data": 'no'
+        },
+        {
+          "data": 'tingkat_kerawanan'
+        },
+        {
+          "data": 'status_kerawanan'
+        },
+        {
+          "data": 'solusi_tingkat_kerawanan'
+        },
+        {
+          "data": "actions"
+        }
+      ],
     });
-    
-    
+
+
     var unitTable = $('#table_unit').DataTable({
       ajax: {
         processing: true,
         serverSide: true,
-        url:'<?php echo site_url('admin/table_unit') ?>',
+        url: '<?php echo site_url('admin/table_unit') ?>',
         type: 'POST'
       },
       columns: [{
-        "data":'no'
-      },
-      {
-        "data": 'nama_kantor_induk'
-      },
-      {
-        "data": 'nama_unit_level2'
-      },
-      {
-        "data": 'nama_unit_level3'
-      },
-      {
-        "data": 'wilayah_kerja'
-      },
-      {
-        "data": "actions"
-      }
-    ],
+          "data": 'no'
+        },
+        {
+          "data": 'nama_kantor_induk'
+        },
+        {
+          "data": 'nama_unit_level2'
+        },
+        {
+          "data": 'nama_unit_level3'
+        },
+        {
+          "data": 'wilayah_kerja'
+        },
+        {
+          "data": "actions"
+        }
+      ],
     });
 
     var merekTable = $('#table_merek').DataTable({
       ajax: {
         processing: true,
         serverSide: true,
-        url:'<?php echo site_url('admin/table_merek') ?>',
+        url: '<?php echo site_url('admin/table_merek') ?>',
         type: 'POST'
       },
       columns: [{
-        "data":'no'
-      },
-      {
-        "data":'merek'
-      },
-      {
-        "data":'kategori'
-      },
-      {
-        "data": "actions"
-      }
-    ],
+          "data": 'no'
+        },
+        {
+          "data": 'merek'
+        },
+        {
+          "data": 'kategori'
+        },
+        {
+          "data": "actions"
+        }
+      ],
     });
 
     var userTable = $('#table_user').DataTable({
       ajax: {
         processing: true,
         serverSide: true,
-        url:'<?php echo site_url('admin/table_users') ?>',
+        url: '<?php echo site_url('admin/table_users') ?>',
         type: 'POST'
       },
       columns: [{
-        "data":'no'
-      },
-      {
-        "data":'username'
-      },
-      {
-        "data":'password'
-      },
-      {
-        "data": "nama_role"
-      },
-      {
-        "data": "actions"
-      }
-    ],
+          "data": 'no'
+        },
+        {
+          "data": 'username'
+        },
+        {
+          "data": 'password'
+        },
+        {
+          "data": "nama_role"
+        },
+        {
+          "data": "actions"
+        }
+      ],
     });
 
 
@@ -351,28 +351,28 @@
       ajax: {
         processing: true,
         serverSide: true,
-        url:'<?php echo site_url('support/table_support') ?>',
+        url: '<?php echo site_url('support/table_support') ?>',
         type: 'POST'
       },
       columns: [{
-        "data":'no'
-      },
-      {
-        "data":'nama'
-      },
-      {
-        "data":'no_hp'
-      },
-      {
-        "data": "email"
-      },
-      {
-        "data": "penempatan"
-      },
-      {
-        "data": "actions"
-      }
-    ],
+          "data": 'no'
+        },
+        {
+          "data": 'nama'
+        },
+        {
+          "data": 'no_hp'
+        },
+        {
+          "data": "email"
+        },
+        {
+          "data": "penempatan"
+        },
+        {
+          "data": "actions"
+        }
+      ],
     });
 
     var komputerTable = $('#komputer_table').DataTable({
@@ -709,7 +709,7 @@
           "data": "actions"
         },
       ],
-     
+
     });
 
     var kerusakanLaptop = $("#table_kerusakan_laptop").DataTable({
@@ -1390,7 +1390,7 @@
       array_push($sid_label, $row['kategori']);
       array_push($sid_value, $row['jumlahnya']);
     }
-  }; 
+  };
   ?>
   var myChart = new Chart(ctx, {
     type: 'pie',
@@ -1428,13 +1428,13 @@
 <script type="text/javascript">
   var ctxNetwork = document.getElementById('chartNetwork').getContext('2d')
   <?php
-    $network_count = array();
-    if(!empty($dashboard_network_device_har)) {
-      foreach ($dashboard_network_device_har->result_array() as $row) {
-        array_push($network_count, $row['har_network']);
-        array_push($network_count, $row['network_device']);
-      }
+  $network_count = array();
+  if (!empty($dashboard_network_device_har)) {
+    foreach ($dashboard_network_device_har->result_array() as $row) {
+      array_push($network_count, $row['har_network']);
+      array_push($network_count, $row['network_device']);
     }
+  }
   ?>
   var myChart = new Chart(ctxNetwork, {
     type: 'pie',
@@ -1471,14 +1471,14 @@
 <script type="text/javascript">
   var ctxNetwork = document.getElementById('chartNetworkDeviceList').getContext('2d')
   <?php
-    $jumlah_device = array();
-    $device_name = array();
-    if(!empty($dashboard_network_device)) {
-      foreach ($dashboard_network_device->result_array() as $row) {
-        array_push($jumlah_device, $row['jumlah_device']);
-        array_push($device_name, $row['device_name']);
-      }
+  $jumlah_device = array();
+  $device_name = array();
+  if (!empty($dashboard_network_device)) {
+    foreach ($dashboard_network_device->result_array() as $row) {
+      array_push($jumlah_device, $row['jumlah_device']);
+      array_push($device_name, $row['device_name']);
     }
+  }
   ?>
   var myChart = new Chart(ctxNetwork, {
     type: 'pie',
@@ -1584,19 +1584,19 @@
 <script type="text/javascript">
   var ctxNetwork = document.getElementById('chartPerangkatKerusakan').getContext('2d')
   <?php
-    $kerusakan_perangkat_count = array();
-    $perangkat_name = array();
-    if(!empty($dashboard_kerusakan_perangkat)) {
-      foreach ($dashboard_kerusakan_perangkat->result_array() as $row) {
-        array_push($kerusakan_perangkat_count, $row['jumlah_perangkat_rusak']);
-        array_push($perangkat_name, $row['perangkat_name']);
-      }
+  $kerusakan_perangkat_count = array();
+  $perangkat_name = array();
+  if (!empty($dashboard_kerusakan_perangkat)) {
+    foreach ($dashboard_kerusakan_perangkat->result_array() as $row) {
+      array_push($kerusakan_perangkat_count, $row['jumlah_perangkat_rusak']);
+      array_push($perangkat_name, $row['perangkat_name']);
     }
+  }
   ?>
   var myChart = new Chart(ctxNetwork, {
     type: 'pie',
     data: {
-      labels: <?php echo  json_encode($perangkat_name);?>,
+      labels: <?php echo  json_encode($perangkat_name); ?>,
       datasets: [{
         label: 'INTERNET',
         data: <?php echo json_encode($kerusakan_perangkat_count); ?>,
@@ -2366,13 +2366,13 @@
 
 <script>
   $("#unit_level3").change(function() {
-    
+
     // variable id dari combobox level 3
     var id_unit_level3 = $("#unit_level3").val();
 
     $.ajax({
       url: "<?php echo base_url(); ?>/laporan/get_network_device_by_unitlv3",
-      method: "POST", 
+      method: "POST",
       data: {
         id_unit_level3: id_unit_level3
       },
@@ -2382,9 +2382,9 @@
         console.log(data)
         var html = '<option selected="selected" value=""> -- Pilih Nama Perangkat -- </option>';
         var i;
-        
+
         for (i = 0; i < data.length; i++) {
-          html += '<option value="' + data[i].id_network_device  + '-' + data[i].device_type + '">' + data[i].device_type + '</option>';
+          html += '<option value="' + data[i].id_network_device + '-' + data[i].device_type + '">' + data[i].device_type + '</option>';
         }
         $('#id_perangkat').html(html);
       }
@@ -2418,9 +2418,9 @@
         var i;
 
         for (i = 0; i < data.length; i++) {
-          if(data[i].type !== "") {
+          if (data[i].type !== "") {
             html += '<option value="' + data[i].type + '">' + data[i].type + '</option>';
-          } 
+          }
         }
         $('#type').html(html);
       }
@@ -2429,7 +2429,7 @@
 </script>
 <script>
   $("#type").change(function() {
-  	
+
     // variabel dari nilai combo box kendaraan
     var type = $("#type").val();
     // Menggunakan ajax untuk mengirim dan dan menerima data dari server
@@ -2446,7 +2446,7 @@
         var i;
 
         for (i = 0; i < data.length; i++) {
-          if(data[i].serial_number !== "") {
+          if (data[i].serial_number !== "") {
             html += '<option value="' + data[i].serial_number + '">' + data[i].serial_number + '</option>';
           }
         }
@@ -2634,7 +2634,7 @@
       }
       $('#solusi_lan').val(lan_val);
 
-       //pop
+      //pop
       if (pop == "Tidak ada") {
         pop_val += 'Diharapkan segera dilakukan penambahan backup pop';
       } else {
@@ -2645,6 +2645,29 @@
     });
 
   });
+</script>
+
+<script type="text/javascript">
+  const services_id = [];
+  $('#btn-add-form-service').click(function() {
+    $('#form-group-service').append(`
+      <select class="form-control select2 service_id"  name="service_id" style="width: 100%; margin-top:5px;">
+        <option selected="selected" value=""> -- Pilih Service -- </option>
+        <?php foreach ($data_network as $value) : ?>
+          <option value="<?= $value['service_id'] ?>"><?= $value['service_id']; ?> - <?= $value['service']; ?></option>";
+        <?php endforeach; ?>
+      </select>
+    `)
+  })
+  document.getElementById('btn-submit-pop-icon').addEventListener('click', function(e) {
+    const allElService = document.querySelectorAll('.service_id');
+    allElService.forEach(e => {
+      services_id.push(e.value)
+    })
+
+    $('#services_id').val(services_id)
+    console.log($('#services_id').val())
+  })
 </script>
 
 </body>

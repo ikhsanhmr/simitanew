@@ -163,7 +163,7 @@
                  </span>
                </a>
              </li>
-             
+
              <li class="<?php if ($this->uri->segment(2) == "tingkat_kerawanan_view") {
                           echo 'active';
                         } ?>">
@@ -171,87 +171,94 @@
                  </span>
                </a>
              </li>
+
+             <li class="<?php if ($this->uri->segment(2) == "stok_view") {
+                          echo 'active';
+                        } ?>">
+               <a href="<?php echo site_url('admin/stok_view'); ?>"><i class="fa fa-book"></i> Stok Perangkat
+                 </span>
+               </a>
+             </li>
+
+             <li class="<?php if ($this->uri->segment(2) == "pop_icon_view") {
+                          echo 'active';
+                        } ?>">
+               <a href="<?php echo site_url('admin/pop_icon_view'); ?>"><i class="fa fa-book"></i> Data POP ICON+
+                 </span>
+               </a>
+             </li>
+
+           </ul>
          </li>
-         <li class="<?php if ($this->uri->segment(2) == "stok_view") {
-                      echo 'active';
-                    } ?>">
-           <a href="<?php echo site_url('admin/stok_view'); ?>"><i class="fa fa-book"></i> Stok Perangkat
+
+         <li class="treeview <?php if ($this->uri->segment(2) == "laptop_view" || $this->uri->segment(2) == "komputer_view" || $this->uri->segment(2) == "monitor_view" || $this->uri->segment(2) == "printer_view" || $this->uri->segment(2) == "aplikasi_lokal_view" || $this->uri->segment(2) == "server_view" || $this->uri->segment(2) == "network_device_view" || $this->uri->segment(2) == "vicon_view") {
+                                echo 'active';
+                              } ?>">
+           <a href="#">
+             <i class="fa fa-archive"></i> <span>Inventory</span>
+             <span class="pull-right-container">
+               <i class="fa fa-angle-left pull-right"></i>
              </span>
            </a>
+           <ul class="treeview-menu">
+             <li class="treeview">
+             <li class="<?php if ($this->uri->segment(2) == "laptop_view") {
+                          echo 'active';
+                        } ?>">
+               <a href="<?php echo site_url('admin/laptop_view'); ?>"><i class="fa fa-laptop"></i> Laptop
+                 <span class="pull-right-container"></span>
+               </a>
+             </li>
+             <li class="<?php if ($this->uri->segment(2) == "komputer_view") {
+                          echo 'active';
+                        } ?>">
+               <a href="<?php echo site_url('admin/komputer_view'); ?>"><i class="fa fa-microchip"></i> PC / Komputer
+                 <span class="pull-right-container"></span>
+               </a>
+             </li>
+             <li class="<?php if ($this->uri->segment(2) == "monitor_view") {
+                          echo 'active';
+                        } ?>">
+               <a href="<?php echo site_url('admin/monitor_view'); ?>"><i class="fa fa-tv"></i> Monitor
+                 <span class="pull-right-container"></span>
+               </a>
+             </li>
+             <li class="<?php if ($this->uri->segment(2) == "printer_view") {
+                          echo 'active';
+                        } ?>">
+               <a href="<?php echo site_url('admin/printer_view'); ?>"><i class="fa fa-print"></i> Printer / Scanner
+                 <span class="pull-right-container"></span>
+               </a>
+             </li>
+             <li class="<?php if ($this->uri->segment(2) == "aplikasi_lokal_view") {
+                          echo 'active';
+                        } ?>">
+               <a href="<?php echo site_url('admin/aplikasi_lokal_view'); ?>"><i class="fa fa-gears"></i> Aplikasi Lokal
+                 <span class="pull-right-container"></span>
+               </a>
+             </li>
+             <li class="<?php if ($this->uri->segment(2) == "server_view") {
+                          echo 'active';
+                        } ?>">
+               <a href="<?php echo site_url('admin/server_view'); ?>"><i class="fa fa-server"></i> Server
+                 <span class="pull-right-container"></span>
+               </a>
+             </li>
+             <li class="<?php if ($this->uri->segment(2) == "network_device_view") {
+                          echo 'active';
+                        } ?>">
+               <a href="<?php echo site_url('admin/network_device_view'); ?>"><i class="fa fa-feed"></i> Network Device
+                 <span class="pull-right-container"></span>
+               </a>
+             </li>
+             <li class="<?php if ($this->uri->segment(2) == "vicon_view") {
+                          echo 'active';
+                        } ?>">
+               <a href="<?php echo site_url('admin/vicon_view'); ?>"><i class="fa fa-video-camera"></i> Video Conference
+                 <span class="pull-right-container"></span>
+               </a>
+             </li>
          </li>
-         </li>
-
-     </ul>
-     </li>
-
-     <li class="treeview <?php if ($this->uri->segment(2) == "laptop_view" || $this->uri->segment(2) == "komputer_view" || $this->uri->segment(2) == "monitor_view" || $this->uri->segment(2) == "printer_view" || $this->uri->segment(2) == "aplikasi_lokal_view" || $this->uri->segment(2) == "server_view" || $this->uri->segment(2) == "network_device_view" || $this->uri->segment(2) == "vicon_view") {
-                            echo 'active';
-                          } ?>">
-       <a href="#">
-         <i class="fa fa-archive"></i> <span>Inventory</span>
-         <span class="pull-right-container">
-           <i class="fa fa-angle-left pull-right"></i>
-         </span>
-       </a>
-       <ul class="treeview-menu">
-         <li class="treeview">
-         <li class="<?php if ($this->uri->segment(2) == "laptop_view") {
-                      echo 'active';
-                    } ?>">
-           <a href="<?php echo site_url('admin/laptop_view'); ?>"><i class="fa fa-laptop"></i> Laptop
-             <span class="pull-right-container"></span>
-           </a>
-         </li>
-         <li class="<?php if ($this->uri->segment(2) == "komputer_view") {
-                      echo 'active';
-                    } ?>">
-           <a href="<?php echo site_url('admin/komputer_view'); ?>"><i class="fa fa-microchip"></i> PC / Komputer
-             <span class="pull-right-container"></span>
-           </a>
-         </li>
-         <li class="<?php if ($this->uri->segment(2) == "monitor_view") {
-                      echo 'active';
-                    } ?>">
-           <a href="<?php echo site_url('admin/monitor_view'); ?>"><i class="fa fa-tv"></i> Monitor
-             <span class="pull-right-container"></span>
-           </a>
-         </li>
-         <li class="<?php if ($this->uri->segment(2) == "printer_view") {
-                      echo 'active';
-                    } ?>">
-           <a href="<?php echo site_url('admin/printer_view'); ?>"><i class="fa fa-print"></i> Printer / Scanner
-             <span class="pull-right-container"></span>
-           </a>
-         </li>
-         <li class="<?php if ($this->uri->segment(2) == "aplikasi_lokal_view") {
-                      echo 'active';
-                    } ?>">
-           <a href="<?php echo site_url('admin/aplikasi_lokal_view'); ?>"><i class="fa fa-gears"></i> Aplikasi Lokal
-             <span class="pull-right-container"></span>
-           </a>
-         </li>
-         <li class="<?php if ($this->uri->segment(2) == "server_view") {
-                      echo 'active';
-                    } ?>">
-           <a href="<?php echo site_url('admin/server_view'); ?>"><i class="fa fa-server"></i> Server
-             <span class="pull-right-container"></span>
-           </a>
-         </li>
-         <li class="<?php if ($this->uri->segment(2) == "network_device_view") {
-                      echo 'active';
-                    } ?>">
-           <a href="<?php echo site_url('admin/network_device_view'); ?>"><i class="fa fa-feed"></i> Network Device
-             <span class="pull-right-container"></span>
-           </a>
-         </li>
-         <li class="<?php if ($this->uri->segment(2) == "vicon_view") {
-                      echo 'active';
-                    } ?>">
-           <a href="<?php echo site_url('admin/vicon_view'); ?>"><i class="fa fa-video-camera"></i> Video Conference
-             <span class="pull-right-container"></span>
-           </a>
-         </li>
-     </li>
      </ul>
      </li>
 

@@ -1907,13 +1907,13 @@ class Admin extends CI_Controller
 	{
 		$data = array();
 		$query = $this->admin_model->tampil_user();
-	
+
 		if ($query->num_rows() > 0) {
 			foreach ($query->result_array() as $key => $row) {
 				$row['no'] = $key + 1;
 				$row['password'] = $this->enkripsi->encrypt_decrypt('decrypt', $row['password']);
 
-				$row['nama_role'] = $row['id_role'] == 1 ? "<span class='label label-success'>".$row['nama_role']."</span>" : "<span class='label label-primary'>".$row['nama_role']."</span>";
+				$row['nama_role'] = $row['id_role'] == 1 ? "<span class='label label-success'>" . $row['nama_role'] . "</span>" : "<span class='label label-primary'>" . $row['nama_role'] . "</span>";
 				$row['actions'] = "<a href=" . base_url('admin/users_edit?id_users=' . $row['id_users']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
 				<a href=" . base_url('admin/users_delete?id_users=' . $row['id_users']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				";
@@ -2805,7 +2805,7 @@ class Admin extends CI_Controller
 					$row['kepemilikan_status'] = '<button type="button" class="btn btn-block btn-info">' . $row['status_kepemilikan'] . '</button>';
 				}
 				$row['serial_number'] = "<a href=" . base_url('admin/detailKerusakanNetwork/' . $row["serial_number"]) . ">" . $row["serial_number"] . "</a>";
-				
+
 				$row['actionButton'] = "<a href=" . base_url('admin/network_device_edit?id_network_device=' . $row['id_network_device']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
 				<a href=" . base_url('admin/network_device_delete?id_network_device=' . $row['id_network_device']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				
@@ -3986,7 +3986,7 @@ class Admin extends CI_Controller
 		}
 	}
 
-	function action_kategori_gangguan_perangkat_add ()
+	function action_kategori_gangguan_perangkat_add()
 	{
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
@@ -4077,7 +4077,7 @@ class Admin extends CI_Controller
 		}
 	}
 
-	
+
 	//Stok perangkat
 	public function stok_view()
 	{
@@ -4182,6 +4182,47 @@ class Admin extends CI_Controller
 			}
 		}
 	}
+
+	// DATA POP ICON+
+
+	function pop_icon_view()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/pop_icon_view');
+			$this->load->view('footer');
+		}
+	}
+
+	function pop_icon_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['data_network'] = $this->admin_model->tampil_data_network()->result_array();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/pop_icon_add', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	function action_pop_icon_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			var_dump($this->input->post('services_id'));
+			var_dump($this->input->post('nama_pop_icon'));
+			var_dump($this->input->post('lokasi_pop_icon'));
+		}
+	}
+
+	// END DATA POP ICON+
+
 	//TINGKAT KERAWANAN
 	public function tingkat_kerawanan_view()
 	{
@@ -4365,14 +4406,14 @@ class Admin extends CI_Controller
 			$this->load->view('footer');
 		}
 	}
+
 	public function Pos()
 	{
-
 		$this->db->set($_GET['field'], 'Normal');
 		$this->db->set($_GET['solusi_field'], '');
-$this->db->where('id', $_GET['id']);
-$this->db->update('har_network');
-redirect('admin/corrective_maintenance');
+		$this->db->where('id', $_GET['id']);
+		$this->db->update('har_network');
+		redirect('admin/corrective_maintenance');
 	}
 }
 			//internet_UIWSU
