@@ -4197,12 +4197,36 @@ class Admin extends CI_Controller
 		}
 	}
 
+	function table_pop_icon()
+	{
+		$data = array();
+		$query = $this->admin_model->tampil_pop_icon();
+		$query1 = $this->admin_model->tampil_service_id();
+		if ($query->num_rows() > 0) {
+			foreach ($query->result_array() as $key => $row) {
+				$row['service_id_arr'] = array();
+				$row['no'] = $key + 1;
+				foreach ($query1->result_array() as $service_id) {
+					if ($service_id['id_pop_icon'] == $row['id_pop_icon']) {
+						array_push($row['service_id_arr'], "<li>" . $service_id['service_id'] . "</li>");
+					}
+				}
+				$row['service_id'] = join(" ", $row['service_id_arr']);
+				$row['actions'] =
+					"<a href=" . base_url('admin/deleteDataPopIcon?id_pop=' . $row['id_pop_icon']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+				";
+				$data[] = $row;
+			}
+		}
+		echo json_encode(array('data' => $data));
+	}
+
 	function pop_icon_add()
 	{
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$data['data_network'] = $this->admin_model->tampil_data_network()->result_array();
+			$data['data_network'] = $this->admin_model->tampil_data_network_pop_icon()->result_array();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/pop_icon_add', $data);
@@ -4215,9 +4239,33 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			var_dump($this->input->post('services_id'));
-			var_dump($this->input->post('nama_pop_icon'));
-			var_dump($this->input->post('lokasi_pop_icon'));
+			$services_id = $this->input->post('services_id');
+			$nama_pop_icon = $this->input->post('nama_pop_icon');
+			$lokasi_pop_icon = $this->input->post('lokasi_pop_icon');
+
+
+			$insert = $this->admin_model->add_pop_icon($services_id, $nama_pop_icon, $lokasi_pop_icon);
+			if ($insert) {
+				echo "<script>alert('Berhasil Menambah Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/pop_icon_view>";
+			} else {
+				echo "<script>alert('Gagal Menambah Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/pop_icon_view>";
+			}
+		}
+	}
+
+	function deleteDataPopIcon()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('id_pop');
+			$delete = $this->admin_model->pop_icon_delete($data_id);
+			if ($delete) {
+				echo "<script>alert('Berhasil Menghapus Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/pop_icon_view>";
+			}
 		}
 	}
 

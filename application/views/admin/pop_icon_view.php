@@ -29,7 +29,7 @@
                      <th class="center">No.</th>
                      <th>Nama</th>
                      <th>Lokasi</th>
-                     <th>Service</th>
+                     <th>Service ID</th>
                      <th>Actions</th>
                    </tr>
                  </thead>

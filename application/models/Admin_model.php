@@ -9,9 +9,10 @@ class Admin_model extends CI_Model
   }
 
   //HI
-  function tampil_hi (){
-    if($this->session->userdata('rolenya') == '1') {
-    $get = $this->db->query("SELECT 
+  function tampil_hi()
+  {
+    if ($this->session->userdata('rolenya') == '1') {
+      $get = $this->db->query("SELECT 
           a.id_hi,a.id_unit,hi.updated_at,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
           ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
           FROM network_device a
@@ -20,11 +21,10 @@ class Admin_model extends CI_Model
           WHERE hi.status = '1'
           AND a.status_terpasang = '1'
           GROUP BY a.id_unit DESC ");
-          return $get;
-      }
-    else {
-    $sub_unit = $this->session->userdata('sub_unitnya');
-    $get = $this->db->query("SELECT 
+      return $get;
+    } else {
+      $sub_unit = $this->session->userdata('sub_unitnya');
+      $get = $this->db->query("SELECT 
           a.id_hi,a.id_unit,hi.updated_at,unit.sub_unit,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
           ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
           FROM network_device a
@@ -35,20 +35,22 @@ class Admin_model extends CI_Model
           AND a.status_terpasang = '1'
           AND unit.sub_unit = $sub_unit
           GROUP BY a.id_unit DESC ");
-          return $get; 
+      return $get;
     }
   }
-  function tampil_non_hi (){
-    if($this->session->userdata('rolenya') == '1') {
-    $get = $this->db->query("SELECT a.id_hi,a.id_unit,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, (SELECT COUNT(`id_unit`)) AS perangkat FROM network_device a WHERE a.id_hi = '0' AND a.status_terpasang = '1' AND a.id_unit != '' GROUP BY a.id_unit");
-          return $get;
+  function tampil_non_hi()
+  {
+    if ($this->session->userdata('rolenya') == '1') {
+      $get = $this->db->query("SELECT a.id_hi,a.id_unit,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, (SELECT COUNT(`id_unit`)) AS perangkat FROM network_device a WHERE a.id_hi = '0' AND a.status_terpasang = '1' AND a.id_unit != '' GROUP BY a.id_unit");
+      return $get;
     } else {
-    $sub_unit = $this->session->userdata('sub_unitnya');
-    $get = $this->db->query("SELECT a.id_hi,a.id_unit,b.sub_unit,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, (SELECT COUNT(a.id_unit)) AS perangkat FROM network_device a JOIN unit b ON b.id_unit = a.id_unit WHERE a.id_hi = '0' AND a.status_terpasang = '1' AND b.sub_unit = $sub_unit GROUP BY a.id_unit");
-          return $get;
+      $sub_unit = $this->session->userdata('sub_unitnya');
+      $get = $this->db->query("SELECT a.id_hi,a.id_unit,b.sub_unit,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, (SELECT COUNT(a.id_unit)) AS perangkat FROM network_device a JOIN unit b ON b.id_unit = a.id_unit WHERE a.id_hi = '0' AND a.status_terpasang = '1' AND b.sub_unit = $sub_unit GROUP BY a.id_unit");
+      return $get;
     }
-      }
-  function get_hi_unit($id_unit) {
+  }
+  function get_hi_unit($id_unit)
+  {
     $get = $this->db->query("SELECT 
           a.*,hi.*,merek.merek,l.label_perangkat,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya,
           ROUND((hi.bobot_kondisi + hi.bobot_urgensi + hi.bobot_urgensi - hi.bobot_standard - hi.bobot_lifetime - hi.bobot_gangguan) /( hi_standard.bobot_kondisi + hi_standard.bobot_urgensi + hi_standard.bobot_urgensi)*100) AS hi_device
@@ -58,10 +60,11 @@ class Admin_model extends CI_Model
           JOIN hi_standard ON hi.id_hi_standard = hi_standard.id_hi_standard
           LEFT JOIN m_label l ON a.id_network_device = l.assign_to
           WHERE a.id_unit = $id_unit 
-          AND hi.status = '1'" );
-          return $get;
-    }
-  function tampil_hi_sumut1 (){
+          AND hi.status = '1'");
+    return $get;
+  }
+  function tampil_hi_sumut1()
+  {
     $get = $this->db->query("SELECT 
           a.id_hi,a.id_unit,hi.updated_at,unit.*,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
           ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
@@ -73,11 +76,12 @@ class Admin_model extends CI_Model
           AND unit.wilayah_kerja = 'Sumut 1'
           AND a.status_terpasang = '1'
           GROUP BY unit.wilayah_kerja DESC ");
-           if ($get->num_rows() == 1) {
-            return $get->row_array();
-          }
-      }
-  function tampil_hi_sumut2 (){
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
+  }
+  function tampil_hi_sumut2()
+  {
     $get = $this->db->query("SELECT 
           a.id_hi,a.id_unit,hi.updated_at,unit.*,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
           ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
@@ -89,11 +93,12 @@ class Admin_model extends CI_Model
           AND unit.wilayah_kerja = 'Sumut 2'
           AND a.status_terpasang = '1'
           GROUP BY unit.wilayah_kerja DESC ");
-            if ($get->num_rows() == 1) {
-            return $get->row_array();
-          }
-      }
-  function tampil_hi_sumut () {
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
+  }
+  function tampil_hi_sumut()
+  {
     $get = $this->db->query("SELECT 
           a.id_hi,a.id_unit,hi.updated_at,unit.*,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
           ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
@@ -104,30 +109,34 @@ class Admin_model extends CI_Model
           WHERE hi.status = '1'
           AND a.status_terpasang = '1'
           GROUP BY hi.status  DESC ");
-          if ($get->num_rows() == 1) {
-            return $get->row_array();
-          }
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
   }
-  function tampil_latest_sumut () {
+  function tampil_latest_sumut()
+  {
     $get = $this->db->query("SELECT MAX(updated_at) AS Updated FROM `hi` WHERE status= '1'");
-          if ($get->num_rows() == 1) {
-            return $get->row_array();
-          }
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
   }
-  function tampil_latest_sumut1 () {
+  function tampil_latest_sumut1()
+  {
     $get = $this->db->query("SELECT a.*,MAX(b.updated_at) AS Updated FROM network_device a JOIN hi b ON b.id_hi = a.id_hi WHERE b.status= '1' AND nama_pengguna = 'stisumut1'");
-          if ($get->num_rows() == 1) {
-            return $get->row_array();
-          }
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
   }
-  function tampil_latest_sumut2 () {
+  function tampil_latest_sumut2()
+  {
     $get = $this->db->query("SELECT a.*,MAX(b.updated_at) AS Updated FROM network_device a JOIN hi b ON b.id_hi = a.id_hi WHERE b.status= '1' AND nama_pengguna = 'stisumut2'");
-          if ($get->num_rows() == 1) {
-            return $get->row_array();
-          }
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
   }
-  function tampil_best_hi (){
-      $get = $this->db->query("SELECT 
+  function tampil_best_hi()
+  {
+    $get = $this->db->query("SELECT 
             a.id_hi,a.id_unit,hi.updated_at,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
             ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
             FROM network_device a
@@ -137,10 +146,11 @@ class Admin_model extends CI_Model
             AND a.status_terpasang = '1'
             GROUP BY a.id_unit 
             HAVING (ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100)) >= '80' ");
-            return $get;
-        }
-    function tampil_worst_hi (){
-      $get = $this->db->query("SELECT 
+    return $get;
+  }
+  function tampil_worst_hi()
+  {
+    $get = $this->db->query("SELECT 
             a.id_hi,a.id_unit,hi.updated_at,(SELECT nama_unit FROM unit WHERE id_unit = a.`id_unit`) AS nama_unitnya, 
             ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100) AS total_hi
             FROM network_device a
@@ -150,9 +160,10 @@ class Admin_model extends CI_Model
             AND a.status_terpasang = '1'
             GROUP BY a.id_unit 
             HAVING (ROUND((SUM(hi.bobot_kondisi) + SUM(hi.bobot_urgensi) + SUM(hi.bobot_urgensi) - SUM(hi.bobot_standard) - SUM(hi.bobot_lifetime) - SUM(hi.bobot_gangguan)) / (SUM(hi_standard.bobot_kondisi) + SUM(hi_standard.bobot_urgensi) + SUM(hi_standard.bobot_urgensi))*100)) <= '50' ");
-            return $get;
-        }
-  function list_network_device($id_unit){
+    return $get;
+  }
+  function list_network_device($id_unit)
+  {
     $get = $this->db->query("SELECT a.*, m.*,g.id_ggn,g.desk_ggn,g.foto_ggn,g.tgl_gangguan,g.solusi,g.foto_solusi,g.created_at,g.solved_at,g.deleted_at, l.label_perangkat , COUNT(g.id_network_device) as total_ggn
           FROM network_device a 
           JOIN merek m ON a.id_merek = m.id_merek
@@ -162,80 +173,92 @@ class Admin_model extends CI_Model
           OR (g.id_network_device IS NOT NULL AND a.id_unit = $id_unit AND a.id_hi = '0')  
           GROUP BY a.id_network_device  DESC  
           ORDER BY `g`.`id_ggn` ASC");
-          return $get;
-  } 
-  function list_unit_hi($id_unit) {
+    return $get;
+  }
+  function list_unit_hi($id_unit)
+  {
     $get = $this->db->query("SELECT * FROM unit WHERE id_unit = $id_unit");
-        return $get;
+    return $get;
   }
-  function get_id_hi($id_hi){
+  function get_id_hi($id_hi)
+  {
     $get = $this->db->query("SELECT a.*,network_device.*,merek.* FROM hi a JOIN network_device ON a.id_hi = network_device.id_hi JOIN merek ON network_device.id_merek = merek.id_merek WHERE a.id_hi = $id_hi");
-        return $get;
+    return $get;
   }
-  function get_id_hi_standard($id_hi){
+  function get_id_hi_standard($id_hi)
+  {
     $get = $this->db->query("SELECT * FROM hi_standard WHERE id_hi_standard = $id_hi");
-        return $get;
+    return $get;
   }
-  function get_max_id_hi(){
+  function get_max_id_hi()
+  {
     $get = $this->db->query("SELECT MAX(id_hi) AS maxid FROM hi");
-        return $get;
-  }  
-  function get_max_id_hi_standard(){
-    $get = $this->db->query("SELECT MAX(id_hi_standard) AS maxidstnd FROM hi_standard");
-        return $get;
+    return $get;
   }
-  public function add_hi($data) {
+  function get_max_id_hi_standard()
+  {
+    $get = $this->db->query("SELECT MAX(id_hi_standard) AS maxidstnd FROM hi_standard");
+    return $get;
+  }
+  public function add_hi($data)
+  {
     $input = $this->db->insert('hi', $data);
     return $input;
   }
-  public function add_hi_standard($data) {
+  public function add_hi_standard($data)
+  {
     $input = $this->db->insert('hi_standard', $data);
     return $input;
   }
-  function update_hi($data, $id_hi) {
+  function update_hi($data, $id_hi)
+  {
     $update = $this->db->update('hi', $data, array('id_hi' => $id_hi));
     return $update;
   }
   //GANGGUAN
-  function gangguan(){
-    if($this->session->userdata('rolenya') == '1') {
-    
-    $get = $this->db->query("SELECT a.*,b.*,m.*,u.* FROM gangguan a 
+  function gangguan()
+  {
+    if ($this->session->userdata('rolenya') == '1') {
+
+      $get = $this->db->query("SELECT a.*,b.*,m.*,u.* FROM gangguan a 
           JOIN network_device b ON a.id_network_device = b.id_network_device  
           JOIN merek m ON b.id_merek = m.id_merek
           JOIN unit u ON b.id_unit = u.id_unit
           WHERE b.status_terpasang = '1'");
-    return $get;
+      return $get;
     } else {
-    $sub_unit = $this->session->userdata('sub_unitnya');
-    $get = $this->db->query("SELECT a.*,b.*,m.*,u.* FROM gangguan a 
+      $sub_unit = $this->session->userdata('sub_unitnya');
+      $get = $this->db->query("SELECT a.*,b.*,m.*,u.* FROM gangguan a 
           JOIN network_device b ON a.id_network_device = b.id_network_device  
           JOIN merek m ON b.id_merek = m.id_merek
           JOIN unit u ON b.id_unit = u.id_unit
           WHERE b.status_terpasang = '1'
           AND u.sub_unit = $sub_unit");
-    return $get;
+      return $get;
+    }
   }
-  }
-	public function add_gangguan($data) {
+  public function add_gangguan($data)
+  {
     $input = $this->db->insert('gangguan', $data);
     return $input;
   }
-  public function update_gangguan($data, $id_ggn) {
+  public function update_gangguan($data, $id_ggn)
+  {
     $input = $this->db->update('gangguan', $data, array('id_ggn' => $id_ggn));
     return $input;
   }
-  
-  function get_gangguan($id_ggn) {
-      $get = $this->db->query("SELECT a.*,b.*,m.*,u.* FROM gangguan a 
+
+  function get_gangguan($id_ggn)
+  {
+    $get = $this->db->query("SELECT a.*,b.*,m.*,u.* FROM gangguan a 
       JOIN network_device b ON a.id_network_device = b.id_network_device  
       JOIN merek m ON b.id_merek = m.id_merek
       JOIN unit u ON b.id_unit = u.id_unit
       WHERE a.id_ggn = $id_ggn 
       AND b.status_terpasang = '1'");
-      if ($get->num_rows() == 1) {
-          return $get->row_array();
-      }
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
   }
 
   //USER
@@ -248,12 +271,12 @@ class Admin_model extends CI_Model
     }
   }
   public function getUser()
-	{
-		$this->db->select('*');
-		$this->db->from('users');
-		$query = $this->db->get();
-		return $query->result_array();
-	}
+  {
+    $this->db->select('*');
+    $this->db->from('users');
+    $query = $this->db->get();
+    return $query->result_array();
+  }
 
   function tampil_user()
   {
@@ -346,7 +369,7 @@ class Admin_model extends CI_Model
     }
   }
 
-//UNIT
+  //UNIT
   function tampil_unit()
   {
     $get = $this->db->query("SELECT a.id_kantor_induk, a.nama_kantor_induk, a.wilayah_kerja, b.id_unit_level2, b.nama_unit_level2, c.id_unit_level3, c.nama_unit_level3 FROM (unit_level3 c JOIN unit_level2 b ON c.id_unit_level2 = b.id_unit_level2) JOIN kantor_induk a ON c.id_kantor_induk = a.id_kantor_induk GROUP BY c.id_unit_level3 ORDER BY a.id_kantor_induk DESC");
@@ -363,7 +386,7 @@ class Admin_model extends CI_Model
     return $get;
   }
 
-function unit_level1()
+  function unit_level1()
   {
     $this->db->select('*');
     $this->db->group_by('level1');
@@ -390,39 +413,39 @@ function unit_level1()
 
   public function add_unit_data($kantor_induk, $level2, $level3, $wilayah_kerja)
   {
-    
-      $data_kantor_induk = array(
-          'nama_kantor_induk' => $kantor_induk,
-          'wilayah_kerja' => $wilayah_kerja
-      );
-      $input_kantor_induk = $this->db->insert('kantor_induk', $data_kantor_induk);
-      $id_kantor_induk = $this->db->insert_id();
-    
-      $data_level2 = array(
-          'id_kantor_induk' => $id_kantor_induk,
-          'nama_unit_level2' => $level2,
-      );
-      $input_level2 = $this->db->insert('unit_level2', $data_level2);
-      $id_unit_level2 = $this->db->insert_id();
-    
-      $data_level3 = array(
-          'id_kantor_induk' => $id_kantor_induk,
-          'id_unit_level2' => $id_unit_level2,
-          'nama_unit_level3' => $level3
-      );
 
-      $update = $this->db->insert('unit_level3', $data_level3);
-      return $update;
+    $data_kantor_induk = array(
+      'nama_kantor_induk' => $kantor_induk,
+      'wilayah_kerja' => $wilayah_kerja
+    );
+    $input_kantor_induk = $this->db->insert('kantor_induk', $data_kantor_induk);
+    $id_kantor_induk = $this->db->insert_id();
+
+    $data_level2 = array(
+      'id_kantor_induk' => $id_kantor_induk,
+      'nama_unit_level2' => $level2,
+    );
+    $input_level2 = $this->db->insert('unit_level2', $data_level2);
+    $id_unit_level2 = $this->db->insert_id();
+
+    $data_level3 = array(
+      'id_kantor_induk' => $id_kantor_induk,
+      'id_unit_level2' => $id_unit_level2,
+      'nama_unit_level3' => $level3
+    );
+
+    $update = $this->db->insert('unit_level3', $data_level3);
+    return $update;
   }
 
   function update_unit($data_kantor_induk, $id_kantor_induk, $data_unit_level2, $id_unit_level2, $data_unit_level3, $id_unit_level3)
   {
-    
-      $update_kantor_induk = $this->db->update('kantor_induk', $data_kantor_induk, array('id_kantor_induk' => $id_kantor_induk));
-      $update_unit_level2 = $this->db->update('unit_level2', $data_unit_level2, array('id_unit_level2' => $id_unit_level2));
-      $update = $this->db->update('unit_level3', $data_unit_level3, array('id_unit_level3' => $id_unit_level3));
 
-      return $update;
+    $update_kantor_induk = $this->db->update('kantor_induk', $data_kantor_induk, array('id_kantor_induk' => $id_kantor_induk));
+    $update_unit_level2 = $this->db->update('unit_level2', $data_unit_level2, array('id_unit_level2' => $id_unit_level2));
+    $update = $this->db->update('unit_level3', $data_unit_level3, array('id_unit_level3' => $id_unit_level3));
+
+    return $update;
   }
 
   function unit_delete($id)
@@ -1217,54 +1240,54 @@ function unit_level1()
     $query = "SELECT a.*, b.kategori, c.nama_kantor_induk, c.wilayah_kerja FROM log_gangguan a JOIN kategori_gangguan b ON a.penyebab = b.id_kategori JOIN kantor_induk c ON a.id_kantor_induk = c.id_kantor_induk WHERE ";
     $requirement = 0;
 
-    if(!empty($no_tiket)) {
+    if (!empty($no_tiket)) {
       $query .= "a.no_tiket = '$no_tiket' ";
       $requirement++;
-    } 
+    }
 
-    if(!empty($asman)) {
-      if($requirement > 0){
+    if (!empty($asman)) {
+      if ($requirement > 0) {
         $query .= "AND ";
       }
-      $query .= " c.wilayah_kerja = '$asman' ";  
+      $query .= " c.wilayah_kerja = '$asman' ";
       $requirement++;
-    } 
+    }
 
-    if(!empty($kantor_induk)) {
-      if($requirement > 0){
+    if (!empty($kantor_induk)) {
+      if ($requirement > 0) {
         $query .= "AND ";
       }
-      $query .= " a.id_kantor_induk = '$kantor_induk' ";  
+      $query .= " a.id_kantor_induk = '$kantor_induk' ";
       $requirement++;
-    } 
+    }
 
-    if(!empty($layanan)) {
-      if($requirement > 0){
+    if (!empty($layanan)) {
+      if ($requirement > 0) {
         $query .= "AND ";
       }
       $query .= "a.layanan = '$layanan' ";
       $requirement++;
-    } 
+    }
 
-    if(!empty($year)){
-      if(!empty($month)){
-        if($requirement > 0){
+    if (!empty($year)) {
+      if (!empty($month)) {
+        if ($requirement > 0) {
           $query .= "AND ";
         }
         $query .= "a.periode_tahun = '$year' AND a.periode_bulan = '$month'";
       } else {
-        if($requirement > 0){
+        if ($requirement > 0) {
           $query .= "AND ";
         }
         $query .= "a.periode_tahun = '$year'";
       }
     } else {
-      if(!empty($month)){
-        if($requirement > 0){
+      if (!empty($month)) {
+        if ($requirement > 0) {
           $query .= "AND ";
         }
         $query .= "a.periode_bulan = '$month'";
-      } 
+      }
     }
 
     $get = $this->db->query($query);
@@ -1368,14 +1391,14 @@ function unit_level1()
     $input = $this->db->insert('kategori_gangguan_perangkat', $data);
     return $input;
   }
-  
+
   function kategori_gangguan_perangkat_delete($id)
   {
     $delete = $this->db->delete('kategori_gangguan_perangkat', array('id_kategori' => $id));
     return $delete;
   }
 
-  
+
   function get_kategori_gangguan_perangkat($value, $column)
   {
     $get = $this->db->query("SELECT a.* FROM kategori_gangguan_perangkat a WHERE a.$column =$value");
@@ -1555,14 +1578,14 @@ function unit_level1()
   function dashboard_sid_bermasalah()
   {
     $get = $this->db->query("SELECT COUNT(a.log_id) AS jumlahnya, b.nama_unit_level3 FROM log_gangguan a JOIN unit_level3 b ON a.id_unit_level3 = b.id_unit_level3 GROUP BY a.id_unit_level3 ORDER BY jumlahnya DESC LIMIT 10");
-    
+
     return $get;
   }
 
   function dashboard_gangguan_terbanyak()
   {
     $get = $this->db->query("SELECT COUNT(a.log_id) AS jumlahnya, b.kategori FROM log_gangguan a JOIN kategori_gangguan b ON a.penyebab = b.id_kategori GROUP BY a.id_unit_level3 ORDER BY jumlahnya DESC LIMIT 5");
-    
+
     return $get;
   }
 
@@ -1611,53 +1634,101 @@ function unit_level1()
     }
   }
 
-  function update_tingkat_kerawanan($data, $data_id) {
+  function update_tingkat_kerawanan($data, $data_id)
+  {
     $update = $this->db->update('kerawanan', $data, array('id_kerawanan' => $data_id));
     return $update;
   }
-//Stok perangkat
-function tampil_stok()
-{
-  $get = $this->db->query("SELECT 
+  //Stok perangkat
+  function tampil_stok()
+  {
+    $get = $this->db->query("SELECT 
     a.* 
     FROM
     stok_perangkat a
 
     ORDER BY a.id_stok DESC ");
-  return $get;
-}
+    return $get;
+  }
 
 
-public function add_stok_data($data)
-{
-  $input = $this->db->insert('stok_perangkat', $data);
-  return $input;
-}
+  public function add_stok_data($data)
+  {
+    $input = $this->db->insert('stok_perangkat', $data);
+    return $input;
+  }
 
-function update_stok($data, $id_stok)
-{
-  $update = $this->db->update('stok_perangkat', $data, array('id_stok' => $id_stok));
+  function update_stok($data, $id_stok)
+  {
+    $update = $this->db->update('stok_perangkat', $data, array('id_stok' => $id_stok));
 
-  return $update;
-}
+    return $update;
+  }
 
-function stok_delete($id)
-{
-  $delete = $this->db->delete('stok_perangkat', array('id_stok' => $id));
-  return $delete;
-}
+  function stok_delete($id)
+  {
+    $delete = $this->db->delete('stok_perangkat', array('id_stok' => $id));
+    return $delete;
+  }
 
-function get_stok($id_stok)
-{
-  $get = $this->db->query("SELECT *
+  function get_stok($id_stok)
+  {
+    $get = $this->db->query("SELECT *
    FROM stok_perangkat a
    WHERE a.id_stok =$id_stok");
-  if ($get->num_rows() == 1) {
-    return $get->row_array();
+    if ($get->num_rows() == 1) {
+      return $get->row_array();
+    }
   }
-}
+
+  // POP ICON+
+  function add_pop_icon($services_id, $nama_pop_icon, $lokasi_pop_icon)
+  {
+    $data = array(
+      'nama_pop_icon' => $nama_pop_icon,
+      'lokasi_pop_icon' => $lokasi_pop_icon,
+    );
+
+    $services_id_arr = explode(",", $services_id);
 
 
+    $data_pop_icon = $this->db->insert('data_pop_icon', $data);
+    $data_pop_icon_id = $this->db->insert_id();
 
- 
+    foreach ($services_id_arr as $service_id) {
+      $data = array(
+        'service_id' => $service_id,
+        'id_pop_icon' => $data_pop_icon_id
+      );
+      $this->db->insert('data_pop_icon_service_id', $data);
+    }
+    return $data_pop_icon;
+  }
+
+  function tampil_pop_icon()
+  {
+    $get = $this->db->query('SELECT * FROM data_pop_icon');
+    return $get;
+  }
+
+  function tampil_service_id()
+  {
+    $get = $this->db->query('SELECT * FROM data_pop_icon_service_id');
+    return $get;
+  }
+
+  function tampil_data_network_pop_icon()
+  {
+    $get = $this->db->query("SELECT a.*, b.nama_unit_level3 FROM data_network a JOIN unit_level3 b ON a.id_unit = b.id_unit_level3 GROUP BY service_id ORDER BY service_id");
+    return $get;
+  }
+
+  function pop_icon_delete($id)
+  {
+    $delete = $this->db->query("DELETE FROM data_pop_icon WHERE id_pop_icon=$id");
+    if ($delete) {
+      $deleteService = $this->db->query("DELETE FROM data_pop_icon_service_id WHERE id_pop_icon=$id");
+    }
+    return $deleteService;
+  }
 }

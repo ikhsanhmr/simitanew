@@ -712,6 +712,33 @@
 
     });
 
+    var tablePOPICON = $('#table_pop_icon').DataTable({
+      ajax: {
+        processing: true,
+        serverSide: true,
+        url: '<?php echo site_url('admin/table_pop_icon'); ?>',
+        type: 'POST',
+      },
+      columns: [{
+          "data": "no"
+        },
+        {
+          "data": "nama_pop_icon"
+        },
+        {
+          "data": "lokasi_pop_icon"
+        },
+        {
+          "data": "service_id"
+        },
+        {
+          "data": "actions"
+        },
+      ],
+
+    });
+
+
     var kerusakanLaptop = $("#table_kerusakan_laptop").DataTable({
 
     });
