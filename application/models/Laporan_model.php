@@ -527,4 +527,23 @@ FROM har_network a");
 		$query = $this->db->get();
 		return $query->result_array();
 	}
+
+	function pilih_sid()
+	{
+		$this->db->order_by('data_id', 'ASC');
+		return $this->db->from('data_network')
+			->get()
+			->result();
+	}
+
+	function get_keterangan_data_network($service_id)
+	{
+		$this->db->where('service_id', $service_id);
+		$this->db->order_by('service_id', 'ASC');
+		return $this->db->from('data_network')
+			->get()
+			->result();
+  }
+
+	
 }

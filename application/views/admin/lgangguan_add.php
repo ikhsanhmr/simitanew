@@ -30,6 +30,32 @@
                             <h3 class="box-title">Add Data</h3>
                         </div>
                         <div class="box-body">
+                        <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="sid" class="col-sm-3 control-label">SID</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control select2" id="service_id" name="service_id" style="width: 100%;">
+                                            <option selected="selected" value=""> -- Pilih SID -- </option>
+                                            <?php
+                                            foreach ($sid as $value) {
+                                                echo "<option value='$value->service_id'>$value->service_id</option>";
+                                               
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-10">
+                                <div class="form-group">
+                                    <label for="nama_service" class="col-sm-3 control-label">Nama Service</label>
+                                    <div class="col-sm-5">
+                                        
+                                        <input type="text" class="form-control" id="nama_service" name="nama_service" required />
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-lg-10">
                                 <div class="form-group">
                                     <label for="no_tiket" class="col-sm-3 control-label">Nomor Tiket</label>
@@ -38,22 +64,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-10">
-                                <div class="form-group">
-                                    <label for="nama_service" class="col-sm-3 control-label">Nama Service</label>
-                                    <div class="col-sm-5">
-                                        <textarea id="nama_service" name="nama_service" rows="5" cols="50" maxlength="1000" required></textarea>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="form-group">
-                                    <label for="sid" class="col-sm-3 control-label">SID</label>
-                                    <div class="col-sm-5">
-                                        <input type="number" class="form-control" id="sid" name="sid" required />
-                                    </div>
-                                </div>
-                            </div>
+                           
                             <div class="col-lg-10">
                                 <div class="form-group">
                                     <label for="kantor_induk" class="col-sm-3 control-label">Kantor Induk</label>
@@ -69,26 +80,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-10">
-                                <div class="form-group">
-                                    <label for="unit_level2" class="col-sm-3 control-label">Unit Level 2</label>
-                                    <div class="col-sm-5">
-                                        <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;">
-                                            <option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-10">
-                                <div class="form-group">
-                                    <label for="unit_level3" class="col-sm-3 control-label">Unit Level 3</label>
-                                    <div class="col-sm-5">
-                                        <select class="form-control select2" name="unit_level3" id="unit_level3" style="width: 100%;">
-                                            <option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                           
                             <div class="col-lg-10">
                                 <div class="form-group">
                                     <label for="layanan" class="col-sm-3 control-label">Layanan</label>

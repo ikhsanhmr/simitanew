@@ -3295,6 +3295,7 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
+			$data['sid'] = $this->laporan_model->pilih_sid();
 			$data['hasil'] = $this->laporan_model->kantor_induk();
 			$data['list_kategori_gangguan'] = $this->admin_model->list_kategori_gangguan();
 			$this->load->view('header', $this->data);
@@ -4463,5 +4464,15 @@ class Admin extends CI_Controller
 		$this->db->update('har_network');
 		redirect('admin/corrective_maintenance');
 	}
+
+
+	function get_keterangan_data_network()
+    {
+		
+        $service_id=$this->input->post('service_id');
+        $data=$this->laporan_model->get_keterangan_data_network($service_id);
+        echo json_encode($data);
+    }
+
 }
 			//internet_UIWSU
