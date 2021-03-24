@@ -91,7 +91,7 @@
   ?>
   $('#service_id').on('change', function() {
     var sid = <?php echo json_encode($sid_current) ?>.filter((e) => e.service_id == $(this).val())
-    $("#nama_service").val(sid[0].service);
+    $("#nama_service").val(sid[0].keterangan);
   });
 
   $('#tingkat_kerawanan').on('change', function() {
