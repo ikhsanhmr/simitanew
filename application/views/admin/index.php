@@ -81,17 +81,17 @@
             <div>
               <div class="row h4">
                 <div class="col-md-6">Switch</div>
-                <div class="col-md-1"><?php echo($jumlah_terganggu['switch']); ?></div>
+                <div class="col-md-1"><?php echo ($jumlah_terganggu['switch']); ?></div>
                 <div class="col-md-3">buah</div>
               </div>
               <div class="row h4">
                 <div class="col-md-6">Access Point</div>
-                <div class="col-md-1"><?php echo($jumlah_terganggu['access_point']); ?></div>
+                <div class="col-md-1"><?php echo ($jumlah_terganggu['access_point']); ?></div>
                 <div class="col-md-3">buah</div>
               </div>
               <div class="row h4">
                 <div class="col-md-6">Router</div>
-                <div class="col-md-1"><?php echo($jumlah_terganggu['router']); ?></div>
+                <div class="col-md-1"><?php echo ($jumlah_terganggu['router']); ?></div>
                 <div class="col-md-3">buah</div>
               </div>
             </div>
@@ -449,26 +449,6 @@
       </div>
 
       <div class="col-md-6">
-        <!-- PIE CHART NETWORK DEVICE HAR-->
-        <div class="box box-danger">
-          <div class="box-header with-border">
-            <h3 class="box-title">HAR NETWORK DEVICE</h3>
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-              </button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-          </div>
-          <div class="box-body">
-            <div class="col-xs-12">
-              <canvas id="chartNetwork"></canvas>
-            </div>
-          </div>
-          <!-- /.box-body -->
-        </div>
-      </div>
-
-      <div class="col-md-6">
         <!-- PIE CHART NETWORK DEVICE -->
         <div class="box box-danger">
           <div class="box-header with-border">
@@ -482,6 +462,26 @@
           <div class="box-body">
             <div class="col-xs-12">
               <canvas id="chartNetworkDeviceList"></canvas>
+            </div>
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <!-- PIE CHART NETWORK DEVICE HAR-->
+        <div class="box box-danger">
+          <div class="box-header with-border">
+            <h3 class="box-title">HAR NETWORK DEVICE</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="col-xs-12">
+              <canvas id="chartNetwork"></canvas>
             </div>
           </div>
           <!-- /.box-body -->
@@ -508,6 +508,26 @@
         </div>
       </div>
 
+      <div class="col-md-6">
+        <!-- PIE CHART 10 SID SCADA -->
+        <div class="box box-danger">
+          <div class="box-header with-border">
+            <h3 class="box-title">10 SID Scada</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="col-xs-12">
+              <canvas id="chartSidScada"></canvas>
+            </div>
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </div>
+
       <!-- TABEL -->
       <div class="col-xs-12">
         <div class="box box-danger">
@@ -521,7 +541,7 @@
           </div>
           <div class="box-body">
             <div class="col-12">
-              <table id = "example5" class="table table-bordered table-responsive" >
+              <table id="example5" class="table table-bordered table-responsive">
                 <thead>
                   <tr>
                     <th>No</th>
@@ -549,132 +569,132 @@
                       <td><?= $data['nama_unit']; ?></td>
                       <td><?= $data['serial_number']; ?></td>
                       <td><?= $data['type']; ?></td>
-					                     
-					 <?php if ($data['tampak_fisik']!='Normal') {?>
-							<td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['tampak_fisik']; ?></a></td>
-					  <?php
-					  } else {  ?>
-					 
-					  <td><button type="button" class=" btn btn-success"><?= $data['tampak_fisik']; ?></button></td>
-					  <?php } ?>
-						  
-						  
-					  <?php
-					  if ($data['indikator_lampu']!='Normal') { ?>
-					  
-					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" type="button" class="btn btn-danger"><?= $data['indikator_lampu']; ?></a></td>
-						   
-					  <?php
-					  } else {
-					  ?>
-					 
-					  <td><button type="button" class=" btn btn-success"><?= $data['indikator_lampu']; ?></button></td>
-					 
-					  <?php } ?>	
-					  
-					  <?php
-					  if ($data['power_supply']!='Normal') { ?>
-					  
-					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" type="button" class="btn btn-danger"><?= $data['power_supply']; ?></a></td>
-						   
-					  <?php
-					  } else {
-					  ?>
-					 
-					  <td><button type="button" class=" btn btn-success"><?= $data['power_supply']; ?></button></td>
-					 
-					  <?php } ?>
-					  
-					  <?php
-					  if ($data['PORT']!='Normal') { ?>
-					  
-					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" type="button" class="btn btn-danger"><?= $data['PORT']; ?></a></td>
-						   
-					  <?php
-					  } else {
-					  ?>
-					 
-					  <td><button type="button" class=" btn btn-success"><?= $data['PORT']; ?></button></td>
-					 
-					  <?php } ?>
-					  
-					  <?php
-					  if ($data['lan']!='Normal') { ?>
-					  
-					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" type="button" class="btn btn-danger"><?= $data['lan']; ?></a></td>
-						   
-					  <?php
-					  } else {
-					  ?>
-					 
-					  <td><button type="button" class=" btn btn-success"><?= $data['lan']; ?></button></td>
-					 
-					  <?php } ?>
-					  
-					  <?php
-					  if ($data['konfigurasi']!='Normal') { ?>
-					  
-					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['konfigurasi']; ?></a></td>
-						   
-					  <?php
-					  } else {
-					  ?>
-					 
-					  <td><button type="button" class=" btn btn-success"><?= $data['konfigurasi']; ?></button></td>
-					 
-					  <?php } ?>
-					  
-					  <?php
-					  if ($data['backup_setting']!='Normal') { ?>
-					  
-					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['backup_setting']; ?></a></td>
-						   
-					  <?php
-					  } else {
-					  ?>
-					 
-					  <td><button type="button" class=" btn btn-success"><?= $data['backup_setting']; ?></button></td>
-					 
-					  <?php } ?>
-					  
-					  <?php
-					  if ($data['genset']!='Normal') { ?>
-					  
-					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['genset']; ?></a></td>
-						   
-					  <?php
-					  } else {
-					  ?>
-					 
-					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class=" btn btn-success"><?= $data['genset']; ?></a></td>
-					 
-					  <?php } ?>
-					  
-					  <?php
-					  if ($data['ups']!='Normal') { ?>
-					  
-					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['ups']; ?></a></td>
-						   
-					  <?php
-					  } else {
-					  ?>
-					 
-					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class=" btn btn-success"><?= $data['ups']; ?></a></td>
-					 
-					  <?php } ?>
-					  
-					  <?php
-					  if ($data['inverter']!='Normal') { ?>
-					  
-					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['inverter']; ?></a></td>
-						   
-					  <?php
-					  } else {
-					  ?>
-					 
-					  <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class=" btn btn-success"><?= $data['inverter']; ?></a></td>
-					 
-					  <?php } ?>
+
+                      <?php if ($data['tampak_fisik'] != 'Normal') { ?>
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['tampak_fisik']; ?></a></td>
+                      <?php
+                      } else {  ?>
+
+                        <td><button type="button" class=" btn btn-success"><?= $data['tampak_fisik']; ?></button></td>
+                      <?php } ?>
+
+
+                      <?php
+                      if ($data['indikator_lampu'] != 'Normal') { ?>
+
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" type="button" class="btn btn-danger"><?= $data['indikator_lampu']; ?></a></td>
+
+                      <?php
+                      } else {
+                      ?>
+
+                        <td><button type="button" class=" btn btn-success"><?= $data['indikator_lampu']; ?></button></td>
+
+                      <?php } ?>
+
+                      <?php
+                      if ($data['power_supply'] != 'Normal') { ?>
+
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" type="button" class="btn btn-danger"><?= $data['power_supply']; ?></a></td>
+
+                      <?php
+                      } else {
+                      ?>
+
+                        <td><button type="button" class=" btn btn-success"><?= $data['power_supply']; ?></button></td>
+
+                      <?php } ?>
+
+                      <?php
+                      if ($data['PORT'] != 'Normal') { ?>
+
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" type="button" class="btn btn-danger"><?= $data['PORT']; ?></a></td>
+
+                      <?php
+                      } else {
+                      ?>
+
+                        <td><button type="button" class=" btn btn-success"><?= $data['PORT']; ?></button></td>
+
+                      <?php } ?>
+
+                      <?php
+                      if ($data['lan'] != 'Normal') { ?>
+
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" type="button" class="btn btn-danger"><?= $data['lan']; ?></a></td>
+
+                      <?php
+                      } else {
+                      ?>
+
+                        <td><button type="button" class=" btn btn-success"><?= $data['lan']; ?></button></td>
+
+                      <?php } ?>
+
+                      <?php
+                      if ($data['konfigurasi'] != 'Normal') { ?>
+
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['konfigurasi']; ?></a></td>
+
+                      <?php
+                      } else {
+                      ?>
+
+                        <td><button type="button" class=" btn btn-success"><?= $data['konfigurasi']; ?></button></td>
+
+                      <?php } ?>
+
+                      <?php
+                      if ($data['backup_setting'] != 'Normal') { ?>
+
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['backup_setting']; ?></a></td>
+
+                      <?php
+                      } else {
+                      ?>
+
+                        <td><button type="button" class=" btn btn-success"><?= $data['backup_setting']; ?></button></td>
+
+                      <?php } ?>
+
+                      <?php
+                      if ($data['genset'] != 'Normal') { ?>
+
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['genset']; ?></a></td>
+
+                      <?php
+                      } else {
+                      ?>
+
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class=" btn btn-success"><?= $data['genset']; ?></a></td>
+
+                      <?php } ?>
+
+                      <?php
+                      if ($data['ups'] != 'Normal') { ?>
+
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['ups']; ?></a></td>
+
+                      <?php
+                      } else {
+                      ?>
+
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class=" btn btn-success"><?= $data['ups']; ?></a></td>
+
+                      <?php } ?>
+
+                      <?php
+                      if ($data['inverter'] != 'Normal') { ?>
+
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class="btn btn-danger"><?= $data['inverter']; ?></a></td>
+
+                      <?php
+                      } else {
+                      ?>
+
+                        <td><a href="<?= base_url() ?>laporan/detailDataHar/<?= $data['id']; ?>" class=" btn btn-success"><?= $data['inverter']; ?></a></td>
+
+                      <?php } ?>
                     </tr>
                   <?php } ?>
                 </tbody>

@@ -1607,6 +1607,12 @@ class Admin_model extends CI_Model
     return $get;
   }
 
+  function dashboard_sid_scada()
+  {
+    $get = $this->db->query("SELECT sid, nama_service, COUNT(sid) AS jumlah FROM `log_gangguan` WHERE scada=1 GROUP BY sid ORDER BY jumlah DESC LIMIT 10");
+    return $get;
+  }
+
   //TINGKAT KERAWANAN
   function tampil_tingkat_kerawanan()
   {
@@ -1731,7 +1737,4 @@ class Admin_model extends CI_Model
     }
     return $deleteService;
   }
-
-  
-  
 }

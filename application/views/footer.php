@@ -81,14 +81,10 @@
 <script src="<?php echo base_url(); ?>public/assets/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- Select2 -->
 <script>
+  $('#service_id').on('change', function() {
 
-$('#service_id').on('change', function() {
-
-  $("#nama_service").val($(this).val());
-    });
-
-   
-
+    $("#nama_service").val($(this).val());
+  });
 
   $('#tingkat_kerawanan').on('change', function() {
     var value = $(this).find(':selected').attr('data-solusi');

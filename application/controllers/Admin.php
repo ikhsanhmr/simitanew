@@ -68,6 +68,7 @@ class Admin extends CI_Controller
 			$data['dashboard_network_device_har'] = $this->admin_model->dashboard_network_device_har();
 			$data['dashboard_network_device'] = $this->admin_model->dashboard_network_device();
 			$data['dashboard_kerusakan_perangkat'] = $this->admin_model->dashboard_kerusakan_perangkat();
+			$data['dashboard_sid_scada'] = $this->admin_model->dashboard_sid_scada();
 			$data['januari_internet_uiwsu'] = $this->Sla_model->januari_internet_uiwsu();
 			$data['januari_internet_uiwsu_sukses'] = $data['januari_internet_uiwsu'][0]['persentasi_sla'];
 			$data['januari_internet_uiwsu_ok'] = number_format($data['januari_internet_uiwsu_sukses'], 2, ",", ".");
@@ -3394,7 +3395,6 @@ class Admin extends CI_Controller
 					'periode_tahun' => $this->input->post('periode_tahun'),
 					'periode_bulan' => $this->input->post('periode_bulan')
 				);
-
 				$insert = $this->admin_model->add_lgangguan_data($data);
 				if ($insert) {
 					echo "<script>alert('Berhasil Menambah Data')</script>";
@@ -4467,12 +4467,11 @@ class Admin extends CI_Controller
 
 
 	function get_keterangan_data_network()
-    {
-		
-        $service_id=$this->input->post('service_id');
-        $data=$this->laporan_model->get_keterangan_data_network($service_id);
-        echo json_encode($data);
-    }
+	{
 
+		$service_id = $this->input->post('service_id');
+		$data = $this->laporan_model->get_keterangan_data_network($service_id);
+		echo json_encode($data);
+	}
 }
 			//internet_UIWSU
