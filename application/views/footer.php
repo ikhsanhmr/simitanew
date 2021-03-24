@@ -81,8 +81,16 @@
 <script src="<?php echo base_url(); ?>public/assets/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- Select2 -->
 <script>
+  <?php
+  $sid_current = array();
+  if (!empty($sid)) {
+    foreach ($sid as $row) {
+      array_push($sid_current, $row);
+    }
+  }
+  ?>
   $('#service_id').on('change', function() {
-    var sid = <?php echo json_encode($sid) ?>.filter((e) => e.service_id == $(this).val())
+    var sid = <?php echo json_encode($sid_current) ?>.filter((e) => e.service_id == $(this).val())
     $("#nama_service").val(sid[0].service);
   });
 
@@ -1407,7 +1415,12 @@
     },
     options: {
       legend: {
-        display: false
+        display: true,
+        position: 'right',
+        labels: {
+          boxWidth: 10,
+          fontSize: 10
+        }
       }
     }
   });
@@ -1452,7 +1465,12 @@
     },
     options: {
       legend: {
-        display: false
+        display: true,
+        position: 'right',
+        labels: {
+          boxWidth: 10,
+          fontSize: 10
+        }
       }
     }
   });
@@ -1496,7 +1514,12 @@
     },
     options: {
       legend: {
-        display: false
+        display: true,
+        position: 'right',
+        labels: {
+          boxWidth: 10,
+          fontSize: 10
+        }
       }
     }
   });
@@ -1608,7 +1631,12 @@
     },
     options: {
       legend: {
-        display: false
+        display: true,
+        position: 'right',
+        labels: {
+          boxWidth: 10,
+          fontSize: 10
+        }
       }
     }
   });
@@ -1653,7 +1681,129 @@
     },
     options: {
       legend: {
-        display: false
+        display: true,
+        position: 'right',
+        labels: {
+          boxWidth: 10,
+          fontSize: 10
+        }
+      }
+    }
+  });
+</script>
+
+<script type="text/javascript">
+  var ctxNetwork = document.getElementById('chartSidScada').getContext('2d')
+  <?php
+  $jumlah = array();
+  $sid = array();
+  if (!empty($dashboard_sid_scada)) {
+    foreach ($dashboard_sid_scada->result_array() as $row) {
+      array_push($jumlah, $row['jumlah']);
+      array_push($sid, $row['sid']);
+    }
+  }
+  ?>
+  var myChart = new Chart(ctxNetwork, {
+    type: 'pie',
+    data: {
+      labels: <?php echo json_encode($sid); ?>,
+      datasets: [{
+        label: 'INTERNET',
+        data: <?php echo json_encode($jumlah); ?>,
+        backgroundColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(116, 10, 249, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(247, 151, 10, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(224, 20, 133, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(224,160,9,1)',
+          'rgba(255, 235, 89, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(114, 37, 196, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(116, 10, 249, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(247, 151, 10, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(224, 20, 133, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(224,160,9,1)',
+          'rgba(255, 235, 89, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(114, 37, 196, 1)',
+          'rgba(75, 192, 192, 1)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(116, 10, 249, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(247, 151, 10, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(224, 20, 133, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(224,160,9,1)',
+          'rgba(255, 235, 89, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(114, 37, 196, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(116, 10, 249, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(247, 151, 10, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(224, 20, 133, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(224,160,9,1)',
+          'rgba(255, 235, 89, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,131,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(114, 37, 196, 1)',
+          'rgba(75, 192, 192, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      legend: {
+        display: true,
+        position: 'right',
+        labels: {
+          boxWidth: 10,
+          fontSize: 10
+        }
       }
     }
   });

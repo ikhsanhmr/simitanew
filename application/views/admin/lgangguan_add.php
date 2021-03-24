@@ -51,7 +51,7 @@
 									<label for="nama_service" class="col-sm-3 control-label">Nama Service</label>
 									<div class="col-sm-5">
 
-										<input type="text" class="form-control" id="nama_service" name="nama_service" required />
+										<input readonly type="text" class="form-control" id="nama_service" name="nama_service" required />
 									</div>
 								</div>
 							</div>
