@@ -82,8 +82,8 @@
 <!-- Select2 -->
 <script>
   $('#service_id').on('change', function() {
-
-    $("#nama_service").val($(this).val());
+    var sid = <?php echo json_encode($sid) ?>.filter((e) => e.service_id == $(this).val())
+    $("#nama_service").val(sid[0].service);
   });
 
   $('#tingkat_kerawanan').on('change', function() {
@@ -833,7 +833,7 @@
   })
 
   $(function() {
-    var table = $('#example4').DataTable({
+    var table = $('#table_lgangguan').DataTable({
       ajax: {
         processing: true,
         serverSide: true,
@@ -907,6 +907,8 @@
       ]
 
     });
+
+
     $('#example2').DataTable({
       'paging': true,
       'lengthChange': false,

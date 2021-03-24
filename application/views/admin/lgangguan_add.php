@@ -38,7 +38,7 @@
 											<option selected="selected" value=""> -- Pilih SID -- </option>
 											<?php
 											foreach ($sid as $value) {
-												echo "<option value='$value->service_id-$value->service' >$value->service_id</option>";
+												echo "<option value='$value->service_id' >$value->service_id</option>";
 											}
 											?>
 										</select>
