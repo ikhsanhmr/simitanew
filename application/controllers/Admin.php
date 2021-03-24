@@ -47,6 +47,7 @@ class Admin extends CI_Controller
 			$data['latest_sumut1'] = $this->admin_model->tampil_latest_sumut1();
 			$data['latest_sumut2'] = $this->admin_model->tampil_latest_sumut2();
 			$data['menghitung_jumlah_perangkat'] = $this->admin_model->menghitung_jumlah_perangkat();
+			$data['menghitung_rata_rata_durasi'] = $this->admin_model->menghitung_rata_rata_durasi();
 			$data['jumlah_terganggu'] = $this->admin_model->jumlah_terganggu();
 			$data['dashboard_merek_laptop_dell'] = $this->admin_model->dashboard_merek_laptop_dell();
 			$data['dashboard_merek_laptop_hp'] = $this->admin_model->dashboard_merek_laptop_hp();

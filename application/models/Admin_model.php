@@ -1095,6 +1095,12 @@ class Admin_model extends CI_Model
     }
   }
 
+  function menghitung_rata_rata_durasi()
+  {
+    $get = $this->db->query('SELECT CAST(AVG(durasi) AS DECIMAL(10,0)) as rata_rata FROM `log_gangguan` WHERE scada=1 AND id_kantor_induk=1');
+    return $get->row_array();
+  }
+
   function jumlah_terganggu()
   {
     $get = $this->db->query('SELECT (SELECT COUNT(id) FROM `har_network` WHERE nama_perangkat="Router") AS router, (SELECT COUNT(id) FROM `har_network` WHERE nama_perangkat="Access Point") AS access_point, (SELECT COUNT(id) FROM `har_network` WHERE nama_perangkat="Switch") AS switch FROM har_network LIMIT 1');

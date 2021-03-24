@@ -48,14 +48,14 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
           <div class="inner">
-            <h3><?php echo $menghitung_jumlah_perangkat['jumlah_komputer']; ?></h3>
+            <h3><?php echo $menghitung_rata_rata_durasi['rata_rata']; ?></h3>
 
-            <p>Unit</p>
+            <p>Menit</p>
           </div>
           <div class="icon">
             <i class="ion ion-monitor"></i>
           </div>
-          <a href="<?php echo site_url('admin/komputer_view'); ?>" class="small-box-footer">Komputer di Sumatera Utara <i class="fa fa-building"></i></a>
+          <a href="<?php echo site_url('admin/komputer_view'); ?>" class="small-box-footer " style="font-size:12px">Rata-rata durasi gangguan di UIW Sumut <i class="fa fa-building"></i></a>
         </div>
       </div>
       <!-- ./col -->
