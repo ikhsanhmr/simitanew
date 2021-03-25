@@ -930,6 +930,39 @@
   })
 
   $(function() {
+    var table = $('#tabel-sid-paling-bermasalah').DataTable({
+
+      lengthChange: true,
+      scrollX: true,
+      buttons: [{
+          extend: 'pdf',
+          orientation: 'landscape',
+          pageSize: 'TABLOID',
+          footer: true,
+          exportOptions: {
+            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+          }
+        },
+        {
+          extend: 'excel',
+          footer: false
+        }
+      ]
+
+    });
+    $('#example2').DataTable({
+      'paging': true,
+      'lengthChange': false,
+      'searching': false,
+      'ordering': true,
+      'info': true,
+      'autoWidth': false
+    })
+    table.buttons().container()
+      .appendTo('#example5_wrapper .col-sm-6:eq(0)');
+  })
+
+  $(function() {
     var table = $('#example5').DataTable({
 
       lengthChange: true,

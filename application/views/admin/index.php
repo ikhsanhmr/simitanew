@@ -412,7 +412,7 @@
         <!-- PIE CHART SID BERMASALAH-->
         <div class="box box-danger">
           <div class="box-header with-border">
-            <h3 class="box-title">10 SID Bermasalah</h3>
+            <h3 class="box-title">10 SID yang Paling Sering Bermasalah</h3>
             <div class="box-tools pull-right">
               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
               </button>
@@ -528,7 +528,52 @@
         </div>
       </div>
 
-      <!-- TABEL -->
+
+
+      <!-- TABEL HAR NETWORK -->
+      <div class="col-xs-12">
+        <div class="box box-danger">
+          <div class="box-header with-border">
+            <h3 class="box-title">10 SID yang Paling Sering Bermasalah</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="col-12">
+              <table id="tabel-sid-paling-bermasalah" class="table table-bordered table-responsive">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Service ID</th>
+                    <th>Nama Service</th>
+                    <th>Jumlah Gangguan</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $no = 1; ?>
+                  <?php foreach ($dashboard_sid_scada->result_array() as $row) : ?>
+                    <tr>
+                      <td><?= $no ?></td>
+                      <td><?= $row['sid']; ?></td>
+                      <td><?= $row['nama_service']; ?></td>
+                      <td><?= $row['jumlah']; ?></td>
+                    </tr>
+                    <?php $no++ ?>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </div>
+
+
+
+      <!-- TABEL HAR NETWORK -->
       <div class="col-xs-12">
         <div class="box box-danger">
           <div class="box-header with-border">
