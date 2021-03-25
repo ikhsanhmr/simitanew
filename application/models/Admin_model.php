@@ -1583,8 +1583,11 @@ class Admin_model extends CI_Model
 
   function dashboard_sid_bermasalah()
   {
-    $get = $this->db->query("SELECT COUNT(a.log_id) AS jumlahnya, b.nama_unit_level3 FROM log_gangguan a JOIN unit_level3 b ON a.id_unit_level3 = b.id_unit_level3 GROUP BY a.id_unit_level3 ORDER BY jumlahnya DESC LIMIT 10");
+    // Mengunakan unit level 3
+    // $get = $this->db->query("SELECT COUNT(a.log_id) AS jumlahnya, b.nama_unit_level3 FROM log_gangguan a JOIN unit_level3 b ON a.id_unit_level3 = b.id_unit_level3 GROUP BY a.id_unit_level3 ORDER BY jumlahnya DESC LIMIT 10");
 
+    // Mengunakan kantor induk
+    $get = $this->db->query("SELECT COUNT(a.log_id) AS jumlahnya, b.nama_kantor_induk FROM log_gangguan a JOIN kantor_induk b ON a.id_kantor_induk = b.id_kantor_induk GROUP BY a.id_kantor_induk ORDER BY jumlahnya DESC LIMIT 10");
     return $get;
   }
 

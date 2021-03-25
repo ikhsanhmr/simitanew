@@ -1408,7 +1408,7 @@
   $sid_value = array();
   if (!empty($dashboard_sid_bermasalah)) {
     foreach ($dashboard_sid_bermasalah->result_array() as $row) {
-      array_push($sid_label, $row['nama_unit_level3']);
+      array_push($sid_label, $row['nama_kantor_induk']);
       array_push($sid_value, $row['jumlahnya']);
     }
   }; ?>
