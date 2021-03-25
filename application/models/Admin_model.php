@@ -1590,7 +1590,7 @@ class Admin_model extends CI_Model
 
   function dashboard_gangguan_terbanyak()
   {
-    $get = $this->db->query("SELECT COUNT(a.log_id) AS jumlahnya, b.kategori FROM log_gangguan a JOIN kategori_gangguan b ON a.penyebab = b.id_kategori GROUP BY a.id_unit_level3 ORDER BY jumlahnya DESC LIMIT 5");
+    $get = $this->db->query("SELECT COUNT(log_gangguan.log_id) AS jumlahnya, penyebab, (SELECT kategori from kategori_gangguan WHERE id_kategori=penyebab) as kategori FROM log_gangguan GROUP BY penyebab ORDER BY jumlahnya DESC LIMIT 5");
 
     return $get;
   }
