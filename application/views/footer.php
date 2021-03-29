@@ -80,6 +80,9 @@
 <!-- Select2 -->
 <script src="<?php echo base_url(); ?>public/assets/bower_components/select2/dist/js/select2.full.min.js"></script>
 <!-- Select2 -->
+
+
+
 <script>
   <?php
   $sid_current = array();
