@@ -3251,7 +3251,7 @@ class Admin extends CI_Controller
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$data['hasil'] = $this->laporan_model->kantor_induk();
-			$data['lgangguan_view'] = $this->admin_model->tampil_lgangguan();
+			$data['lgangguan_view'] = $this->admin_model->tampil_lgangguan()->result_array();
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/lgangguan_view', $data);
@@ -3276,7 +3276,7 @@ class Admin extends CI_Controller
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/lgangguan_view>";
 			} else {
 				$data['hasil'] = $this->laporan_model->kantor_induk();
-				$data['lgangguan_view'] = $this->admin_model->lgangguan_filter($no_tiket, $asman, $kantor_induk, $layanan, $year, $month);
+				$data['lgangguan_view'] = $this->admin_model->lgangguan_filter($no_tiket, $asman, $kantor_induk, $layanan, $year, $month)->result_array();
 				$data['list_kategori_gangguan'] = $this->admin_model->list_kategori_gangguan();
 				$data['filter_no_tiket'] = $no_tiket;
 				$data['filter_asman'] = $asman;

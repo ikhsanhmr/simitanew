@@ -161,9 +161,33 @@
                    <th class="text-center">Actions</th>
                  </tr>
                </thead>
-
                <tbody>
+                 <?php $no = 1; ?>
+                 <?php foreach ($lgangguan_view as $row) :  ?>
+                   <tr>
+                     <td><?= $no; ?></td>
+                     <td><?= $row['no_tiket']; ?></td>
+                     <td><?= $row['nama_service']; ?></td>
+                     <td><?= $row['sid']; ?></td>
+                     <td><?= $row['nama_kantor_induk']; ?></td>
+                     <td><?= "STI Sumut " . $row['wilayah_kerja']  ?></td>
+                     <td><?= $row['layanan']; ?></td>
+                     <td><?= $row['scada'] == "1" ? "Scada" : "Non Scada" ?></td>
+                     <td><?= date('d/m/Y H:i:s', strtotime($row['tiket_open'])) ?></td>
+                     <td><?= date('d/m/Y H:i:s', strtotime($row['tiket_close'])) ?></td>
+                     <td><?= $row['stop_clock']; ?></td>
+                     <td><?= $row['durasi']; ?></td>
+                     <td><?= $row['penyebab']; ?></td>
+                     <td><?= $row['action']; ?></td>
+                     <td><?= $row['keterangan_stopclock']; ?></td>
+                     <td>
+                       <a href="<?= base_url() ?>admin/lgangguan_edit?log_id='<?= $row['log_id'] ?>"><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+                       <a href="<?= base_url() ?>admin/lgangguan_delete?log_id='<?= $row['log_id'] ?> "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 
+                     </td>
+                   </tr>
+                   <?php $no++ ?>
+                 <?php endforeach; ?>
 
                </tbody>
 

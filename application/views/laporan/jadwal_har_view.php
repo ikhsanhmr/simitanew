@@ -123,6 +123,7 @@
                        <a href="<?= base_url(); ?>laporan/jadwal_har_delete?data_id=<?= $row['id_jadwal'] ?>"><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
                      </td>
                    </tr>
+                   <?php $no++; ?>
                  <?php endforeach; ?>
                </tbody>
 

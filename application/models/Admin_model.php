@@ -1205,7 +1205,7 @@ class Admin_model extends CI_Model
   //LOG GANGGUAN
   function tampil_lgangguan()
   {
-    $get = $this->db->query("SELECT a.*, b.kategori, c.nama_kantor_induk, c.wilayah_kerja FROM log_gangguan a JOIN kategori_gangguan b ON a.penyebab = b.id_kategori JOIN kantor_induk c ON a.id_kantor_induk = c.id_kantor_induk ORDER BY a.log_id DESC ");
+    $get = $this->db->query("SELECT a.*, b.kategori, c.nama_kantor_induk, c.wilayah_kerja FROM log_gangguan a JOIN kategori_gangguan b ON a.penyebab = b.id_kategori JOIN kantor_induk c ON a.id_kantor_induk = c.id_kantor_induk ORDER BY a.log_id DESC");
     return $get;
   }
 
@@ -1295,7 +1295,7 @@ class Admin_model extends CI_Model
         $query .= "a.periode_bulan = '$month'";
       }
     }
-
+    $query .= " ORDER BY a.log_id DESC";
     $get = $this->db->query($query);
     return $get;
   }
