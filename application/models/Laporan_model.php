@@ -334,7 +334,7 @@ class laporan_model extends CI_Model
 
 	public function jadwal_har_filter($petugas, $year, $month)
 	{
-		$query = "SELECT * FROM jadwal_har WHERE ";
+		$query = "SELECT jadwal_har.id_jadwal, jadwal_har.tanggal_pergi, jadwal_har.tanggal_pulang, (SELECT nama FROM pegawai WHERE pegawai_id=petugas) AS petugas, (SELECT nama_unit_level2 FROM unit_level2 WHERE id_unit_level2=tujuan_level2) AS nama_unit_level2, (SELECT nama_unit_level3 FROM unit_level3 WHERE id_unit_level3=tujuan_level3) AS nama_unit_level3 FROM `jadwal_har` WHERE ";
 		$requirement = 0;
 
 		if (!empty($petugas)) {
@@ -362,6 +362,8 @@ class laporan_model extends CI_Model
 				$query .= "(MONTH(tanggal_pergi) = '$month' OR MONTH(tanggal_pulang) = '$month')";
 			}
 		}
+
+		$query .= " ORDER BY jadwal_har.id_jadwal DESC";
 
 		$get = $this->db->query($query);
 		return $get;
@@ -543,7 +545,5 @@ FROM har_network a");
 		return $this->db->from('data_network')
 			->get()
 			->result();
-  }
-
-	
+	}
 }

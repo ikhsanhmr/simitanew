@@ -108,9 +108,22 @@
                    <th class="text-center">Actions</th>
                  </tr>
                </thead>
-
                <tbody>
-
+                 <?php $no = 1; ?>
+                 <?php foreach ($jadwal_har as $row) : ?>
+                   <tr>
+                     <td><?= $no; ?></td>
+                     <td><?= $row['tanggal_pergi']; ?></td>
+                     <td><?= $row['tanggal_pulang']; ?></td>
+                     <td><?= $row['petugas']; ?></td>
+                     <td><?= $row['nama_unit_level2']; ?></td>
+                     <td><?= $row['nama_unit_level3']; ?></td>
+                     <td>
+                       <a href="<?= base_url(); ?>laporan/jadwal_har_edit?data_id=<?= $row['id_jadwal'] ?>"><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+                       <a href="<?= base_url(); ?>laporan/jadwal_har_delete?data_id=<?= $row['id_jadwal'] ?>"><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+                     </td>
+                   </tr>
+                 <?php endforeach; ?>
                </tbody>
 
              </table>
