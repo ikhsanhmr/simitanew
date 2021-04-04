@@ -313,6 +313,7 @@
           "data": "actions"
         }
       ],
+      scrollX: true
     });
 
     var merekTable = $('#table_merek').DataTable({
