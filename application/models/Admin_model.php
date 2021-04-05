@@ -335,7 +335,7 @@ class Admin_model extends CI_Model
 		  *
       FROM
       vendor
-      ORDER BY id_vendor ASC ");
+      ORDER BY id_vendor DESC ");
     return $get;
   }
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Mar 2021 pada 03.18
+-- Waktu pembuatan: 05 Apr 2021 pada 21.37
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.3.27
 
@@ -802,7 +802,8 @@ INSERT INTO `kantor_induk` (`id_kantor_induk`, `nama_kantor_induk`, `wilayah_ker
 (12, 'tes unit u', 2),
 (13, 'tes', 1),
 (14, 'tes unit', 1),
-(15, 'tes', 1);
+(15, 'tes', 1),
+(16, 'tes unit', 1);
 
 -- --------------------------------------------------------
 
@@ -3632,6 +3633,13 @@ CREATE TABLE `monitor` (
   `tahun` int(11) DEFAULT NULL,
   `id_vendor` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `monitor`
+--
+
+INSERT INTO `monitor` (`id_monitor`, `id_merek`, `nama_pengguna`, `id_unit`, `status_kepemilikan`, `tahun`, `id_vendor`) VALUES
+(1, 27, 'tes', 4, 'Aset PLN', 2014, 0);
 
 -- --------------------------------------------------------
 
@@ -9538,7 +9546,8 @@ INSERT INTO `unit_level2` (`id_unit_level2`, `id_kantor_induk`, `nama_unit_level
 (31, 12, 'tes unit 1'),
 (32, 13, 'tes'),
 (33, 14, 'tes'),
-(34, 15, 'tes');
+(34, 15, 'tes'),
+(35, 16, 'tes');
 
 -- --------------------------------------------------------
 
@@ -9769,9 +9778,7 @@ INSERT INTO `vendor` (`id_vendor`, `nama_vendor`, `alamat_vendor`, `telepon`) VA
 (1, 'ICON+', 'Jl.Gatot Subroto', '08572346522'),
 (3, 'Astra Graphia', 'Medan', '098765468575'),
 (4, 'Tricom', 'Medan', '085272722832'),
-(5, 'Tekno Media', 'Medan', '085372816439'),
-(6, 'Telkom', NULL, NULL),
-(7, 'Indihome', NULL, NULL);
+(5, 'Tekno Media', 'Medan', '085372816439');
 
 -- --------------------------------------------------------
 
@@ -10105,7 +10112,7 @@ ALTER TABLE `jadwal_har`
 -- AUTO_INCREMENT untuk tabel `kantor_induk`
 --
 ALTER TABLE `kantor_induk`
-  MODIFY `id_kantor_induk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_kantor_induk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori_gangguan`
@@ -10171,7 +10178,7 @@ ALTER TABLE `merek`
 -- AUTO_INCREMENT untuk tabel `monitor`
 --
 ALTER TABLE `monitor`
-  MODIFY `id_monitor` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_monitor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `m_label`
@@ -10231,19 +10238,25 @@ ALTER TABLE `tambak`
 -- AUTO_INCREMENT untuk tabel `unit_level2`
 --
 ALTER TABLE `unit_level2`
-  MODIFY `id_unit_level2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id_unit_level2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT untuk tabel `unit_level3`
 --
 ALTER TABLE `unit_level3`
-  MODIFY `id_unit_level3` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
+  MODIFY `id_unit_level3` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id_users` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT untuk tabel `vendor`
+--
+ALTER TABLE `vendor`
+  MODIFY `id_vendor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
