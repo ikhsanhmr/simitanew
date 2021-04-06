@@ -167,6 +167,7 @@
           "data": "actions"
         }
       ],
+      scrollX: true
     });
 
     var kategoriGangguanTable = $('#table_kategori_gangguan').DataTable({
@@ -407,6 +408,7 @@
           "data": "actionButton"
         },
       ],
+      scrollX: true
     });
 
     var printerTable = $('#table_printer').DataTable({
@@ -478,6 +480,7 @@
           "data": "actionButton"
         },
       ],
+      scrollX: true
     });
 
     var networkTable = $('#table_network').DataTable({
@@ -530,6 +533,7 @@
           "data": "actionButton"
         },
       ],
+      scrollX: true
     });
 
     var serverTable = $('#table_server').DataTable({
@@ -570,6 +574,7 @@
           "data": "actionButton"
         },
       ],
+      scrollX: true
     });
 
     var lokaTable = $('#table_lokal').DataTable({
@@ -604,6 +609,7 @@
           "data": "actionButton"
         },
       ],
+      scrollX: true
     });
 
     var monitorTable = $('#table_monitor').DataTable({
@@ -775,6 +781,7 @@
           "data": "actionButton"
         },
       ],
+      scrollX: true,
       lengthChange: true,
       buttons: [{
         extend: 'excel',

@@ -326,8 +326,6 @@ class Admin_model extends CI_Model
     }
   }
 
-
-
   //Vendor
   function tampil_vendor()
   {
