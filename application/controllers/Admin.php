@@ -2035,6 +2035,7 @@ class Admin extends CI_Controller
 				$row['actions'] = "<a href=" . base_url('admin/unit_edit?id_unit=' . $row['id_unit_level3']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
 				<a href=" . base_url('admin/unit_delete?id_unit=' . $row['id_unit_level3']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 				";
+				$row['wilayah_kerja'] = "STI Sumut " . $row['wilayah_kerja'];
 				$data[] = $row;
 			}
 		}
@@ -4428,8 +4429,6 @@ class Admin extends CI_Controller
 				$row['close_tiket'] = date('d/m/Y H:i:s', strtotime($row['tiket_close']));
 				$row['actionButton'] = "<a href=" . base_url('admin/lgangguan_edit?log_id=' . $row['log_id']) . "><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
 				<a href=" . base_url('admin/lgangguan_delete?log_id=' . $row['log_id']) . "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
-				
-				
 				";
 
 
