@@ -29,8 +29,8 @@
            <div class="box-body">
              <table>
                <tbody>
-                 <tr>
-                   <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>admin/lgangguan_filter" enctype="multipart/form-data">
+                 <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>admin/lgangguan_filter" enctype="multipart/form-data">
+                   <tr>
                      <td style="padding-right:10px; padding-top:10px">
                        <div class="form-group">
                          <input type="text" id="filter_no_tiket" name="filter_no_tiket" <?php if (!empty($filter_no_tiket)) { ?> value="<?php echo $filter_no_tiket ?>" />
@@ -109,6 +109,8 @@
                          </select>
                        </div>
                      </td>
+                   </tr>
+                   <tr>
                      <td style="padding-right:10px; padding-top:10px">
                        <div class="form-group">
                          <select class="form-control select2" name="filter_month" id="filter_month" style="width: 100%;">
@@ -133,10 +135,12 @@
                          </select>
                        </div>
                      </td>
-                     <td><button type="submit" class="btn btn-sm btn-primary">Filter</button></td>
-                     <td><a class="btn btn-sm btn-default" href="<?php echo base_url() . "admin/lgangguan_view" ?>">Reset</a></td>
-                   </form>
-                 </tr>
+                     <td>
+                       <button type="submit" class="btn btn-sm btn-primary">Filter</button>
+                       <a class="btn btn-sm btn-default" href="<?php echo base_url() . "admin/lgangguan_view" ?>">Reset</a>
+                     </td>
+                   </tr>
+                 </form>
                </tbody>
              </table>
              <br />
