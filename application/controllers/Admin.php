@@ -2212,8 +2212,7 @@ class Admin extends CI_Controller
 				
 				
 				";
-
-
+				$row['status_jd'] = $row['status_jd'] ? "Ya" : "Tidak";
 
 				$data[] = $row;
 			}
@@ -2252,6 +2251,15 @@ class Admin extends CI_Controller
 			$status_kepemilikan = $this->input->post('status_kepemilikan');
 			$tahun = $this->input->post('tahun');
 			$id_vendor = $this->input->post('id_vendor');
+			$sistem_operasi = $this->input->post('sistem_operasi');
+			$office = $this->input->post('office');
+			$status_jd = $this->input->post('status_jd');
+			$kes = $this->input->post('kes');
+			$mouse = $this->input->post('mouse');
+			$keyboard = $this->input->post('keyboard');
+			$monitor = $this->input->post('monitor');
+			$tgl_kontrak = $this->input->post('tgl_kontrak');
+			$harga_sewa = $this->input->post('harga_sewa');
 			$data = array(
 				'nama_komputer' => $nama_komputer,
 				'serial_number' => $serial_number,
@@ -2261,6 +2269,15 @@ class Admin extends CI_Controller
 				'id_vendor' => $id_vendor,
 				'tahun' => $tahun,
 				'status_kepemilikan' => $status_kepemilikan,
+				'sistem_operasi' => $sistem_operasi,
+				'office' => $office,
+				'status_jd' => $status_jd,
+				'kes' => $kes,
+				'mouse' => $mouse,
+				'keyboard' => $keyboard,
+				'monitor' => $monitor,
+				'tgl_kontrak' => $tgl_kontrak,
+				'harga_sewa' => $harga_sewa
 			);
 			$insert = $this->admin_model->add_komputer_data($data);
 			if ($insert) {
@@ -2311,6 +2328,15 @@ class Admin extends CI_Controller
 				$id_vendor = $this->input->post('id_vendor');
 			}
 			$tahun = $this->input->post('tahun');
+			$sistem_operasi = $this->input->post('sistem_operasi');
+			$office = $this->input->post('office');
+			$status_jd = $this->input->post('status_jd');
+			$kes = $this->input->post('kes');
+			$mouse = $this->input->post('mouse');
+			$keyboard = $this->input->post('keyboard');
+			$monitor = $this->input->post('monitor');
+			$tgl_kontrak = $this->input->post('tgl_kontrak');
+			$harga_sewa = $this->input->post('harga_sewa');
 			$data = array(
 				'nama_komputer' => $nama_komputer,
 				'serial_number' => $serial_number,
@@ -2320,6 +2346,15 @@ class Admin extends CI_Controller
 				'id_vendor' => $id_vendor,
 				'nama_pengguna' => $nama_pengguna, 'ip_address' => $ip_address, 'id_unit' => $id_unit,
 				'status_kepemilikan' => $status_kepemilikan,
+				'sistem_operasi' => $sistem_operasi,
+				'office' => $office,
+				'status_jd' => $status_jd,
+				'kes' => $kes,
+				'mouse' => $mouse,
+				'keyboard' => $keyboard,
+				'monitor' => $monitor,
+				'tgl_kontrak' => $tgl_kontrak,
+				'harga_sewa' => $harga_sewa
 			);
 			$update = $this->admin_model->update_komputer($data, $id_komputer);
 			if ($update) {

@@ -405,6 +405,33 @@
           "data": "tahun"
         },
         {
+          "data": "sistem_operasi"
+        },
+        {
+          "data": "office"
+        },
+        {
+          "data": "status_jd"
+        },
+        {
+          "data": "kes"
+        },
+        {
+          "data": "mouse"
+        },
+        {
+          "data": "keyboard"
+        },
+        {
+          "data": "monitor"
+        },
+        {
+          "data": "tgl_kontrak"
+        },
+        {
+          "data": "harga_sewa"
+        },
+        {
           "data": "actionButton"
         },
       ],

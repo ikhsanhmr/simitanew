@@ -329,8 +329,6 @@
             <div class="col-xs-6">
               <canvas id="myChart4"></canvas>
             </div>
-
-
           </div>
           <!-- /.box-body -->
         </div>
