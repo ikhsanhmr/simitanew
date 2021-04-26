@@ -162,6 +162,7 @@
                    <th class="text-center">Penyebab</th>
                    <th class="text-center">Tindakan</th>
                    <th class="text-center">Status Tiket</th>
+                   <th class="text-center">Keterangan Stop Clock</th>
                    <th class="text-center">Actions</th>
                  </tr>
                </thead>
@@ -183,10 +184,11 @@
                      <td><?= $row['durasi']; ?></td>
                      <td><?= $row['penyebab']; ?></td>
                      <td><?= $row['action']; ?></td>
+                     <td><?= $row['status_log']; ?></td>
                      <td><?= $row['keterangan_stopclock']; ?></td>
                      <td>
-                       <a href="<?= base_url() ?>admin/lgangguan_edit?log_id='<?= $row['log_id'] ?>"><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
-                       <a href="<?= base_url() ?>admin/lgangguan_delete?log_id='<?= $row['log_id'] ?> "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
+                       <a href="<?= base_url() ?>admin/lgangguan_edit?log_id=<?= $row['log_id'] ?>"><i class='fa fa-pencil bigger-130'></i> &nbsp;</a>
+                       <a href="<?= base_url() ?>admin/lgangguan_delete?log_id=<?= $row['log_id'] ?> "><i class='fa fa-trash-o bigger-130'></i> &nbsp;</a>
 
                      </td>
                    </tr>
