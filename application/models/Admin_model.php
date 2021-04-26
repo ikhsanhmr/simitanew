@@ -1589,6 +1589,24 @@ class Admin_model extends CI_Model
     return $get;
   }
 
+  function dashboard_gangguan_jaringan_per_bulan()
+  {
+    $get = $this->db->query("SELECT COUNT(log_id) AS jumlah, periode_bulan FROM `log_gangguan` GROUP BY periode_bulan");
+    return $get;
+  }
+
+  function dashboard_gangguan_jaringan_per_bulan_filter($wilayah)
+  {
+    if ($wilayah !== "") {
+      $get = $this->db->query("SELECT COUNT(log_id) AS jumlah, periode_bulan FROM `log_gangguan` WHERE asman='$wilayah'  GROUP BY periode_bulan");
+      return $get;
+    } else {
+      $get = $this->db->query("SELECT COUNT(log_id) AS jumlah, periode_bulan FROM `log_gangguan` GROUP BY periode_bulan");
+      return $get;
+    }
+  }
+
+
   function dashboard_gangguan_terbanyak()
   {
     $get = $this->db->query("SELECT COUNT(log_gangguan.log_id) AS jumlahnya, penyebab, (SELECT kategori from kategori_gangguan WHERE id_kategori=penyebab) as kategori FROM log_gangguan GROUP BY penyebab ORDER BY jumlahnya DESC LIMIT 5");

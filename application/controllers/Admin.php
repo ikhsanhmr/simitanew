@@ -65,6 +65,7 @@ class Admin extends CI_Controller
 			$data['kpi_open'] = $this->kpi->get_kpi_open();
 			$data['menghitung_jumlah_service_wilayah'] = $this->admin_model->menghitung_jumlah_service_wilayah();
 			$data['dashboard_sid_bermasalah'] = $this->admin_model->dashboard_sid_bermasalah();
+			$data['dashboard_gangguan_jaringan_per_bulan'] = $this->admin_model->dashboard_gangguan_jaringan_per_bulan();
 			$data['dashboard_gangguan_terbanyak'] = $this->admin_model->dashboard_gangguan_terbanyak();
 			$data['dashboard_network_device_har'] = $this->admin_model->dashboard_network_device_har();
 			$data['dashboard_network_device'] = $this->admin_model->dashboard_network_device();
@@ -1005,13 +1006,18 @@ class Admin extends CI_Controller
 				$data['desember_vsat_uipkitsum_ok'] = 100;
 			}
 
-
-
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/index', $data);
 			$this->load->view('footer', $data);
 		}
+	}
+
+	public function ajax_dashboard_gangguan_jaringan_per_bulan_filter()
+	{
+		$wilayah = $this->input->post('wilayah');
+		$data = $this->admin_model->dashboard_gangguan_jaringan_per_bulan_filter($wilayah)->result_array();
+		echo json_encode($data);
 	}
 
 	// Logout
