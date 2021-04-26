@@ -34,7 +34,7 @@
 								<div class="form-group">
 									<label for="sid" class="col-sm-3 control-label">SID</label>
 									<div class="col-sm-5">
-										<select class="form-control select2" id="service_id" name="service_id" style="width: 100%;">
+										<select class="form-control select2" id="service_id" name="service_id" style="width: 100%;" required>
 											<option selected="selected" value=""> -- Pilih SID -- </option>
 											<?php
 											foreach ($sid as $value) {
@@ -68,7 +68,7 @@
 								<div class="form-group">
 									<label for="kantor_induk" class="col-sm-3 control-label">Kantor Induk</label>
 									<div class="col-sm-5">
-										<select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
+										<select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;" required>
 											<option selected="selected" value=""> -- Pilih Kantor Induk -- </option>
 											<?php
 											foreach ($hasil as $value) {
@@ -99,7 +99,7 @@
 								<div class="form-group">
 									<label for="scada" class="col-sm-3 control-label">Scada</label>
 									<div class="col-sm-5">
-										<select class="form-control select2" id="scada" name="scada" style="width: 100%;">
+										<select class="form-control select2" id="scada" name="scada" style="width: 100%;" required>
 											<option value=""> -- Pilih Scada -- </option>
 											<option value="1">Scada</option>
 											<option value="0">Non Scada</option>
@@ -147,7 +147,7 @@
 								<div class="form-group">
 									<label for="penyebab" class="col-sm-3 control-label">Penyebab</label>
 									<div class="col-sm-5">
-										<select class="form-control select2" id="penyebab" name="penyebab" style="width: 100%;">
+										<select class="form-control select2" id="penyebab" name="penyebab" style="width: 100%;" required>
 
 											<option selected="selected" value=""> -- Pilih Penyebab -- </option>
 											<?php foreach ($list_kategori_gangguan->result_array() as $data) { ?>

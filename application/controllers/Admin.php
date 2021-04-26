@@ -3354,98 +3354,46 @@ class Admin extends CI_Controller
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
-			$this->form_validation->set_rules('no_tiket', 'Nomor Tiket', 'required', [
-				'required' => 'Nomor tiket harus di isi!'
-			]);
-			$this->form_validation->set_rules('nama_service', 'Nama Service', 'required', [
-				'required' => 'Nama service harus di isi!'
-			]);
-			$this->form_validation->set_rules('sid', 'SID', 'required|numeric', [
-				'required' => 'SID harus di isi!'
-			]);
-			$this->form_validation->set_rules('kantor_induk', 'ID Kantor Induk', 'required|numeric', [
-				'required' => 'ID Kantor Induk harus di isi!'
-			]);
-			$this->form_validation->set_rules('unit_level2', 'Unit Level 2', 'required', [
-				'required' => 'Unit level 2 harus di isi!'
-			]);
-			$this->form_validation->set_rules('unit_level3', 'Unit Level 3', 'required', [
-				'required' => 'Unit level 3 harus di isi!'
-			]);
-			$this->form_validation->set_rules('layanan', 'Layanan', 'required', [
-				'required' => 'Layanan harus di isi!'
-			]);
-			$this->form_validation->set_rules('scada', 'Scada', 'required|numeric', [
-				'required' => 'Scada harus di isi!'
-			]);
-			$this->form_validation->set_rules('status_log', 'Status Tiket', 'required', [
-				'required' => 'Status tiket harus di isi!'
-			]);
-			$this->form_validation->set_rules('stop_clock', 'Stop Clock (menit)', 'required|numeric', [
-				'required' => 'Stop clock harus diisi dengan angka!'
-			]);
-			$this->form_validation->set_rules('penyebab', 'penyebab', 'required', [
-				'required' => 'Penyebab harus di isi!'
-			]);
 
-			$this->form_validation->set_rules('action', 'action', 'required', [
-				'required' => 'Action harus di isi!'
-			]);
+			$tiket_open = $this->input->post('tiket_open');
+			$tiket_close = $this->input->post('tiket_close');
+			$stop_clock = $this->input->post('stop_clock');
 
-			$this->form_validation->set_rules('periode_tahun', 'Periode Tahun', 'required', [
-				'required' => 'Periode Tahun harus di isi!'
-			]);
+			$before = date_create($tiket_open);
+			$after = date_create($tiket_close);
+			$diff = date_diff($before, $after, FALSE);
+			$printdiff = $diff->format("%Y-%m-%d %H:%i:%s");
+			$datediff = date_create($printdiff);
+			$diffminus = $datediff->modify("-{$stop_clock} minutes");
+			$time = $diffminus->format("H:i:s");
+			$timeArr = explode(':', $time);
+			$durasi = ($timeArr[0] * 60) + ($timeArr[1]) + ($timeArr[2] / 60);
 
-			$this->form_validation->set_rules('periode_bulan', 'Periode Bulan', 'required', [
-				'required' => 'Periode Bulan harus di isi!'
-			]);
-
-			if ($this->form_validation->run() == false) {
-				$this->load->view('header');
-				$this->load->view('sidebar');
-				$this->load->view('admin/lgangguan_add');
-				$this->load->view('footer');
+			$data = array(
+				'no_tiket' => $this->input->post('no_tiket'),
+				'nama_service' => $this->input->post('nama_service'),
+				'sid' => $this->input->post('service_id'),
+				'id_kantor_induk' => $this->input->post('kantor_induk'),
+				'id_unit_level3' => $this->input->post('unit_level3'),
+				'layanan' => $this->input->post('layanan'),
+				'scada' => $this->input->post('scada'),
+				'status_log' => $this->input->post('status_log'),
+				'tiket_open' => $tiket_open,
+				'tiket_close' => $tiket_close,
+				'stop_clock' => $stop_clock,
+				'durasi' => $durasi,
+				'penyebab' => $this->input->post('penyebab'),
+				'action' => $this->input->post('action'),
+				'periode_tahun' => $this->input->post('periode_tahun'),
+				'periode_bulan' => $this->input->post('periode_bulan')
+			);
+			$insert = $this->admin_model->add_lgangguan_data($data);
+			if ($insert) {
+				echo "<script>alert('Berhasil Menambah Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/lgangguan_view>";
 			} else {
-				$tiket_open = $this->input->post('tiket_open');
-				$tiket_close = $this->input->post('tiket_close');
-				$stop_clock = $this->input->post('stop_clock');
-
-				$before = date_create($tiket_open);
-				$after = date_create($tiket_close);
-				$diff = date_diff($before, $after, FALSE);
-				$printdiff = $diff->format("%Y-%m-%d %H:%i:%s");
-				$datediff = date_create($printdiff);
-				$diffminus = $datediff->modify("-{$stop_clock} minutes");
-				$time = $diffminus->format("H:i:s");
-				$timeArr = explode(':', $time);
-				$durasi = ($timeArr[0] * 60) + ($timeArr[1]) + ($timeArr[2] / 60);
-
-				$data = array(
-					'no_tiket' => $this->input->post('no_tiket'),
-					'nama_service' => $this->input->post('nama_service'),
-					'sid' => $this->input->post('sid'),
-					'id_kantor_induk' => $this->input->post('kantor_induk'),
-					'id_unit_level3' => $this->input->post('unit_level3'),
-					'layanan' => $this->input->post('layanan'),
-					'scada' => $this->input->post('scada'),
-					'status_log' => $this->input->post('status_log'),
-					'tiket_open' => $tiket_open,
-					'tiket_close' => $tiket_close,
-					'stop_clock' => $stop_clock,
-					'durasi' => $durasi,
-					'penyebab' => $this->input->post('penyebab'),
-					'action' => $this->input->post('action'),
-					'periode_tahun' => $this->input->post('periode_tahun'),
-					'periode_bulan' => $this->input->post('periode_bulan')
-				);
-				$insert = $this->admin_model->add_lgangguan_data($data);
-				if ($insert) {
-					echo "<script>alert('Berhasil Menambah Data')</script>";
-					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/lgangguan_view>";
-				} else {
-					echo "<script>alert('Gagal Menambah Data')</script>";
-					echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/lgangguan_view>";
-				}
+				echo "<script>alert('Gagal Menambah Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/lgangguan_view>";
 			}
 		}
 	}
