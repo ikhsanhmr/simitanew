@@ -55,7 +55,7 @@
           <div class="icon">
             <i class="ion ion-monitor"></i>
           </div>
-          <a href="<?php echo site_url('admin/komputer_view'); ?>" class="small-box-footer " style="font-size:12px">Rata-rata durasi gangguan di UIW Sumut <i class="fa fa-building"></i></a>
+          <a href="<?php echo site_url('admin/komputer_view'); ?>" class="small-box-footer " style="font-size:10px">Rata-rata Durasi Gangguan Scada NR STI SUMUT <i class="fa fa-building"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -552,6 +552,71 @@
               <canvas id="chartGangguanJaringan"></canvas>
             </div>
 
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </div>
+
+      <!-- TABEL HAR NETWORK -->
+      <div class="col-xs-12">
+        <div class="box box-danger">
+          <div class="box-header with-border">
+            <h3 class="box-title">BERITA ACARA PERFORMANSI JARINGAN ICON+ FEBRUARI <?= date('Y'); ?></h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="col-12">
+              <table id="tabel-berita-acara-performasi-jaringan" class="table table-bordered table-responsive">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Unit PLN</th>
+                    <th>Link</th>
+                    <th>Product</th>
+                    <th>Bandwith</th>
+                    <th>Service ID</th>
+                    <th>Asman</th>
+                    <th>Kategori Layanan</th>
+                    <th>Jumlah Gangguan</th>
+                    <th>Durasi Gangguan (Menit)</th>
+                    <th>Standard Availability (%)</th>
+                    <th>Realisasi Availability (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $no = 1 ?>
+                  <?php foreach ($dashboard_berita_acara_perfomasi as $key => $row) : ?>
+                    <?php $realisasi_availability = ((60 * 24 * 30) - $row['durasi']) / (60 * 24 * 30) * 100 ?>
+                    <tr>
+                      <td><?= $no; ?></td>
+                      <td><?= $row['nama_kantor_induk']; ?></td>
+                      <td><?= $row['nama_service']; ?></td>
+                      <td><?= $row['layanan']; ?></td>
+                      <td><?= $row['kapasitas']; ?></td>
+                      <td><?= $row['sid']; ?></td>
+                      <td><?= $row['asman']; ?></td>
+                      <td><?= $row['scada'] == 0 ? 'NON SCADA' : 'SCADA NON REDUNDANT';  ?></td>
+                      <td><?= $row['jumlah_gangguan']; ?></td>
+                      <td><?= $row['durasi'] ? $row['durasi'] : 0 ?></td>
+                      <td>99.00</td>
+                      <?php if ($realisasi_availability < 99.0) : ?>
+                        <td class="bg-red"><?= number_format($realisasi_availability, 2) ?></td>
+                      <?php elseif ($realisasi_availability < 100) : ?>
+                        <td class="bg-warning"><?= number_format($realisasi_availability, 2) ?></td>
+                      <?php else : ?>
+                        <td><?= number_format($realisasi_availability, 2) ?></td>
+                      <?php endif; ?>
+                    </tr>
+
+                    <?php $no++ ?>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
+            </div>
           </div>
           <!-- /.box-body -->
         </div>

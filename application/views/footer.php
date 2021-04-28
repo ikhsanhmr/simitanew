@@ -884,6 +884,10 @@
   })
 
   $(function() {
+    var table = $('#tabel-berita-acara-performasi-jaringan').DataTable()
+  })
+
+  $(function() {
     var table = $('#tabel-sid-paling-bermasalah').DataTable({
 
       lengthChange: true,

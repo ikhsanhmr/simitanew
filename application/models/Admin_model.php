@@ -1095,7 +1095,7 @@ class Admin_model extends CI_Model
 
   function menghitung_rata_rata_durasi()
   {
-    $get = $this->db->query('SELECT CAST(AVG(durasi) AS DECIMAL(10,0)) as rata_rata FROM `log_gangguan` WHERE scada=1 AND id_kantor_induk=1');
+    $get = $this->db->query('SELECT CAST(AVG(durasi) AS DECIMAL(10,0)) as rata_rata FROM `log_gangguan` WHERE scada=1');
     return $get->row_array();
   }
 
@@ -1636,6 +1636,21 @@ class Admin_model extends CI_Model
   {
     $get = $this->db->query("SELECT sid, nama_service, COUNT(sid) AS jumlah FROM `log_gangguan` WHERE scada=1 GROUP BY sid ORDER BY jumlah DESC LIMIT 10");
     return $get;
+  }
+
+  function dashboard_berita_acara_perfomasi()
+  {
+    $selectQuery = 'data_id, keterangan AS nama_service, data_network.service_id AS sid, log_gangguan.id_kantor_induk, data_network.service AS layanan, log_gangguan.scada, data_network.asman, (SELECT SUM(log_gangguan.durasi) FROM log_gangguan WHERE log_gangguan.periode_bulan="Februari" AND log_gangguan.periode_tahun=' . date('Y') . ' AND log_gangguan.sid=data_network.service_id ) AS durasi, kantor_induk.nama_kantor_induk, data_network.kapasitas, (SELECT COUNT(log_gangguan.log_id) FROM log_gangguan WHERE log_gangguan.periode_bulan="Februari" AND log_gangguan.periode_tahun=' . date('Y') . ' AND log_gangguan.sid=data_network.service_id ) AS jumlah_gangguan';
+    $this->db->select($selectQuery);
+
+    $this->db->from('data_network');
+    $this->db->join('log_gangguan', 'log_gangguan.sid = data_network.service_id');
+    $this->db->join('kantor_induk', 'kantor_induk.id_kantor_induk = log_gangguan.id_kantor_induk');
+    // $this->db->where('periode_bulan', 'Februari');
+    // $this->db->where('periode_tahun', date('Y'));
+    $this->db->group_by('keterangan');
+    $get = $this->db->get();
+    return $get->result_array();
   }
 
   //TINGKAT KERAWANAN
