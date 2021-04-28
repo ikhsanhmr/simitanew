@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Apr 2021 pada 01.46
+-- Waktu pembuatan: 28 Apr 2021 pada 06.03
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.3.27
 
@@ -850,7 +850,8 @@ INSERT INTO `kategori_gangguan` (`id_kategori`, `kategori`) VALUES
 (27, 'HUB VSAT'),
 (28, 'Power Supply'),
 (29, 'Modem VSAT'),
-(30, 'Modul Power VSAT');
+(30, 'Modul Power VSAT'),
+(31, 'Masih Dalam Pengecekan NOC');
 
 -- --------------------------------------------------------
 
@@ -3216,7 +3217,6 @@ INSERT INTO `log_gangguan` (`log_id`, `no_tiket`, `nama_service`, `sid`, `id_kan
 (177, 'TIK/2102/024407', '[UIP3BS - UPT PEMATANG SIANTAR] GI SIPAN 2 (SCADA)', '990000320272589', 5, 1, 'IP VPN', 1, 'CLOSE', '2021-02-26 03:27:00', '2021-02-26 04:19:00', 0, 52, 19, 'GANGGUAN SOFTWARE DI SISI POP SIBOLGA', '', 'PERBAIKAN SOFTWARE', 'SUMUT 2', '', 'Februari', '2021'),
 (178, 'TIK/2102/024408', '[UIK SBU] UPDK PANDAN', '990000020278420', 3, 1, 'IP VPN', 0, 'CLOSE', '2021-02-26 03:27:00', '2021-02-26 04:19:00', 0, 52, 19, 'GANGGUAN SOFTWARE DI POP SIBOLGA', '', 'PERBAIKAN SOFTWARE', 'SUMUT 2', '', 'Februari', '2021'),
 (179, 'TIK/2102/024409', '[UIK SBU] UPK LABUHAN ANGIN', '990000020278421', 3, 1, 'IP VPN', 0, 'CLOSE', '2021-02-26 03:27:00', '2021-02-26 04:19:00', 0, 52, 19, 'GANGGUAN SOFTWARE DI POP SIBOLGA', '', 'PERBAIKAN SOFTWARE', 'SUMUT 2', '', 'Februari', '2021'),
-(661, 'no_tiket', 'nama_service', 'sid', 0, 0, 'layanan', 0, 'status_log', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, 0, ' detail_gangguan', 'lokasi_gangguan', 'action', 'asman', 'keterangan_stopclock', 'periode_bulan', 'periode_tahun'),
 (662, 'TIK/2012/146207', '[UIP3BS - UPT MEDAN] - GI NAMORAMBE, -, -, -, Indonesia', '990000320307856', 5, 0, 'IP VPN', 0, 'CLOSE', '2020-12-31 02:55:00', '2020-12-31 17:27:00', 0, 872, 15, 'GANGGUAN BULKHEAD DISISI POP KITSBU', 'POP', 'PENGGANTIAN BULKHEAD', 'SUMUT 1', '', 'Januari', '2021'),
 (663, 'TIK/2012/146209', '[UIP3BS - UPT MEDAN - SCADA], -, -, -, Indonesia - GI NAMORAMBE (SCADA), -, -, -, Indonesia', '990000020278465', 5, 0, 'IP VPN', 1, 'CLOSE', '2020-12-31 16:00:00', '2020-12-31 17:27:00', 0, 87, 15, 'GANGGUAN BULKHEAD DISISI POP KITSBU', 'POP', 'PENGGANTIAN BULKHEAD', 'SUMUT 1', '', 'Januari', '2021'),
 (664, 'TIK/2101/000112', '[UIW SUMUT],  -,  -,  -,  Indonesia,  - - ULP TIGA BINANGA, -, -, -, Indonesia', '990000020276723', 1, 0, 'IP VPN', 0, 'CLOSE', '2021-01-01 07:22:00', '2021-01-01 10:49:00', 0, 207, 16, 'GANGGUAN PUTUS CORE DIJARAK 19 KM DARI POP BRASTAGI', 'Distribusi', 'MANUVER CORE', 'SUMUT 1', '', 'Januari', '2021'),
@@ -3285,9 +3285,9 @@ INSERT INTO `log_gangguan` (`log_id`, `no_tiket`, `nama_service`, `sid`, `id_kan
 (727, 'TIK/2101/008590', '[WIL SUMUT - APD],  Medan,  Kota Medan,  Sumatera Utara ,  Indonesia,  Jl. KL Yos Sudarso No.284 Glugur Kota Medan Bar. Kota Medan Sumatera Utara 20238 - Ds Gurusinga Kabanjahe, Karo Kabanjahe,GI BERASTAGI (SCADA) ,Kota Medan ,Sumatera Utara  ,Indonesia ,   ', '1000030163', 1, 0, 'Metronet', 1, 'CLOSE', '2021-01-21 11:16:00', '2021-01-21 11:55:00', 0, 39, 20, 'GANGGUAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'POP', 'PERBAIKAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'SUMUT 1', '', 'Januari', '2021'),
 (728, 'TIK/2101/008591', '[WIL SUMUT - APD],  Medan,  Kota Medan,  Sumatera Utara ,  Indonesia,  Jl. KL Yos Sudarso No.284 Glugur Kota Medan Bar. Kota Medan Sumatera Utara 20238 - Jl. MT Haryono Pasar V Binjai,GI BINJAI (SCADA) ,Kota Medan ,Sumatera Utara  ,Indonesia ,   ', '1000024254', 1, 0, 'Metronet', 1, 'CLOSE', '2021-01-21 11:16:00', '2021-01-21 11:55:00', 0, 39, 20, 'GANGGUAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'POP', 'PERBAIKAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'SUMUT 1', '', 'Januari', '2021'),
 (729, 'TIK/2101/008594', '[UIW SUMUT - UP2D] KANTOR UP2D SUMUT , -, -, -, Indonesia - GI DENAI, Medan, Kota Medan, Sumatera Utara , Indonesia', '1000009394', 1, 0, 'Metronet', 1, 'CLOSE', '2021-01-21 11:16:00', '2021-01-21 11:55:00', 0, 39, 20, 'GANGGUAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'POP', 'PERBAIKAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'SUMUT 1', '', 'Januari', '2021'),
-(730, 'TIK/2101/008597', '[UIW SUMUT - UP2D] KANTOR UP2D SUMUT  - GI GLUGUR, -, -, -, Indonesia', '990000320643452', 1, 0, 'Metronet', 1, 'CLOSE', '2021-01-21 11:16:00', '2021-01-21 11:55:00', 0, 39, 20, 'GANGGUAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'POP', 'PERBAIKAN SOFTWARE', 'SUMUT 1', '', 'Januari', '2021');
+(730, 'TIK/2101/008597', '[UIW SUMUT - UP2D] KANTOR UP2D SUMUT  - GI GLUGUR, -, -, -, Indonesia', '990000320643452', 1, 0, 'Metronet', 1, 'CLOSE', '2021-01-21 11:16:00', '2021-01-21 11:55:00', 0, 39, 20, 'GANGGUAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'POP', 'PERBAIKAN SOFTWARE', 'SUMUT 1', '', 'Januari', '2021'),
+(731, 'TIK/2101/008600', '[WIL SUMUT - APD],  Medan,  Kota Medan,  Sumatera Utara ,  Indonesia,  Jl. KL Yos Sudarso No.284 Glugur Kota Medan Bar. Kota Medan Sumatera Utara 20238 - Jl. Perkebunan Gunung Para Kab. Serdang Bedagai,GI GUNUNG PARA (SCADA) ,Kota Medan ,Sumatera Utara  ,Indonesia ,   ', '1000024251', 1, 0, 'Metronet', 1, 'CLOSE', '2021-01-21 11:16:00', '2021-01-21 11:55:00', 0, 39, 20, 'GANGGUAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'POP', 'PERBAIKAN SOFTWARE', 'SUMUT 1', '', 'Januari', '2021');
 INSERT INTO `log_gangguan` (`log_id`, `no_tiket`, `nama_service`, `sid`, `id_kantor_induk`, `id_unit_level3`, `layanan`, `scada`, `status_log`, `tiket_open`, `tiket_close`, `stop_clock`, `durasi`, `penyebab`, `detail_gangguan`, `lokasi_gangguan`, `action`, `asman`, `keterangan_stopclock`, `periode_bulan`, `periode_tahun`) VALUES
-(731, 'TIK/2101/008600', '[WIL SUMUT - APD],  Medan,  Kota Medan,  Sumatera Utara ,  Indonesia,  Jl. KL Yos Sudarso No.284 Glugur Kota Medan Bar. Kota Medan Sumatera Utara 20238 - Jl. Perkebunan Gunung Para Kab. Serdang Bedagai,GI GUNUNG PARA (SCADA) ,Kota Medan ,Sumatera Utara  ,Indonesia ,   ', '1000024251', 1, 0, 'Metronet', 1, 'CLOSE', '2021-01-21 11:16:00', '2021-01-21 11:55:00', 0, 39, 20, 'GANGGUAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'POP', 'PERBAIKAN SOFTWARE', 'SUMUT 1', '', 'Januari', '2021'),
 (732, 'TIK/2101/008601', '[UIW SUMUT - UP2D] KANTOR UP2D SUMUT , -, -, -, Indonesia - GI KIM, Medan, Kota Medan, Sumatera Utara , Indonesia', '1000009388', 1, 0, 'Metronet', 1, 'CLOSE', '2021-01-21 11:16:00', '2021-01-21 11:55:00', 0, 39, 20, 'GANGGUAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'POP', 'PERBAIKAN SOFTWARE', 'SUMUT 1', '', 'Januari', '2021'),
 (733, 'TIK/2101/008602', '[WIL SUMUT - APD],  Medan,  Kota Medan,  Sumatera Utara ,  Indonesia,  Jl. KL Yos Sudarso No.284 Glugur Kota Medan Bar. Kota Medan Sumatera Utara 20238 - Jl. Gatot Subroto Kel. Sentang Kisaran Timur Kab. Asahan,GI KISARAN? (SCADA) ,Kota Medan ,Sumatera Utara  ,Indonesia ,   ', '1000024280', 1, 0, 'Metronet', 1, 'CLOSE', '2021-01-21 11:16:00', '2021-01-21 11:55:00', 0, 39, 20, 'GANGGUAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'POP', 'PERBAIKAN SOFTWARE', 'SUMUT 1', '', 'Januari', '2021'),
 (734, 'TIK/2101/008603', '[WIL SUMUT - APD],  Medan,  Kota Medan,  Sumatera Utara ,  Indonesia,  Jl. KL Yos Sudarso No.284 Glugur Kota Medan Bar. Kota Medan Sumatera Utara 20238 - Jl. Padang Serunai Ds Kuala Indah Kec sei Suka Kab. Batu bara,GI KUALA TANJUNG (SCADA) ,Kota Medan ,Sumatera Utara  ,Indonesia ,   ', '1000024278', 1, 0, 'Metronet', 1, 'CLOSE', '2021-01-21 11:16:00', '2021-01-21 11:55:00', 0, 39, 20, 'GANGGUAN SOFTWARE DI SISI POP WILAYAH SUMATERA', 'POP', 'PERBAIKAN SOFTWARE', 'SUMUT 1', '', 'Januari', '2021'),
@@ -3427,7 +3427,9 @@ INSERT INTO `log_gangguan` (`log_id`, `no_tiket`, `nama_service`, `sid`, `id_kan
 (868, 'TIK/2103/033347', '[UIP3BS - UPT PEMATANG SIANTAR] GITET SARULLA 275kV (SCADA)', '990000320516128', 5, 0, 'IP VPN', 1, 'CLOSE', '2021-03-23 03:55:00', '2021-03-23 04:27:00', 0, 32, 20, 'GANGGUAN MODUL SFP DI POP TARUTUNG', '', 'PERBAIKAN (PLUG OUT/IN) MODUL SFP DI POP TARUTUNG', 'SUMUT 2', '', 'Maret ', '2021'),
 (869, 'TIK/2103/033352', '[UIP3BS - UPT PEMATANG SIANTAR] GI SARULLA', '1000008109', 5, 0, 'IP VPN', 0, 'CLOSE', '2021-03-23 03:55:00', '2021-03-23 04:27:00', 0, 32, 20, 'GANGGUAN MODUL SFP DI SISI POP TARUTUNG', '', 'PERBAIKAN MODUL SFP', 'SUMUT 2', '', 'Maret ', '2021'),
 (870, 'TIK/2103/033521', '[UIP3BS - UPT PEMATANG SIANTAR] GI SEI MANGKEI', '990000320478209', 5, 0, 'IP VPN', 0, 'CLOSE', '2021-03-23 09:57:00', '2021-03-23 10:35:00', 0, 38, 18, 'GANGGUAN PERANGKAT MODUL POWER DI SISI LASTMILE', '', 'PERBAIKAN PERANGKAT MODUL POWER', 'SUMUT 2', '', 'Maret ', '2021'),
-(871, 'TIK/2103/033530', '[UIP3BS - UPT PEMATANG SIANTAR] GI SEI MANGKEI (SCADA)', '990000320452064', 5, 0, 'IP VPN', 1, 'CLOSE', '2021-03-23 09:37:00', '2021-03-23 10:35:00', 0, 58, 18, 'GANGGUAN PERANGKAT MODUL POWER DI SISI LASTMILE', '', 'PERBAIKAN PERANGKAT MODUL POWER', 'SUMUT 2', '', 'Maret ', '2021');
+(871, 'TIK/2103/033530', '[UIP3BS - UPT PEMATANG SIANTAR] GI SEI MANGKEI (SCADA)', '990000320452064', 5, 0, 'IP VPN', 1, 'CLOSE', '2021-03-23 09:37:00', '2021-03-23 10:35:00', 0, 58, 18, 'GANGGUAN PERANGKAT MODUL POWER DI SISI LASTMILE', '', 'PERBAIKAN PERANGKAT MODUL POWER', 'SUMUT 2', '', 'Maret ', '2021'),
+(872, 'tes', 'UPDL TUNTUNGAN', '10000019240022', NULL, NULL, 'Metronet', 1, 'Open', '2021-04-09 04:35:00', '2021-04-25 22:39:00', 123, 961, 28, NULL, NULL, 'eqwt', '', NULL, 'Maret', '2022'),
+(873, 'tess', 'UNIT MANAJEMEN KONSTRUKSI IV (Medan)', '990000320480246', NULL, NULL, 'IP VPN', 1, 'Open', '2021-04-20 08:03:00', '2021-04-26 08:01:00', 2000, 878, 29, NULL, NULL, 'sdasd', '', NULL, 'Februari', '2022');
 
 -- --------------------------------------------------------
 
@@ -10128,7 +10130,7 @@ ALTER TABLE `kantor_induk`
 -- AUTO_INCREMENT untuk tabel `kategori_gangguan`
 --
 ALTER TABLE `kategori_gangguan`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori_gangguan_perangkat`
@@ -10164,7 +10166,7 @@ ALTER TABLE `laptop`
 -- AUTO_INCREMENT untuk tabel `log_gangguan`
 --
 ALTER TABLE `log_gangguan`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=872;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=876;
 
 --
 -- AUTO_INCREMENT untuk tabel `master_service`

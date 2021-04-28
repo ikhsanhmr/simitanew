@@ -1646,8 +1646,6 @@ class Admin_model extends CI_Model
     $this->db->from('data_network');
     $this->db->join('log_gangguan', 'log_gangguan.sid = data_network.service_id');
     $this->db->join('kantor_induk', 'kantor_induk.id_kantor_induk = log_gangguan.id_kantor_induk');
-    // $this->db->where('periode_bulan', 'Februari');
-    // $this->db->where('periode_tahun', date('Y'));
     $this->db->group_by('keterangan');
     $get = $this->db->get();
     return $get->result_array();
