@@ -1640,7 +1640,7 @@ class Admin_model extends CI_Model
 
   function dashboard_berita_acara_perfomasi()
   {
-    $selectQuery = 'data_id, keterangan AS nama_service, data_network.service_id AS sid, log_gangguan.id_kantor_induk, data_network.service AS layanan, log_gangguan.scada, data_network.asman, (SELECT SUM(log_gangguan.durasi) FROM log_gangguan WHERE log_gangguan.periode_bulan="' . date('F') . '" AND log_gangguan.periode_tahun=' . date('Y') . ' AND log_gangguan.sid=data_network.service_id ) AS durasi, kantor_induk.nama_kantor_induk, data_network.kapasitas, (SELECT COUNT(log_gangguan.log_id) FROM log_gangguan WHERE log_gangguan.periode_bulan="' . date('F') . '" AND log_gangguan.periode_tahun=' . date('Y') . ' AND log_gangguan.sid=data_network.service_id ) AS jumlah_gangguan';
+    $selectQuery = 'data_id, keterangan AS nama_service, data_network.service_id AS sid, log_gangguan.id_kantor_induk, data_network.service AS layanan, log_gangguan.scada, data_network.asman, (SELECT SUM(log_gangguan.durasi) FROM log_gangguan WHERE log_gangguan.periode_bulan="Maret" AND log_gangguan.periode_tahun=' . date('Y') . ' AND log_gangguan.sid=data_network.service_id ) AS durasi, kantor_induk.nama_kantor_induk, data_network.kapasitas, (SELECT COUNT(log_gangguan.log_id) FROM log_gangguan WHERE log_gangguan.periode_bulan="Maret" AND log_gangguan.periode_tahun=' . date('Y') . ' AND log_gangguan.sid=data_network.service_id ) AS jumlah_gangguan';
     $this->db->select($selectQuery);
 
     $this->db->from('data_network');
