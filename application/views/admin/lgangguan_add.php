@@ -205,6 +205,23 @@
 								</div>
 							</div>
 
+							<div class="col-lg-10">
+								<div class="form-group">
+									<label for="nama_pic" class="col-sm-3 control-label">Nama PIC</label>
+									<div class="col-sm-5">
+										<input type="text" class="form-control" id="nama_pic" name="nama_pic" required />
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-10">
+								<div class="form-group">
+									<label for="no_hp_pic" class="col-sm-3 control-label">Nomor Handphone PIC</label>
+									<div class="col-sm-5">
+										<input type="number" class="form-control" id="no_hp_pic" name="no_hp_pic" required />
+									</div>
+								</div>
+							</div>
 
 						</div>
 						<!-- /.box-body -->

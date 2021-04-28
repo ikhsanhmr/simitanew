@@ -3386,7 +3386,9 @@ class Admin extends CI_Controller
 				'penyebab' => $this->input->post('penyebab'),
 				'action' => $this->input->post('action'),
 				'periode_tahun' => $this->input->post('periode_tahun'),
-				'periode_bulan' => $this->input->post('periode_bulan')
+				'periode_bulan' => $this->input->post('periode_bulan'),
+				'nama_pic' => $this->input->post('nama_pic'),
+				'no_hp_pic' => $this->input->post('no_hp_pic')
 			);
 			$insert = $this->admin_model->add_lgangguan_data($data);
 			if ($insert) {
@@ -3454,7 +3456,9 @@ class Admin extends CI_Controller
 				'penyebab' => $this->input->post('penyebab'),
 				'action' => $this->input->post('action'),
 				'periode_tahun' => $this->input->post('periode_tahun'),
-				'periode_bulan' => $this->input->post('periode_bulan')
+				'periode_bulan' => $this->input->post('periode_bulan'),
+				'nama_pic' => $this->input->post('nama_pic'),
+				'no_hp_pic' => $this->input->post('no_hp_pic')
 			);
 			$update = $this->admin_model->update_lgangguan($data, $log_id);
 			if ($update) {
