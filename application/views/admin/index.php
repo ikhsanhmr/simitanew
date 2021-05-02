@@ -557,6 +557,26 @@
         </div>
       </div>
 
+      <div class="col-md-6">
+        <!-- PIE CHART 10 SID SCADA -->
+        <div class="box box-danger">
+          <div class="box-header with-border">
+            <h3 class="box-title">Pencapaian SCADA Per Bulan</h3>
+            <div class="box-tools pull-right">
+              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+          </div>
+          <div class="box-body">
+            <div class="col-xs-12">
+              <canvas id="chartScadaPerBulan"></canvas>
+            </div>
+          </div>
+          <!-- /.box-body -->
+        </div>
+      </div>
+
       <!-- TABEL HAR NETWORK -->
       <div class="col-xs-12">
         <div class="box box-danger">
@@ -602,7 +622,7 @@
                       <td><?= $row['scada'] == 0 ? 'NON SCADA' : 'SCADA NON REDUNDANT';  ?></td>
                       <td><?= $row['jumlah_gangguan']; ?></td>
                       <td><?= $row['durasi'] ? $row['durasi'] : 0 ?></td>
-                      <td>99.00</td>
+                      <td>99</td>
                       <?php if ($realisasi_availability < 99.0) : ?>
                         <td class="bg-red"><?= number_format($realisasi_availability, 2) ?></td>
                       <?php elseif ($realisasi_availability < 100) : ?>

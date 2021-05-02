@@ -1454,6 +1454,65 @@
 
 <!-- PIE CHART SID BERMASALAH -->
 <script type="text/javascript">
+  var ctx = document.getElementById("chartScadaPerBulan").getContext('2d');
+  <?php
+  $mount_label = array();
+  $scada_value = array();
+  if (!empty($dashboard_scada_per_bulan)) {
+    foreach ($dashboard_scada_per_bulan->result_array() as $row) {
+      array_push($mount_label, $row['bulan']);
+      array_push($scada_value, $row['jumlah']);
+    }
+  }; ?>
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: <?php echo json_encode($mount_label); ?>,
+      datasets: [{
+        label: 'INTERNET',
+        data: <?php echo json_encode($scada_value); ?>,
+        backgroundColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255,99,132,1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      legend: {
+        display: true,
+        position: 'right',
+        labels: {
+          boxWidth: 10,
+          fontSize: 10
+        }
+      }
+    }
+  });
+</script>
+
+<!-- PIE CHART SID BERMASALAH -->
+<script type="text/javascript">
   var ctx = document.getElementById("chartSID").getContext('2d');
   <?php
   $sid_label = array();

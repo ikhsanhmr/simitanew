@@ -71,6 +71,7 @@ class Admin extends CI_Controller
 			$data['dashboard_network_device'] = $this->admin_model->dashboard_network_device();
 			$data['dashboard_kerusakan_perangkat'] = $this->admin_model->dashboard_kerusakan_perangkat();
 			$data['dashboard_sid_scada'] = $this->admin_model->dashboard_sid_scada();
+			$data['dashboard_scada_per_bulan'] = $this->admin_model->dashboard_scada_per_bulan();
 			$data['dashboard_berita_acara_perfomasi'] = $this->admin_model->dashboard_berita_acara_perfomasi();
 			$data['januari_internet_uiwsu'] = $this->Sla_model->januari_internet_uiwsu();
 			$data['januari_internet_uiwsu_sukses'] = $data['januari_internet_uiwsu'][0]['persentasi_sla'];
@@ -3445,7 +3446,6 @@ class Admin extends CI_Controller
 			);
 
 			$data_network = $this->admin_model->get_data_network($data['sid'], 'service_id');
-
 
 			if (!$this->send_email($data, $data_network['kapasitas'])) {
 				echo "<script>alert('Gagal Mengirim Email')</script>";

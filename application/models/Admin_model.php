@@ -1651,6 +1651,12 @@ class Admin_model extends CI_Model
     return $get->result_array();
   }
 
+  function dashboard_scada_per_bulan()
+  {
+    $query = $this->db->query('SELECT COUNT(log_id) AS jumlah, periode_bulan AS bulan FROM log_gangguan WHERE scada=1 GROUP BY periode_bulan');
+    return $query;
+  }
+
   //TINGKAT KERAWANAN
   function tampil_tingkat_kerawanan()
   {
