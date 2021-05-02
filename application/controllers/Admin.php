@@ -3350,6 +3350,59 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function send_email($data, $bandwith)
+	{
+		$config = [
+			'mailtype'  => 'html',
+			'charset'   => 'utf-8',
+			'protocol'  => 'smtp',
+			'smtp_host' => 'smtp.gmail.com',
+			'smtp_user' => 'simita766@gmail.com',  // Email gmail
+			'smtp_pass'   => 'adminsimita123',  // Password gmail
+			'smtp_crypto' => 'ssl',
+			'smtp_port'   => 465,
+			'crlf'    => "\r\n",
+			'newline' => "\r\n"
+		];
+		// Load library email dan konfigurasinya
+		$this->load->library('email');
+		$this->email->initialize($config);
+
+		// Email dan nama pengirim
+		$this->email->from('simita766@gmail.com', 'Admin SIMITA');
+
+		// Email penerima
+		$this->email->to('ikhsanhmr@gmail.com'); // Ganti dengan email tujuan
+		$this->email->cc('ikhsanblog@yahoo.co.id');
+
+		// Subject email
+		$this->email->subject('Informasi Log Gangguan');
+
+		$name = $data['nama_service'];
+		$sid = $data['sid'];
+		$pic = $data['nama_pic'];
+		$no_hp_pic = $data['no_hp_pic'];
+		$durasi = $data['durasi'];
+		// Isi email
+		$this->email->message("
+    <p>Yth Tim CA</p> <br>
+    <p>Dengan ini kami sampaikan mohon bantuan untuk pengecekan link sebagai berikut:</p>
+    <p>SID : $sid <br>
+    Name : $name <br>
+    Bandwith : $bandwith <br>
+    Waktu Down Time : $durasi menit <br>
+    PIC : $pic <br>
+    No Hp PIC : $no_hp_pic </p>
+    <p>Demikian kami sampaikan, atas perhatiannya diucapkan Terima Kasih.</p>
+    <p>Salam <br>
+    STI Sumut <br>
+    Admin SIMITA</p>
+    ");
+
+		// Tampilkan pesan sukses atau error
+		return $this->email->send();
+	}
+
 	public function action_lgangguan_add()
 	{
 		if ($this->session->userdata('status') != "login") {
@@ -3390,6 +3443,13 @@ class Admin extends CI_Controller
 				'nama_pic' => $this->input->post('nama_pic'),
 				'no_hp_pic' => $this->input->post('no_hp_pic')
 			);
+
+			$data_network = $this->admin_model->get_data_network($data['sid'], 'service_id');
+
+
+			if (!$this->send_email($data, $data_network['kapasitas'])) {
+				echo "<script>alert('Gagal Mengirim Email')</script>";
+			}
 			$insert = $this->admin_model->add_lgangguan_data($data);
 			if ($insert) {
 				echo "<script>alert('Berhasil Menambah Data')</script>";
