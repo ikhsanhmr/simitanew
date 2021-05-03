@@ -1471,18 +1471,18 @@
       datasets: [{
         label: 'SCADA',
         data: [
-          <?php echo $januari_scada_log_gangguan > 0 ? $januari_scada_log_gangguan : 100  ?>,
-          <?php echo $februari_scada_log_gangguan > 0 ? $februari_scada_log_gangguan : 100 ?>,
-          <?php echo $maret_scada_log_gangguan > 0 ? $maret_scada_log_gangguan : 100 ?>,
-          <?php echo $april_scada_log_gangguan > 0 ? $april_scada_log_gangguan : 100 ?>,
-          <?php echo $mei_scada_log_gangguan > 0 ? $mei_scada_log_gangguan : 100 ?>,
-          <?php echo $juni_scada_log_gangguan > 0 ? $juni_scada_log_gangguan : 100 ?>,
-          <?php echo $juli_scada_log_gangguan > 0 ? $juli_scada_log_gangguan : 100 ?>,
-          <?php echo $agustus_scada_log_gangguan > 0 ? $agustus_scada_log_gangguan : 100 ?>,
-          <?php echo $september_scada_log_gangguan > 0 ? $september_scada_log_gangguan : 100 ?>,
-          <?php echo $oktober_scada_log_gangguan > 0 ? $oktober_scada_log_gangguan : 100 ?>,
-          <?php echo $november_scada_log_gangguan > 0 ? $november_scada_log_gangguan : 100 ?>,
-          <?php echo $desember_scada_log_gangguan > 0 ? $desember_scada_log_gangguan : 100 ?>
+          <?php echo $januari_scada_log_gangguan ?>,
+          <?php echo $februari_scada_log_gangguan ?>,
+          <?php echo $maret_scada_log_gangguan  ?>,
+          <?php echo $april_scada_log_gangguan  ?>,
+          <?php echo $mei_scada_log_gangguan  ?>,
+          <?php echo $juni_scada_log_gangguan  ?>,
+          <?php echo $juli_scada_log_gangguan  ?>,
+          <?php echo $agustus_scada_log_gangguan  ?>,
+          <?php echo $september_scada_log_gangguan  ?>,
+          <?php echo $oktober_scada_log_gangguan  ?>,
+          <?php echo $november_scada_log_gangguan  ?>,
+          <?php echo $desember_scada_log_gangguan  ?>
         ],
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
