@@ -1465,35 +1465,52 @@
     }
   }; ?>
   var myChart = new Chart(ctx, {
-    type: 'pie',
+    type: 'bar',
     data: {
-      labels: <?php echo json_encode($mount_label); ?>,
+      labels: ["JANUARI", "FEBRUARI", "MARET", "APRIL", "MEI", "JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER"],
       datasets: [{
-        label: 'INTERNET',
-        data: <?php echo json_encode($scada_value); ?>,
+        label: 'SCADA',
+        data: [
+          <?php echo $januari_scada_log_gangguan > 0 ? $januari_scada_log_gangguan : 100  ?>,
+          <?php echo $februari_scada_log_gangguan > 0 ? $februari_scada_log_gangguan : 100 ?>,
+          <?php echo $maret_scada_log_gangguan > 0 ? $maret_scada_log_gangguan : 100 ?>,
+          <?php echo $april_scada_log_gangguan > 0 ? $april_scada_log_gangguan : 100 ?>,
+          <?php echo $mei_scada_log_gangguan > 0 ? $mei_scada_log_gangguan : 100 ?>,
+          <?php echo $juni_scada_log_gangguan > 0 ? $juni_scada_log_gangguan : 100 ?>,
+          <?php echo $juli_scada_log_gangguan > 0 ? $juli_scada_log_gangguan : 100 ?>,
+          <?php echo $agustus_scada_log_gangguan > 0 ? $agustus_scada_log_gangguan : 100 ?>,
+          <?php echo $september_scada_log_gangguan > 0 ? $september_scada_log_gangguan : 100 ?>,
+          <?php echo $oktober_scada_log_gangguan > 0 ? $oktober_scada_log_gangguan : 100 ?>,
+          <?php echo $november_scada_log_gangguan > 0 ? $november_scada_log_gangguan : 100 ?>,
+          <?php echo $desember_scada_log_gangguan > 0 ? $desember_scada_log_gangguan : 100 ?>
+        ],
         backgroundColor: [
-          'rgba(255,99,132,1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)'
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
         ],
         borderColor: [
           'rgba(255,99,132,1)',
-          'rgba(255, 206, 86, 1)',
           'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
           'rgba(75, 192, 192, 1)',
           'rgba(153, 102, 255, 1)',
           'rgba(255, 159, 64, 1)',
           'rgba(255,99,132,1)',
           'rgba(54, 162, 235, 1)',
           'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)'
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
         ],
         borderWidth: 1
       }]
@@ -1501,11 +1518,17 @@
     options: {
       legend: {
         display: true,
-        position: 'right',
         labels: {
           boxWidth: 10,
           fontSize: 10
         }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
       }
     }
   });

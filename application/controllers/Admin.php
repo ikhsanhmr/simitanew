@@ -1008,6 +1008,20 @@ class Admin extends CI_Controller
 				$data['desember_vsat_uipkitsum_ok'] = 100;
 			}
 
+			$data['januari_scada_log_gangguan'] = number_format($this->Sla_model->januari_scada_log_gangguan('Januari')[0]['hasil'], 2);
+			$data['februari_scada_log_gangguan'] = number_format($this->Sla_model->januari_scada_log_gangguan('Februari')[0]['hasil'], 2);
+			$data['maret_scada_log_gangguan'] = number_format($this->Sla_model->januari_scada_log_gangguan('Maret')[0]['hasil'], 2);
+			$data['april_scada_log_gangguan'] = number_format($this->Sla_model->januari_scada_log_gangguan('April')[0]['hasil'], 2);
+			$data['mei_scada_log_gangguan'] = number_format($this->Sla_model->januari_scada_log_gangguan('Mei')[0]['hasil'], 2);
+			$data['juni_scada_log_gangguan'] = number_format($this->Sla_model->januari_scada_log_gangguan('Juni')[0]['hasil'], 2);
+			$data['juli_scada_log_gangguan'] = number_format($this->Sla_model->januari_scada_log_gangguan('Juli')[0]['hasil'], 2);
+			$data['agustus_scada_log_gangguan'] = number_format($this->Sla_model->januari_scada_log_gangguan('Agustus')[0]['hasil'], 2);
+			$data['september_scada_log_gangguan'] = number_format($this->Sla_model->januari_scada_log_gangguan('September')[0]['hasil'], 2);
+			$data['oktober_scada_log_gangguan'] = number_format($this->Sla_model->januari_scada_log_gangguan('Oktober')[0]['hasil'], 2);
+			$data['november_scada_log_gangguan'] = number_format($this->Sla_model->januari_scada_log_gangguan('November')[0]['hasil'], 2);
+			$data['desember_scada_log_gangguan'] = number_format($this->Sla_model->januari_scada_log_gangguan('Desember')[0]['hasil'], 2);
+
+
 			$this->load->view('header');
 			$this->load->view('sidebar');
 			$this->load->view('admin/index', $data);
