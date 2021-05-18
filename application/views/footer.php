@@ -3021,6 +3021,32 @@
   })
 </script>
 
+
+<script type="text/javascript">
+  var table;
+  table = $('#table_kesiapan_pop_scada_up2d').DataTable({
+
+    "processing": true, //Feature control the processing indicator.
+    "serverSide": true, //Feature control DataTables' server-side processing mode.
+    "order": [], //Initial no order.
+    "scrollX": true,
+
+    // Load data for the table's content from an Ajax source
+    "ajax": {
+      "url": "<?php echo site_url('admin/ajax_kesiapan_pop_scada_up2d') ?>",
+      "type": "POST",
+    },
+    "searching": true,
+
+    //Set column definition initialisation properties.
+    "columnDefs": [{
+      "targets": [0], //first column / numbering column
+      "orderable": false, //set not orderable
+    }, ],
+
+  });
+</script>
+
 </body>
 
 </html>

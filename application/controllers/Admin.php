@@ -15,6 +15,8 @@ class Admin extends CI_Controller
 		$this->load->model('Kpi_model', 'kpi');
 		$this->load->model('admin_model', 'users');
 		$this->load->model('admin_model', 'stok_perangkat');
+		$this->load->model('admin_model', 'stok_perangkat');
+		$this->load->model(array('kesiapan_pop_scada_up2d_model'));
 	}
 	/**
 	 * Index Page for this controller.
@@ -4287,6 +4289,177 @@ class Admin extends CI_Controller
 
 	// END DATA POP ICON+
 
+	// Kesiapan POP Scada  Up2d
+	function kesiapan_pop_scada_up2d_view()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/kesiapan_pop_scada_up2d_view');
+			$this->load->view('footer');
+		}
+	}
+
+	public function ajax_kesiapan_pop_scada_up2d()
+	{
+		$list = $this->kesiapan_pop_scada_up2d_model->get_datatables();
+		$data = array();
+		$no = $_POST['start'];
+		foreach ($list as $item) {
+			$no++;
+			$row = array();
+			$row[] = $no;
+			$row[] = $item->nama_link;
+			$row[] = $item->sid;
+			$row[] = $item->nama_pop;
+			$row[] = $item->pop;
+			$row[] = $item->beban_pop;
+			$row[] = $item->kapasitas_baterai;
+			$row[] = $item->ketahanan_baterai;
+			$row[] = $item->genset;
+			$row[] = '<div class="hidden-sm hidden-xs text-center action-buttons">
+			<a class="green" href="' .  base_url() . 'admin/kesiapan_pop_scada_up2d_edit?id=' . $item->id . '">
+				<i class="ace-icon fa fa-pencil bigger-130"></i>
+			</a>
+			<a class="red" href="' . base_url() . 'admin/kesiapan_pop_scada_up2d_delete?id=' . $item->id . '" onclick="return confirm(`Anda Yakin Menghapus Data Ini?`);">
+				<i class="ace-icon fa fa-trash-o bigger-130"></i>
+			</a>
+		</div>
+		<div class="hidden-md hidden-lg">
+		<div class="inline pos-rel">
+			<button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown" data-position="auto">
+				<i class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
+			</button>
+			<ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
+				<li>
+					<a href="' .  base_url() . 'admin/kesiapan_pop_scada_up2d_edit?id=' . $item->id . '" class="tooltip-success" data-rel="tooltip" title="Edit">
+						<span class="green">
+							<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="' . base_url() . 'admin/kesiapan_pop_scada_up2d_delete?id=' . $item->id . '" class="tooltip-error" data-rel="tooltip" title="Delete" onclick="return confirm(`Anda Yakin Menghapus Data Ini?`);">
+						<span class="red">
+							<i class="ace-icon fa fa-trash-o bigger-120"></i>
+						</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+		';
+
+			$data[] = $row;
+		}
+
+		$output = array(
+			"draw" => $_POST['draw'],
+			"recordsTotal" => $this->kesiapan_pop_scada_up2d_model->count_all(),
+			"recordsFiltered" => $this->kesiapan_pop_scada_up2d_model->count_filtered(),
+			"data" => $data,
+		);
+		//output to json format
+		echo json_encode($output);
+	}
+
+	public function kesiapan_pop_scada_up2d_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data['data_network'] = $this->admin_model->tampil_data_network_pop_icon()->result_array();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/kesiapan_pop_scada_up2d_add', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function action_kesiapan_pop_scada_up2d_add()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$nama_link = $this->input->post('nama_link');
+			$sid = $this->input->post('sid');
+			$nama_pop = $this->input->post('nama_pop');
+			$pop = $this->input->post('pop');
+			$beban_pop = $this->input->post('beban_pop');
+			$kapasitas_baterai = $this->input->post('kapasitas_baterai');
+			$ketahanan_baterai = $this->input->post('ketahanan_baterai');
+			$genset = $this->input->post('genset');
+
+			$insert = $this->kesiapan_pop_scada_up2d_model->add_data($nama_link, $sid, $nama_pop, $pop, $beban_pop, $kapasitas_baterai, $ketahanan_baterai, $genset);
+			if ($insert) {
+				echo "<script>alert('Berhasil Menambah Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kesiapan_pop_scada_up2d_view>";
+			} else {
+				echo "<script>alert('Gagal Menambah Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kesiapan_pop_scada_up2d_view>";
+			}
+		}
+	}
+
+	public function kesiapan_pop_scada_up2d_delete()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('id');
+			$delete = $this->kesiapan_pop_scada_up2d_model->delete_data($data_id);
+			if ($delete) {
+				echo "<script>alert('Berhasil Menghapus Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kesiapan_pop_scada_up2d_view>";
+			}
+		}
+	}
+
+	public function kesiapan_pop_scada_up2d_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$data_id = $this->input->get('id');
+			$data['data_kesiapan_pop_scada_up2d'] = $this->kesiapan_pop_scada_up2d_model->tampil_data_by_id($data_id);
+			$data['data_network'] = $this->admin_model->tampil_data_network_pop_icon()->result_array();
+			$this->load->view('header');
+			$this->load->view('sidebar');
+			$this->load->view('admin/kesiapan_pop_scada_up2d_edit', $data);
+			$this->load->view('footer');
+		}
+	}
+
+	public function action_kesiapan_pop_scada_up2d_edit()
+	{
+		if ($this->session->userdata('status') != "login") {
+			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
+		} else {
+			$nama_link = $this->input->post('nama_link');
+			$sid = $this->input->post('sid');
+			$nama_pop = $this->input->post('nama_pop');
+			$pop = $this->input->post('pop');
+			$beban_pop = $this->input->post('beban_pop');
+			$kapasitas_baterai = $this->input->post('kapasitas_baterai');
+			$ketahanan_baterai = $this->input->post('ketahanan_baterai');
+			$genset = $this->input->post('genset');
+			$id = $this->input->post('id');
+
+
+			$insert = $this->kesiapan_pop_scada_up2d_model->edit_data($id, $nama_link, $sid, $nama_pop, $pop, $beban_pop, $kapasitas_baterai, $ketahanan_baterai, $genset);
+			if ($insert) {
+				echo "<script>alert('Berhasil Mengubah Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kesiapan_pop_scada_up2d_view>";
+			} else {
+				echo "<script>alert('Gagal Mengubah Data')</script>";
+				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/kesiapan_pop_scada_up2d_view>";
+			}
+		}
+	}
+
+
 	//TINGKAT KERAWANAN
 	public function tingkat_kerawanan_view()
 	{
@@ -4477,7 +4650,6 @@ class Admin extends CI_Controller
 		$this->db->update('har_network');
 		redirect('admin/corrective_maintenance');
 	}
-
 
 	function get_keterangan_data_network()
 	{

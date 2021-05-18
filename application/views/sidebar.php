@@ -33,9 +33,6 @@
              <i class="fa fa-dashboard"></i><span>Dashboard <?php  ?></span>
            </a>
          </li>
-
-
-
          <!--
           <li class="treeview <?php //if( $this->uri->segment(2)=="unit_sumut1_view" || $this->uri->segment(2)=="unit_sumut2_view" || $this->uri->segment(2)=="users_view" || $this->uri->segment(2)=="vendor_view" || $this->uri->segment(2)=="merek_view"){echo 'active';}
                               ?>">
@@ -261,9 +258,6 @@
          </li>
      </ul>
      </li>
-
-
-
      <li class="treeview <?php if ($this->uri->segment(2) == "unit_sumut1_view" || $this->uri->segment(2) == "unit_sumut2_view" || $this->uri->segment(2) == "users_view" || $this->uri->segment(2) == "vendor_view" || $this->uri->segment(2) == "merek_view") {
                             echo 'active';
                           } ?>">
@@ -301,10 +295,8 @@
          </li>
 
      </li>
-
      </ul>
      </li>
-
      <li class="<?php if ($this->uri->segment(2) == "lgangguan_view" || $this->uri->segment(2) == "lgangguan_add" || $this->uri->segment(2) == "lgangguan_edit" || $this->uri->segment(2) == "lgangguan_filter") {
                   echo 'active';
                 } ?>">
@@ -312,12 +304,18 @@
          <i class="fa fa-book"></i> <span>Log Gangguan</span>
        </a>
      </li>
-
      <li class="<?php if ($this->uri->segment(2) == "corrective_maintenance") {
                   echo 'active';
                 } ?>">
        <a href="<?php echo site_url('admin/corrective_maintenance'); ?>">
          <i class="fa fa-cog"></i> <span>Corrective Maintenance</span>
+       </a>
+     </li>
+     <li class="<?php if ($this->uri->segment(2) == "kesiapan_pop_scada_up2d_view") {
+                  echo 'active';
+                } ?>">
+       <a href="<?php echo site_url('admin/kesiapan_pop_scada_up2d_view'); ?>">
+         <i class="fa fa-book"></i> <span>Kesiapan POP SCADA UP2D</span>
        </a>
      </li>
 
@@ -386,13 +384,9 @@
              <i class="fa fa-assistive-listening-systems"></i> <span>HAR Network</span>
            </a>
          </li>
-
      </li>
-
      </ul>
      </li>
-
-
    <?php } ?>
    </ul>
    </section>
