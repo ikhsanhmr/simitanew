@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 28 Apr 2021 pada 21.49
+-- Waktu pembuatan: 18 Bulan Mei 2021 pada 04.32
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.3.27
 
@@ -892,6 +892,147 @@ CREATE TABLE `kerawanan` (
 
 INSERT INTO `kerawanan` (`id_kerawanan`, `tingkat_kerawanan`, `status_kerawanan`, `solusi_tingkat_kerawanan`) VALUES
 (1, 'Gampang Jatuh', 'Low', 'Sebaiknya perangkat dipindahkan ke tempat yang lebih aman');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kesiapan_pop_scada_up2d`
+--
+
+CREATE TABLE `kesiapan_pop_scada_up2d` (
+  `id` int(11) NOT NULL,
+  `nama_link` varchar(255) NOT NULL,
+  `sid` varchar(50) NOT NULL,
+  `nama_pop` varchar(100) NOT NULL,
+  `pop` varchar(10) NOT NULL COMMENT '(REDUNDANT NO REDUNDANT)',
+  `beban_pop` int(11) NOT NULL COMMENT '(A)',
+  `kapasitas_baterai` int(11) NOT NULL COMMENT '(Ah)',
+  `ketahanan_baterai` int(11) NOT NULL COMMENT 'perjam',
+  `genset` varchar(10) NOT NULL COMMENT '(baik / tidak baik)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `kesiapan_pop_scada_up2d`
+--
+
+INSERT INTO `kesiapan_pop_scada_up2d` (`id`, `nama_link`, `sid`, `nama_pop`, `pop`, `beban_pop`, `kapasitas_baterai`, `ketahanan_baterai`, `genset`) VALUES
+(1, '[UIW SUMUT - UP2D] GI KOTA PINANG (ROIP)', '990000320480952', 'PoP GI Kotapinang', 'Redundant', 18, 400, 22, 'Ada Baik'),
+(2, '[UIW SUMUT - UP2D] GI TARUTUNG (ROIP)', '990000320480942', 'PoP GI Tarutung', 'Redundant', 16, 200, 13, 'Ada Baik'),
+(3, '[UIW SUMUT - UP2D] KANTOR UP2D SUMUT (BACKHAUL ROIP)', '990000320481857', 'PoP UIWSU', 'Redundant', 10, 100, 10, 'Tidak ada'),
+(4, '[UIW SUMUT - UP2D] GI AEK KANOPAN (ROIP)', '990000320480947', 'PoP GI Aek Kanopan', 'Redundant', 14, 200, 14, 'Ada Baik'),
+(5, '[UIW SUMUT - UP2D] GI RANTAU PRAPAT [ROIP]', '990000320481855', 'PoP GI Rantau Prapat', 'Redundant', 32, 300, 9, 'Ada Baik'),
+(6, '[UIW SUMUT - UP2D] GI GUNUNG TUA (ROIP)', '990000320480950', 'PoP GI Gunung Tua', 'Redundant', 7, 100, 15, 'Ada Baik'),
+(7, '[UIW SUMUT - UP2D] GI PADANG SIDEMPUAN (ROIP)', '990000320483798', 'PoP GI Sidempuan ', 'Redundant', 50, 500, 10, 'Ada Baik'),
+(8, '[UIW SUMUT - UP2D] GI PORSEA (ROIP)', '990000320480941', 'PoP GI Porsea', 'Redundant', 18, 200, 11, 'Ada Baik'),
+(9, '[UIW SUMUT - UP2D] GI SIBOLGA (ROIP)', '990000320480946', 'PoP GI Sibolga', 'Redundant', 25, 400, 16, 'Ada Baik'),
+(10, '[UIW SUMUT - UP2D] GI BRASTAGI (ROIP)', '990000320480954', 'PoP GI Brastagi', 'Redundant', 14, 200, 14, 'Ada Baik'),
+(11, '[UIW SUMUT - UP2D] KANTOR UP2D SUMUT (BACKHAUL CCTV) ', '990000320514434', 'PoP UIWSU', 'Redundant', 10, 100, 10, 'Tidak ada'),
+(12, '[UIW SUMUT - UP2D] GH HELVETIA (CCTV)', '990000320498065', 'PoP ULP Helvetia', 'Redundant', 8, 100, 13, 'Tidak ada'),
+(13, '[UIW SUMUT - UP2D] GH PETISAH (CCTV) /JL. ROTAN PASAR PETISAH', '990000320519096', 'PoP ULP Medan Baru', 'Redundant', 10, 200, 20, 'Ada Baik'),
+(14, '[UIW SUMUT - UP2D] GH THAMRIN (CCTV) /JL. M.H. THAMRIN', '990000320519097', 'PoP ULP Medan Timur', 'Redundant', 21, 200, 10, 'Tidak ada'),
+(15, '[UIW SUMUT - UP2D] GH BELAWAN (CCTV)', '990000320519095', 'PoP GI Belawan', 'Redundant', 15, 400, 27, 'Ada Baik'),
+(16, '[UIW SUMUT - UP2D] GH LETNAN (CCTV)', '990000320498066', 'PoP UP3 Medan', 'Redundant', 18, 200, 11, 'Tidak ada'),
+(17, '[UIW SUMUT - UP2D] GH MABAR (CCTV)', '990000320498067', 'PoP GI Glugur', 'Redundant', 38, 400, 11, 'Ada Baik'),
+(18, '[UIW SUMUT - UP2D] GH PANCING (CCTV)', '990000320498068', 'PoP ULP Dolok Sanggul', 'Redundant', 8, 100, 13, 'Tidak ada'),
+(19, '[UIW SUMUT - UP2D] GH SUNGGAL (CCTV)', '990000320498069', 'PoP ULP Medan Baru', 'Redundant', 10, 200, 20, 'Ada Baik'),
+(20, '[UIW SUMUT - UP2D] GH USU (CCTV)', '990000320498070', 'PoP ULP Medan Baru', 'Redundant', 10, 200, 20, 'Ada Baik'),
+(21, '[UIW SUMUT - UP2D] MP KUALANAMU (CCTV)', '990000320498063', 'PoP GI Kualanamu', 'Redundant', 10, 100, 10, 'Tidak ada'),
+(22, '[UIW SUMUT - UP2D] GARDU INDUK GALANG / Naga Rejo', '1000027537', 'PoP GI Galang', 'Redundant', 6, 50, 8, 'Tidak ada'),
+(23, '[UIW SUMUT - UP2D] GH KUALANAMU (CCTV)', '1000038409', 'PoP GI Kualanamu', 'Redundant', 10, 100, 10, 'Tidak ada'),
+(24, '[UIW SUMUT - UP2D] GH MERDEKA (CCTV)', '1000038397', 'PoP UP3 Medan', 'Redundant', 18, 200, 11, 'Tidak ada'),
+(25, '[UIW SUMUT - UP2D] GI PENYABUNGAN (ROIP)', '1000057302', 'PoP ULP Panyabungan', 'Redundant', 15, 100, 7, 'Tidak ada'),
+(26, '[UIW SUMUT - UP2D] GI SIDIKALANG (ROIP)', '1000069919', 'PoP GI Sidikalang', 'Redundant', 18, 200, 11, 'Ada Baik'),
+(27, '[UIW SUMUT - UP2D] GI SIEMPAT RUBE (ROIP)', '1000069899', 'PoP GI Siempat Rube', 'Radial', 6, 100, 17, 'Tidak ada'),
+(28, '[UIW SUMUT - UP2D] GI TELE (ROIP)', '1000069914', 'PoP GI Tele', 'Redundant', 15, 200, 13, 'Ada Baik'),
+(29, '[UIW SUMUT - UP2D] GI PANGURURAN (ROIP)', '1000069908', 'PoP ULP Pangururan', 'Redundant', 10, 50, 5, 'Tidak ada'),
+(30, '[UIW SUMUT - UP2D] UP2D SUMUT - GI GLUGUR (SCADA)', '990000320643452', 'PoP GI Glugur', 'Redundant', 38, 400, 11, 'Ada Baik'),
+(31, '[UIW SUMUT - UP2D] UP2D SUMUT - GH KUALANAMU (SCADA)', '1000008551', 'PoP GI Kualanamu', 'Redundant', 10, 100, 10, 'Tidak ada'),
+(32, '[UIW SUMUT - UP2D] UP2D SUMUT - GI KUALANAMU (SCADA)', '1000008546', 'PoP GI Kualanamu', 'Redundant', 10, 100, 10, 'Tidak ada'),
+(33, '[UIW SUMUT - UP2D] UP2D SUMUT - GI PAYA PASIR (SCADA)', '1000009382', 'PoP GI Payapasir', 'Redundant', 8, 100, 13, 'Tidak ada'),
+(34, '[UIW SUMUT - UP2D] UP2D SUMUT - GI DENAI (SCADA)', '1000009394', 'PoP GI Seirotan', 'Redundant', 19, 100, 5, 'Ada Baik'),
+(35, '[UIW SUMUT - UP2D] UP2D SUMUT - GI KIM (SCADA)', '1000009388', 'PoP UIWSU', 'Redundant', 10, 100, 10, 'Tidak ada'),
+(36, '[UIW SUMUT - UP2D] UP2D SUMUT - GI LABUHAN (SCADA)', '1000009385', 'PoP GI Belawan', 'Redundant', 15, 400, 27, 'Ada Baik'),
+(37, '[UIW SUMUT - UP2D] UP2D SUMUT - GI LAMHOTMA (SCADA)', '1000009390', 'PoP GI Belawan', 'Redundant', 15, 400, 27, 'Ada Baik'),
+(38, '[UIW SUMUT - UP2D] UP2D SUMUT - GI MABAR (SCADA)', '1000008631', 'PoP GI Glugur', 'Redundant', 38, 400, 11, 'Ada Baik'),
+(39, '[UIW SUMUT - UP2D] UP2D SUMUT  - GI NAMORAMBE (SCADA)', '1000009397', 'PoP KITSBU', 'Redundant', 10, 200, 20, 'Tidak ada'),
+(40, '[UIW SUMUT - UP2D] UP2D SUMUT - GI PAYAGELI (SCADA)', '1000009396', 'PoP GI Payageli', 'Redundant', 18, 200, 11, 'Ada Baik'),
+(41, '[UIW SUMUT - UP2D] UP2D SUMUT  - GI TITI KUNING (SCADA)', '1000008634', 'PoP GI Titikuning', 'Redundant', 52, 400, 8, 'Ada Baik'),
+(42, '[UIW SUMUT - UP2D] UP2D SUMUT - GI LISTRIK  (SCADA)', '1000009380', 'PoP UP3 Medan', 'Redundant', 18, 200, 11, 'Ada Baik'),
+(43, '[UIW SUMUT - UP2D] UP2D SUMUT - GI BINJAI (SCADA)', '1000024254', 'PoP GI Binjai', 'Redundant', 18, 100, 6, 'Ada Baik'),
+(44, '[UIW SUMUT - UP2D] UP2D SUMUT - GI TAMORA (SCADA)', '1000024245', 'PoP GI Tamora', 'Redundant', 15, 200, 13, 'Ada Baik'),
+(45, '[UIW SUMUT - UP2D] UP2D SUMUT - GI TEBING TINGGI (SCADA)', '1000024263', 'PoP GI Tebing Tinggi', 'Redundant', 25, 400, 16, 'Ada Baik'),
+(46, '[UIW SUMUT - UP2D] UP2D SUMUT - GI SEI ROTAN (SCADA)', '1000024246', 'PoP GI Seirotan', 'Redundant', 19, 100, 5, 'Ada Baik'),
+(47, '[UIW SUMUT - UP2D] UP2D SUMUT - GI PERBAUNGAN (SCADA)', '1000024248', 'PoP GI Seirotan', 'Redundant', 19, 100, 5, 'Ada Baik'),
+(48, '[UIW SUMUT - UP2D] UP2D SUMUT - GI SALAK (SCADA)', '1000024275', 'PoP GI Siempat Rube', 'Radial', 6, 100, 17, 'Tidak ada'),
+(49, '[UIW SUMUT - UP2D] UP2D SUMUT - GI SIDIKALANG (SCADA)', '1000024274', 'PoP GI Sidikalang', 'Redundant', 18, 200, 11, 'Ada Baik'),
+(50, '[UIW SUMUT - UP2D] UP2D SUMUT - UPB SUMBAGUT (SCADA)', '1000030536', 'PoP ODC Glugur', 'Redundant', 14, 100, 7, 'Tidak ada'),
+(51, '[UIW SUMUT - UP2D] UP2D SUMUT - GI AEK KANOPAN (SCADA)', '1000024283', 'PoP GI Aek Kanopan', 'Redundant', 18, 400, 22, 'Ada Baik'),
+(52, '[UIW SUMUT - UP2D] UP2D SUMUT - GI PANGURURAN (SCADA)', '1000024270', 'PoP ULP Pangururan', 'Redundant', 10, 50, 5, 'Tidak ada'),
+(53, '[UIW SUMUT - UP2D] UP2D SUMUT - GI TELE (SCADA)', '1000024277', 'PoP GI Tele', 'Redundant', 15, 200, 13, 'Ada Baik'),
+(54, '[UIW SUMUT - UP2D] UP2D SUMUT - GI BERASTAGI (SCADA)', '1000030163', 'PoP GI Brastagi', 'Redundant', 14, 200, 14, 'Ada Baik'),
+(55, '[UIW SUMUT - UP2D] UP2D SUMUT - GI KISARAN? (SCADA)', '1000024280', 'PoP GI Kisaran', 'Redundant', 18, 300, 17, 'Ada Baik'),
+(56, '[UIW SUMUT - UP2D] UP2D SUMUT - GI SEI MANGKE (SCADA)', '1000024253', 'PoP GI Kuala Tanjung', 'Redundant', 15, 200, 13, 'Ada Baik'),
+(57, '[UIW SUMUT - UP2D] UP2D SUMUT - GI KUALA TANJUNG (SCADA)', '1000024278', 'PoP GI Kuala Tanjung', 'Redundant', 15, 200, 13, 'Ada Baik'),
+(58, '[UIW SUMUT - UP2D] UP2D SUMUT - GH HELVETIA (SCADA) ', '1000024089', 'PoP ULP Helvetia', 'Redundant', 8, 100, 13, 'Tidak ada'),
+(59, '[UIW SUMUT - UP2D] UP2D SUMUT - GH SUNGGAL (SCADA) ', '1000024103', 'PoP ULP Medan Baru', 'Redundant', 10, 200, 20, 'Ada Baik'),
+(60, '[UIW SUMUT - UP2D] UP2D SUMUT - GH MABAR (SCADA) ', '1000024095', 'PoP GI Glugur', 'Redundant', 38, 400, 11, 'Ada Baik'),
+(61, '[UIW SUMUT - UP2D] UP2D SUMUT - GH PANCING (SCADA) ', '1000024098', 'PoP ULP Dolok Sanggul', 'Redundant', 8, 100, 13, 'Tidak ada'),
+(62, '[UIW SUMUT - UP2D] UP2D SUMUT - GH LETNAN (SCADA)', '1000024094', 'PoP UP3 Medan', 'Redundant', 18, 200, 11, 'Ada Baik'),
+(63, '[UIW SUMUT - UP2D] UP2D SUMUT - GH PETISAH (SCADA)', '1000024101', 'PoP ULP Medan Baru', 'Redundant', 10, 200, 20, 'Ada Baik'),
+(64, '[UIW SUMUT - UP2D] UP2D SUMUT - GH THAMRIN (SCADA)', '1000024105', 'PoP ULP Medan Timur', 'Redundant', 21, 200, 10, 'Tidak ada'),
+(65, '[UIW SUMUT - UP2D] UP2D SUMUT - GH USU (SCADA)', '1000024108', 'PoP ULP Medan Baru', 'Redundant', 10, 200, 20, 'Ada Baik'),
+(66, '[UIW SUMUT - UP2D] UP2D SUMUT - GI LABUHAN ANGIN (SCADA)', '1000024295', 'PoP GI Sibolga', 'Redundant', 25, 400, 16, 'Ada Baik'),
+(67, '[UIW SUMUT - UP2D] UP2D SUMUT - GI SIBOLGA (SCADA)', '1000024294', 'PoP GI Sibolga', 'Redundant', 25, 400, 16, 'Ada Baik'),
+(68, '[UIW SUMUT - UP2D] UP2D SUMUT - GI TARUTUNG (SCADA)', '1000024268', 'PoP GI Tarutung', 'Redundant', 16, 200, 13, 'Ada Baik'),
+(69, '[UIW SUMUT - UP2D] UP2D SUMUT - GI PORSEA (SCADA)', '1000024267', 'PoP GI Porsea', 'Redundant', 18, 200, 11, 'Ada Baik'),
+(70, '[UIW SUMUT - UP2D] UP2D SUMUT - GH BELAWAN (SCADA)', '1000024087', 'PoP GI Belawan', 'Redundant', 15, 400, 27, 'Ada Baik'),
+(71, '[UIW SUMUT - UP2D] UP2D SUMUT - GH DOLOK MASIHUL (SCADA)', '1000024218', 'PoP GI Tebing Tinggi', 'Redundant', 25, 400, 16, 'Ada Baik'),
+(72, '[UIW SUMUT - UP2D] UP2D SUMUT - GI GUNUNG PARA (SCADA)', '1000024251', 'PoP GI Tebing Tinggi', 'Redundant', 25, 400, 16, 'Ada Baik'),
+(73, '[UIW SUMUT - UP2D] UP2D SUMUT - GH BINJAI TIMUR (SCADA)', '1000024118', 'PoP GI Payageli', 'Redundant', 18, 200, 11, 'Ada Baik'),
+(74, '[UIW SUMUT - UP2D] UP2D SUMUT - GH KIM 1 (SCADA)', '1000024078', 'PoP GI Payapasir', 'Redundant', 8, 100, 13, 'Ada Baik'),
+(75, '[UIW SUMUT - UP2D] UP2D SUMUT - GH KIM 2 (SCADA)', '1000024083', 'PoP GI Glugur', 'Redundant', 38, 400, 11, 'Ada Baik'),
+(76, '[UIW SUMUT - UP2D] UP2D SUMUT - GI KOTA PINANG (SCADA)', '1000024289', 'PoP GI Kotapinang', 'Redundant', 18, 400, 22, 'Ada Baik'),
+(77, '[UIW SUMUT - UP2D] UP2D SUMUT - GH SELAYANG (SCADA)', '1000024133', 'PoP ULP Medan Baru', 'Redundant', 10, 200, 20, 'Ada Baik'),
+(78, '[UIW SUMUT - UP2D] UP2D SUMUT - GH LAP MERDEKA (SCADA) ', '1000024291', 'PoP UP3 Medan', 'Redundant', 18, 200, 11, 'Ada Baik'),
+(79, '[UIW SUMUT - UP2D] UP2D SUMUT - GH TAMORA (SCADA)', '1000024167', 'PoP GI Tamora', 'Redundant', 15, 200, 13, 'Ada Baik'),
+(80, '[UIW SUMUT - UP2D] UP2D SUMUT - GI PANGKALAN BRANDAN (SCADA)', '1000024256', 'PoP GI Brandan', 'Redundant', 25, 400, 16, 'Ada Baik'),
+(81, '[UIW SUMUT - UP2D] UP2D SUMUT - GH KISARAN (SCADA)', '1000024221', 'PoP GI Kisaran', 'Redundant', 18, 300, 17, 'Ada Baik'),
+(82, '[UIW SUMUT - UP2D] UP2D SUMUT - GH TANJUNG BALAI  (SCADA)', '1000024243', 'PoP ULP Tanjung Balai', 'Radial', 15, 100, 7, 'Tidak ada'),
+(83, '[UIW SUMUT - UP2D] UP2D SUMUT - GH BINJAI STABAT (SCADA)', '1000024122', 'PoP ULP Stabat', 'Redundant', 20, 200, 10, 'Tidak ada'),
+(84, '[UIW SUMUT - UP2D] UP2D SUMUT - GH SEI RAMPAH (SCADA)', '1000024130', 'PoP ULP Sei Rampah', 'Redundant', 7, 100, 14, 'Tidak ada'),
+(85, '[UIW SUMUT - UP2D] UP2D SUMUT - GH PERDAGANGAN KOTA (SCADA)', '1000024282', 'PoP ULP Perdagangan', 'Redundant', 10, 200, 20, 'Tidak ada'),
+(86, '[UIW SUMUT - UP2D] UP2D SUMUT - GH PARAPAT (SCADA)', '1000024228', 'PoP ULP Parapat', 'Redundant', 5, 50, 10, 'Tidak ada'),
+(87, '[UIW SUMUT - UP2D] UP2D SUMUT - GH RAYA DAMANIK (SCADA)', '1000024231', 'PoP GI Pematang Siantar', 'Redundant', 19, 200, 11, 'Ada Baik'),
+(88, '[UIW SUMUT - UP2D] UP2D SUMUT - GH SIANTAR KOTA / TIMBANG GALUNG (SCADA)', '1000024242', 'PoP GI Pematang Siantar', 'Redundant', 19, 200, 11, 'Ada Baik'),
+(89, '[UIW SUMUT - UP2D] UP2D SUMUT - GI GUNUNG TUA (SCADA)', '1000024292', 'PoP GI Gunung Tua', 'Redundant', 7, 100, 15, 'Ada Baik'),
+(90, '[UIW SUMUT - UP2D] UP2D SUMUT - GH SIDIKALANG (SCADA)', '1000024126', 'PoP GI Sidikalang', 'Redundant', 18, 200, 11, 'Ada Baik'),
+(91, '[UIW SUMUT - UP2D] UP2D SUMUT - GH PANGURURAN (SCADA)', '1000024225', 'PoP ULP Pangururan', 'Radial', 10, 50, 5, 'Tidak ada'),
+(92, '[UIW SUMUT - UP2D] UP2D SUMUT - GH PINTU PADANG (SCADA)', '1000024259', 'PoP GI Sidempuan ', 'Redundant', 50, 500, 10, 'Ada Baik'),
+(93, '[UIW SUMUT - UP2D] UP2D SUMUT - GH HUTAIMBARU G TUA (SCADA)', '1000024252', 'PoP GI Gunung Tua', 'Redundant', 7, 100, 15, 'Ada Baik'),
+(94, '[UIW SUMUT - UP2D] UP2D SUMUT - GI DOLOK SANGGUL (SCADA)', '1000024271', 'PoP ULP Dolok Sanggul', 'Redundant', 8, 100, 13, 'Tidak ada'),
+(95, '[UIW SUMUT - UP2D] UP2D SUMUT - GH DOLOK SANGGUL (SCADA)', '1000024266', 'PoP ULP Dolok Sanggul', 'Redundant', 8, 100, 13, 'Tidak ada'),
+(96, '[UIW SUMUT - UP2D] UP2D SUMUT - GH PAKKAT (SCADA)', '1000024269', 'PoP ULP Dolok Sanggul', 'Redundant', 8, 100, 13, 'Tidak ada'),
+(97, '[UIW SUMUT - UP2D] UP2D SUMUT - GH BATANG GADIS (SCADA)', '1000024249', 'PoP ULP Panyabungan', 'Redundant', 15, 100, 7, 'Tidak ada'),
+(98, '[UIW SUMUT - UP2D] UP2D SUMUT - GH PALSABOLAS SIPIROK (SCADA)', '1000024255', 'PoP UP3 Sidempuan', 'Radial', 8, 100, 13, 'Tidak ada'),
+(99, '[UIW SUMUT - UP2D] UP2D SUMUT - GI PADANG SIDEMPUAN (SCADA)', '1000049290', 'PoP GI Sidempuan ', 'Redundant', 50, 500, 10, 'Ada Baik'),
+(100, '[UIW SUMUT - UP2D] UP2D SUMUT - GI PEMATANG SIANTAR (SCADA)', '1000049292', 'PoP GI Pematang Siantar', 'Redundant', 19, 200, 11, 'Ada Baik'),
+(101, '[UIW SUMUT - UP2D] UP2D SUMUT - GI RANTAU PRAPAT (SCADA)', '1000049289', 'PoP GI Rantau Prapat', 'Redundant', 32, 300, 9, 'Ada Baik'),
+(102, '[UIW SUMUT - UP2D] UP2D SUMUT - GH KUALA TANJUNG (SCADA)', '1000056514', 'PoP GI Kuala Tanjung', 'Redundant', 15, 200, 13, 'Ada Baik'),
+(103, '[UIW SUMUT - UP2D] UP2D SUMUT - GH BINJAI KOTA (SCADA)', '1000024112', 'PoP GI Binjai', 'Redundant', 18, 100, 6, 'Ada Baik'),
+(104, '[UIW SUMUT - UP2D] UP2D SUMUT - GH SIBORONG-BORONG (SCADA)', '1000024276', 'PoP GI Tarutung', 'Redundant', 16, 200, 13, 'Ada Baik'),
+(105, '[UIW SUMUT - UP2D] UP2D SUMUT - GH PRAPAT (CCTV)', '1000066178', 'PoP GI Rantau Prapat', 'Redundant', 32, 300, 9, 'Ada Baik'),
+(106, '[UIW SUMUT - UP2D] UP2D SUMUT - GH TELUK DALAM (SCADA FONISASI)', '1000078962', 'PoP GI Teluk Dalam', 'Radial', 7, 100, 14, 'Tidak ada'),
+(107, '[UIW SUMUT - UP2D] UP2D SUMUT - GI TELUK DALAM (SCADA)', '1000078960', 'PoP GI Teluk Dalam', 'Radial', 7, 100, 14, 'Tidak ada'),
+(108, '[UIW SUMUT - UP2D] UP2D SUMUT - GH FAEKHU (SCADA FONISASI)', '1000078957', 'PoP GI Gunung Sitoli', 'Radial', 7, 100, 14, 'Tidak ada'),
+(109, '[UIW SUMUT - UP2D] UP2D SUMUT - GI GUNUNG SITOLI (SCADA)', '1000078955', 'PoP GI Gunung Sitoli', 'Radial', 7, 100, 14, 'Tidak ada'),
+(110, '[UIW SUMUT - UP2D] UP2D SUMUT - UP3 MEDAN (L.02 NR-8 JL PADAT KARYA) (SCADA KEYPOINT)', '1000095162', 'PoP KITSBU', 'Redundant', 10, 200, 20, 'Tidak ada'),
+(111, '[UIW SUMUT - UP2D] UP2D SUMUT - UP3 MEDAN (L.04 PERBATASAN TI-8/NR-8 KOMPLEK JIP) (SCADA KEYPOINT)', '1000095161', 'PoP KITSBU', 'Redundant', 10, 200, 20, 'Tidak ada'),
+(112, '[UIW SUMUT - UP2D] UP2D SUMUT - UP3 MEDAN (L.03 TI-8 KARYA TANI) (SCADA KEYPOINT)', '1000095159', 'PoP KITSBU', 'Redundant', 10, 200, 20, 'Tidak ada'),
+(113, '[UIW SUMUT - UP2D] UP2D SUMUT - UP3 L PAKAM (DEPAN RS GRAND MEDISTRA) (SCADA KEYPOINT)', '1000095158', 'PoP UP3 Lubuk Pakam', 'Redundant', 8, 100, 13, 'Tidak ada'),
+(114, '[UIW SUMUT - UP2D] UP2D SUMUT - UP3 L PAKAM (DEPAN HONDA) (SCADA KEYPOINT)', '1000095156', 'PoP ULP Lubuk Pakam', 'Redundant', 13, 100, 8, 'Tidak ada'),
+(115, '[UIW SUMUT - UP2D] UP2D SUMUT - UP3 L PAKAM (DEPAN GALON MINYAK) (SCADA KEYPOINT)', '1000095155', 'PoP ULP Lubuk Pakam', 'Redundant', 13, 100, 8, 'Tidak ada'),
+(116, '[UIW SUMUT - UP2D] UP2D SUMUT - GI TELUK DALAM (ROIP) ', '1000071715', 'PoP GI Teluk Dalam', 'Radial', 7, 100, 14, 'Tidak ada'),
+(117, '[UIW SUMUT - UP2D] UP2D SUMUT - GI GUNUNG SITOLI (ROIP)', '1000071713', 'PoP GI Gunung Sitoli', 'Radial', 7, 100, 14, 'Tidak ada');
 
 -- --------------------------------------------------------
 
@@ -3430,7 +3571,8 @@ INSERT INTO `log_gangguan` (`log_id`, `no_tiket`, `nama_service`, `sid`, `id_kan
 (868, 'TIK/2103/033347', '[UIP3BS - UPT PEMATANG SIANTAR] GITET SARULLA 275kV (SCADA)', '990000320516128', 5, 0, 'IP VPN', 1, 'CLOSE', '2021-03-23 03:55:00', '2021-03-23 04:27:00', 0, 32, 20, 'GANGGUAN MODUL SFP DI POP TARUTUNG', '', 'PERBAIKAN (PLUG OUT/IN) MODUL SFP DI POP TARUTUNG', 'SUMUT 2', '', 'Maret ', '2021', '', ''),
 (869, 'TIK/2103/033352', '[UIP3BS - UPT PEMATANG SIANTAR] GI SARULLA', '1000008109', 5, 0, 'IP VPN', 0, 'CLOSE', '2021-03-23 03:55:00', '2021-03-23 04:27:00', 0, 32, 20, 'GANGGUAN MODUL SFP DI SISI POP TARUTUNG', '', 'PERBAIKAN MODUL SFP', 'SUMUT 2', '', 'Maret ', '2021', '', ''),
 (870, 'TIK/2103/033521', '[UIP3BS - UPT PEMATANG SIANTAR] GI SEI MANGKEI', '990000320478209', 5, 0, 'IP VPN', 0, 'CLOSE', '2021-03-23 09:57:00', '2021-03-23 10:35:00', 0, 38, 18, 'GANGGUAN PERANGKAT MODUL POWER DI SISI LASTMILE', '', 'PERBAIKAN PERANGKAT MODUL POWER', 'SUMUT 2', '', 'Maret ', '2021', '', ''),
-(871, 'TIK/2103/033530', '[UIP3BS - UPT PEMATANG SIANTAR] GI SEI MANGKEI (SCADA)', '990000320452064', 5, 0, 'IP VPN', 1, 'CLOSE', '2021-03-23 09:37:00', '2021-03-23 10:35:00', 0, 58, 18, 'GANGGUAN PERANGKAT MODUL POWER DI SISI LASTMILE', '', 'PERBAIKAN PERANGKAT MODUL POWER', 'SUMUT 2', '', 'Maret ', '2021', '', '');
+(871, 'TIK/2103/033530', '[UIP3BS - UPT PEMATANG SIANTAR] GI SEI MANGKEI (SCADA)', '990000320452064', 5, 0, 'IP VPN', 1, 'CLOSE', '2021-03-23 09:37:00', '2021-03-23 10:35:00', 0, 58, 18, 'GANGGUAN PERANGKAT MODUL POWER DI SISI LASTMILE', '', 'PERBAIKAN PERANGKAT MODUL POWER', 'SUMUT 2', '', 'Maret ', '2021', '', ''),
+(887, 'tes1', 'UNIT MANAJEMEN KONSTRUKSI IV (Medan)', '990000320480246', 2, 1, 'IP VPN', 0, 'Open', '2021-05-06 00:15:00', '2021-05-20 21:16:00', 28395, 226, 30, NULL, NULL, 'tes', '', NULL, 'Mei', '2021', 'Mr tes', '08354354');
 
 -- --------------------------------------------------------
 
@@ -9916,6 +10058,12 @@ ALTER TABLE `kerawanan`
   ADD PRIMARY KEY (`id_kerawanan`);
 
 --
+-- Indeks untuk tabel `kesiapan_pop_scada_up2d`
+--
+ALTER TABLE `kesiapan_pop_scada_up2d`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `komputer`
 --
 ALTER TABLE `komputer`
@@ -10146,6 +10294,12 @@ ALTER TABLE `kerawanan`
   MODIFY `id_kerawanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT untuk tabel `kesiapan_pop_scada_up2d`
+--
+ALTER TABLE `kesiapan_pop_scada_up2d`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+
+--
 -- AUTO_INCREMENT untuk tabel `komputer`
 --
 ALTER TABLE `komputer`
@@ -10167,7 +10321,7 @@ ALTER TABLE `laptop`
 -- AUTO_INCREMENT untuk tabel `log_gangguan`
 --
 ALTER TABLE `log_gangguan`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=878;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=888;
 
 --
 -- AUTO_INCREMENT untuk tabel `master_service`
