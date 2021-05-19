@@ -884,7 +884,9 @@
   })
 
   $(function() {
-    var table = $('#tabel-berita-acara-performasi-jaringan').DataTable()
+    var table = $('#tabel-berita-acara-performasi-jaringan').DataTable({
+      scrollX: true
+    })
   })
 
   $(function() {
