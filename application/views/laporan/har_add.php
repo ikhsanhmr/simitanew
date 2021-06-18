@@ -1,498 +1,497 @@
- 
  <div class="content-wrapper">
 
-<!-- Content Header (Page header) -->
-<section class="content-header">
-  <h1>
-    Laporan Inspeksi Peralatan
-    <small>Info Data</small>
-  </h1>
-  <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Master Data</a></li>
-    <li><a href="#">Laporan Inspeksi Peralatan</a></li>
-    <li class="active">Detail Info</li>
-  </ol>
-</section>
+     <!-- Content Header (Page header) -->
+     <section class="content-header">
+         <h1>
+             Laporan Inspeksi Peralatan
+             <small>Info Data</small>
+         </h1>
+         <ol class="breadcrumb">
+             <li><a href="#"><i class="fa fa-dashboard"></i> Master Data</a></li>
+             <li><a href="#">Laporan Inspeksi Peralatan</a></li>
+             <li class="active">Detail Info</li>
+         </ol>
+     </section>
 
-<section class="content">
-  <div class="row">
-    <!-- left column -->
-    <div class="col-md-12">
-      <!-- general form elements -->
-     
-
-      <!-- Form Element sizes -->
-      <div class="box box-success">
-       <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>laporan/addDataHar_action" enctype="multipart/form-data">
-            
-        <div class="box-header with-border">
-          <h3 class="box-title">Formulir Inspeksi Peralatan</h3>
-        </div>
-        
-        <div class="box-body ">
-            <div class="row">
-                <div class="col-sm-6">
-                    
-                    <div class="form-group">
-                        <label for="unit_level2" class="col-sm-4 control-label">Kantor Induk</label>
-                        <div class="col-sm-6">
-                                <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
-                                    <option selected="selected" value=""> -- Pilih Unit Level 1 -- </option>
-                                    <?php
-                                    foreach ($unit as $value) {
-                                        echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
-                                    }
-                                    ?>
-                                </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="unit_level2" class="col-sm-4 control-label">Unit Level 2</label>
-                        <div class="col-sm-6">
-                            <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;" >
-                                <option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="unit_level3" class="col-sm-4 control-label">Unit Level 3</label>
-                        <div class="col-sm-6">
-                            <select class="form-control select2" name="unit_level3" id="unit_level3" style="width: 100%;">
-                                <option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="no_hp" class="col-sm-4 control-label"> Lokasi Pekerjaan</label>
-                        <div class="col-sm-6">
-                        <input class="form-control"type="text" name="lokasi" id="lokasi"> 
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="no_hp" class="col-sm-4 control-label">Waktu Pelaksanaan</label>
-                        <div class="col-sm-6">
-                            <input type="date" class="form-control" id="waktu_pelaksanaan" name="waktu_pelaksanaan" required />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="no_hp" class="col-sm-4 control-label">Working Permit</label>
-                        <div class="col-sm-6">
-                        <input class="form-control" type="file" name="working_permit" id="working_permit"> 
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="id_perangkat" class="col-sm-4 control-label">Nama Perangkat</label>
-                        <div class="col-sm-6">
-                        <select  class="form-control select2" name="id_perangkat" id="id_perangkat"> 
-                        <option selected="selected" value=""> -- Pilih  Nama Perangkat -- </option>
-                        </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="no_hp" class="col-sm-4 control-label">Type Perangkat</label>
-                        <div class="col-sm-6">
-                        <select class="form-control select2" name="type" id="type">
-                        <option selected="selected" value=""> -- Pilih  Type Perangkat -- </option>
-                        </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="no_hp" class="col-sm-4 control-label">Serial Number</label>
-                        <div class="col-sm-6">
-                        <select  class="form-control select2" name="serial_number" id="serial_number"> 
-                        <option selected="selected" value=""> -- Pilih Serial Number -- </option>
-                        </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="no_hp" class="col-sm-4 control-label">Id Address</label>
-                        <div class="col-sm-6">
-                        <input class="form-control"type="text" name="id_address" value = "" id="id_address"> 
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="no_hp" class="col-sm-4 control-label">MAC Address</label>
-                        <div class="col-sm-6">
-                        <input class="form-control"type="text" name="mac_address" value="" id="mac_address"> 
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="no_hp" class="col-sm-4 control-label">Perangkat Hardware</label>
-                    </div>
-                    
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Tampak Fisik</label>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="tampak_fisik" id="tampak_fisik1" value="Normal"  class="tampak_fisik">
-                                Normal
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="tampak_fisik" id="tampak_fisik2" value="Ada error" class="tampak_fisik">
-                                Ada Error 
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="tampak_fisik" id="tampak_fisik3" value="Rusak" class="tampak_fisik">
-                                Rusak 
-                                </label>
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Indikator Lampu</label>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="indikator_lampu" id="indikator_lampu1" value="Normal" class="indikator_lampu">
-                                Normal
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="indikator_lampu" id="indikator_lampu2" value="Ada error" class="indikator_lampu">
-                                Ada Error 
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="indikator_lampu" id="indikator_lampu3" value="Rusak" class="indikator_lampu">
-                                Rusak 
-                                </label>
-                            </div>
-                    </div>
-                    
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Power Supply</label>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="power_supply" id="power_supply1" value="Normal"  >
-                                Normal
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="power_supply" id="power_supply2" value="Ada error">
-                                Ada Error 
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="power_supply" id="power_supply3" value="Rusak" >
-                                Rusak 
-                                </label>
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">LAN</label>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="lan" id="lan1" value="Normal"  >
-                                Normal
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="lan" id="lan2" value="Ada error">
-                                Ada Error 
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="lan" id="lan3" value="Rusak" >
-                                Rusak 
-                                </label>
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Port</label>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="port" id="port1" value="Normal"  >
-                                Normal
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="port" id="port2" value="Ada error">
-                                Ada Error 
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="port" id="port3" value="Rusak" >
-                                Rusak 
-                                </label>
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Perangkat Software</label>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Konfigurasi</label>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="konfigurasi" id="konfigurasi1" value="Normal"  >
-                                Normal
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="konfigurasi" id="konfigurasi2" value="Ada error">
-                                Ada Error 
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="konfigurasi" id="konfigurasi3" value="Rusak" >
-                                Rusak 
-                                </label>
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Backup Setting</label>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="backup_setting" id="backup_setting1" value="Normal"  >
-                                Normal
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="backup_setting" id="backup_setting2" value="Ada error">
-                                Ada Error 
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="backup_setting" id="backup_setting3" value="Rusak" >
-                                Rusak 
-                                </label>
-                            </div>
-                    </div>
-
-                </div>  
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label for="no_hp" class="col-sm-3 control-label">Backup Power</label>
-                    </div>
-                    
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Genset</label>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="genset" id="genset1" value="Normal"  >
-                                Normal
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="genset" id="genset2" value="Tidak ada">
-                                Tidak ada 
-                                </label>
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">UPS</label>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="ups" id="ups1" value="Normal"  >
-                                Normal
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="ups" id="ups2" value="Tidak ada">
-                                Tidak ada 
-                                </label>
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Inverter</label>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="inverter" id="inverter1" value="Normal"  >
-                                Normal
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="inverter" id="inverter2" value="Tidak ada">
-                                Tidak ada 
-                                </label>
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-3 control-label">Backup POP</label>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="pop" id="pop1" value="Ada"  >
-                                Ada
-                                </label>
-                            </div>
-                            <div class="radio col-sm-2">
-                                <label>
-                                <input type="radio" name="pop" id="pop2" value="Tidak ada">
-                                Tidak ada 
-                                </label>
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Tingkat Kerawanan</label>
-							 <div class="col-sm-6" >
-                            <select  class="form-control select2" name="tingkat_kerawanan" id="tingkat_kerawanan"> 
-                            <option selected="selected" value=""> -- Pilih  Tingkat Kerawanan -- </option>
-                            <?php foreach ($kerawanan as $value) : ?>
-                                <option value="<?= $value->tingkat_kerawanan ?>" data-solusi="<?= $value->solusi_tingkat_kerawanan ?>"><?= $value->tingkat_kerawanan ?> (<?= $value->status_kerawanan ?>)</option>
-                            <?php endforeach; ?>
-                               
-                            
-                            </select>
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Pengawas Pekerjaan</label>
-
-                            <div class="col-sm-6">
-                            <!-- <input class="form-control"type="text" name="pengawas_pekerjaan" id="pengawas_pekerjaan"> -->
-                            <select class="form-control select2" id="pengawas_pekerjaan" name="pengawas_pekerjaan" style="width: 100%;">
-                                <option selected="selected" value=""> -- Pilih Pengawas -- </option>
-                                <?php
-                                foreach ($pegawainya as $value) { ?>
-                                    <option value="<?php echo $value['nama']; ?>"><?php echo $value['nama']; ?></option>
-                                <?php }
-                                ?>
-                            </select> 
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Pelaksana Pekerjaan</label>
-                            <div class="col-sm-6">
-                            <!-- <input class="form-control"type="text" name="pelaksana_pekerjaan" id="pelaksana_pekerjaan">  -->
-                            <select class="form-control select2" id="pelaksana_pekerjaan" name="pelaksana_pekerjaan" style="width: 100%;">
-                                <option selected="selected" value=""> -- Pilih Pelaksana -- </option>
-                                <?php
-                                foreach ($pegawainya as $value) { ?>
-                                    <option value="<?php echo $value['nama']; ?>"><?php echo $value['nama']; ?></option>
-                                <?php }
-                                ?>
-                            </select> 
-                            </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label">Catatan</label>
-                        <div class="col-sm-6">
-                        <textarea name="catatan" class="form-control" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." rows="3"></textarea>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Kondisi Sebelum Pengerjaan</label>
-                            <div class="col-sm-6">
-                            <input class="form-control"type="file" name="foto_sebelum_pengerjaan" id="foto_sebelum_pengerjaan" required> 
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Kondisi Saat Pengerjaan</label>
-                            <div class="col-sm-6">
-                            <input class="form-control" type="file" name="foto_saat_pengerjaan" id="foto_saat_pengerjaan" required> 
-                            </div>
-                    </div>
-
-                    <div class="form-group">
-                            <label for="no_hp" class="col-sm-4 control-label">Kondisi Setelah Pengerjaan</label>
-                            <div class="col-sm-6">
-                            <input class="form-control"type="file" name="foto_sesudah_pengerjaan" id="foto_sesudah_pengerjaan" required> 
-                            </div>
-                        </div>
+     <section class="content">
+         <div class="row">
+             <!-- left column -->
+             <div class="col-md-12">
+                 <!-- general form elements -->
 
 
+                 <!-- Form Element sizes -->
+                 <div class="box box-success">
+                     <form class="form-horizontal" method="post" action="<?php echo base_url(); ?>laporan/addDataHar_action" enctype="multipart/form-data">
 
-                </div>
-            </div>
-			
-            
-              
-               
+                         <div class="box-header with-border">
+                             <h3 class="box-title">Formulir Inspeksi Peralatan</h3>
+                         </div>
 
-                <div class="box-body">
+                         <div class="box-body ">
+                             <div class="row">
+                                 <div class="col-sm-6">
 
-                <div class="box-body ">
-                    <div class="col-lg-10">
+                                     <div class="form-group">
+                                         <label for="unit_level2" class="col-sm-4 control-label">Kantor Induk</label>
+                                         <div class="col-sm-6">
+                                             <select class="form-control select2" id="kantor_induk" name="kantor_induk" style="width: 100%;">
+                                                 <option selected="selected" value=""> -- Pilih Unit Level 1 -- </option>
+                                                 <?php
+                                                    foreach ($unit as $value) {
+                                                        echo "<option value='$value->id_kantor_induk'>$value->nama_kantor_induk</option>";
+                                                    }
+                                                    ?>
+                                             </select>
+                                         </div>
+                                     </div>
 
-                    </div>
+                                     <div class="form-group">
+                                         <label for="unit_level2" class="col-sm-4 control-label">Unit Level 2</label>
+                                         <div class="col-sm-6">
+                                             <select class="form-control select2" name="unit_level2" id="unit_level2" style="width: 100%;">
+                                                 <option selected="selected" value=""> -- Pilih Unit Level 2 -- </option>
+                                             </select>
+                                         </div>
+                                     </div>
 
-                    <div class="col-lg-10">
+                                     <div class="form-group">
+                                         <label for="unit_level3" class="col-sm-4 control-label">Unit Level 3</label>
+                                         <div class="col-sm-6">
+                                             <select class="form-control select2" name="unit_level3" id="unit_level3" style="width: 100%;">
+                                                 <option selected="selected" value=""> -- Pilih Unit Level 3 -- </option>
+                                             </select>
+                                         </div>
+                                     </div>
 
-                    </div>
-               
-                    <div class="col-lg-10">
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label"> Lokasi Pekerjaan</label>
+                                         <div class="col-sm-6">
+                                             <input class="form-control" type="text" name="lokasi" id="lokasi">
+                                         </div>
+                                     </div>
 
-                    </div>
-                </div>
-               
-               <!-- SOLUSI -->
-               <!-- PERANGKAT HARDWARE -->
-               <input type="hidden" id="solusi_tingkat_kerawanan" name="solusi_tingkat_kerawanan">
-               <input class="form-control" type="hidden" value="" name="solusi_tampak_fisik" id="solusi_tampak_fisik" >
-               <input class="form-control" type="hidden" value="" name="solusi_indikator_lampu" id="solusi_indikator_lampu" >  
-               <input class="form-control" type="hidden" value="" name="solusi_power_supply" id="solusi_power_supply" >  
-               <input class="form-control" type="hidden" value="" name="solusi_lan" id="solusi_lan" >  
-               <input class="form-control" type="hidden" value="" name="solusi_port" id="solusi_port" >  
-               <!-- PERANGKAT SOFTWARE -->
-               <input class="form-control" type="hidden" value="" name="solusi_konfigurasi" id="solusi_konfigurasi" > 
-               <input class="form-control" type="hidden" value="" name="solusi_backup_setting" id="solusi_backup_setting" > 
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Waktu Pelaksanaan</label>
+                                         <div class="col-sm-6">
+                                             <input type="date" class="form-control" id="waktu_pelaksanaan" name="waktu_pelaksanaan" required />
+                                         </div>
+                                     </div>
 
-               <!-- BACKUP POWER -->
-               <input class="form-control" type="hidden" value="" name="solusi_genset" id="solusi_genset" > 
-               <input class="form-control" type="hidden" value="" name="solusi_ups" id="solusi_ups" > 
-               <input class="form-control" type="hidden" value="" name="solusi_inverter" id="solusi_inverter" > 
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Working Permit</label>
+                                         <div class="col-sm-6">
+                                             <input class="form-control" type="file" name="working_permit" id="working_permit">
+                                         </div>
+                                     </div>
 
-               <!-- BACKUP POP -->
-               <input class="form-control" type="hidden" value="" name="solusi_pop" id="solusi_pop" > 
+                                     <div class="form-group">
+                                         <label for="id_perangkat" class="col-sm-4 control-label">Nama Perangkat</label>
+                                         <div class="col-sm-6">
+                                             <select class="form-control select2" name="id_perangkat" id="id_perangkat">
+                                                 <option selected="selected" value=""> -- Pilih Nama Perangkat -- </option>
+                                             </select>
+                                         </div>
+                                     </div>
 
-        <!-- /.box-body -->
-                <div class="box-footer">
-                    <div class="pull-center">
-                        <a href="<?php echo base_url(); ?>laporan/getDataHar" class="btn btn-danger">Kembali</a>
-                        <button type="submit" class="btn btn-success">Submit</button>
-                    </div>
-                </div>
-                 </form>
-      </div>
-      <!-- /.box -->
-                
-    </div>
-    
-  </div>
-  <!-- /.row -->
-</section>
-<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Type Perangkat</label>
+                                         <div class="col-sm-6">
+                                             <select class="form-control select2" name="type" id="type">
+                                                 <option selected="selected" value=""> -- Pilih Type Perangkat -- </option>
+                                             </select>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Serial Number</label>
+                                         <div class="col-sm-6">
+                                             <select class="form-control select2" name="serial_number" id="serial_number">
+                                                 <option selected="selected" value=""> -- Pilih Serial Number -- </option>
+                                             </select>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Id Address</label>
+                                         <div class="col-sm-6">
+                                             <input class="form-control" type="text" name="id_address" value="" id="id_address">
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">MAC Address</label>
+                                         <div class="col-sm-6">
+                                             <input class="form-control" type="text" name="mac_address" value="" id="mac_address">
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Perangkat Hardware</label>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Tampak Fisik</label>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="tampak_fisik" id="tampak_fisik1" value="Normal" class="tampak_fisik">
+                                                 Normal
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="tampak_fisik" id="tampak_fisik2" value="Ada error" class="tampak_fisik">
+                                                 Ada Error
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="tampak_fisik" id="tampak_fisik3" value="Rusak" class="tampak_fisik">
+                                                 Rusak
+                                             </label>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Indikator Lampu</label>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="indikator_lampu" id="indikator_lampu1" value="Normal" class="indikator_lampu">
+                                                 Normal
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="indikator_lampu" id="indikator_lampu2" value="Ada error" class="indikator_lampu">
+                                                 Ada Error
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="indikator_lampu" id="indikator_lampu3" value="Rusak" class="indikator_lampu">
+                                                 Rusak
+                                             </label>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Power Supply</label>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="power_supply" id="power_supply1" value="Normal">
+                                                 Normal
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="power_supply" id="power_supply2" value="Ada error">
+                                                 Ada Error
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="power_supply" id="power_supply3" value="Rusak">
+                                                 Rusak
+                                             </label>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">LAN</label>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="lan" id="lan1" value="Normal">
+                                                 Normal
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="lan" id="lan2" value="Ada error">
+                                                 Ada Error
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="lan" id="lan3" value="Rusak">
+                                                 Rusak
+                                             </label>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Port</label>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="port" id="port1" value="Normal">
+                                                 Normal
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="port" id="port2" value="Ada error">
+                                                 Ada Error
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="port" id="port3" value="Rusak">
+                                                 Rusak
+                                             </label>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Perangkat Software</label>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Konfigurasi</label>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="konfigurasi" id="konfigurasi1" value="Normal">
+                                                 Normal
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="konfigurasi" id="konfigurasi2" value="Ada error">
+                                                 Ada Error
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="konfigurasi" id="konfigurasi3" value="Rusak">
+                                                 Rusak
+                                             </label>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Backup Setting</label>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="backup_setting" id="backup_setting1" value="Normal">
+                                                 Normal
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="backup_setting" id="backup_setting2" value="Ada error">
+                                                 Ada Error
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="backup_setting" id="backup_setting3" value="Rusak">
+                                                 Rusak
+                                             </label>
+                                         </div>
+                                     </div>
+
+                                 </div>
+                                 <div class="col-sm-6">
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-3 control-label">Backup Power</label>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-3 control-label">Genset</label>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="genset" id="genset1" value="Normal">
+                                                 Normal
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="genset" id="genset2" value="Tidak ada">
+                                                 Tidak ada
+                                             </label>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-3 control-label">UPS</label>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="ups" id="ups1" value="Normal">
+                                                 Normal
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="ups" id="ups2" value="Tidak ada">
+                                                 Tidak ada
+                                             </label>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-3 control-label">Inverter</label>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="inverter" id="inverter1" value="Normal">
+                                                 Normal
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="inverter" id="inverter2" value="Tidak ada">
+                                                 Tidak ada
+                                             </label>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-3 control-label">Backup POP</label>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="pop" id="pop1" value="Ada">
+                                                 Ada
+                                             </label>
+                                         </div>
+                                         <div class="radio col-sm-2">
+                                             <label>
+                                                 <input type="radio" name="pop" id="pop2" value="Tidak ada">
+                                                 Tidak ada
+                                             </label>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Tingkat Kerawanan</label>
+                                         <div class="col-sm-6">
+                                             <select class="form-control select2" name="tingkat_kerawanan" id="tingkat_kerawanan">
+                                                 <option selected="selected" value=""> -- Pilih Tingkat Kerawanan -- </option>
+                                                 <?php foreach ($kerawanan as $value) : ?>
+                                                     <option value="<?= $value->tingkat_kerawanan ?>" data-solusi="<?= $value->solusi_tingkat_kerawanan ?>"><?= $value->tingkat_kerawanan ?> (<?= $value->status_kerawanan ?>)</option>
+                                                 <?php endforeach; ?>
+
+
+                                             </select>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Pengawas Pekerjaan</label>
+
+                                         <div class="col-sm-6">
+                                             <!-- <input class="form-control"type="text" name="pengawas_pekerjaan" id="pengawas_pekerjaan"> -->
+                                             <select class="form-control select2" id="pengawas_pekerjaan" name="pengawas_pekerjaan" style="width: 100%;">
+                                                 <option selected="selected" value=""> -- Pilih Pengawas -- </option>
+                                                 <?php
+                                                    foreach ($pegawainya as $value) { ?>
+                                                     <option value="<?php echo $value['nama']; ?>"><?php echo $value['nama']; ?></option>
+                                                 <?php }
+                                                    ?>
+                                             </select>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Pelaksana Pekerjaan</label>
+                                         <div class="col-sm-6">
+                                             <!-- <input class="form-control"type="text" name="pelaksana_pekerjaan" id="pelaksana_pekerjaan">  -->
+                                             <select class="form-control select2" id="pelaksana_pekerjaan" name="pelaksana_pekerjaan" style="width: 100%;">
+                                                 <option selected="selected" value=""> -- Pilih Pelaksana -- </option>
+                                                 <?php
+                                                    foreach ($pegawainya as $value) { ?>
+                                                     <option value="<?php echo $value['nama']; ?>"><?php echo $value['nama']; ?></option>
+                                                 <?php }
+                                                    ?>
+                                             </select>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label class="col-sm-4 control-label">Catatan</label>
+                                         <div class="col-sm-6">
+                                             <textarea name="catatan" class="form-control" placeholder="Contoh : Baterai laptop sudah tidak dapat berfungsi dengan baik." rows="3"></textarea>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Kondisi Sebelum Pengerjaan</label>
+                                         <div class="col-sm-6">
+                                             <input class="form-control" type="file" name="foto_sebelum_pengerjaan" id="foto_sebelum_pengerjaan" required>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Kondisi Saat Pengerjaan</label>
+                                         <div class="col-sm-6">
+                                             <input class="form-control" type="file" name="foto_saat_pengerjaan" id="foto_saat_pengerjaan" required>
+                                         </div>
+                                     </div>
+
+                                     <div class="form-group">
+                                         <label for="no_hp" class="col-sm-4 control-label">Kondisi Setelah Pengerjaan</label>
+                                         <div class="col-sm-6">
+                                             <input class="form-control" type="file" name="foto_sesudah_pengerjaan" id="foto_sesudah_pengerjaan" required>
+                                         </div>
+                                     </div>
+
+
+
+                                 </div>
+                             </div>
+
+
+
+
+
+                             <div class="box-body">
+
+                                 <div class="box-body ">
+                                     <div class="col-lg-10">
+
+                                     </div>
+
+                                     <div class="col-lg-10">
+
+                                     </div>
+
+                                     <div class="col-lg-10">
+
+                                     </div>
+                                 </div>
+
+                                 <!-- SOLUSI -->
+                                 <!-- PERANGKAT HARDWARE -->
+                                 <input type="hidden" id="solusi_tingkat_kerawanan" name="solusi_tingkat_kerawanan">
+                                 <input class="form-control" type="hidden" value="" name="solusi_tampak_fisik" id="solusi_tampak_fisik">
+                                 <input class="form-control" type="hidden" value="" name="solusi_indikator_lampu" id="solusi_indikator_lampu">
+                                 <input class="form-control" type="hidden" value="" name="solusi_power_supply" id="solusi_power_supply">
+                                 <input class="form-control" type="hidden" value="" name="solusi_lan" id="solusi_lan">
+                                 <input class="form-control" type="hidden" value="" name="solusi_port" id="solusi_port">
+                                 <!-- PERANGKAT SOFTWARE -->
+                                 <input class="form-control" type="hidden" value="" name="solusi_konfigurasi" id="solusi_konfigurasi">
+                                 <input class="form-control" type="hidden" value="" name="solusi_backup_setting" id="solusi_backup_setting">
+
+                                 <!-- BACKUP POWER -->
+                                 <input class="form-control" type="hidden" value="" name="solusi_genset" id="solusi_genset">
+                                 <input class="form-control" type="hidden" value="" name="solusi_ups" id="solusi_ups">
+                                 <input class="form-control" type="hidden" value="" name="solusi_inverter" id="solusi_inverter">
+
+                                 <!-- BACKUP POP -->
+                                 <input class="form-control" type="hidden" value="" name="solusi_pop" id="solusi_pop">
+
+                                 <!-- /.box-body -->
+                                 <div class="box-footer">
+                                     <div class="pull-center">
+                                         <a href="<?php echo base_url(); ?>laporan/getDataHar" class="btn btn-danger">Kembali</a>
+                                         <button type="submit" class="btn btn-success">Submit</button>
+                                     </div>
+                                 </div>
+                     </form>
+                 </div>
+                 <!-- /.box -->
+
+             </div>
+
+         </div>
+         <!-- /.row -->
+     </section>
+     <!-- /.content -->
+ </div>
+ <!-- /.content-wrapper -->
