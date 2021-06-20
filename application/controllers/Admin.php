@@ -17,6 +17,8 @@ class Admin extends CI_Controller
 		$this->load->model('admin_model', 'stok_perangkat');
 		$this->load->model('admin_model', 'stok_perangkat');
 		$this->load->model(array('kesiapan_pop_scada_up2d_model'));
+		$this->load->model('Laporan_model', 'laporan');
+		$this->load->model('Pegawai_model', 'pegawai');
 	}
 	/**
 	 * Index Page for this controller.
@@ -2904,7 +2906,7 @@ class Admin extends CI_Controller
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$id_merek = $this->input->post('id_merek');
-			$device_type = $this->input->post('device_type');
+			$type = $this->input->post('device_type');
 			$nama_pengguna = $this->input->post('nama_pengguna');
 			$id_unit = $this->input->post('unit_level3');
 			$id_vendor = $this->input->post('id_vendor');
@@ -2916,7 +2918,7 @@ class Admin extends CI_Controller
 			$id_hi = '0';
 			$data = array(
 				'id_merek' => $id_merek,
-				'device_type' => $device_type,
+				'type' => $type,
 				'ip_address' => $ip_address,
 				'username' => $username,
 				'password' => $password,
@@ -2944,6 +2946,8 @@ class Admin extends CI_Controller
 			$data['unitnya'] = $this->admin_model->tampil_unit();
 			$data['list_vendor'] = $this->admin_model->list_vendor();
 			$data['network_devicenya'] = $this->admin_model->get_network_device($id_network_device);
+			$data['kerawanan'] = $this->laporan->data_kerawanan();
+			$data['pegawainya'] = $this->pegawai->getData();
 			$this->data['title'] = 'Update Laptop :: ';
 			$this->load->view('header', $this->data);
 			$this->load->view('sidebar', $data);
@@ -2954,15 +2958,20 @@ class Admin extends CI_Controller
 
 	public function action_network_device_edit()
 	{
-		//print_r ($_POST); exit;
 		if ($this->session->userdata('status') != "login") {
 			echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/login>";
 		} else {
 			$id_network_device = $this->input->post('id_network_device');
+			$nama_perangkat = $this->admin_model->get_network_device($id_network_device);
+			//var_dump($nama_perangkat);
+			//die();
 			$id_merek = $this->input->post('id_merek');
-			$device_type = $this->input->post('device_type');
+			$type = $this->input->post('device_type');
 			$nama_pengguna = $this->input->post('nama_pengguna');
+			$kantor_induk = $this->input->post('kantor_induk');
+			$unit_level2 = $this->input->post('unit_level2');
 			$id_unit = $this->input->post('unit_level3');
+
 			$status_kepemilikan = $this->input->post('status_kepemilikan');
 			if ($status_kepemilikan == 'Aset PLN') {
 				$id_vendor = '0';
@@ -2973,17 +2982,143 @@ class Admin extends CI_Controller
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 			$tahun = $this->input->post('tahun');
+			$serial_number = $this->input->post('serial_number');
+			$mac_address = $this->input->post('mac_address');
+
+			$tampak_fisik = $this->input->post('tampak_fisik');
+			$indikator_lampu = $this->input->post('indikator_lampu');
+			$power_supply = $this->input->post('power_supply');
+			$lan = $this->input->post('lan');
+			$port = $this->input->post('port');
+			$konfigurasi = $this->input->post('konfigurasi');
+			$catatan = $this->input->post('catatan');
+			$backup_setting = $this->input->post('backup_setting');
+			$ups = $this->input->post('ups');
+			$genset = $this->input->post('genset');
+			$inverter = $this->input->post('inverter');
+			$tingkat_kerawanan = $this->input->post('tingkat_kerawanan');
+
+			$pengawas_pekerjaan = $this->input->post('pengawas_pekerjaan');
+			$pelaksana_pekerjaan = $this->input->post('pelaksana_pekerjaan');
+
+			$config['upload_path']         =  './public/images/har_network/';  // folder upload 
+			$config['allowed_types']        = 'gif|jpg|png|jpeg|pdf'; // jenis file
+			$config['max_size']             = 30000;
+
+			$this->load->library('upload', $config);
+
+			$lokasi = $this->input->post('lokasi');
+			$waktu_pelaksanaan = $this->input->post('waktu_pelaksanaan');
+
+			$pop = $this->input->post('pop');
+
+			$solusi_t_fisik = $this->input->post('solusi_tampak_fisik');
+			$solusi_i_lampu = $this->input->post('solusi_indikator_lampu');
+			$solusi_p_supply = $this->input->post('solusi_power_supply');
+			$solusi_lan = $this->input->post('solusi_lan');
+			$solusi_port = $this->input->post('solusi_port');
+			$solusi_konfig = $this->input->post('solusi_konfigurasi');
+			$solusi_genset = $this->input->post('solusi_genset');
+			$solusi_ups = $this->input->post('solusi_ups');
+			$solusi_inverter = $this->input->post('solusi_inverter');
+			$solusi_backup = $this->input->post('solusi_backup_setting');
+			$solusi_tingkat_kerawanan = $this->input->post('solusi_tingkat_kerawanan');
+			$solusi_pop = $this->input->post('solusi_pop');
+
+			// script uplaod file pdf
+			$filePdf = $this->upload->do_upload('working_permit');
+			if ($filePdf != null) {
+				$pdf = $this->upload->data();
+				$working_permit = $pdf["file_name"];
+			} else {
+				$working_permit = "";
+			}
+
+			//INPUT GAMBAR
+			// script upload file pertama
+			$foto1 = $this->upload->do_upload('foto_sebelum_pengerjaan');
+			if ($foto1 != null) {
+				$file1 = $this->upload->data();
+				$foto_sebelum_pengerjaan = $file1["file_name"];
+			} else {
+				$foto_sebelum_pengerjaan = "";
+			}
+
+			// script uplaod file kedua
+			$foto2 = $this->upload->do_upload('foto_sesudah_pengerjaan');
+			if ($foto2 != null) {
+				$file2 = $this->upload->data();
+				$foto_sesudah_pengerjaan = $file2["file_name"];
+			} else {
+				$foto_sesudah_pengerjaan = "";
+			}
+			$foto3 = $this->upload->do_upload('foto_saat_pengerjaan');
+			if ($foto3 != null) {
+				$file3 = $this->upload->data();
+				$foto_saat_pengerjaan = $file3["file_name"];
+			} else {
+				$foto_saat_pengerjaan = "";
+			}
+
 			$data = array(
 				'id_merek' => $id_merek,
-				'device_type' => $device_type,
+				'type' => $type,
 				'ip_address' => $ip_address,
 				'username' => $username,
 				'password' => $password,
-				'nama_pengguna' => $nama_pengguna, 'id_unit_level3' => $id_unit, 'id_vendor' => $id_vendor, 'tahun' => $tahun,
+				'nama_pengguna' => $nama_pengguna,
+				'id_unit_level3' => $id_unit,
+				'id_vendor' => $id_vendor,
+				'tahun' => $tahun,
 				'status_kepemilikan' => $status_kepemilikan,
 			);
+			$data1 = array(
+				'lokasi' => $lokasi,
+				'waktu_pelaksanaan' => $waktu_pelaksanaan,
+				'nama_perangkat' => $nama_perangkat['device_type'],
+				'id_perangkat' => $id_network_device,
+				'serial_number' => $serial_number,
+				'working_permit' => $working_permit,
+				'type' => $type,
+				'id_address' => $ip_address,
+				'mac_address' => $mac_address,
+				'tampak_fisik' => $tampak_fisik,
+				'indikator_lampu' => $indikator_lampu,
+				'power_supply' => $power_supply,
+				'lan' => $lan,
+				'port' => $port,
+				'konfigurasi' => $konfigurasi,
+				'backup_setting' => $backup_setting,
+				'ups' => $ups,
+				'genset' => $genset,
+				'inverter' => $inverter,
+				'catatan' => $catatan,
+				'tingkat_kerawanan' => $tingkat_kerawanan,
+				'solusi_tingkat_kerawanan' => $solusi_tingkat_kerawanan,
+				'kantor_induk' => $kantor_induk,
+				'unit_level2' => $unit_level2,
+				'unit_level3' => $id_unit,
+				'pengawas_pekerjaan' => $pengawas_pekerjaan,
+				'pelaksana_pekerjaan' => $pelaksana_pekerjaan,
+				'foto_sebelum_pengerjaan' => $foto_sebelum_pengerjaan,
+				'foto_sesudah_pengerjaan' => $foto_sesudah_pengerjaan,
+				'foto_saat_pengerjaan' => $foto_saat_pengerjaan,
+				'solusi_indikator_lampu' => $solusi_i_lampu,
+				'solusi_tampak_fisik' => $solusi_t_fisik,
+				'solusi_inverter' => $solusi_inverter,
+				'solusi_backup_setting' => $solusi_backup,
+				'solusi_power_supply' => $solusi_p_supply,
+				'solusi_lan' => $solusi_lan,
+				'solusi_port' => $solusi_port,
+				'solusi_konfigurasi' => $solusi_konfig,
+				'solusi_genset' => $solusi_genset,
+				'solusi_ups' => $solusi_ups,
+				'solusi_pop' => $solusi_pop,
+				'pop' => $pop,
+			);
+			$insert = $this->laporan->addDataHar($data1);
 			$update = $this->admin_model->update_network_device($data, $id_network_device);
-			if ($update) {
+			if ($update && $insert) {
 				echo "<script>alert('Berhasil Mengubah Data')</script>";
 				echo "<meta http-equiv=refresh content=0;url=" . base_url() . "admin/network_device_view?id_network_device=" . $id_network_device . ">";
 			}

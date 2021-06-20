@@ -232,7 +232,6 @@ class Laporan extends CI_Controller
 
 			$this->load->library('upload', $config);
 
-
 			$lokasi = $this->input->post('lokasi');
 			$waktu_pelaksanaan = $this->input->post('waktu_pelaksanaan');
 			$id_perangkat = $this->input->post('id_perangkat');
@@ -259,6 +258,8 @@ class Laporan extends CI_Controller
 			$unit_level3 = $this->input->post('unit_level3');
 			$pengawas_pekerjaan = $this->input->post('pengawas_pekerjaan');
 			$pelaksana_pekerjaan = $this->input->post('pelaksana_pekerjaan');
+			$pop = $this->input->post('pop');
+
 			$solusi_t_fisik = $this->input->post('solusi_tampak_fisik');
 			$solusi_i_lampu = $this->input->post('solusi_indikator_lampu');
 			$solusi_p_supply = $this->input->post('solusi_power_supply');
@@ -271,7 +272,6 @@ class Laporan extends CI_Controller
 			$solusi_backup = $this->input->post('solusi_backup_setting');
 			$solusi_tingkat_kerawanan = $this->input->post('solusi_tingkat_kerawanan');
 			$solusi_pop = $this->input->post('solusi_pop');
-			$pop = $this->input->post('pop');;
 			// script uplaod file pdf
 			$filePdf = $this->upload->do_upload('working_permit');
 			if ($filePdf != null) {
@@ -308,7 +308,9 @@ class Laporan extends CI_Controller
 			}
 
 			$data = array(
-				'lokasi' => $lokasi, 'waktu_pelaksanaan' => $waktu_pelaksanaan, 'nama_perangkat' => $nama_perangkat['device_type'],
+				'lokasi' => $lokasi,
+				'waktu_pelaksanaan' => $waktu_pelaksanaan,
+				'nama_perangkat' => $nama_perangkat['device_type'],
 				'id_perangkat' => $id_perangkat,
 				'serial_number' => $serial_number,
 				'working_permit' => $working_permit,

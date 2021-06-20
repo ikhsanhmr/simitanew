@@ -286,9 +286,9 @@
            </a>
          </li>
 
-         <li class="<?php if ($this->uri->segment(2) == "getLaporan") {
-                      echo 'active';
-                    } ?>">
+         <li style="display: none;" class="<?php if ($this->uri->segment(2) == "getLaporan") {
+                                              echo 'active';
+                                            } ?>">
            <a href="<?php echo site_url('laporan/getDataHar'); ?>">
              <i class="fa fa-assistive-listening-systems"></i> <span>Inspeksi Peralatan</span>
            </a>

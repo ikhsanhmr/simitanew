@@ -47,16 +47,12 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="device_type" class="col-md-3 control-label">Device Type</label>
                                         <div class="col-md-8">
-                                            <input type="text" class="form-control" id="device_type" name="device_type" value="<?php echo $network_devicenya['device_type']; ?>" required />
+                                            <input type="text" class="form-control" id="device_type" name="device_type" value="<?php echo $network_devicenya['device_type']; ?>" />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
 
                                         <label for="ip_address" class="col-md-3 control-label">IP Address</label>
@@ -70,24 +66,18 @@
                                         </div>
                                     </div>
 
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="username" class="col-md-3 control-label">Username</label>
                                         <div class="col-md-8">
                                             <input type="text" class="form-control" id="username" name="username" value="<?php echo $network_devicenya['username']; ?>" />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="password" class="col-md-3 control-label">Password</label>
                                         <div class="col-md-8">
                                             <input type="text" class="form-control" id="password" name="password" value="<?php echo $network_devicenya['password']; ?>" />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="nama_pengguna" class="col-md-3 control-label">Pengguna</label>
                                         <div class="col-md-8">
@@ -95,8 +85,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php foreach ($unitnya->result_array() as $unitnya) {
-                                    if ($network_devicenya['id_unit_level3'] == $unitnya['id_unit_level3']) { ?>
+                                <?php foreach ($unitnya->result_array() as $unitnya) : ?>
+                                    <?php if ($network_devicenya['id_unit_level3'] == $unitnya['id_unit_level3']) : ?>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="kantor_induk" class="col-md-3 control-label">Kantor Induk</label>
@@ -135,8 +125,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                <?php }
-                                } ?>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="status_kepemilikan" class="col-sm-3 control-label">Status Aset</label>
@@ -151,8 +141,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php
-                                if ($network_devicenya['status_kepemilikan'] == 'Aset PLN') { ?>
+                                <?php if ($network_devicenya['status_kepemilikan'] == 'Aset PLN') { ?>
                                     <div class="col-md-6" id="toggleText" style="display: none;">
                                         <div class="form-group">
                                             <label for="id_vendor" class="col-sm-3 control-label">Vendor</label>
@@ -188,7 +177,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 <?php } ?>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -212,12 +200,54 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="no_hp" class="col-sm-3 control-label">Serial Number</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control" type="text" name="serial_number" value="<?= $network_devicenya['serial_number']; ?>" id="serial_number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="no_hp" class="col-sm-3 control-label">MAC Address</label>
+                                        <div class="col-sm-8">
+                                            <input class="form-control" type="text" name="mac_address" value="<?= $network_devicenya['mac_address']; ?>" id="mac_address">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row p-2">
                                 <div class="box-header col-md-12 with-border">
                                     <h3 class="box-title">Form Inspeksi Peralatan</h3>
                                 </div>
                                 <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label">Keterangan</label>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="no_hp" class="col-sm-4 control-label"> Lokasi Pekerjaan</label>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" type="text" name="lokasi" id="lokasi">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="no_hp" class="col-sm-4 control-label">Waktu Pelaksanaan</label>
+                                        <div class="col-sm-6">
+                                            <input type="date" class="form-control" id="waktu_pelaksanaan" name="waktu_pelaksanaan" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="no_hp" class="col-sm-4 control-label">Working Permit</label>
+                                        <div class="col-sm-6">
+                                            <input class="form-control" type="file" name="working_permit" id="working_permit">
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
                                         <label for="no_hp" class="col-sm-4 control-label">Perangkat Hardware</label>
                                     </div>
@@ -311,7 +341,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="no_hp" class="col-sm-4 control-label">Port</label>
+                                        <label for="port" class="col-sm-4 control-label">Port</label>
                                         <div class="radio col-sm-2">
                                             <label>
                                                 <input type="radio" name="port" id="port1" value="Normal">
@@ -457,8 +487,6 @@
                                                 <?php foreach ($kerawanan as $value) : ?>
                                                     <option value="<?= $value->tingkat_kerawanan ?>" data-solusi="<?= $value->solusi_tingkat_kerawanan ?>"><?= $value->tingkat_kerawanan ?> (<?= $value->status_kerawanan ?>)</option>
                                                 <?php endforeach; ?>
-
-
                                             </select>
                                         </div>
                                     </div>
@@ -524,11 +552,30 @@
                                 </div>
                             </div>
 
-
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <div class="pull-center">
+
+                                <!-- SOLUSI -->
+                                <!-- PERANGKAT HARDWARE -->
+                                <input type="hidden" id="solusi_tingkat_kerawanan" name="solusi_tingkat_kerawanan">
+                                <input class="form-control" type="hidden" value="" name="solusi_tampak_fisik" id="solusi_tampak_fisik">
+                                <input class="form-control" type="hidden" value="" name="solusi_indikator_lampu" id="solusi_indikator_lampu">
+                                <input class="form-control" type="hidden" value="" name="solusi_power_supply" id="solusi_power_supply">
+                                <input class="form-control" type="hidden" value="" name="solusi_lan" id="solusi_lan">
+                                <input class="form-control" type="hidden" value="" name="solusi_port" id="solusi_port">
+                                <!-- PERANGKAT SOFTWARE -->
+                                <input class="form-control" type="hidden" value="" name="solusi_konfigurasi" id="solusi_konfigurasi">
+                                <input class="form-control" type="hidden" value="" name="solusi_backup_setting" id="solusi_backup_setting">
+
+                                <!-- BACKUP POWER -->
+                                <input class="form-control" type="hidden" value="" name="solusi_genset" id="solusi_genset">
+                                <input class="form-control" type="hidden" value="" name="solusi_ups" id="solusi_ups">
+                                <input class="form-control" type="hidden" value="" name="solusi_inverter" id="solusi_inverter">
+
+                                <!-- BACKUP POP -->
+                                <input class="form-control" type="hidden" value="" name="solusi_pop" id="solusi_pop">
 
                                 <a href="<?php echo base_url(); ?>admin/network_device_view" class="btn btn-danger">Kembali</a>
                                 <button type="submit" class="btn btn-success">Submit</button>

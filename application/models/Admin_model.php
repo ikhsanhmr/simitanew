@@ -921,7 +921,7 @@ class Admin_model extends CI_Model
       FROM
       vendor 
       WHERE id_vendor = a.id_vendor) AS nama_vendornya,
-      (SELECT tanggal_pulang FROM `jadwal_har`,  `har_network`  WHERE id_jadwal = waktu_pelaksanaan AND id_perangkat = id_network_device) AS last_inspection 
+      (SELECT waktu_pelaksanaan FROM `har_network`  WHERE id_perangkat = id_network_device ORDER BY har_network.waktu_pelaksanaan DESC LIMIT 1) AS last_inspection 
       FROM
       network_device a 
       ORDER BY a.id_network_device DESC ");
